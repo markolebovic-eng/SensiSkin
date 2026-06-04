@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — sensiskinstudio.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.65;
+  }
+
+  /* Cover page */
+  .cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    page-break-after: always;
+  }
+
+  .cover-logo {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #e94560;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+
+  .cover h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+
+  .cover h1 span {
+    color: #e94560;
+  }
+
+  .cover .subtitle {
+    font-size: 18px;
+    color: #a0aec0;
+    margin-bottom: 60px;
+    font-weight: 300;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .cover-meta-item label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e94560;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item p {
+    font-size: 14px;
+    color: #e2e8f0;
+  }
+
+  .cover-bar {
+    width: 60px;
+    height: 4px;
+    background: #e94560;
+    margin-bottom: 32px;
+  }
+
+  /* Content pages */
+  .page {
+    padding: 48px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-header {
+    border-left: 4px solid #e94560;
+    padding-left: 16px;
+    margin: 40px 0 20px;
+  }
+
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  .section-header .section-sub {
+    font-size: 11px;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2px;
+  }
+
+  /* Executive summary box */
+  .exec-summary {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 24px 0;
+  }
+
+  .exec-summary p {
+    color: #4a5568;
+    margin-bottom: 14px;
+  }
+
+  /* Priority list */
+  .priority-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .priority-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 13px;
+    color: #2d3748;
+  }
+
+  .priority-list li:last-child { border-bottom: none; }
+
+  .num-badge {
+    background: #e94560;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Finding cards */
+  .finding {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+
+  .finding-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .finding-header h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    flex: 1;
+  }
+
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .badge-critical { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+  .badge-high     { background: #fff9f0; color: #c05621; border: 1px solid #fbd38d; }
+  .badge-medium   { background: #fffff0; color: #975a16; border: 1px solid #f6e05e; }
+  .badge-low      { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+  .badge-pass     { background: #ebf8ff; color: #2b6cb0; border: 1px solid #90cdf4; }
+
+  .finding-body {
+    padding: 16px 20px;
+  }
+
+  .finding-body p {
+    color: #4a5568;
+    margin-bottom: 10px;
+  }
+
+  .finding-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 12px;
+  }
+
+  .finding-row .label {
+    font-weight: 700;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 10px;
+    padding-top: 2px;
+  }
+
+  .finding-row .value {
+    color: #2d3748;
+  }
+
+  /* Code block */
+  pre, code {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+  }
+
+  pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  code {
+    background: #edf2f7;
+    color: #c53030;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 12px;
+  }
+
+  th {
+    background: #1a1a2e;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #2d3748;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: #f7fafc; }
+
+  /* Action plan */
+  .action-section {
+    margin: 20px 0;
+  }
+
+  .action-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a2e;
+    padding: 8px 14px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .action-section.critical h3 { background: #fff5f5; color: #c53030; border-left: 3px solid #c53030; }
+  .action-section.high h3     { background: #fff9f0; color: #c05621; border-left: 3px solid #dd6b20; }
+  .action-section.medium h3   { background: #fffff0; color: #975a16; border-left: 3px solid #d69e2e; }
+  .action-section.longterm h3 { background: #ebf8ff; color: #2b6cb0; border-left: 3px solid #3182ce; }
+
+  .action-section ol {
+    padding-left: 20px;
+    color: #4a5568;
+  }
+
+  .action-section ol li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 32px 0;
+  }
+
+  /* Page break helper */
+  .page-break { page-break-before: always; }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #a0aec0;
+  }
+
+  /* Print */
+  @media print {
+    body { font-size: 12px; }
+    .cover { height: 100vh; }
+    .page-break { page-break-before: always; }
+    pre { white-space: pre-wrap; }
+  }
+
+  @page {
+    margin: 0;
+    size: A4;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">SEO Audit Report</div>
+  <div class="cover-bar"></div>
+  <h1>sensiskin<span>studio</span>.com</h1>
+  <div class="subtitle">Kompletna analiza i preporuke za organski rast</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Klijent</label>
+      <p>Sensi Skin Kozmetološki Centar</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Lokacija</label>
+      <p>Novi Sad, Srbija</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Datum</label>
+      <p>Jun 2026</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Obim</label>
+      <p>Kompletan audit</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+  <!-- Executive Summary -->
+  <div class="section-header">
+    <div class="section-sub">Pregled</div>
+    <h2>Izvršni Rezime</h2>
+  </div>
+
+  <div class="exec-summary">
+    <p>
+      Sajt <strong>sensiskinstudio.com</strong> ima značajne fundamentalne SEO propuste koji aktivno ograničavaju vidljivost u lokalnoj pretrazi.
+      Najveći problemi su potpuno pogrešna sitemap datoteka, nedostajuće title tagove i meta opise na skoro svim stranicama,
+      potpuno odsustvo schema markupa (kritično za lokalni biznis), nepostojanje canonical tagova i alt teksta na slikama.
+      Ovo nisu suptilni problemi — to su osnove, i njihovo rešavanje imaće neposredan efekat.
+    </p>
+    <p style="margin-bottom:0"><strong>Ukupna SEO ocena: 3/10</strong> — Potrebna hitna osnovna optimizacija.</p>
+  </div>
+
+  <div class="section-header" style="margin-top:28px">
+    <div class="section-sub">Prioriteti</div>
+    <h2>Top 5 Prioriteta</h2>
+  </div>
+
+  <ul class="priority-list">
+    <li><span class="num-badge">1</span>Popraviti sitemap — Google je upućen na 21 mrtav URL iz 2018. godine</li>
+    <li><span class="num-badge">2</span>Dodati title tagove i meta opise na sve stranice</li>
+    <li><span class="num-badge">3</span>Implementirati LocalBusiness schema markup</li>
+    <li><span class="num-badge">4</span>Dodati canonical tagove na sve stranice</li>
+    <li><span class="num-badge">5</span>Dodati alt text na sve slike</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <!-- TECHNICAL SEO -->
+  <div class="section-header page-break">
+    <div class="section-sub">Tehnički SEO</div>
+    <h2>Tehnički SEO Nalazi</h2>
+  </div>
+
+  <!-- Finding 1 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-critical">Kritično</span>
+      <h3>1. Sitemap — Potpuno zastareo (2018)</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Sitemap na <code>/sitemap.xml</code> sadrži 21 URL sa starog sajta iz 2018. godine, sve sa <code>.html</code>
+        ekstenzijama i <code>.php</code> kontakt URL-om — ništa od toga ne postoji na trenutnom WordPress sajtu.
+        Generisan je pomoću <code>check-domains.com</code> alata koji nema uvid u trenutnu strukturu sajta.
+      </p>
+
+      <div class="finding-row">
+        <div class="label">Problem</div>
+        <div class="value">Stari URLovi (<code>/nega-lica.html</code>, <code>/kontakt.php</code>) vraćaju 404. Stranice kao
+        <code>/hydrafacial-tretmani-lica/</code>, <code>/epilacija/</code> <strong>nisu uključene</strong> u sitemap uopšte.
+        Sitemap takođe uključuje 3 PDF fajla.</div>
+      </div>
+      <div class="finding-row">
+        <div class="label">Uticaj</div>
+        <div class="value">Visok — Google se navodi da pretražuje 21 mrtvu stranicu i nema mapu do 15+ živih servisnih stranica.</div>
+      </div>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">Instalirati Yoast SEO ili RankMath plugin — automatski generišu i ažuriraju tačan sitemap.
+        Obrisati stari <code>/sitemap.xml</code>. Podneti novi sitemap u Google Search Console.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finding 2 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-low">Nisko</span>
+      <h3>2. robots.txt — Nedostaje referenca na sitemap</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        robots.txt je ispravan (<code>User-agent: *</code> / prazno <code>Disallow</code>) — ništa ne blokira.
+        Ali nedostaje standardna referenca na sitemap fajl.
+      </p>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">Dodati sledeći red na kraj robots.txt:</div>
+      </div>
+      <pre>Sitemap: https://sensiskinstudio.com/sitemap_index.xml</pre>
+    </div>
+  </div>
+
+  <!-- Finding 3 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-high">Visoko</span>
+      <h3>3. Canonical Tagovi — Ne postoje na nijednoj stranici</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Nisu pronađeni canonical tagovi ni na jednoj provjerenoj stranici (naslovna, HydraFacial, Epilacija, O nama, Kontakt).
+        WordPress generiše više URL-ova za isti sadržaj — paginacija, arhive kategorija, tag stranice, <code>?p=123</code> parametri.
+        Bez canonicala, Google može videti duplikate i podeliti signale rangiranja.
+      </p>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">SEO plugin (Yoast/RankMath) automatski dodaje self-referencing canonicale na svaku stranicu. Nema ručnog rada po instalaciji.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finding 4 — PASS -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-pass">OK</span>
+      <h3>4. HTTPS — Ispravno konfigurisan</h3>
+    </div>
+    <div class="finding-body">
+      <p>Sajt ispravno servira sadržaj preko HTTPS-a. Nema problema sa mešanim sadržajem. ✓</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ON-PAGE SEO -->
+  <div class="section-header page-break">
+    <div class="section-sub">On-Page SEO</div>
+    <h2>On-Page SEO Nalazi</h2>
+  </div>
+
+  <!-- Finding 5 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-critical">Kritično</span>
+      <h3>5. Title Tagovi — Nedostaju na većini stranica</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Title tagovi nisu pronađeni na: naslovnoj stranici, <code>/hydrafacial-tretmani-lica/</code>,
+        <code>/epilacija/</code>, <code>/sensi-skin/</code>. Jedini pronađeni naslovi su WordPress default:
+      </p>
+      <ul style="margin: 8px 0 12px 20px; color: #4a5568;">
+        <li><strong>Kontakt:</strong> "Kontakt – Kozmetički salon i salon lepote"</li>
+        <li><strong>Blog:</strong> "Blog – Kozmetički salon i salon lepote"</li>
+      </ul>
+      <p>Ovo su generički, neoptimizovani naslovi koje generiše tema — ne ciljaju ni jednu lokalnu ključnu reč.</p>
+
+      <div class="finding-row">
+        <div class="label">Uticaj</div>
+        <div class="value">Visok — title tagovi su jedan od najjačih on-page signala rangiranja. Bez njih, Google piše sopstveni (obično lošiji).</div>
+      </div>
+
+      <p style="margin-top:12px; font-weight:700; color:#1a1a2e;">Preporučeni title tagovi:</p>
+      <table>
+        <tr><th>Stranica</th><th>Preporučeni naslov</th></tr>
+        <tr><td>Naslovna</td><td>Sensi Skin Studio — Kozmetološki Centar Novi Sad</td></tr>
+        <tr><td>HydraFacial</td><td>HydraFacial® Tretman Lica Novi Sad — Sensi Skin</td></tr>
+        <tr><td>Laserska epilacija</td><td>Laserska Epilacija Novi Sad — Sensi Skin Studio</td></tr>
+        <tr><td>Kontakt</td><td>Kontakt — Sensi Skin Kozmetološki Centar Novi Sad</td></tr>
+        <tr><td>O nama</td><td>O Nama — Sensi Skin Studio Novi Sad</td></tr>
+        <tr><td>Aura Reality</td><td>Aura Reality 3D Dijagnostika Kože Novi Sad — Sensi Skin</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Finding 6 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-high">Visoko</span>
+      <h3>6. Meta Opisi — Nedostaju na svim stranicama</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Meta opisi nisu pronađeni ni na jednoj provjerenoj stranici. Iako nisu direktan faktor rangiranja,
+        direktno kontrolišu šta Google prikazuje u rezultatima pretrage. Bez njih, Google bira nasumičan tekst,
+        obično loše.
+      </p>
+      <div class="finding-row">
+        <div class="label">Uticaj</div>
+        <div class="value">Srednji-Visoki — narušava click-through rate (CTR) iz rezultata pretrage.</div>
+      </div>
+      <div class="finding-row">
+        <div class="label">Primer</div>
+        <div class="value">Primer za naslovnu stranicu (150–160 karaktera):</div>
+      </div>
+      <pre>"Profesionalni kozmetološki centar u Novom Sadu. HydraFacial®, laserska epilacija, Aura Reality 3D dijagnostika i više. Zakažite konsultaciju danas."</pre>
+    </div>
+  </div>
+
+  <!-- Finding 7 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-medium">Srednje</span>
+      <h3>7. Više H1 Tagova na Naslovnoj Stranici</h3>
+    </div>
+    <div class="finding-body">
+      <p>Naslovna stranica ima <strong>dva H1 taga</strong>:</p>
+      <ul style="margin: 8px 0 10px 20px; color: #4a5568;">
+        <li>"Sensi Skin Kozmetološki centar"</li>
+        <li>"Tretmani lica, tela i stručna nega usmerena ka očuvanju prirodnog balansa kože"</li>
+      </ul>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">Promeniti drugi H1 u H2 u page builderu ili editoru teme.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finding 8 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-medium">Srednje</span>
+      <h3>8. Footer Sekcije Označene kao H2</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Na više stranica (HydraFacial, Epilacija), footer elementi kao
+        <code>"Trebate informacije o nama?"</code>, <code>"Prirodna kozmetika"</code>, <code>"Kontakt info"</code>
+        pojavljuju se kao H2 tagovi. Ovo zagađuje hijerarhiju naslova stranice i razblažuje tematski signal.
+      </p>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">Promeniti footer heading elemente na H3/H4, ili koristiti stilizovane <code>&lt;p&gt;</code> tagove umesto heading tagova za ove dekorativne/navigacione labele.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finding 9 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-high">Visoko</span>
+      <h3>9. Alt Tekst na Slikama — Ne postoji</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Nula alt teksta pronađeno na slikama na svim proverenim stranicama. Slike su nevidljive za pretraživače
+        bez alt teksta. Za beauty/kozmetički biznis gde su vizuali centralni, ovo je značajna propuštena prilika.
+      </p>
+      <div class="finding-row">
+        <div class="label">Uticaj</div>
+        <div class="value">Visok — propušteni ključni signali, nema vidljivosti u pretrazi slika, narušena pristupačnost.</div>
+      </div>
+      <div class="finding-row">
+        <div class="label">Primeri</div>
+        <div class="value">Dodati opisni alt tekst svim slikama:</div>
+      </div>
+      <pre>alt="HydraFacial tretman lica u Sensi Skin studiju Novi Sad"
+alt="Laserska epilacija u kozmetološkom centru Novi Sad"
+alt="Nataša Burka, medicinsko-estetski stručnjak, Sensi Skin"</pre>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- LOCAL SEO -->
+  <div class="section-header page-break">
+    <div class="section-sub">Lokalni SEO</div>
+    <h2>Lokalni SEO Nalazi</h2>
+  </div>
+
+  <!-- Finding 10 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-critical">Kritično</span>
+      <h3>10. LocalBusiness Schema Markup — Ne postoji</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Nije pronađen nikakav strukturirani podaci ni na jednoj stranici. Za lokalni beauty studio,
+        <code>BeautySalon</code> schema je od suštinske važnosti. Govori Googleu vaše ime, adresu, telefon,
+        radno vreme, usluge i geo-koordinate u mašinski čitljivom formatu — direktno hrani Google Maps,
+        Knowledge Panel i lokalne rezultate pretrage.
+      </p>
+      <div class="finding-row">
+        <div class="label">Uticaj</div>
+        <div class="value">Visok — bez ovoga, propuštate kritične lokalne signale rangiranja.</div>
+      </div>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">Dodati JSON-LD schema na naslovnu stranicu i/ili stranicu kontakta:</div>
+      </div>
+      <pre>{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Sensi Skin Kozmetološki Centar",
+  "url": "https://sensiskinstudio.com",
+  "telephone": "+381653338338",
+  "email": "sensistudio@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Braće Popović 3, sprat 2, stan 12",
+    "addressLocality": "Novi Sad",
+    "addressCountry": "RS"
+  },
+  "description": "Profesionalni kozmetološki centar u Novom Sadu.",
+  "priceRange": "$$"
+}</pre>
+      <p>Yoast SEO Premium ili RankMath mogu generisati ovo bez kodiranja. Alternativno, koristiti WordPress plugin "Schema &amp; Structured Data for WP".</p>
+    </div>
+  </div>
+
+  <!-- Finding 11 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-medium">Srednje</span>
+      <h3>11. Stranica Kontakta — Nedostaje meta opis i radno vreme</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Naslov kontakt stranice je generički "Kontakt – Kozmetički salon i salon lepote". Nema meta opisa.
+        Radno vreme nije prikazano na stranici.
+      </p>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">
+          Naslov: "Kontakt — Sensi Skin Novi Sad | Radno Vreme i Adresa"<br>
+          Dodati vidljivo radno vreme na stranicu i uključiti ga u schema markup.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finding 12 -->
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-high">Visoko</span>
+      <h3>12. Google Business Profile — Obavezna Provera</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Nije verifikovano kroz audit, ali je od suštinskog značaja: Google Business Profile (GBP) je verovatno
+        najvažniji lokalni SEO asset za biznis u Novom Sadu. Osigurajte:
+      </p>
+      <ul style="margin: 10px 0 10px 20px; color: #4a5568; line-height: 1.8;">
+        <li>Profil je preuzet i verifikovan</li>
+        <li>Ime/Adresa/Telefon (NAP) <strong>tačno odgovara</strong> onome što je na sajtu</li>
+        <li>Sve usluge su navedene</li>
+        <li>Fotografije su učitane (pre/posle, studio, tim)</li>
+        <li>Aktivno prikupljate Google recenzije</li>
+      </ul>
+      <p>Konzistentnost NAP između GBP-a i sajta je lokalni signal rangiranja.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CONTENT -->
+  <div class="section-header page-break">
+    <div class="section-sub">Sadržaj</div>
+    <h2>Nalazi o Sadržaju</h2>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-medium">Srednje</span>
+      <h3>13. Blog Stranice — Generički naslovi, nema meta opisa</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Naslov "Blog – Kozmetički salon i salon lepote" je isti za blog index i verovatno za individualne postove.
+        Svaki blog post zahteva jedinstven, optimizovan naslov i meta opis koji ciljaju specifične ključne reči
+        (npr. "HydraFacial Novi Sad", "laserska epilacija za tamniju kožu", itd.).
+      </p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="badge badge-medium">Srednje</span>
+      <h3>14. Stranica "O Nama" — Tanak sadržaj</h3>
+    </div>
+    <div class="finding-body">
+      <p>
+        Stranica <code>/sensi-skin/</code> ima dobro poznate sadržaje (20+ godina iskustva, medicinska estetika)
+        ali ponavlja footer kontakt informacije kao H2 naslove i verovatno nema dovoljno dubine sadržaja
+        za rangiranje za "kozmetološki centar Novi Sad" ili brendirane pretrage.
+      </p>
+      <div class="finding-row">
+        <div class="label">Rešenje</div>
+        <div class="value">Proširiti na 500+ reči sa timskim biografijama, sertifikatima, pristupom lečenju, i unikatnim vrednostima koje Sensi Skin nudi.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ACTION PLAN -->
+  <div class="section-header page-break">
+    <div class="section-sub">Plan Akcije</div>
+    <h2>Prioritizovani Plan Akcije</h2>
+  </div>
+
+  <div class="action-section critical">
+    <h3>🔴 Hitno — Popraviti ovu nedelju</h3>
+    <ol>
+      <li><strong>Instalirati Yoast SEO ili RankMath</strong> — ova jedna akcija rešava title tagove, meta opise, canonical tagove i XML sitemap. Besplatna verzija pokriva sve što je ovde potrebno.</li>
+      <li><strong>Podneti novi sitemap Google Search Console-u</strong> — obrisati/zameniti stari sitemap iz 2018, podneti plugin-generisani.</li>
+      <li><strong>Dodati LocalBusiness/BeautySalon schema</strong> na naslovnu stranicu.</li>
+    </ol>
+  </div>
+
+  <div class="action-section high" style="margin-top:16px">
+    <h3>🟠 Visoki Prioritet — Ovaj mesec</h3>
+    <ol>
+      <li>Napisati optimizovane title tagove za svaku stranicu (koristiti tabelu iz Nalaza #5).</li>
+      <li>Napisati meta opise za svaku stranicu (150–160 karaktera sa CTA).</li>
+      <li>Dodati alt tekst svim slikama — posebno fotografijama tretmana i pre/posle.</li>
+      <li>Dodati referencu na sitemap u robots.txt.</li>
+    </ol>
+  </div>
+
+  <div class="action-section medium" style="margin-top:16px">
+    <h3>🟡 Srednji Prioritet — Sledeći mesec</h3>
+    <ol>
+      <li>Popraviti dupli H1 na naslovnoj stranici — promeniti drugi H1 u H2.</li>
+      <li>Popraviti footer H2 naslove na svim stranicama — sniziti na H3/H4.</li>
+      <li>Dodati radno vreme na stranicu kontakta i u schema markup.</li>
+      <li>Auditovati i optimizovati Google Business Profile.</li>
+    </ol>
+  </div>
+
+  <div class="action-section longterm" style="margin-top:16px">
+    <h3>🔵 Dugoročno</h3>
+    <ol>
+      <li><strong>Blog SEO</strong> — istraživanje ključnih reči za lokalne upite (npr. "hydrafacial novi sad", "laserska epilacija novi sad") i pisanje postova koji ih ciljaju.</li>
+      <li><strong>Proširiti servisne stranice</strong> — posebno HydraFacial, Epilaciju i Aura Reality (jedinstvena ponuda vredna 800+ reči).</li>
+      <li><strong>Interno linkovanje</strong> — linkovi iz blog postova ka servisnim stranicama.</li>
+      <li><strong>Beklinks</strong> — lokalni direktorijumi (Infostud, itd.), beauty press, partnerstva.</li>
+    </ol>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Summary table -->
+  <div class="section-header">
+    <div class="section-sub">Pregled Nalaza</div>
+    <h2>Sumarni Pregled</h2>
+  </div>
+
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Nalaz</th>
+      <th>Prioritet</th>
+      <th>Kategorija</th>
+    </tr>
+    <tr><td>1</td><td>Sitemap potpuno zastareo (2018, mrtvi URLovi)</td><td><span class="badge badge-critical">Kritično</span></td><td>Tehnički</td></tr>
+    <tr><td>2</td><td>robots.txt nedostaje referenca na sitemap</td><td><span class="badge badge-low">Nisko</span></td><td>Tehnički</td></tr>
+    <tr><td>3</td><td>Canonical tagovi ne postoje ni na jednoj stranici</td><td><span class="badge badge-high">Visoko</span></td><td>Tehnički</td></tr>
+    <tr><td>4</td><td>HTTPS ispravno konfigurisan</td><td><span class="badge badge-pass">OK</span></td><td>Tehnički</td></tr>
+    <tr><td>5</td><td>Title tagovi nedostaju na većini stranica</td><td><span class="badge badge-critical">Kritično</span></td><td>On-Page</td></tr>
+    <tr><td>6</td><td>Meta opisi nedostaju na svim stranicama</td><td><span class="badge badge-high">Visoko</span></td><td>On-Page</td></tr>
+    <tr><td>7</td><td>Dva H1 taga na naslovnoj stranici</td><td><span class="badge badge-medium">Srednje</span></td><td>On-Page</td></tr>
+    <tr><td>8</td><td>Footer sekcije označene kao H2</td><td><span class="badge badge-medium">Srednje</span></td><td>On-Page</td></tr>
+    <tr><td>9</td><td>Nema alt teksta na slikama</td><td><span class="badge badge-high">Visoko</span></td><td>On-Page</td></tr>
+    <tr><td>10</td><td>Nema LocalBusiness schema markupa</td><td><span class="badge badge-critical">Kritično</span></td><td>Lokalni SEO</td></tr>
+    <tr><td>11</td><td>Stranica kontakta — nema meta opisa ni radnog vremena</td><td><span class="badge badge-medium">Srednje</span></td><td>Lokalni SEO</td></tr>
+    <tr><td>12</td><td>Google Business Profile — provera obavezna</td><td><span class="badge badge-high">Visoko</span></td><td>Lokalni SEO</td></tr>
+    <tr><td>13</td><td>Blog — generički naslovi, nema meta opisa</td><td><span class="badge badge-medium">Srednje</span></td><td>Sadržaj</td></tr>
+    <tr><td>14</td><td>Stranica "O Nama" — tanak sadržaj</td><td><span class="badge badge-medium">Srednje</span></td><td>Sadržaj</td></tr>
+  </table>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>SEO Audit — sensiskinstudio.com</div>
+    <div>Sensi Skin Kozmetološki Centar, Novi Sad &nbsp;|&nbsp; Jun 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
