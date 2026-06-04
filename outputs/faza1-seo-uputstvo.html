@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Faza 1 — Uputstvo — Sensi Skin Studio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.7;
+  }
+
+  /* Cover */
+  .cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    page-break-after: always;
+  }
+
+  .cover-logo {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #e94560;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+
+  .cover h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+
+  .cover h1 span { color: #e94560; }
+
+  .cover .subtitle {
+    font-size: 17px;
+    color: #a0aec0;
+    margin-bottom: 60px;
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  .cover-bar {
+    width: 60px;
+    height: 4px;
+    background: #e94560;
+    margin-bottom: 32px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .cover-meta-item label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e94560;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item p {
+    font-size: 14px;
+    color: #e2e8f0;
+  }
+
+  /* Pages */
+  .page {
+    padding: 48px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-header {
+    border-left: 4px solid #e94560;
+    padding-left: 16px;
+    margin: 40px 0 20px;
+  }
+
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  .section-header .section-sub {
+    font-size: 11px;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2px;
+  }
+
+  /* Intro box */
+  .intro-box {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0 32px;
+  }
+
+  .intro-box p { color: #4a5568; margin-bottom: 10px; }
+  .intro-box p:last-child { margin-bottom: 0; }
+
+  /* Progress bar */
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0 32px;
+  }
+
+  .progress-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .progress-fill.before { background: #e94560; width: 30%; }
+  .progress-fill.after  { background: #38a169; width: 50%; }
+
+  .progress-score {
+    font-size: 18px;
+    font-weight: 700;
+    min-width: 60px;
+    text-align: right;
+  }
+
+  .score-red   { color: #e94560; }
+  .score-green { color: #38a169; }
+
+  /* Step card */
+  .step-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 22px;
+    background: #1a1a2e;
+    color: white;
+  }
+
+  .step-number {
+    background: #e94560;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    flex: 1;
+  }
+
+  .step-time {
+    font-size: 11px;
+    color: #a0aec0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .step-body {
+    padding: 20px 22px;
+  }
+
+  /* Sub-step */
+  .substep {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf2f7;
+  }
+
+  .substep:last-child { border-bottom: none; }
+
+  .substep-num {
+    background: #edf2f7;
+    color: #4a5568;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .substep-content { flex: 1; }
+
+  .substep-content strong {
+    display: block;
+    color: #1a1a2e;
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+
+  .substep-content p {
+    color: #4a5568;
+    font-size: 12.5px;
+    margin-bottom: 6px;
+  }
+
+  .substep-content p:last-child { margin-bottom: 0; }
+
+  /* Callout */
+  .callout {
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 12px;
+  }
+
+  .callout-tip  { background: #ebf8ff; border-left: 3px solid #3182ce; color: #2b4a6f; }
+  .callout-warn { background: #fffbeb; border-left: 3px solid #d69e2e; color: #744210; }
+  .callout-ok   { background: #f0fff4; border-left: 3px solid #38a169; color: #1a4731; }
+
+  /* Code */
+  pre, code {
+    font-family: 'Courier New', monospace;
+    font-size: 11.5px;
+  }
+
+  pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  code {
+    background: #edf2f7;
+    color: #c53030;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+  }
+
+  th {
+    background: #1a1a2e;
+    color: white;
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #2d3748;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: #f7fafc; }
+
+  td strong { color: #1a1a2e; }
+
+  /* Options */
+  .option-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 8px 0;
+  }
+
+  .option-box .option-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .option-a .option-label { color: #3182ce; }
+  .option-b .option-label { color: #38a169; }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    margin: 10px 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 12.5px;
+    color: #2d3748;
+  }
+
+  .check-box {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #cbd5e0;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Summary */
+  .summary-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .summary-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .summary-card .s-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #718096;
+    margin-bottom: 6px;
+  }
+
+  .summary-card .s-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  .summary-card .s-sub {
+    font-size: 11px;
+    color: #a0aec0;
+    margin-top: 2px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 32px 0;
+  }
+
+  /* Page break */
+  .page-break { page-break-before: always; }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #a0aec0;
+  }
+
+  @media print {
+    body { font-size: 12px; }
+    .cover { height: 100vh; }
+    .page-break { page-break-before: always; }
+  }
+
+  @page { margin: 0; size: A4; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">SEO Uputstvo — Faza 1</div>
+  <div class="cover-bar"></div>
+  <h1>SEO Optimizacija<br><span>Faza 1 — Osnove</span></h1>
+  <div class="subtitle">
+    Korak-po-korak uputstvo za podizanje SEO ocene sa 3/10 na 5/10
+    — bez tehničkog znanja, za oko 2 sata rada.
+  </div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Klijent</label>
+      <p>Sensi Skin Kozmetološki Centar</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Sajt</label>
+      <p>sensiskinstudio.com</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Procenjeno vreme</label>
+      <p>~2 sata</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Datum</label>
+      <p>Jun 2026</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+  <!-- Intro -->
+  <div class="section-header">
+    <div class="section-sub">Pregled</div>
+    <h2>Šta ćeš postići u Fazi 1</h2>
+  </div>
+
+  <div class="intro-box">
+    <p>
+      Ova tri koraka rešavaju najkritičnije SEO probleme na <strong>sensiskinstudio.com</strong>.
+      Nisu tehnički komplikovani — sve se radi kroz WordPress admin panel bez ikakve izrade koda.
+      Svaki korak ima direktan i merljiv uticaj na vidljivost u Google pretrazi.
+    </p>
+    <p>
+      Nakon Faze 1, Google će moći da ispravno indeksira sajt, razumeće da se radi o
+      kozmetološkom centru u Novom Sadu, i prikazivaće ti sajt u lokalnim rezultatima pretrage.
+    </p>
+  </div>
+
+  <!-- Progress -->
+  <div class="section-header">
+    <div class="section-sub">Napredak</div>
+    <h2>SEO ocena — pre i posle</h2>
+  </div>
+
+  <div class="progress-row">
+    <div class="progress-label">Pre</div>
+    <div class="progress-track"><div class="progress-fill before"></div></div>
+    <div class="progress-score score-red">3/10</div>
+  </div>
+  <div class="progress-row">
+    <div class="progress-label">Posle</div>
+    <div class="progress-track"><div class="progress-fill after"></div></div>
+    <div class="progress-score score-green">5/10</div>
+  </div>
+
+  <div class="summary-row">
+    <div class="summary-card">
+      <div class="s-label">Koraci</div>
+      <div class="s-value">3</div>
+      <div class="s-sub">akcije ukupno</div>
+    </div>
+    <div class="summary-card">
+      <div class="s-label">Vreme</div>
+      <div class="s-value">~2h</div>
+      <div class="s-sub">procenjeno</div>
+    </div>
+    <div class="summary-card">
+      <div class="s-label">Cena</div>
+      <div class="s-value">0€</div>
+      <div class="s-sub">besplatni alati</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- KORAK 1 -->
+  <div class="section-header page-break">
+    <div class="section-sub">Korak 1 od 3</div>
+    <h2>Instaliraj Yoast SEO plugin</h2>
+  </div>
+
+  <div class="intro-box">
+    <p>
+      <strong>Zašto je ovo prvi korak?</strong> Yoast SEO je besplatan WordPress plugin koji
+      jednom instalacijom automatski rešava 4 kritična problema: title tagove, meta opise,
+      canonical tagove i XML sitemap. Bez njega, svaka sledeća optimizacija bi bila ručni rad.
+    </p>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <h3>Prijavi se na WordPress admin panel</h3>
+      <div class="step-time">~1 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">1.1</div>
+        <div class="substep-content">
+          <strong>Otvori browser i idi na adresu:</strong>
+          <pre>sensiskinstudio.com/wp-admin</pre>
+          <p>Unesi svoje korisničko ime i lozinku, pa klikni <strong>Log In</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <h3>Pronađi sekciju za pluginove</h3>
+      <div class="step-time">~1 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">2.1</div>
+        <div class="substep-content">
+          <strong>U levom meniju pronađi stavku "Plugins"</strong>
+          <p>Može pisati i na srpskom: <strong>Dodaci</strong>. Klikni na nju.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">2.2</div>
+        <div class="substep-content">
+          <strong>Klikni "Add New"</strong>
+          <p>Dugme je na vrhu stranice. Na srpskom pisanom WP-u kaže: <strong>Dodaj novi</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <h3>Instaliraj i aktiviraj Yoast SEO</h3>
+      <div class="step-time">~3 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">3.1</div>
+        <div class="substep-content">
+          <strong>U polje za pretragu (gore desno) ukucaj:</strong>
+          <pre>Yoast SEO</pre>
+          <p>Pritisnite Enter ili sačekaj rezultate.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">3.2</div>
+        <div class="substep-content">
+          <strong>Pronađi pravi plugin i instaliraj ga</strong>
+          <p>Pojavljuje se kao prvi rezultat. Autor je <strong>"Team Yoast"</strong>,
+          ima 5+ miliona instalacija. Klikni plavo dugme <strong>Install Now</strong>.</p>
+          <div class="callout callout-warn">
+            ⚠️ Pazi da ne instaliraš pogrešan plugin — traži tačno "Yoast SEO" od autora "Team Yoast".
+          </div>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">3.3</div>
+        <div class="substep-content">
+          <strong>Aktiviraj plugin</strong>
+          <p>Posle instalacije, plavo dugme se menja u <strong>Activate</strong>. Klikni i to.
+          U levom meniju WordPress-a sada se pojavljuje nova stavka: <strong>SEO</strong> sa crvenom ikonom.</p>
+          <div class="callout callout-ok">
+            ✓ Ako vidiš "SEO" u meniju — plugin je uspešno aktivan.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">4</div>
+      <h3>Prođi kroz početno podešavanje (Setup Wizard)</h3>
+      <div class="step-time">~10 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">4.1</div>
+        <div class="substep-content">
+          <strong>Otvori Setup Wizard</strong>
+          <p>Klikni <strong>SEO → General</strong> u levom meniju, pa pronađi tab
+          <strong>"First-time configuration"</strong>. Klikni <strong>Start first-time configuration</strong>.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">4.2</div>
+        <div class="substep-content">
+          <strong>Odgovori na pitanja čarobnjaka</strong>
+          <p>Yoast te vodi kroz 5 ekrana. Evo šta da unesesš:</p>
+          <table>
+            <tr><th>Pitanje</th><th>Odgovor</th></tr>
+            <tr><td>Tip sajta / Site type</td><td><strong>Local business</strong></td></tr>
+            <tr><td>Ime organizacije</td><td><strong>Sensi Skin Kozmetološki Centar</strong></td></tr>
+            <tr><td>Da li ima više autora?</td><td><strong>Ne / No</strong></td></tr>
+            <tr><td>Social profiles</td><td>Unesi Instagram URL ako postoji</td></tr>
+            <tr><td>Search appearance</td><td>Ostavi default vrednosti</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">4.3</div>
+        <div class="substep-content">
+          <strong>Završi wizard</strong>
+          <p>Klikni <strong>Save and continue</strong> na svakom ekranu, pa <strong>Finish</strong> na kraju.</p>
+          <div class="callout callout-ok">
+            ✓ Yoast sada automatski generiše XML sitemap i dodaje canonical tagove na sve stranice.
+            Dva kritična SEO problema su rešena bez ikakvog dodatnog rada.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- KORAK 2 -->
+  <div class="section-header page-break">
+    <div class="section-sub">Korak 2 od 3</div>
+    <h2>Podnesi novi sitemap Google Search Console-u</h2>
+  </div>
+
+  <div class="intro-box">
+    <p>
+      <strong>Zašto je ovo važno?</strong> Stari sitemap sa sajta iz 2018. godine šalje Google
+      na 21 mrtav URL (stranice koje više ne postoje). Google troši vreme na te mrtve stranice
+      umesto da pronađe trenutne stranice sa tvojim uslugama. Ovim korakom to ispravljamo.
+    </p>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <h3>Pronađi adresu novog sitemapa</h3>
+      <div class="step-time">~2 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">1.1</div>
+        <div class="substep-content">
+          <strong>U WordPress meniju klikni SEO → General → Features</strong>
+          <p>Pronađi stavku <strong>XML Sitemaps</strong> — toggle mora biti uključen (plav/zelen).</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">1.2</div>
+        <div class="substep-content">
+          <strong>Klikni na link "See the XML sitemap"</strong>
+          <p>Pored XML Sitemaps opcije postoji ikonica sa upitnikom — klikni je.
+          Otvara se link <strong>"See the XML sitemap"</strong>. Klikni taj link.</p>
+          <p>Otvoriće se stranica koja izgleda kao lista XML linkova. Njena adresa je:</p>
+          <pre>https://sensiskinstudio.com/sitemap_index.xml</pre>
+          <div class="callout callout-tip">
+            💡 Ostavi ovu stranicu otvorenu u browser tabu — trebaće ti adresa u sledećem koraku.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <h3>Prijavi se na Google Search Console</h3>
+      <div class="step-time">~5 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">2.1</div>
+        <div class="substep-content">
+          <strong>Otvori novi tab i idi na:</strong>
+          <pre>search.google.com/search-console</pre>
+          <p>Prijavi se Google nalogom koji je vlasnik sajta.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">2.2</div>
+        <div class="substep-content">
+          <strong>Ako nisi verifikovala sajt — verifikuj ga preko Yoast-a</strong>
+          <p>GSC će tražiti verifikaciju vlasništva. Evo kako:</p>
+          <ul style="margin: 8px 0 8px 20px; color: #4a5568; line-height: 1.8;">
+            <li>U GSC odaberi metod <strong>"HTML tag"</strong> i kopiraj kod koji izgleda ovako:<br>
+            <code>&lt;meta name="google-site-verification" content="XYZ123..." /&gt;</code></li>
+            <li>Vrati se u WordPress → <strong>SEO → General → Webmaster Tools</strong></li>
+            <li>Nađi polje <strong>Google verification code</strong> i nalepi <em>samo</em> vrednost iz <code>content=""</code></li>
+            <li>Klikni Save, pa se vrati u GSC i klikni <strong>Verify</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <h3>Podnesi novi sitemap</h3>
+      <div class="step-time">~3 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">3.1</div>
+        <div class="substep-content">
+          <strong>U levom meniju GSC-a klikni "Sitemaps"</strong>
+          <p>Nalazi se u sekciji <strong>Indexing</strong>.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">3.2</div>
+        <div class="substep-content">
+          <strong>Unesi adresu sitemapa</strong>
+          <p>U polje <strong>"Enter sitemap URL"</strong> ukucaj:</p>
+          <pre>sitemap_index.xml</pre>
+          <p>Klikni <strong>Submit</strong>. Status treba da pokaže <strong>Success</strong>.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">3.3</div>
+        <div class="substep-content">
+          <strong>Ukloni stari sitemap iz 2018.</strong>
+          <p>Na istoj stranici vidiš listu poslatih sitemapova. Ako postoji stari
+          <code>sitemap.xml</code> — klikni tri tačke pored njega → <strong>Remove sitemap</strong>.</p>
+          <div class="callout callout-ok">
+            ✓ Google više neće gubiti vreme na 21 mrtav URL — sada zna gde su sve tvoje prave stranice.
+          </div>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">3.4</div>
+        <div class="substep-content">
+          <strong>Zatraži indeksiranje naslovne stranice</strong>
+          <p>U levom meniju klikni <strong>URL Inspection</strong>. Unesi:</p>
+          <pre>https://sensiskinstudio.com</pre>
+          <p>Klikni <strong>Request Indexing</strong> — Google će prioritetno posetiti sajt.</p>
+          <div class="callout callout-tip">
+            💡 Ponovi isti korak i za: /hydrafacial-tretmani-lica/ i /epilacija/
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- KORAK 3 -->
+  <div class="section-header page-break">
+    <div class="section-sub">Korak 3 od 3</div>
+    <h2>Dodaj LocalBusiness schema markup</h2>
+  </div>
+
+  <div class="intro-box">
+    <p>
+      <strong>Zašto je ovo važno?</strong> Schema markup je nevidljivi kod koji govori Googleu
+      tačno ko si, gde se nalaziš, šta radiš i kada radiš. Bez njega, Google mora da "pogađa"
+      te informacije. Sa njim, direktno hraniš Google Maps, Knowledge Panel
+      (ona desna informativna kartica u pretrazi) i lokalne rezultate.
+    </p>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <h3>Instaliraj schema plugin (besplatno)</h3>
+      <div class="step-time">~3 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">1.1</div>
+        <div class="substep-content">
+          <strong>Idi na Plugins → Add New</strong>
+          <p>U polje za pretragu ukucaj:</p>
+          <pre>Schema & Structured Data for WP</pre>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">1.2</div>
+        <div class="substep-content">
+          <strong>Instaliraj i aktiviraj plugin</strong>
+          <p>Autor je <strong>"Magazine3"</strong>. Klikni <strong>Install Now</strong>,
+          pa <strong>Activate</strong>. U levom meniju se pojavljuje stavka <strong>Schema</strong>.</p>
+
+          <div class="option-box option-b">
+            <div class="option-label">💡 Alternativa</div>
+            <p>Ako koristiš <strong>RankMath</strong> umesto Yoast-a, on ima ugrađenu schema
+            podršku — idi na <strong>RankMath → Titles & Meta → Local SEO</strong> i preskoči
+            instalaciju posebnog plugina.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <h3>Unesi podatke o poslovanju</h3>
+      <div class="step-time">~10 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">2.1</div>
+        <div class="substep-content">
+          <strong>Otvori podešavanja schema plugina</strong>
+          <p>Klikni <strong>Schema → Settings → General</strong> u levom meniju.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">2.2</div>
+        <div class="substep-content">
+          <strong>Odaberi tip biznisa</strong>
+          <p>U padajućem meniju "Schema Type" ili "Business Type" odaberi:</p>
+          <pre>Local Business → Beauty Salon</pre>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">2.3</div>
+        <div class="substep-content">
+          <strong>Popuni sva polja tačno ovako:</strong>
+          <table>
+            <tr><th>Polje</th><th>Vrednost</th></tr>
+            <tr><td>Business Name</td><td><strong>Sensi Skin Kozmetološki Centar</strong></td></tr>
+            <tr><td>URL</td><td><strong>https://sensiskinstudio.com</strong></td></tr>
+            <tr><td>Telephone</td><td><strong>+381653338338</strong></td></tr>
+            <tr><td>Email</td><td><strong>sensistudio@gmail.com</strong></td></tr>
+            <tr><td>Street Address</td><td><strong>Braće Popović 3, sprat 2, stan 12</strong></td></tr>
+            <tr><td>City / Locality</td><td><strong>Novi Sad</strong></td></tr>
+            <tr><td>Country</td><td><strong>RS</strong></td></tr>
+            <tr><td>Price Range</td><td><strong>$$</strong></td></tr>
+          </table>
+          <div class="callout callout-warn">
+            ⚠️ Naziv, adresa i telefon moraju biti <em>tačno isti</em> kao na Google Business Profile-u —
+            svaka razlika smanjuje lokalni SEO signal.
+          </div>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">2.4</div>
+        <div class="substep-content">
+          <strong>Dodaj radno vreme</strong>
+          <p>Pronađi sekciju <strong>Opening Hours</strong> i unesi svaki radni dan i vreme.
+          Na primer: Ponedeljak–Petak 09:00–20:00, Subota 09:00–15:00.</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">2.5</div>
+        <div class="substep-content">
+          <strong>Sačuvaj promene</strong>
+          <p>Klikni <strong>Save Changes</strong> ili <strong>Save Settings</strong> na dnu stranice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <h3>Proveri da schema ispravno radi</h3>
+      <div class="step-time">~5 min</div>
+    </div>
+    <div class="step-body">
+      <div class="substep">
+        <div class="substep-num">3.1</div>
+        <div class="substep-content">
+          <strong>Idi na Google Rich Results Test:</strong>
+          <pre>search.google.com/test/rich-results</pre>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">3.2</div>
+        <div class="substep-content">
+          <strong>Testiraj naslovnu stranicu</strong>
+          <p>U polje unesi:</p>
+          <pre>https://sensiskinstudio.com</pre>
+          <p>Klikni <strong>Test URL</strong> i sačekaj rezultat (10–20 sekundi).</p>
+        </div>
+      </div>
+      <div class="substep">
+        <div class="substep-num">3.3</div>
+        <div class="substep-content">
+          <strong>Proveri rezultat</strong>
+          <p>U rezultatima treba da vidiš <strong>BeautySalon</strong> ili <strong>LocalBusiness</strong>
+          bez crvenih grešaka.</p>
+          <div class="callout callout-ok">
+            ✓ Ako nema grešaka — schema je ispravno postavljena. Google sada zna sve o tvom biznisu.
+          </div>
+          <div class="callout callout-tip">
+            💡 Žuta upozorenja (warnings) su u redu — samo crvene greške treba popraviti.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SUMMARY -->
+  <div class="section-header">
+    <div class="section-sub">Završetak</div>
+    <h2>Faza 1 — Čeklista</h2>
+  </div>
+
+  <p style="color: #4a5568; margin-bottom: 16px;">
+    Označi svaki korak kada ga završiš:
+  </p>
+
+  <ul class="checklist">
+    <li><div class="check-box"></div> Yoast SEO plugin je instaliran i aktiviran</li>
+    <li><div class="check-box"></div> Setup Wizard je popunjen (tip: Local Business, naziv: Sensi Skin Kozmetološki Centar)</li>
+    <li><div class="check-box"></div> XML Sitemap je generisan i vidljiv na /sitemap_index.xml</li>
+    <li><div class="check-box"></div> Sajt je verifikovan u Google Search Console</li>
+    <li><div class="check-box"></div> Novi sitemap je podnet u Google Search Console</li>
+    <li><div class="check-box"></div> Stari sitemap iz 2018. je uklonjen iz GSC</li>
+    <li><div class="check-box"></div> Indeksiranje naslovne stranice je zatraženo</li>
+    <li><div class="check-box"></div> Schema & Structured Data plugin je instaliran i aktivan</li>
+    <li><div class="check-box"></div> Svi podaci o biznisu su uneti (naziv, adresa, telefon, email, radno vreme)</li>
+    <li><div class="check-box"></div> Rich Results Test pokazuje BeautySalon bez grešaka</li>
+  </ul>
+
+  <div class="callout callout-ok" style="margin-top: 24px; font-size: 13px; padding: 14px 18px;">
+    🎉 <strong>Čestitamo!</strong> Završetkom Faze 1 rešila si 3 od 4 kritičnih SEO problema.
+    Google sada može ispravno da indeksira sajt i razume da si kozmetološki centar u Novom Sadu.
+    SEO ocena: <strong>3/10 → 5/10</strong>.
+  </div>
+
+  <div class="intro-box" style="margin-top: 24px;">
+    <p><strong>Sledeći koraci — Faza 2 (ovaj mesec):</strong></p>
+    <p>Title tagovi i meta opisi za svaku stranicu, alt tekst na slikama, verifikacija Google Business Profile-a.
+    Cilj: podići SEO ocenu na <strong>7/10</strong>.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>SEO Uputstvo — Faza 1 — sensiskinstudio.com</div>
+    <div>Sensi Skin Kozmetološki Centar, Novi Sad &nbsp;|&nbsp; Jun 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
