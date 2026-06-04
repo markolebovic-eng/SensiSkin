@@ -13,6 +13,7 @@ assets, and AI agent system used to run marketing for SensiSkin and client brand
 - Specialist agents are masters of their own domain — trust their output
 
 ## Rules for all agents
+0. LANGUAGE: All outputs, copy, content, and deliverables must be written in Serbian (srpski jezik). Use Latin script (not Cyrillic) unless the user specifically requests Cyrillic. Agent-to-agent communication and internal notes in MEMORY.md may stay in English.
 1. Always read .agents/product-marketing.md before any task
 2. Always read .agents/memory/MEMORY.md before starting
 3. Always append key outputs and decisions to .agents/memory/MEMORY.md when done
