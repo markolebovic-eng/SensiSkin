@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faza 2 — Title Tagovi, Meta Opisi i Ključne Reči</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.7;
+  }
+
+  /* Cover */
+  .cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    page-break-after: always;
+  }
+
+  .cover-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #e94560;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .cover-phase {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a0aec0;
+    margin-bottom: 40px;
+  }
+
+  .cover-bar { width: 60px; height: 4px; background: #e94560; margin-bottom: 32px; }
+
+  .cover h1 {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .cover h1 span { color: #e94560; }
+
+  .cover .subtitle {
+    font-size: 16px;
+    color: #a0aec0;
+    margin-bottom: 60px;
+    font-weight: 300;
+    max-width: 500px;
+  }
+
+  .cover-meta { display: flex; gap: 40px; margin-top: 40px; }
+
+  .cover-meta-item label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e94560;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item p { font-size: 14px; color: #e2e8f0; }
+
+  /* Page */
+  .page { padding: 48px 60px; max-width: 860px; margin: 0 auto; }
+
+  /* Section header */
+  .section-header { border-left: 4px solid #e94560; padding-left: 16px; margin: 40px 0 20px; }
+  .section-header h2 { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-header .sub { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 2px; margin-top: 2px; }
+
+  /* Info box */
+  .info-box {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+
+  .info-box p { color: #4a5568; margin-bottom: 10px; }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* Yoast traffic light */
+  .traffic-lights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .light-box {
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .light-box.red { background: #fff5f5; border: 2px solid #fc8181; }
+  .light-box.orange { background: #fffaf0; border: 2px solid #f6ad55; }
+  .light-box.green { background: #f0fff4; border: 2px solid #68d391; }
+
+  .light-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+  }
+
+  .light-box.red .light-dot { background: #e53e3e; }
+  .light-box.orange .light-dot { background: #dd6b20; }
+  .light-box.green .light-dot { background: #38a169; }
+
+  .light-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .light-box.red h3 { color: #c53030; }
+  .light-box.orange h3 { color: #c05621; }
+  .light-box.green h3 { color: #276749; }
+  .light-box p { font-size: 11px; color: #718096; }
+
+  /* Step boxes */
+  .step {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .step-num {
+    background: #e94560;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-header h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+
+  .step-body { padding: 20px 24px; }
+  .step-body p { color: #4a5568; margin-bottom: 10px; }
+
+  /* Keyword table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 12px;
+  }
+
+  th {
+    background: #1a1a2e;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #2d3748;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: #f7fafc; }
+
+  /* Tag */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-high { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+  .tag-med { background: #fffff0; color: #975a16; border: 1px solid #f6e05e; }
+  .tag-low { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+
+  /* Code */
+  pre, code {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+  }
+
+  pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  code {
+    background: #edf2f7;
+    color: #c53030;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* Formula box */
+  .formula {
+    background: #ebf8ff;
+    border: 1px solid #90cdf4;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #2b6cb0;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 12px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 12px;
+    color: #2d3748;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check { color: #38a169; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-empty { color: #cbd5e0; flex-shrink: 0; margin-top: 1px; }
+
+  /* Priority boxes */
+  .priority-box {
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 12px 0;
+  }
+  .priority-box.p1 { background: #fff5f5; border-left: 4px solid #e53e3e; }
+  .priority-box.p2 { background: #fffaf0; border-left: 4px solid #dd6b20; }
+  .priority-box.p3 { background: #ebf8ff; border-left: 4px solid #3182ce; }
+
+  .priority-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .priority-box.p1 h3 { color: #c53030; }
+  .priority-box.p2 h3 { color: #c05621; }
+  .priority-box.p3 h3 { color: #2b6cb0; }
+  .priority-box ol { padding-left: 18px; color: #4a5568; }
+  .priority-box ol li { margin-bottom: 5px; }
+
+  /* Divider */
+  .divider { height: 1px; background: #e2e8f0; margin: 32px 0; }
+
+  /* Page break */
+  .page-break { page-break-before: always; }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #a0aec0;
+  }
+
+  @page { margin: 0; size: A4; }
+  @media print { .cover { height: 100vh; } pre { white-space: pre-wrap; } }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">sensiskinstudio.com</div>
+  <div class="cover-phase">Faza 2 od 3</div>
+  <div class="cover-bar"></div>
+  <h1>Title Tagovi, Meta Opisi<br>i <span>Ključne Reči</span></h1>
+  <div class="subtitle">On-page SEO optimizacija — kako da svaka stranica sajta bude vidljiva u Google pretrazi</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Klijent</label>
+      <p>Sensi Skin Kozmetološki Centar</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Lokacija</label>
+      <p>Novi Sad, Srbija</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Datum</label>
+      <p>Jun 2026</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Alat</label>
+      <p>Yoast SEO</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+  <!-- Uvod -->
+  <div class="section-header">
+    <div class="sub">Uvod</div>
+    <h2>Zašto Je Ovo Faza 2?</h2>
+  </div>
+
+  <div class="info-box">
+    <p>U Fazi 1 si popravio <strong>tehničke probleme</strong> — sitemap, redirects, robots.txt, schema markup. Google sada može ispravno da pretražuje tvoj sajt.</p>
+    <p>Faza 2 se bavi <strong>on-page SEO</strong> — optimizacijom sadržaja na svakoj stranici. Ovo je razlog zašto Yoast pokazuje crveno: svaka stranica mora da ima title tag, meta opis i fokus ključnu reč. Bez toga Google ne zna za šta da rangira tvoje stranice.</p>
+    <p><strong>Krajnji cilj:</strong> Svaka stranica treba da ima zeleno svetlo u Yoast-u.</p>
+  </div>
+
+  <!-- Yoast sistem -->
+  <div class="section-header">
+    <div class="sub">Razumevanje alata</div>
+    <h2>Šta Znači Yoast Semafor?</h2>
+  </div>
+
+  <div class="traffic-lights">
+    <div class="light-box red">
+      <div class="light-dot"></div>
+      <h3>Crveno</h3>
+      <p>Stranica nije optimizovana. Google ne zna za šta da je rangira. Hitno popraviti.</p>
+    </div>
+    <div class="light-box orange">
+      <div class="light-dot"></div>
+      <h3>Narandžasto</h3>
+      <p>Delimično optimizovano. Ima prostora za poboljšanje. Treba popraviti.</p>
+    </div>
+    <div class="light-box green">
+      <div class="light-dot"></div>
+      <h3>Zeleno</h3>
+      <p>Stranica je dobro optimizovana. Google zna za šta da je rangira.</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p>Yoast analizira svaku stranicu na osnovu <strong>fokus ključne reči</strong> koju ti zadaš. Provjerava da li se ta reč pojavljuje u title tagu, meta opisu, H1 naslovu, URL-u i sadržaju stranice. Ako ne — crveno svetlo.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEO 1: KLJUČNE REČI -->
+  <div class="section-header page-break">
+    <div class="sub">Deo 1 od 4</div>
+    <h2>Istraživanje Ključnih Reči</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Pre nego što pišeš title tagove i meta opise, moraš znati <strong>koje reči tvoji klijenti kucaju u Google</strong> kad traže usluge koje ti nudiš. Nema smisla optimizovati za reči koje niko ne traži.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <h3>Kako Razmišljati o Ključnim Rečima</h3>
+    </div>
+    <div class="step-body">
+      <p>Postoje dve vrste ključnih reči:</p>
+      <table>
+        <tr>
+          <th>Vrsta</th>
+          <th>Primer</th>
+          <th>Konkurencija</th>
+          <th>Preporuka</th>
+        </tr>
+        <tr>
+          <td><strong>Opšte</strong></td>
+          <td>kozmetički salon</td>
+          <td><span class="tag tag-high">Visoka</span></td>
+          <td>Izbegavaj za početak</td>
+        </tr>
+        <tr>
+          <td><strong>Lokalne</strong></td>
+          <td>kozmetički salon Novi Sad</td>
+          <td><span class="tag tag-med">Srednja</span></td>
+          <td>Glavni fokus</td>
+        </tr>
+        <tr>
+          <td><strong>Specifične</strong></td>
+          <td>hydrafacial tretman Novi Sad</td>
+          <td><span class="tag tag-low">Niska</span></td>
+          <td>Idealno za servisne stranice</td>
+        </tr>
+      </table>
+      <p>Za lokalni biznis poput Sensi Skin, <strong>lokalne i specifične ključne reči donose kupce</strong>. Neko ko traži "hydrafacial Novi Sad" je spreman da zakaže termin — to je tvoj idealni klijent.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <h3>Mapa Ključnih Reči — Svaka Stranica Ima Svoju Reč</h3>
+    </div>
+    <div class="step-body">
+      <p>Ovo je <strong>osnova cele strategije</strong>. Svaka stranica cilja jednu glavnu ključnu reč — nikad dve stranice istu reč.</p>
+      <table>
+        <tr>
+          <th>Stranica</th>
+          <th>Fokus ključna reč</th>
+          <th>Sekundarne reči</th>
+        </tr>
+        <tr>
+          <td><strong>Naslovna /</strong></td>
+          <td>kozmetološki centar Novi Sad</td>
+          <td>kozmetički salon Novi Sad, nega kože Novi Sad</td>
+        </tr>
+        <tr>
+          <td><strong>/hydrafacial-tretmani-lica/</strong></td>
+          <td>hydrafacial Novi Sad</td>
+          <td>hydrafacial tretman lica, hydrafacial cena</td>
+        </tr>
+        <tr>
+          <td><strong>/epilacija/</strong></td>
+          <td>laserska epilacija Novi Sad</td>
+          <td>trajna epilacija Novi Sad, epilacija laserom cena</td>
+        </tr>
+        <tr>
+          <td><strong>/nega-lica/</strong></td>
+          <td>nega lica Novi Sad</td>
+          <td>tretmani lica Novi Sad, profesionalna nega lica</td>
+        </tr>
+        <tr>
+          <td><strong>/aura-reality/</strong></td>
+          <td>3D dijagnostika kože Novi Sad</td>
+          <td>Aura Reality dijagnostika, analiza kože Novi Sad</td>
+        </tr>
+        <tr>
+          <td><strong>/ballancer-pro/</strong></td>
+          <td>Ballancer Pro Novi Sad</td>
+          <td>limfna drenaža Novi Sad, presoterapija Novi Sad</td>
+        </tr>
+        <tr>
+          <td><strong>/mesojet-tretmani/</strong></td>
+          <td>mesojet tretman Novi Sad</td>
+          <td>mezoterapija bez igala Novi Sad, mesojet lice</td>
+        </tr>
+        <tr>
+          <td><strong>/dermalux/</strong></td>
+          <td>LED terapija lica Novi Sad</td>
+          <td>Dermalux tretman, svetlosna terapija koža</td>
+        </tr>
+        <tr>
+          <td><strong>/sensi-skin/</strong></td>
+          <td>kozmetološki centar Sensi Skin</td>
+          <td>o nama kozmetički salon, Nataša Burka estetičar</td>
+        </tr>
+        <tr>
+          <td><strong>/kontakt/</strong></td>
+          <td>kontakt kozmetički salon Novi Sad</td>
+          <td>zakazivanje tretmana Novi Sad, adresa Sensi Skin</td>
+        </tr>
+        <tr>
+          <td><strong>/cenovnik/</strong></td>
+          <td>cenovnik kozmetičkih tretmana Novi Sad</td>
+          <td>cena hydrafacial, cena epilacije Novi Sad</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEO 2: TITLE TAGOVI -->
+  <div class="section-header page-break">
+    <div class="sub">Deo 2 od 4</div>
+    <h2>Title Tagovi — Naslov u Google Pretrazi</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Title tag je <strong>plavi naslov koji se pojavljuje u Google rezultatima</strong>. To je prva stvar koju potencijalni klijent vidi. Ako je loš ili ga nema — niko neće kliknuti na tvoj sajt.</p>
+    <p>Yoast pokazuje crveno jer su title tagovi ili nepostojeci ili generički ("Kozmetički salon i salon lepote").</p>
+  </div>
+
+  <div class="formula">
+    Formula za title tag: Fokus ključna reč + Naziv brenda | 50–60 karaktera
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <h3>Kako Uneti Title Tag u Yoast — Korak po Korak</h3>
+    </div>
+    <div class="step-body">
+      <p>1. Idi na stranicu koju uređuješ (npr. <code>/epilacija/</code>)</p>
+      <p>2. Klikni <strong>Uredi stranicu</strong> u WordPress adminu</p>
+      <p>3. Skroluj dole do <strong>Yoast SEO</strong> bloka</p>
+      <p>4. Klikni tab <strong>"SEO"</strong></p>
+      <p>5. U polje <strong>"Fokus ključna fraza"</strong> unesi ključnu reč iz tabele iznad</p>
+      <p>6. Klikni na <strong>"SEO naslov"</strong> i promeni tekst</p>
+      <p>7. Pazi na <strong>zelenu traku ispod</strong> — treba da bude popunjena do kraja ali ne da prelazi</p>
+      <p>8. Klikni <strong>Ažuriraj</strong> (Update) da sačuvaš</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <h3>Gotovi Title Tagovi — Kopiraj i Nalepi</h3>
+    </div>
+    <div class="step-body">
+      <p>Kopiraj title tag tačno kao što piše — uključujući crte i razmake:</p>
+      <table>
+        <tr>
+          <th>Stranica</th>
+          <th>Title Tag (kopiraj ovo)</th>
+          <th>Karaktera</th>
+        </tr>
+        <tr>
+          <td>Naslovna</td>
+          <td>Kozmetološki Centar Novi Sad — Sensi Skin Studio</td>
+          <td>51</td>
+        </tr>
+        <tr>
+          <td>HydraFacial</td>
+          <td>HydraFacial Tretman Lica Novi Sad — Sensi Skin</td>
+          <td>49</td>
+        </tr>
+        <tr>
+          <td>Epilacija</td>
+          <td>Laserska Epilacija Novi Sad — Sensi Skin Studio</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Nega lica</td>
+          <td>Nega Lica Novi Sad — Profesionalni Tretmani Kože</td>
+          <td>51</td>
+        </tr>
+        <tr>
+          <td>Aura Reality</td>
+          <td>Aura Reality 3D Dijagnostika Kože — Sensi Skin</td>
+          <td>49</td>
+        </tr>
+        <tr>
+          <td>Ballancer Pro</td>
+          <td>Ballancer Pro Limfna Drenaža Novi Sad — Sensi Skin</td>
+          <td>52</td>
+        </tr>
+        <tr>
+          <td>Mesojet</td>
+          <td>Mesojet Tretman Lica Novi Sad — Sensi Skin Studio</td>
+          <td>51</td>
+        </tr>
+        <tr>
+          <td>Dermalux</td>
+          <td>Dermalux LED Terapija Lica Novi Sad — Sensi Skin</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>O nama</td>
+          <td>O Nama — Sensi Skin Kozmetološki Centar Novi Sad</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Kontakt</td>
+          <td>Kontakt i Radno Vreme — Sensi Skin Novi Sad</td>
+          <td>46</td>
+        </tr>
+        <tr>
+          <td>Cenovnik</td>
+          <td>Cenovnik Tretmana i Usluga — Sensi Skin Novi Sad</td>
+          <td>51</td>
+        </tr>
+        <tr>
+          <td>Blog</td>
+          <td>Blog o Nezi Kože — Saveti i Tretmani — Sensi Skin</td>
+          <td>51</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEO 3: META OPISI -->
+  <div class="section-header page-break">
+    <div class="sub">Deo 3 od 4</div>
+    <h2>Meta Opisi — Tekst Ispod Naslova u Googlu</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Meta opis je <strong>sivi tekst koji se pojavljuje ispod plavog naslova</strong> u Google rezultatima. Nije direktan faktor rangiranja, ali direktno utiče na to da li će neko kliknuti na tvoj link.</p>
+    <p>Dobar meta opis = više klikova = Google misli da si relevantna stranica = bolje rangiranje.</p>
+  </div>
+
+  <div class="formula">
+    Formula: Šta nudiš + Za koga + Lokacija + Poziv na akciju | 145–155 karaktera
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <h3>Kako Uneti Meta Opis u Yoast</h3>
+    </div>
+    <div class="step-body">
+      <p>1. Na istoj stranici u Yoast SEO bloku</p>
+      <p>2. Klikni na polje <strong>"Meta opis"</strong> ispod title taga</p>
+      <p>3. Nalepi opis iz tabele ispod</p>
+      <p>4. Pazi na <strong>zelenu traku</strong> — treba da bude skoro puna (145–155 karaktera)</p>
+      <p>5. Sačuvaj stranicu</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <h3>Gotovi Meta Opisi — Kopiraj i Nalepi</h3>
+    </div>
+    <div class="step-body">
+      <table>
+        <tr>
+          <th>Stranica</th>
+          <th>Meta opis (kopiraj ovo)</th>
+        </tr>
+        <tr>
+          <td><strong>Naslovna</strong></td>
+          <td>Profesionalni kozmetološki centar u Novom Sadu. HydraFacial, laserska epilacija, 3D dijagnostika kože i premium tretmani tela. Zakažite konsultaciju danas.</td>
+        </tr>
+        <tr>
+          <td><strong>HydraFacial</strong></td>
+          <td>HydraFacial® tretman lica u Novom Sadu — najnagrađivaniji tretman na svetu. Hidratacija, čišćenje i podmlađivanje kože bez bola. Pogledajte cene i zakažite.</td>
+        </tr>
+        <tr>
+          <td><strong>Epilacija</strong></td>
+          <td>Trajna laserska epilacija u Novom Sadu. Bezbedna metoda za sve tipove kože i dlake. Bez bola, bez uraslih dlaka. Zakažite besplatnu konsultaciju u Sensi Skin.</td>
+        </tr>
+        <tr>
+          <td><strong>Nega lica</strong></td>
+          <td>Profesionalna nega lica u Novom Sadu prilagođena vašem tipu kože. Tretmani za akne, starenje, dehidraciju i osetljivu kožu. Saznajte više i zakažite termin.</td>
+        </tr>
+        <tr>
+          <td><strong>Aura Reality</strong></td>
+          <td>Najpreciznija 3D dijagnostika kože u Novom Sadu. Aura Reality AI tehnologija analizira vašu kožu za nekoliko sekundi i kreira individualni plan tretmana.</td>
+        </tr>
+        <tr>
+          <td><strong>Ballancer Pro</strong></td>
+          <td>Ballancer Pro presoterapija i limfna drenaža u Novom Sadu. Smanjuje celulit, poboljšava cirkulaciju i detoksikuje organizam. Zakažite tretman u Sensi Skin.</td>
+        </tr>
+        <tr>
+          <td><strong>Mesojet</strong></td>
+          <td>Mesojet tretman lica bez igala u Novom Sadu. Aktivne supstance duboko prodiru u kožu bez bola. Vidljivi rezultati već posle prvog tretmana. Zakažite danas.</td>
+        </tr>
+        <tr>
+          <td><strong>Dermalux</strong></td>
+          <td>Dermalux LED svetlosna terapija lica u Novom Sadu. Rešava akne, crvenilo i znake starenja. Bezbolna i bezbedna procedura pogodna za sve tipove kože.</td>
+        </tr>
+        <tr>
+          <td><strong>O nama</strong></td>
+          <td>Sensi Skin — profesionalni kozmetološki centar u Novom Sadu. Nataša Burka i tim stručnjaka sa 20+ godina iskustva u medicinskoj estetici. Upoznajte nas.</td>
+        </tr>
+        <tr>
+          <td><strong>Kontakt</strong></td>
+          <td>Kontaktirajte Sensi Skin Studio u Novom Sadu. Adresa: Braće Popović 3. Tel: +381 65 333 8338. Zakažite termin online ili pozivom. Radno vreme i mapa.</td>
+        </tr>
+        <tr>
+          <td><strong>Cenovnik</strong></td>
+          <td>Cenovnik tretmana i usluga Sensi Skin kozmetološkog centra u Novom Sadu. HydraFacial, epilacija, nega lica, Ballancer Pro i više. Transparentne cene.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEO 4: YOAST PODEŠAVANJE -->
+  <div class="section-header page-break">
+    <div class="sub">Deo 4 od 4</div>
+    <h2>Yoast SEO — Kako Dobiti Zeleno Svetlo</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Yoast proverava svaku stranicu po <strong>listi od ~15 kriterijuma</strong>. Evo najvažnijih koje moraš da ispuniš da bi prešao sa crvenog na zeleno.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <h3>Obavezna Checklista za Svaku Stranicu</h3>
+    </div>
+    <div class="step-body">
+      <ul class="checklist">
+        <li><span class="check-empty">☐</span> <strong>Fokus ključna fraza</strong> — uneta u Yoast polje "Fokus ključna fraza"</li>
+        <li><span class="check-empty">☐</span> <strong>Title tag</strong> — sadrži fokus ključnu frazu, 50–60 karaktera</li>
+        <li><span class="check-empty">☐</span> <strong>Meta opis</strong> — sadrži fokus ključnu frazu, 145–155 karaktera</li>
+        <li><span class="check-empty">☐</span> <strong>H1 naslov</strong> — sadrži fokus ključnu frazu</li>
+        <li><span class="check-empty">☐</span> <strong>URL slug</strong> — kratak, sadrži ključnu reč (npr. /epilacija/)</li>
+        <li><span class="check-empty">☐</span> <strong>Ključna reč u prvom pasusu</strong> — pominje se u prvoj rečenici ili pasusu</li>
+        <li><span class="check-empty">☐</span> <strong>Gustina ključne reči</strong> — pojavljuje se 1–3% u tekstu (ne previše)</li>
+        <li><span class="check-empty">☐</span> <strong>Alt text na slikama</strong> — svaka slika ima opisni alt text</li>
+        <li><span class="check-empty">☐</span> <strong>Interne veze</strong> — stranica ima link ka drugoj stranici na sajtu</li>
+        <li><span class="check-empty">☐</span> <strong>Dužina teksta</strong> — minimum 300 reči (idealno 600+)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <h3>Redosled Rada — Koje Stranice Prvo</h3>
+    </div>
+    <div class="step-body">
+      <p>Ne radi sve odjednom — počni od stranica koje donose klijente:</p>
+      <table>
+        <tr>
+          <th>Prioritet</th>
+          <th>Stranica</th>
+          <th>Zašto</th>
+        </tr>
+        <tr>
+          <td><span class="tag tag-high">1. Prvo</span></td>
+          <td>Naslovna stranica</td>
+          <td>Najposećenija, ulazna tačka svih posetilaca</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-high">2. Odmah</span></td>
+          <td>HydraFacial tretmani</td>
+          <td>Najpopularnija usluga, najviše pretrage</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-high">3. Odmah</span></td>
+          <td>Laserska epilacija</td>
+          <td>Visoka tražnja, lokalne pretrage</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-med">4. Ove nedelje</span></td>
+          <td>Nega lica</td>
+          <td>Široka kategorija usluga</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-med">5. Ove nedelje</span></td>
+          <td>Aura Reality</td>
+          <td>Jedinstvena usluga, nema konkurencije</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-med">6. Ove nedelje</span></td>
+          <td>Kontakt</td>
+          <td>Klijenti je traže kad su spremni da zakaže</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-low">7. Sledeće nedelje</span></td>
+          <td>Ballancer Pro, Mesojet, Dermalux</td>
+          <td>Specijalizovane usluge</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-low">8. Na kraju</span></td>
+          <td>Blog postovi</td>
+          <td>Dugoročni sadržaj za organski saobraćaj</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <h3>Alt Text na Slikama — Brzi Vodič</h3>
+    </div>
+    <div class="step-body">
+      <p>Svaka slika mora imati alt text. Ovo se radi direktno u WordPress Media Library-ju:</p>
+      <p>1. Idi na <strong>Mediji → Biblioteka</strong></p>
+      <p>2. Klikni na sliku</p>
+      <p>3. S desne strane nađi polje <strong>"Alternativni tekst"</strong></p>
+      <p>4. Unesi opisni tekst prema ovim primerima:</p>
+      <table>
+        <tr>
+          <th>Loš alt text</th>
+          <th>Dobar alt text</th>
+        </tr>
+        <tr>
+          <td>IMG_1234.jpg</td>
+          <td>HydraFacial tretman lica u Sensi Skin studiju Novi Sad</td>
+        </tr>
+        <tr>
+          <td>slika1</td>
+          <td>Laserska epilacija nogu u kozmetološkom centru Novi Sad</td>
+        </tr>
+        <tr>
+          <td>foto</td>
+          <td>Nataša Burka, medicinsko-estetski stručnjak, Sensi Skin</td>
+        </tr>
+        <tr>
+          <td>(prazno)</td>
+          <td>Aura Reality 3D dijagnostika kože — Sensi Skin Studio</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Plan -->
+  <div class="section-header page-break">
+    <div class="sub">Rezime</div>
+    <h2>Plan Akcije za Fazu 2</h2>
+  </div>
+
+  <div class="priority-box p1">
+    <h3>🔴 Ova Nedelja — Najvažnije Stranice</h3>
+    <ol>
+      <li>Uneti fokus ključnu frazu u Yoast za svaku stranicu (iz mape ključnih reči)</li>
+      <li>Promeniti title tag na naslovnoj stranici, HydraFacial i Epilacija stranici</li>
+      <li>Dodati meta opis na naslovnoj stranici, HydraFacial i Epilacija stranici</li>
+      <li>Proveriti da H1 naslov sadrži ključnu reč na tim stranicama</li>
+    </ol>
+  </div>
+
+  <div class="priority-box p2" style="margin-top:12px">
+    <h3>🟠 Sledeća Nedelja — Ostale Servisne Stranice</h3>
+    <ol>
+      <li>Title tag + meta opis za: Nega lica, Aura Reality, Kontakt, Cenovnik</li>
+      <li>Title tag + meta opis za: Ballancer Pro, Mesojet, Dermalux</li>
+      <li>Alt text na svim slikama — početi od naslovne i servisnih stranica</li>
+      <li>Dodati interne veze između servisnih stranica</li>
+    </ol>
+  </div>
+
+  <div class="priority-box p3" style="margin-top:12px">
+    <h3>🔵 Ovaj Mesec — Blog i Sadržaj</h3>
+    <ol>
+      <li>Optimizovati title tag i meta opis za svaki blog post</li>
+      <li>Dodati fokus ključnu frazu na blog postovima</li>
+      <li>Proširiti sadržaj servisnih stranica na minimum 400 reči</li>
+      <li>Napisati 1-2 nova blog posta targetirajući lokalne ključne reči</li>
+    </ol>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Šta sledi -->
+  <div class="section-header">
+    <div class="sub">Napomena</div>
+    <h2>Šta Donosii Faza 3?</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Faza 3 će se baviti <strong>sadržajem i autoritetom</strong> — pisanjem SEO blog postova koji targetiraju lokalne pretrage, izgradnjom internih veza između stranica, i strategijom za dobijanje eksternih linkova (lokalni direktorijumi, press). To je dugoročna igra koja donosi organski saobraćaj mesecima i godinama unapred.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>Faza 2 SEO Vodič — sensiskinstudio.com</div>
+    <div>Sensi Skin Kozmetološki Centar, Novi Sad &nbsp;|&nbsp; Jun 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
