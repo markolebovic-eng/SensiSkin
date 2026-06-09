@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Mapa i Recenzije — Vodič za Sensi Skin</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.7;
+  }
+
+  /* Cover */
+  .cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    page-break-after: always;
+  }
+
+  .cover-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #e94560;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .cover-phase {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a0aec0;
+    margin-bottom: 40px;
+  }
+
+  .cover-bar { width: 60px; height: 4px; background: #e94560; margin-bottom: 32px; }
+
+  .cover h1 {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .cover h1 span { color: #e94560; }
+
+  .cover .subtitle {
+    font-size: 16px;
+    color: #a0aec0;
+    margin-bottom: 60px;
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  .cover-meta { display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+
+  .cover-meta-item label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e94560;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item p { font-size: 14px; color: #e2e8f0; }
+
+  /* Page */
+  .page { padding: 48px 60px; max-width: 860px; margin: 0 auto; }
+
+  /* Section header */
+  .section-header { border-left: 4px solid #e94560; padding-left: 16px; margin: 40px 0 20px; }
+  .section-header h2 { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-header .sub { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 2px; margin-top: 2px; }
+
+  /* Info box */
+  .info-box {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+
+  .info-box p { color: #4a5568; margin-bottom: 10px; }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* Impact ranking */
+  .impact-list { list-style: none; margin: 16px 0; counter-reset: impact; }
+  .impact-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+  }
+  .impact-rank {
+    background: #1a1a2e;
+    color: #fff;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px; flex-shrink: 0;
+  }
+  .impact-list li.top { background: #fff5f5; border-color: #feb2b2; }
+  .impact-list li.top .impact-rank { background: #e94560; }
+  .impact-text strong { color: #1a1a2e; }
+  .impact-text span { color: #718096; font-size: 12px; }
+
+  /* Step boxes */
+  .step { border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+  .step-header { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #1a1a2e; color: #fff; }
+  .step-num {
+    background: #e94560; color: white; font-size: 13px; font-weight: 700;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .step-header h3 { font-size: 15px; font-weight: 700; color: #fff; }
+  .step-body { padding: 20px 24px; }
+  .step-body p { color: #4a5568; margin-bottom: 10px; }
+  .step-body ul { margin: 8px 0 10px 20px; color: #4a5568; }
+  .step-body ul li { margin-bottom: 5px; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 12px; }
+  th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+  td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #2d3748; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7fafc; }
+  td strong { color: #1a1a2e; }
+
+  /* Tag */
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag-high { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+  .tag-med { background: #fffff0; color: #975a16; border: 1px solid #f6e05e; }
+  .tag-low { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+
+  /* Template / quote box */
+  .template {
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    border-left: 4px solid #38a169;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    color: #1a4731;
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+  .template .t-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #276749; margin-bottom: 8px; display: block; }
+
+  /* Callout */
+  .callout { border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-size: 12px; }
+  .callout-tip  { background: #ebf8ff; border-left: 3px solid #3182ce; color: #2b4a6f; }
+  .callout-warn { background: #fffbeb; border-left: 3px solid #d69e2e; color: #744210; }
+  .callout-ok   { background: #f0fff4; border-left: 3px solid #38a169; color: #1a4731; }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 12px 0; }
+  .checklist li {
+    display: flex; align-items: flex-start; gap: 10px; padding: 6px 0;
+    border-bottom: 1px solid #edf2f7; font-size: 12.5px; color: #2d3748;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box { width: 16px; height: 16px; border: 2px solid #cbd5e0; border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+  /* Priority boxes */
+  .priority-box { border-radius: 8px; padding: 20px 24px; margin: 12px 0; }
+  .priority-box.p1 { background: #fff5f5; border-left: 4px solid #e53e3e; }
+  .priority-box.p2 { background: #fffaf0; border-left: 4px solid #dd6b20; }
+  .priority-box.p3 { background: #ebf8ff; border-left: 4px solid #3182ce; }
+  .priority-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .priority-box.p1 h3 { color: #c53030; }
+  .priority-box.p2 h3 { color: #c05621; }
+  .priority-box.p3 h3 { color: #2b6cb0; }
+  .priority-box ol { padding-left: 18px; color: #4a5568; }
+  .priority-box ol li { margin-bottom: 5px; }
+
+  .divider { height: 1px; background: #e2e8f0; margin: 32px 0; }
+  .page-break { page-break-before: always; }
+
+  .footer {
+    margin-top: 60px; padding-top: 20px; border-top: 2px solid #e2e8f0;
+    display: flex; justify-content: space-between; font-size: 11px; color: #a0aec0;
+  }
+
+  @page { margin: 0; size: A4; }
+  @media print { .cover { height: 100vh; } }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">sensiskinstudio.com</div>
+  <div class="cover-phase">Prioritet br. 1 — Lokalni SEO</div>
+  <div class="cover-bar"></div>
+  <h1>Google Mapa<br>i <span>Recenzije</span></h1>
+  <div class="subtitle">Kako da Sensi Skin bude prvi izbor kada neko u Novom Sadu traži kozmetološki centar — pre nego što optimizujemo bilo šta drugo.</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Klijent</label>
+      <p>Sensi Skin Kozmetološki Centar</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Lokacija</label>
+      <p>Novi Sad, Srbija</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Datum</label>
+      <p>Jun 2026</p>
+    </div>
+    <div class="cover-meta-item">
+      <label>Alat</label>
+      <p>Google Business Profile</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+  <!-- Uvod -->
+  <div class="section-header">
+    <div class="sub">Zašto baš ovo, i zašto prvo</div>
+    <h2>Najvažnija Stvar Koju Niko Nije Uradio</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Faza 1 i Faza 2 su se bavile sajtom — tehnikom, title tagovima, meta opisima. To je važno, ali za <strong>lokalni biznis</strong> kao što je Sensi Skin to nije ono što najviše donosi klijente.</p>
+    <p>Kada neko u Novom Sadu ukuca <em>„kozmetički salon"</em>, <em>„hydrafacial Novi Sad"</em> ili <em>„laserska epilacija blizu mene"</em>, Google <strong>prvo prikazuje mapu sa tri firme</strong> (tzv. „local pack") — pa tek ispod toga obične rezultate sa sajtova. U tu mapu se ne ulazi preko title tagova, nego preko <strong>Google Business Profile-a</strong> (Google poslovnog profila) i <strong>recenzija</strong>.</p>
+    <p><strong>Tvoj profil postoji, ali je zapušten.</strong> To znači da je posao već napola odrađen — samo treba da ga „probudimo". Ovo je tvoj najbrži i najjeftiniji skok u vidljivosti.</p>
+  </div>
+
+  <div class="section-header">
+    <div class="sub">Realna hijerarhija</div>
+    <h2>Šta Zaista Pomera Vidljivost (Redosled)</h2>
+  </div>
+
+  <ul class="impact-list">
+    <li class="top"><span class="impact-rank">1</span><div class="impact-text"><strong>Google Business Profile</strong> &nbsp;—&nbsp; <span>ulaz u mapu/„local pack"; najjači lokalni signal</span></div></li>
+    <li class="top"><span class="impact-rank">2</span><div class="impact-text"><strong>Recenzije</strong> &nbsp;—&nbsp; <span>broj, prosek, svežina i tvoji odgovori; rangiranje + poverenje</span></div></li>
+    <li><span class="impact-rank">3</span><div class="impact-text"><strong>NAP doslednost + lokalni direktorijumi</strong> &nbsp;—&nbsp; <span>isto ime/adresa/telefon svuda</span></div></li>
+    <li><span class="impact-rank">4</span><div class="impact-text"><strong>On-page SEO (title, meta, sadržaj)</strong> &nbsp;—&nbsp; <span>ovo je bila Faza 2 — bitno, ali tek četvrto</span></div></li>
+    <li><span class="impact-rank">5</span><div class="impact-text"><strong>Sadržaj / blog za lokalne pretrage</strong> &nbsp;—&nbsp; <span>dugoročni organski saobraćaj</span></div></li>
+    <li><span class="impact-rank">6</span><div class="impact-text"><strong>Backlinkovi / lokalni autoritet</strong> &nbsp;—&nbsp; <span>najsporije, najteže</span></div></li>
+  </ul>
+
+  <div class="callout callout-tip">
+    💡 Ovaj dokument pokriva tačke <strong>1 i 2</strong> — ono što daje najveći rezultat za najmanje truda. Tačku 3 zatvaramo u kompletnoj re-strategiji koja sledi.
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEO 1: GBP -->
+  <div class="section-header page-break">
+    <div class="sub">Deo 1 od 2</div>
+    <h2>Optimizacija Google Business Profile-a</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Cilj: pretvoriti zapušten profil u kompletan, aktivan profil koji Google rado prikazuje na vrhu mape. Google favorizuje profile koji su <strong>potpuno popunjeni</strong> i <strong>redovno ažurirani</strong>.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">1</div><h3>Preuzmi i verifikuj profil</h3></div>
+    <div class="step-body">
+      <p>Idi na <strong>google.com/business</strong> i prijavi se Google nalogom. Potraži „Sensi Skin" — pošto profil već postoji:</p>
+      <ul>
+        <li>Ako je profil <strong>tvoj i verifikovan</strong> — preskoči na korak 2.</li>
+        <li>Ako profil postoji ali <strong>nije tvoj / nije verifikovan</strong> — klikni „Zatraži ovaj profil" (Claim this business) i prođi verifikaciju (Google obično šalje kod poštom, telefonom ili video-pozivom).</li>
+      </ul>
+      <div class="callout callout-warn">⚠️ Bez verifikacije ne možeš da menjaš podatke ni da odgovaraš na recenzije. Ovo je preduslov za sve ostalo.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">2</div><h3>Naziv, kategorije i osnovni podaci</h3></div>
+    <div class="step-body">
+      <p>Kategorija je <strong>najjači pojedinačni faktor</strong> za to za koje pretrage se pojavljuješ na mapi. Postavi jednu primarnu i nekoliko sekundarnih:</p>
+      <table>
+        <tr><th>Polje</th><th>Vrednost</th></tr>
+        <tr><td><strong>Naziv</strong></td><td>Sensi Skin Kozmetološki Centar <em>(tačno isto kao na sajtu i svuda drugde — bez dodavanja ključnih reči)</em></td></tr>
+        <tr><td><strong>Primarna kategorija</strong></td><td>Kozmetolog / Skin care clinic <span class="tag tag-high">najvažnije</span></td></tr>
+        <tr><td><strong>Sekundarne kategorije</strong></td><td>Kozmetički salon (Beauty salon), Salon za lasersku epilaciju (Laser hair removal service), Medicinski spa (Medical spa), Tretmani lica (Facial spa)</td></tr>
+        <tr><td><strong>Adresa</strong></td><td>Braće Popović 3, sprat 2, stan 12, Novi Sad</td></tr>
+        <tr><td><strong>Telefon</strong></td><td>+381 65 333 8338</td></tr>
+        <tr><td><strong>Sajt</strong></td><td>https://sensiskinstudio.com</td></tr>
+        <tr><td><strong>Radno vreme</strong></td><td>Unesi tačno za svaki dan + posebne sate za praznike</td></tr>
+      </table>
+      <div class="callout callout-tip">💡 Naziv, adresa i telefon (NAP) moraju biti <strong>karakter po karakter isti</strong> kao na sajtu, Instagramu i svim direktorijumima. Svaka razlika slabi lokalni signal.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">3</div><h3>Opis biznisa (u tonu brenda)</h3></div>
+    <div class="step-body">
+      <p>Imaš 750 karaktera. Nemoj reklamirati — opiši stručno i smireno, onako kako brend govori. Predlog (kopiraj i nalepi):</p>
+      <div class="template">
+        <span class="t-label">Opis profila</span>
+        Sensi Skin je kozmetološki centar u Novom Sadu sa preko 20 godina iskustva u medicinskoj estetici i profesionalnoj nezi kože. Specijalizovani smo za HydraFacial® tretmane lica, lasersku epilaciju, Mesojet i Dermalux tretmane, kao i za Aura Reality 3D dijagnostiku kože — naprednu analizu koja nam pokazuje stanje kože pre svakog tretmana. Pod stručnim vođstvom Nataše Burke svaki tretman prilagođavamo vašem tipu i stanju kože — bez gotovih paketa i bez preterivanja. Verujemo u negu koja čuva prirodni balans kože i daje vidljive rezultate. Zakažite konsultaciju i saznajte šta je zaista potrebno vašoj koži.
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">4</div><h3>Usluge i cene</h3></div>
+    <div class="step-body">
+      <p>Dodaj svaku uslugu kao zasebnu stavku (sekcija „Usluge / Services"). Svaka treba kratak opis i, gde je moguće, cenu ili raspon. Ovo pomaže da se pojaviš za specifične pretrage:</p>
+      <ul>
+        <li>HydraFacial® tretman lica</li>
+        <li>Laserska epilacija</li>
+        <li>Aura Reality 3D dijagnostika kože</li>
+        <li>Mesojet tretmani lica · Mesojet RF</li>
+        <li>Dermalux LED terapija</li>
+        <li>Nega lica (po tipu kože)</li>
+      </ul>
+      <div class="callout callout-tip">💡 Poveži opise usluga sa tačnim stranicama sajta (npr. HydraFacial → /hydrafacial-tretmani-lica-novi-sad/).</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">5</div><h3>Fotografije — najpodcenjeniji faktor</h3></div>
+    <div class="step-body">
+      <p>Profili sa kvalitetnim, redovnim fotografijama dobijaju znatno više klikova i poziva. Dodaj:</p>
+      <ul>
+        <li><strong>Naslovna i logo</strong> — prepoznatljiv brend</li>
+        <li><strong>Enterijer</strong> — recepcija, prostor za tretmane (gradi poverenje pre dolaska)</li>
+        <li><strong>Oprema</strong> — HydraFacial aparat, Aura Reality, laser (signal stručnosti)</li>
+        <li><strong>Tim</strong> — Nataša Burka i tim (ljudsko lice brenda)</li>
+        <li><strong>Pre/posle</strong> — uz dozvolu klijenta (najjača vrsta dokaza)</li>
+      </ul>
+      <div class="callout callout-ok">✓ Cilj: dodaj nekoliko novih fotografija svake nedelje. Google čita svežinu kao znak da je biznis aktivan.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">6</div><h3>Google objave, pitanja i poruke</h3></div>
+    <div class="step-body">
+      <p><strong>Google objave (Posts):</strong> objavljuj 1× nedeljno — akcija, novi tretman, edukativni savet. Kratko, u tonu brenda, sa dugmetom „Zakaži".</p>
+      <p><strong>Pitanja i odgovori (Q&A):</strong> sama postavi i odgovori na česta pitanja („Da li HydraFacial boli?", „Koliko traje tretman?", „Da li epilacija odgovara svim tipovima kože?"). Tako kontrolišeš narativ pre nego što neko drugi odgovori.</p>
+      <p><strong>Poruke (Messaging):</strong> uključi i odgovaraj brzo — vreme odgovora je vidljiv signal.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEO 2: RECENZIJE -->
+  <div class="section-header page-break">
+    <div class="sub">Deo 2 od 2</div>
+    <h2>Recenzije — Sistem, Ne Sreća</h2>
+  </div>
+
+  <div class="info-box">
+    <p>Recenzije utiču na dve stvari odjednom: <strong>rangiranje na mapi</strong> (broj, prosek, svežina i ključne reči u tekstu recenzija) i <strong>odluku klijenta</strong> da baš tebe izabere. Zato ne smeju da budu prepušteni slučaju — treba ti jednostavan sistem da ih redovno dobijaš.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">1</div><h3>Napravi kratak link za recenziju</h3></div>
+    <div class="step-body">
+      <p>U Google Business Profile-u postoji opcija <strong>„Zatraži recenzije" → kopiraj link</strong>. Dobićeš kratak link (npr. <code>g.page/r/...</code>) koji vodi klijenta pravo na formu za ostavljanje recenzije. Sačuvaj taj link — koristićeš ga svuda.</p>
+      <p>Napravi i <strong>QR kod</strong> od tog linka (besplatno, npr. qr-code-generator.com) i odštampaj ga na karticu koju ostavljaš klijentu posle tretmana ili zalepiš na recepciji.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">2</div><h3>Pitaj u pravom trenutku</h3></div>
+    <div class="step-body">
+      <p>Najbolji trenutak je <strong>odmah posle tretmana kojim je klijent vidljivo zadovoljan</strong>, dok je utisak svež. Lično pitanje terapeuta + poruka istog dana radi najbolje.</p>
+      <table>
+        <tr><th>Kanal</th><th>Kada</th><th>Zašto</th></tr>
+        <tr><td>Lično, na kraju tretmana</td><td>Odmah</td><td>Topla preporuka uživo + pokažeš QR kod</td></tr>
+        <tr><td>SMS</td><td>Isti dan, par sati kasnije</td><td>Najviše stope odgovora</td></tr>
+        <tr><td>Email</td><td>Sledeći dan</td><td>Za klijente koji više vole mejl</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">3</div><h3>Šabloni za traženje recenzije</h3></div>
+    <div class="step-body">
+      <div class="template">
+        <span class="t-label">SMS (kratko)</span>
+        Poštovana [Ime], hvala Vam na poseti Sensi Skin studiju. Nadamo se da ste zadovoljni rezultatom. Ako imate minut, Vaša recenzija nam mnogo znači i pomaže drugima da nas pronađu: [link]. Hvala! — Nataša, Sensi Skin
+      </div>
+      <div class="template">
+        <span class="t-label">Email (nešto duže)</span>
+        Poštovana [Ime],<br><br>
+        hvala što ste nam ukazali poverenje. Nadamo se da ste zadovoljni Vašim [naziv tretmana] tretmanom i rezultatom.<br><br>
+        Ako biste izdvojili minut da podelite svoje iskustvo, Vaša recenzija nam mnogo pomaže — i drugima koji traže pouzdanu negu kože olakšava izbor. Dovoljan je jedan klik:<br><br>
+        👉 [link za recenziju]<br><br>
+        Radujemo se Vašoj sledećoj poseti.<br>
+        Srdačno, Nataša Burka i tim Sensi Skin
+      </div>
+      <div class="callout callout-warn">⚠️ Ne nudi popust ni poklon u zamenu za recenziju — to je protiv Google pravila i može dovesti do brisanja recenzija. Traži iskreno mišljenje, ne pozitivnu ocenu.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">4</div><h3>Odgovaraj na SVAKU recenziju</h3></div>
+    <div class="step-body">
+      <p>Odgovori su javni signal i Googleu i budućim klijentima. Odgovaraj na sve — i pohvale i kritike — u roku od par dana.</p>
+      <div class="template">
+        <span class="t-label">Odgovor na pozitivnu recenziju</span>
+        Hvala Vam puno, [Ime]! Drago nam je što ste zadovoljni rezultatom [naziv tretmana]. Radujemo se Vašoj sledećoj poseti. — tim Sensi Skin
+      </div>
+      <div class="template">
+        <span class="t-label">Odgovor na negativnu recenziju</span>
+        Poštovana [Ime], hvala što ste izdvojili vreme da podelite iskustvo. Žao nam je što niste otišli potpuno zadovoljni — to nije standard kojem težimo. Voleli bismo da razgovaramo i ispravimo stvar; pozovite nas na +381 65 333 8338 ili pišite na sensistudio@gmail.com. — Nataša, Sensi Skin
+      </div>
+      <div class="callout callout-tip">💡 U odgovorima prirodno spomeni uslugu i grad („HydraFacial u Novom Sadu") — to su signali koje Google čita, ali nikad nasilno.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">5</div><h3>Tempo i cilj</h3></div>
+    <div class="step-body">
+      <p>Svežina je važnija od ukupnog broja — bolje 2 nove recenzije nedeljno nego 50 odjednom pa ništa mesecima. Realan cilj:</p>
+      <ul>
+        <li><strong>Prva 4 nedelje:</strong> zamoli svakog zadovoljnog klijenta — cilj 8–12 novih recenzija.</li>
+        <li><strong>Dalje:</strong> stabilno 4–8 novih recenzija mesečno.</li>
+        <li><strong>Prosek:</strong> drži iznad 4.7 (cilj iz strategije: 4.8+).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AKCIONI PLAN -->
+  <div class="section-header page-break">
+    <div class="sub">Rezime</div>
+    <h2>Akcioni Plan</h2>
+  </div>
+
+  <div class="priority-box p1">
+    <h3>🔴 Ova nedelja — Postavi temelj</h3>
+    <ol>
+      <li>Preuzmi i verifikuj Google Business Profile.</li>
+      <li>Postavi primarnu + sekundarne kategorije, NAP, radno vreme, sajt.</li>
+      <li>Nalepi opis biznisa (iz ovog dokumenta).</li>
+      <li>Dodaj prvih 10–15 fotografija (enterijer, oprema, tim).</li>
+      <li>Iskopiraj link za recenziju i napravi QR kod.</li>
+    </ol>
+  </div>
+
+  <div class="priority-box p2" style="margin-top:12px">
+    <h3>🟠 Sledeće 2 nedelje — Pokreni recenzije i sadržaj</h3>
+    <ol>
+      <li>Uvedi rutinu: svaki zadovoljan klijent dobije SMS/email sa linkom.</li>
+      <li>Odgovori na sve postojeće recenzije.</li>
+      <li>Dodaj sve usluge sa opisima i cenama.</li>
+      <li>Objavi prvu Google objavu i postavi 3–5 pitanja u Q&A sekciji.</li>
+    </ol>
+  </div>
+
+  <div class="priority-box p3" style="margin-top:12px">
+    <h3>🔵 Trajno — Održavaj ritam</h3>
+    <ol>
+      <li>1 Google objava nedeljno, par novih fotografija nedeljno.</li>
+      <li>4–8 novih recenzija mesečno, odgovor na svaku.</li>
+      <li>Mesečno proveri „Insights" (pretrage, pozivi, rute, klikovi na sajt).</li>
+    </ol>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ČEKLISTA -->
+  <div class="section-header">
+    <div class="sub">Čeklista</div>
+    <h2>Označi Kad Završiš</h2>
+  </div>
+  <ul class="checklist">
+    <li><div class="check-box"></div> Profil preuzet i verifikovan</li>
+    <li><div class="check-box"></div> Primarna kategorija postavljena (+ sekundarne)</li>
+    <li><div class="check-box"></div> NAP identičan kao na sajtu i Instagramu</li>
+    <li><div class="check-box"></div> Radno vreme uneto (uključ. praznike)</li>
+    <li><div class="check-box"></div> Opis biznisa nalepljen</li>
+    <li><div class="check-box"></div> Sve usluge dodate sa opisima</li>
+    <li><div class="check-box"></div> Najmanje 10 fotografija dodato</li>
+    <li><div class="check-box"></div> Link za recenziju iskopiran + QR kod napravljen</li>
+    <li><div class="check-box"></div> SMS/email šablon spreman i u upotrebi</li>
+    <li><div class="check-box"></div> Odgovoreno na sve postojeće recenzije</li>
+    <li><div class="check-box"></div> Prva Google objava objavljena</li>
+    <li><div class="check-box"></div> Q&A sekcija popunjena (3–5 pitanja)</li>
+  </ul>
+
+  <div class="callout callout-ok" style="margin-top:20px; font-size:13px; padding:14px 18px;">
+    🎯 <strong>Zašto je ovo prioritet:</strong> kompletan, aktivan profil sa svežim recenzijama tipično donosi vidljiv porast poziva i ruta ka studiju u roku od nekoliko nedelja — brže od bilo koje izmene na sajtu.
+  </div>
+
+  <div class="footer">
+    <div>Google Mapa i Recenzije — sensiskinstudio.com</div>
+    <div>Sensi Skin Kozmetološki Centar, Novi Sad &nbsp;|&nbsp; Jun 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
