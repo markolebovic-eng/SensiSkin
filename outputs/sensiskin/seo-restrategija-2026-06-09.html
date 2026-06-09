@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensi Skin — SEO Re-strategija (puna verzija v2.0)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.7;
+  }
+
+  /* Cover */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    page-break-after: always;
+  }
+  .cover-tag { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #e94560; margin-bottom: 16px; font-weight: 600; }
+  .cover-phase { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #a0aec0; margin-bottom: 40px; }
+  .cover-bar { width: 60px; height: 4px; background: #e94560; margin-bottom: 32px; }
+  .cover h1 { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; color: #fff; }
+  .cover h1 span { color: #e94560; }
+  .cover .subtitle { font-size: 16px; color: #a0aec0; margin-bottom: 50px; font-weight: 300; max-width: 560px; }
+  .cover-meta { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
+  .cover-meta-item label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #e94560; display: block; margin-bottom: 4px; }
+  .cover-meta-item p { font-size: 14px; color: #e2e8f0; }
+
+  /* Page */
+  .page { padding: 48px 60px; max-width: 920px; margin: 0 auto; }
+
+  /* Lead note */
+  .lead {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #e94560;
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin: 0 0 36px;
+    color: #4a5568;
+    font-size: 13px;
+  }
+
+  /* Section header */
+  .section-header { border-left: 4px solid #e94560; padding-left: 16px; margin: 48px 0 20px; }
+  .section-header h2 { font-size: 21px; font-weight: 700; color: #1a1a2e; }
+  .section-header .sub { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 2px; margin-top: 2px; }
+
+  p { color: #4a5568; margin-bottom: 12px; }
+  strong { color: #1a1a2e; }
+
+  /* Info box */
+  .info-box { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 22px 26px; margin: 18px 0; }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* Formula / principle box */
+  .formula {
+    background: #ebf8ff; border: 1px solid #90cdf4; border-radius: 8px;
+    padding: 20px 24px; margin: 16px 0; font-size: 14px; color: #2b6cb0;
+    font-weight: 600; text-align: center;
+  }
+
+  /* Correction callout */
+  .fix {
+    background: #fffaf0; border: 1px solid #f6ad55; border-left: 4px solid #dd6b20;
+    border-radius: 8px; padding: 16px 20px; margin: 16px 0; font-size: 12.5px; color: #7b341e;
+  }
+  .fix strong { color: #c05621; }
+  .fix .label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #c05621; margin-right: 6px; }
+
+  /* Quote / note */
+  .note {
+    border-left: 3px solid #cbd5e0; padding: 4px 0 4px 16px; margin: 14px 0;
+    color: #718096; font-size: 12.5px; font-style: italic;
+  }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+  td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #2d3748; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7fafc; }
+  td code, p code { background: #edf2f7; color: #c53030; padding: 1px 5px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 11px; }
+  .bad { color: #c53030; text-decoration: line-through; }
+
+  /* Phase letter chip */
+  .chip { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #e94560; color: #fff; font-weight: 700; font-size: 12px; }
+  .status-done { color: #276749; font-weight: 700; }
+  .status-next { color: #c05621; font-weight: 700; }
+  .status-later { color: #718096; }
+
+  /* Tag pills for sections (geo / thematic) */
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 20px; margin-bottom: 10px; }
+  .pill-geo { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+  .pill-theme { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+  .pill-new { background: #ebf8ff; color: #2b6cb0; border: 1px solid #90cdf4; }
+
+  /* NAP code block */
+  pre {
+    background: #2d3748; color: #e2e8f0; border-radius: 6px; padding: 16px 20px;
+    margin: 12px 0; white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.6;
+  }
+
+  /* Numbered cards */
+  .step { border: 1px solid #e2e8f0; border-radius: 8px; margin: 14px 0; overflow: hidden; }
+  .step-header { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #f7fafc; border-bottom: 1px solid #e2e8f0; }
+  .step-num { background: #e94560; color: white; font-size: 13px; font-weight: 700; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-header h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .step-body { padding: 18px 22px; }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  /* KPI banner */
+  .kpi-banner { background: #1a1a2e; color: #e2e8f0; border-radius: 8px; padding: 18px 24px; margin: 20px 0; font-size: 13px; }
+  .kpi-banner strong { color: #e94560; }
+
+  /* Recommendation box */
+  .reco { background: #f0fff4; border: 1px solid #9ae6b4; border-left: 4px solid #38a169; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+  .reco h3 { color: #276749; font-size: 14px; margin-bottom: 8px; }
+  .reco p { color: #2f5540; margin-bottom: 0; }
+
+  ul.clean { list-style: none; margin: 12px 0; }
+  ul.clean li { padding: 6px 0 6px 22px; position: relative; color: #4a5568; border-bottom: 1px solid #edf2f7; font-size: 12.5px; }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li::before { content: "▸"; position: absolute; left: 0; color: #e94560; font-weight: 700; }
+
+  .footer { text-align: center; padding: 40px 20px; color: #a0aec0; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 50px; }
+
+  @media print { .cover { height: 100vh; } .section-header { page-break-after: avoid; } table, .step, .info-box, .fix { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">Sensi Skin · Novi Sad</div>
+  <div class="cover-phase">SEO Strategija — puna verzija</div>
+  <div class="cover-bar"></div>
+  <h1>SEO <span>Re-strategija</span><br>za lokalnu i AI pretragu</h1>
+  <p class="subtitle"> Kako da te ljudi — i Google i veštačka inteligencija — nađu kad traže kozmetički centar i tretmane u Novom Sadu.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><label>Sajt</label><p>sensiskinstudio.com</p></div>
+    <div class="cover-meta-item"><label>Datum</label><p>Jun 2026</p></div>
+    <div class="cover-meta-item"><label>Verzija</label><p>2.0 — proširena</p></div>
+    <div class="cover-meta-item"><label>Cilj</label><p>Vidljivost u Google + AI pretrazi</p></div>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="lead">
+    Ovo je nadograđena verzija pregleda koji smo ti poslali na potvrdu. <strong>Pravac je isti</strong> — popravili smo netačnosti i dodali ono što je nedostajalo: schema, AI-pretraga, merenje uspeha, konkretna lista direktorijuma, FAQ, interno linkovanje i rokovi. Gde smo nešto ispravili u odnosu na raniju verziju, posebno smo to označili sa <strong>↻ Ispravka</strong> da vidiš šta se promenilo i zašto.
+  </div>
+
+  <!-- GLAVNI PRINCIP -->
+  <div class="section-header">
+    <h2>Glavni princip</h2>
+    <div class="sub">i dalje srž svega</div>
+  </div>
+  <p>Za <strong>lokalni biznis</strong> redosled uticaja na vidljivost je jasan, a Faza 2 ga je bila obrnula:</p>
+  <div class="formula">Google profil → Recenzije → NAP / direktorijumi → On-page (title/meta) → Sadržaj → Linkovi</div>
+  <p>On-page (ono čime se bavila Faza 2) je tek <strong>4. po važnosti</strong>. Meta opis nije faktor rangiranja — utiče samo na to da li će neko kliknuti. „Yoast zeleno" je metrika sujete, ne cilj. Zato strategiju vodimo gornjim redom.</p>
+  <div class="info-box">
+    <p><strong>Novo za 2026:</strong> pored klasične Google pretrage, sve više ljudi pita AI (ChatGPT, Google AI Overviews, Perplexity) „gde da uradim HydraFacial u Novom Sadu". Ti isti signali — profil, recenzije, dosledan NAP, jasan sadržaj sa pitanjima i odgovorima — su i ono što AI koristi da te preporuči. Zato AI-pretraga nije zasebna faza, nego sloj koji prirodno izlazi iz dobro odrađenih faza A–D.</p>
+  </div>
+
+  <!-- FAZE -->
+  <div class="section-header">
+    <h2>Reorganizovane faze</h2>
+    <div class="sub">sa merenjem uspeha</div>
+  </div>
+  <table>
+    <tr><th>Faza</th><th>Šta radimo</th><th>Status</th><th>Kako merimo uspeh</th></tr>
+    <tr>
+      <td><span class="chip">A</span></td>
+      <td><strong>Google profil + recenzije</strong> — buđenje zapuštenog profila, sistem za recenzije</td>
+      <td class="status-done">✅ u primeni</td>
+      <td>Broj recenzija (cilj +1–2/nedeljno), prosek ocena (4.8+), pregledi profila i klikovi „Pozovi"/„Ruta"</td>
+    </tr>
+    <tr>
+      <td><span class="chip">B</span></td>
+      <td><strong>NAP + lokalni direktorijumi</strong> — isto ime/adresa/telefon svuda, ispravka stare adrese</td>
+      <td class="status-next">sledeće</td>
+      <td>% direktorijuma sa tačnim NAP-om (cilj 100%), nestanak stare adrese „Vojvode Bojovića 5a"</td>
+    </tr>
+    <tr>
+      <td><span class="chip">C</span></td>
+      <td><strong>On-page (prepravka Faze 2)</strong> — tačni URL-ovi, title/meta u tonu brenda, nova logika ključnih reči, schema</td>
+      <td class="status-next">sledeće</td>
+      <td>Strane indeksirane sa novim title-om (GSC), rast impresija/pozicija, rich rezultati (zvezdice, FAQ)</td>
+    </tr>
+    <tr>
+      <td><span class="chip">D</span></td>
+      <td><strong>Sadržaj + FAQ</strong> — blog hub, „U medijima", edukativni Q&amp;A postovi</td>
+      <td class="status-later">kasnije</td>
+      <td>Broj tekstova, pojava u „People also ask"/AI Overviews, organske posete blogu (GA4)</td>
+    </tr>
+    <tr>
+      <td><span class="chip">E</span></td>
+      <td><strong>Autoritet / linkovi</strong> — lokalni partneri, PR, spomeni</td>
+      <td class="status-later">dugoročno</td>
+      <td>Broj kvalitetnih lokalnih spomena/linkova, citiranje brenda u AI odgovorima</td>
+    </tr>
+  </table>
+  <div class="kpi-banner"><strong>Krovni KPI:</strong> organski saobraćaj iz pretrage (sada kritično nizak, SEO ocena 3/10), popunjenost termina, rezervacije sa sajta vs. telefon. SEO je sredstvo — cilj su popunjeni termini.</div>
+
+  <!-- KLJUCNE RECI -->
+  <div class="section-header">
+    <h2>Nova logika ključnih reči</h2>
+    <div class="sub">srž tvoje primedbe — ostaje</div>
+  </div>
+  <p>Ne stavljamo „Novi Sad" na svaku stranu. Lokalne reči <strong>koncentrišemo</strong> tamo gde pretraga ima obim i nameru; ostalo ciljamo <strong>naziv tretmana + problem koji rešava</strong>. Google profil nosi lokalni signal za sve ostale strane — ne moramo ga ponavljati u svakom naslovu.</p>
+  <div class="fix"><span class="label">↻ Ispravka</span> Raniji pregled je negde koristio „kozmetološki". Po potvrđenoj odluci, u SEO tekstu i ključnim rečima koristimo <strong>„kozmetički"</strong> (traženiji u Srbiji). Zvanično ime firme „Sensi Skin" ostaje nepromenjeno radi NAP doslednosti.</div>
+
+  <div class="pill pill-geo">🟥 Geo-strane — ciljaju „… Novi Sad"</div>
+  <table>
+    <tr><th>Strana (tačan URL)</th><th>Glavna ključna reč</th></tr>
+    <tr><td>Početna <code>/</code></td><td>kozmetički centar / kozmetički salon Novi Sad</td></tr>
+    <tr><td>HydraFacial <code>/hydrafacial-tretmani-lica-novi-sad/</code></td><td>hydrafacial Novi Sad</td></tr>
+    <tr><td>Epilacija <code>/epilacija/</code></td><td>laserska epilacija Novi Sad</td></tr>
+    <tr><td>Kontakt <code>/kontakt-sensi-skin-novi-sad/</code></td><td>kozmetički salon Novi Sad — zakazivanje</td></tr>
+    <tr><td>O nama <code>/kozmetoloski-centar-sensi-skin/</code></td><td>Sensi Skin + Nataša Burka</td></tr>
+  </table>
+  <div class="note">Napomena o URL-ovima: postojeći slug-ovi su već SEO-dobri — <strong>ne menjamo ih</strong> (menjanje URL-a bez potrebe gubi postojeći ranking). „kozmetološki" u slug-u <code>/kozmetoloski-centar-sensi-skin/</code> ostaje jer je već indeksiran; reč „kozmetički" koristimo u title/meta/tekstu, ne u slug-u.</div>
+
+  <div class="pill pill-theme" style="margin-top:24px;">🟩 Tematske strane — tretman + problem, bez nateranog „Novi Sad"</div>
+  <table>
+    <tr><th>Strana (tačan URL)</th><th>Cilja</th><th>Ne cilja (loše)</th></tr>
+    <tr><td>Nega lica <code>/nega-lica/</code></td><td>nega lica po tipu kože, tretman za akne</td><td class="bad">nega lica Novi Sad</td></tr>
+    <tr><td>Aura Reality <code>/aura-reality-3d-dijagnostika-koze/</code></td><td>3D analiza / dijagnostika kože</td><td class="bad">aura reality Novi Sad</td></tr>
+    <tr><td>Mesojet <code>/mesojet-tretmani/</code></td><td>mezoterapija bez igala, aktivne supstance bez bola</td><td class="bad">mesojet Novi Sad</td></tr>
+    <tr><td>Mesojet RF <code>/mesojet-rf/</code></td><td>RF zatezanje kože, radiofrekvencija lica</td><td class="bad">mesojet rf Novi Sad</td></tr>
+    <tr><td>Dermalux <code>/dermalux/</code></td><td>LED terapija za akne i crvenilo</td><td class="bad">dermalux Novi Sad</td></tr>
+    <tr><td>Proizvodi <code>/kozmeticki-proizvodi-sensi-skin-studio/</code></td><td>dermokozmetika, proizvodi za negu kože</td><td>geo dozvoljeno: „dermokozmetika Novi Sad"</td></tr>
+  </table>
+  <div class="fix"><span class="label">↻ Ispravka</span> Raniji pregled nije pominjao stranu <strong>Proizvodi</strong> ni <strong>Mesojet RF</strong> kao zasebne (Faza 2 ih je promašila). Sad su uključene sa tačnim URL-ovima.</div>
+  <div class="fix"><span class="label">↻ Ispravka — Ballancer Pro</span> Faza 2 je „optimizovala" stranu <code>/ballancer-pro/</code> koja <strong>ne postoji</strong> (Ballancer Pro se pominje samo kao H2 na početnoj). Ne tretiramo ga kao stranu. Ako želiš da ga ciljaš, prvo treba napraviti pravu stranu sa sadržajem — tek onda ima smisla SEO za nju.</div>
+
+  <!-- FAZA B -->
+  <div class="section-header">
+    <h2>Faza B — NAP + lokalni direktorijumi</h2>
+    <div class="sub">konkretno, spremno za izvršenje</div>
+  </div>
+  <p>NAP = Name, Address, Phone. Google i AI motori porede tvoje podatke na desetinama mesta; ako se razlikuju, pada poverenje i rang. <strong>Najvažniji posao ove faze: ispraviti staru adresu „Vojvode Bojovića 5a" koja se još vuče po direktorijumima.</strong></p>
+  <p style="margin-bottom:6px;"><strong>Tačan NAP blok</strong> (kopiraj doslovno svuda — slovo u slovo isto):</p>
+  <pre>Sensi Skin
+Braće Popović 3, sprat 2, stan 12, 21000 Novi Sad, Srbija
+Telefon: 065/333-8-338  (+381 65 333 8338)
+Email: sensistudio@gmail.com
+Sajt: https://sensiskinstudio.com</pre>
+  <div class="note">Pravilo: ime, adresa i telefon moraju biti <strong>identični</strong> na svakom mestu — ista skraćenica ulice, isti format telefona. Bez varijacija tipa „Sensi Skin Studio" negde a „Sensi Skin" drugde.</div>
+
+  <table>
+    <tr><th>Direktorijum</th><th>Akcija</th><th>Napomena</th></tr>
+    <tr><td>Google Business Profile</td><td class="status-done">✅ radimo (Faza A)</td><td>nosilac lokalnog signala #1</td></tr>
+    <tr><td>Google Maps</td><td>proveri/potvrdi NAP</td><td>vezano za GBP</td></tr>
+    <tr><td><strong>mirandre.com</strong></td><td class="status-next">ISPRAVI</td><td>ima staru adresu „Vojvode Bojovića 5a"</td></tr>
+    <tr><td><strong>navidiku.rs</strong></td><td>preuzmi/ispravi</td><td>proveri adresu i telefon</td></tr>
+    <tr><td><strong>virtualnigrad.com</strong></td><td>preuzmi/ispravi</td><td>proveri adresu i telefon</td></tr>
+    <tr><td><strong>ordinacije.info</strong></td><td>preuzmi/ispravi</td><td>relevantno za medicinsko-estetski profil</td></tr>
+    <tr><td>011info</td><td>dodaj/ispravi</td><td>veliki srpski direktorijum</td></tr>
+    <tr><td>Planplus (planplus.rs)</td><td>dodaj/ispravi</td><td>mape + firme</td></tr>
+    <tr><td>Facebook (/sensi.skin.studiozanegulepote)</td><td>uskladi NAP u „About"</td><td>~4.237 lajkova</td></tr>
+    <tr><td>Instagram (/sensi_skin)</td><td>adresa/telefon u bio + link</td><td>~12k pratilaca</td></tr>
+    <tr><td>Apple Maps (Apple Business Connect)</td><td>dodaj</td><td>sve više ljudi sa iPhone-a</td></tr>
+    <tr><td>Bing Places</td><td>dodaj</td><td>mali trud, koriste i neki AI motori</td></tr>
+  </table>
+  <div class="fix"><span class="label">↻ Ispravka GBP-a</span> U GBP-u, opisi „Usluga" <strong>ne mogu</strong> da drže klikabilne linkove. Konkretne strane linkuješ preko <strong>Google Posts</strong> (dugme + URL), glavnog polja za sajt i linka za zakazivanje. (Ovo treba ispraviti i u GBP vodiču iz Faze A — formulacija koraka 4.)</div>
+
+  <!-- FAZA C -->
+  <div class="section-header">
+    <h2>Faza C — On-page + schema</h2>
+    <div class="sub">prepravka Faze 2</div>
+  </div>
+  <div class="step">
+    <div class="step-header"><div class="step-num">1</div><h3>Title i meta u tonu brenda</h3></div>
+    <div class="step-body">
+      <p>Title je signal rangiranja i prvo što se vidi u pretrazi; meta opis utiče na klik. Bez superlativa koje brend zabranjuje.</p>
+      <div class="fix" style="margin-bottom:0;"><span class="label">↻ Ispravka</span> Neki Faza-2 meta opisi su kršili glas brenda („najnagrađivaniji na svetu", „najpreciznija"). Product-marketing.md zabranjuje preuveličavanje — izbacuju se i pišu konkretno, u tonu „stručno i toplo, bez reklame".</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-header"><div class="step-num">2</div><h3>Sadržaj pre svega</h3></div>
+    <div class="step-body">
+      <p>Više strana ima 0 reči teksta. Title/meta bez sadržaja ne mogu da rangiraju. Prioritet za pisanje (min. 300–500 reči): <code>/hydrafacial-tretmani-lica-novi-sad/</code>, <code>/epilacija/</code>, <code>/nega-lica/</code>. (Sadržaj piše copywriter po našem brief-u — ovde samo definišemo metu.)</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-header"><div class="step-num">3</div><h3>Schema markup <span class="pill pill-new" style="margin:0 0 0 6px;">NOVO</span></h3></div>
+    <div class="step-body">
+      <p>Schema je „prevod" tvoje strane na jezik koji Google i AI motori sigurno razumeju. Ne menja izgled strane korisniku, ali omogućava rich rezultate (zvezdice, FAQ padajuće liste, sat rada) i pomaže da te AI tačno citira.</p>
+      <table>
+        <tr><th>Schema tip</th><th>Gde ide</th><th>Šta donosi</th></tr>
+        <tr><td><code>LocalBusiness</code> (pod-tip <code>HealthAndBeautyBusiness</code>)</td><td>Početna + Kontakt</td><td>NAP, radno vreme, geo-koordinate, cenovni rang — temelj lokalnog i AI prikaza</td></tr>
+        <tr><td><code>Service</code></td><td>svaka strana tretmana</td><td>jasno definiše uslugu i povezuje je sa biznisom</td></tr>
+        <tr><td><code>FAQPage</code></td><td>service-strane sa FAQ + Q&amp;A blog postovi</td><td>otvara „padajuća pitanja" u pretrazi, hrana za AI i featured snippet</td></tr>
+        <tr><td><code>BreadcrumbList</code></td><td>sve dublje strane</td><td>čistiji prikaz putanje u rezultatima</td></tr>
+        <tr><td><code>AggregateRating</code> / <code>Review</code></td><td>povezano sa GBP recenzijama</td><td>zvezdice u rezultatima (mora odgovarati stvarnim recenzijama — bez izmišljanja)</td></tr>
+      </table>
+      <div class="note" style="margin-bottom:0;">Tehnička napomena: u WordPress-u Yoast/RankMath već generišu deo schema-e. Dodatne tipove (Service, FAQPage) radimo kroz plugin podešavanja ili JSON-LD blok — bez ručnog kucanja od strane klijenta.</div>
+    </div>
+  </div>
+
+  <!-- FAZA D -->
+  <div class="section-header">
+    <h2>Faza D — Sadržaj + FAQ</h2>
+    <div class="sub">i rešenje kanibalizacije bloga</div>
+  </div>
+  <div class="fix"><span class="label">↻ Ispravka — blog kanibalizacija</span> Postoje DVA skoro identična „blog" odeljka:<br>
+    • <code>/saveti-za-negu-koze/</code> = <strong>glavni blog hub</strong> (zadržavamo, ovde ide sav novi sadržaj)<br>
+    • <code>/strucni-saveti-za-negu-koze/</code> = samo 3 PDF članka → <strong>repozicioniramo u „Sensi Skin u medijima / Iz štampe"</strong> (signal autoriteta), a PDF-ove prepisujemo u pravi tekst. Time gasimo kanibalizaciju.</div>
+  <p><strong>Pravilo blog vs. service strana:</strong> blog cilja informativna/pitalačka pretraživanja („da li HydraFacial boli", „za koji tip kože", „koliko često raditi"), a service strana <code>/hydrafacial-tretmani-lica-novi-sad/</code> cilja lokalno-transakciono („hydrafacial Novi Sad"). Slug bloga mora jasno da se razlikuje od service slug-a. U telu bloga „Novi Sad" se pominje najviše 1–2 puta, prirodno.</p>
+  <div class="info-box">
+    <p><strong>FAQ ugao (NOVO).</strong> FAQ blokovi rade dva posla odjednom:</p>
+    <p>1. <strong>Featured snippet / „People also ask"</strong> u klasičnoj Google pretrazi.<br>
+       2. <strong>AEO/GEO</strong> — AI motori vole jasna pitanja i kratke, tačne odgovore; baš to citiraju.</p>
+    <p>FAQ ide na: (a) svaku service stranu (3–5 pitanja koja klijenti stvarno postavljaju pred zakazivanje), i (b) Q&amp;A blog postove. Sve nosi <code>FAQPage</code> schema. Format pitanja = tačno kako ljudi govore: „Koliko traje oporavak posle laserske epilacije?", „Da li Mesojet boli?", „Za koji tip kože je HydraFacial?".</p>
+  </div>
+  <div class="note">Q&amp;A format već koristiš u svom pisanju i radi odlično (HydraFacial blog post je dokaz) — ovde ga samo sistematizujemo i vezujemo za schema-u.</div>
+
+  <!-- AEO/GEO -->
+  <div class="section-header">
+    <h2>AEO/GEO sloj — vidljivost u AI pretrazi</h2>
+    <div class="sub"><span class="pill pill-new" style="margin:0;">potpuno NOVO</span></div>
+  </div>
+  <p>AEO = Answer Engine Optimization, GEO = Generative Engine Optimization. Prosto: kako da te AI (ChatGPT, Google AI Overviews, Perplexity, Gemini) <strong>preporuči</strong> kad neko pita „gde da uradim HydraFacial u Novom Sadu" ili „najbolji kozmetički centar Novi Sad".</p>
+  <p>Dobra vest: AI ne traži ništa egzotično — koristi iste signale koje ionako gradimo. Bez paralelnog posla, samo svesno usmeravamo postojeće faze ka tome:</p>
+  <table>
+    <tr><th>Šta AI gleda</th><th>Iz koje faze</th><th>Naša akcija</th></tr>
+    <tr><td>Dosledan identitet (NAP, ime, usluge svuda isto)</td><td>Faza B</td><td>100% NAP doslednost = AI te vidi kao jedan jasan entitet</td></tr>
+    <tr><td>Autoritet i recenzije</td><td>Faza A</td><td>aktivan GBP sa 4.8+ ocenama je glavni „dokaz" koji AI navodi</td></tr>
+    <tr><td>Jasna pitanja + kratki odgovori</td><td>Faza D (FAQ)</td><td>FAQ pisan kako ljudi pitaju = AI to direktno citira</td></tr>
+    <tr><td>Strukturisani podaci</td><td>Faza C (schema)</td><td><code>LocalBusiness</code>+<code>Service</code>+<code>FAQPage</code> daju AI-ju činjenice bez nagađanja</td></tr>
+    <tr><td>Direktorijumi koje AI „čita"</td><td>Faza B</td><td>navidiku.rs, 011info, mape, Apple/Bing — izvori koje AI skenira</td></tr>
+    <tr><td>Spomeni i lokalni autoritet</td><td>Faza E</td><td>„Sensi Skin u medijima" + lokalni partneri = AI ima šta da citira</td></tr>
+  </table>
+  <p style="margin-top:6px;"><strong>Konkretni ciljevi:</strong></p>
+  <ul class="clean">
+    <li>Bar 5–8 FAQ pitanja po ključnoj usluzi, formulisanih kao prirodna pitanja na srpskom.</li>
+    <li>„O nama" strana koja jasno kaže KO (Nataša Burka, 20+ godina), ŠTA (medicinsko-estetski studio), GDE (Novi Sad) i PO ČEMU se razlikuje (Aura Reality 3D, HydraFacial ovlašćeni studio) — to su rečenice koje AI doslovno preuzima.</li>
+    <li>Doslednost imena „Sensi Skin" svuda (entity consistency).</li>
+  </ul>
+  <div class="note">Merenje: ručna provera jednom mesečno — pitaj ChatGPT/Perplexity/Google AI Overviews tipične upite i beleži da li se Sensi Skin pominje i sa kojim podacima. Mlad kanal — pratimo trend, ne tražimo savršenu metriku.</div>
+
+  <!-- INTERNO LINKOVANJE -->
+  <div class="section-header">
+    <h2>Plan internog linkovanja</h2>
+    <div class="sub"><span class="pill pill-new" style="margin:0;">NOVO — bio je tanak</span></div>
+  </div>
+  <p>Interni linkovi govore Google-u koja je strana važna i vode posetioca ka zakazivanju. Model: <strong>hub-and-spoke</strong>.</p>
+  <ul class="clean">
+    <li><strong>Blog hub</strong> <code>/saveti-za-negu-koze/</code> → linkuje ka relevantnim service stranama (tekst o aknama → <code>/dermalux/</code> i <code>/nega-lica/</code>). Anchor opisan, ne „klikni ovde": npr. „LED terapija za akne".</li>
+    <li><strong>Service strane</strong> → svaka vodi ka Kontaktu/zakazivanju (<code>/kontakt-sensi-skin-novi-sad/</code>) i ka 1–2 srodne usluge (HydraFacial ↔ Aura Reality dijagnostika).</li>
+    <li><strong>O nama</strong> → linkuje ka ključnim uslugama i ka recenzijama/GBP (signal poverenja).</li>
+    <li><strong>Početna</strong> → ka 5 glavnih usluga (uz navigaciju, dodati i kontekstualne linkove u tekstu).</li>
+  </ul>
+  <div class="note">Anchor prati keyword model: na geo-strane linkujemo sa lokalnim anchorom („laserska epilacija Novi Sad"), na tematske sa tretman+problem anchorom („mezoterapija bez igala"). Bez preteranog ponavljanja istog anchora.</div>
+
+  <!-- POTVRDJENE ODLUKE -->
+  <div class="section-header">
+    <h2>Potvrđene odluke</h2>
+    <div class="sub">ostaju</div>
+  </div>
+  <table>
+    <tr><th>#</th><th>Odluka</th></tr>
+    <tr><td>1</td><td><strong>Naziv:</strong> zvanično ime „Sensi Skin" ostaje (NAP doslednost); reč „kozmetički" koristimo u SEO tekstu i ključnim rečima.</td></tr>
+    <tr><td>2</td><td><strong>URL-ovi:</strong> postojeći slug-ovi su SEO-dobri — ne menjamo ih (čak ni <code>/kozmetoloski-centar-sensi-skin/</code>, da ne izgubimo ranking).</td></tr>
+    <tr><td>3</td><td><strong>Blog:</strong> glavni <code>/saveti-za-negu-koze/</code> = centar sadržaja; časopisni odeljak repozicioniramo u „Sensi Skin u medijima".</td></tr>
+    <tr><td>4</td><td><strong>Ključne reči:</strong> lokalne reči samo na geo-stranama; tematske strane idu na tretman + problem.</td></tr>
+    <tr><td>5</td><td><strong>Ballancer Pro:</strong> nema svoju stranu — ne optimizujemo ga dok se ne napravi prava strana.</td></tr>
+  </table>
+
+  <!-- ROKOVI -->
+  <div class="section-header">
+    <h2>Okvirni rokovi i obim posla</h2>
+    <div class="sub">gruba procena, ne obećanje</div>
+  </div>
+  <table>
+    <tr><th>Faza</th><th>Obim posla</th><th>Okvirno trajanje</th><th>Ko radi</th></tr>
+    <tr><td><strong>A</strong> — GBP + recenzije</td><td>Vodič gotov; sada disciplina (tražiti recenzije svaki dan)</td><td>u toku, trajno</td><td>vlasnik (mi pratimo)</td></tr>
+    <tr><td><strong>B</strong> — NAP + direktorijumi</td><td>~10 direktorijuma, isti NAP blok, ispravka stare adrese</td><td>1–2 nedelje</td><td>vlasnik + mi</td></tr>
+    <tr><td><strong>C</strong> — On-page + schema</td><td>title/meta za ~12 strana + sadržaj za top 3 + schema</td><td>3–4 nedelje</td><td>mi (copy/schema), vlasnik (unos)</td></tr>
+    <tr><td><strong>D</strong> — Sadržaj + FAQ</td><td>FAQ blokovi + 1 blog / 2 nedelje + prepis PDF-ova</td><td>trajno</td><td>copywriter + mi</td></tr>
+    <tr><td><strong>E</strong> — Autoritet / linkovi</td><td>lokalni partneri, PR, spomeni</td><td>dugoročno</td><td>strategija + vlasnik</td></tr>
+  </table>
+
+  <!-- STA JE SLEDECE -->
+  <div class="section-header">
+    <h2>Šta je sledeće</h2>
+    <div class="sub">biramo šta prvo produbljujemo</div>
+  </div>
+  <p>Pravac je potvrđen iz prethodne verzije; sada biramo šta prvo radimo do nivoa „uradi danas":</p>
+  <ul class="clean">
+    <li><strong>Faza B (NAP + direktorijumi)</strong> — najbrža pobeda; lista i NAP blok su već gore spremni.</li>
+    <li><strong>Faza C (on-page redo)</strong> — veći posao, ali direktno diže rang; počinjemo title/meta + sadržajem za top 3 + schema.</li>
+  </ul>
+  <div class="reco">
+    <h3>★ Naša preporuka — sledeći korak</h3>
+    <p>Uradi <strong>Fazu B paralelno sa nastavkom Faze A</strong> — direktorijumi su mali, jasno definisani zadaci koji odmah jačaju i lokalni i AI signal, a ne zavise od pisanja sadržaja. Čim NAP bude čist, krećemo punom snagom na Fazu C.</p>
+  </div>
+
+  <div class="footer">
+    Sensi Skin — SEO Re-strategija v2.0 · Jun 2026 · sensiskinstudio.com<br>
+    Prethodna verzija: seo-restrategija-pregled-2026-06-09.md
+  </div>
+
+</div>
+</body>
+</html>
