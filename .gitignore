@@ -1,1 +1,5 @@
 node_modules/
+
+# Personal photos — keep local, never publish
+WIN_*.jpg
+outputs/sensiskin/moja-koza-slojevi-overlay.png

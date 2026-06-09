@@ -362,9 +362,9 @@ Ovu proveru radite jednom mesečno — traje oko 15 minuta.
 
 Upišite ova tri upita jedan po jedan i zapišite odgovor:
 
-1. `Koji su najbolji kozmetički studiji u Novom Sadu?`
-2. `Gde mogu da uradim HydraFacial u Novom Sadu?`
-3. `Preporuči mi profesionalni salon za negu kože u Novom Sadu`
+1. `Koji su najbolji kozmetički studiji u Novom Sadu?` 6 smo
+2. `Gde mogu da uradim HydraFacial u Novom Sadu?`1 smo
+3. `Preporuči mi profesionalni salon za negu kože u Novom Sadu` 1 smo
 
 **Šta zapisujete:** Da li se "Sensi Skin" pojavljuje u odgovoru? Da ili ne. Ako da — koji put je pomenut i da li je adresa tačna?
 
@@ -374,8 +374,8 @@ Upišite ova tri upita jedan po jedan i zapišite odgovor:
 
 Upišite:
 
-1. `Kozmetički studiji Novi Sad preporuke`
-2. `HydraFacial tretman Novi Sad`
+1. `Kozmetički studiji Novi Sad preporuke` ne prikazuje se
+2. `HydraFacial tretman Novi Sad`1 smo
 3. `Nataša Burka kozmetičar Novi Sad`
 
 **Šta zapisujete:** Da li je Sensi Skin pomenut? Koji je izvor citiran (URL)? Da li je informacija tačna (adresa, opis)?
@@ -386,9 +386,9 @@ Upišite:
 
 Ovo se pojavljuje automatski u Google pretrazi iznad organskih rezultata (samo ponekad, ne uvek).
 
-1. Pretražite u inkognito tabu: `kozmetički studio Novi Sad preporuka`
-2. Pretražite: `hydrafacial novi sad gde`
-3. Pretražite: `laserska epilacija novi sad`
+1. Pretražite u inkognito tabu: `kozmetički studio Novi Sad preporuka` 5 smo
+2. Pretražite: `hydrafacial novi sad gde`1 ali ai baca 2
+3. Pretražite: `laserska epilacija novi sad`nema nas
 
 **Šta zapisujete:** Da li se AI Overview pojavljuje (plava kutija na vrhu)? Da li pominje Sensi Skin?
 

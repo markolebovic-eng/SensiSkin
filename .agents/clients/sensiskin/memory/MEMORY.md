@@ -4,7 +4,7 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
-2026-06-09 — Phase C body copy for top 3 service pages written and saved (copywriter agent)
+2026-06-09 — Blog post body copy for "razlika profesionalna i drogerijska kozmetika" written (copywriter). Keyword #13 status updated to COPY WRITTEN. Two brand voice reminders added from this session.
 
 ## Active campaigns
 - Local SEO re-strategy for sensiskinstudio.com (in progress).
@@ -21,10 +21,13 @@ Delivered so far this session:
   7. /outputs/sensiskin/faza-c-onpage-schema-uputstvo-2026-06-09.md — Phase C execution playbook: all 12 keyword/title/meta assignments, step-by-step Yoast instructions, LocalBusiness JSON-LD, Service/FAQPage/BreadcrumbList schema guide, 3 content briefs, hub-and-spoke internal linking plan, Phase C "done" definition + GSC success metrics
   8. /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md — Phase B execution playbook: NAP konzistentnost + cleanup starih direktorijuma, korak-po-korak za vlasnika koji izvršava sam (13 platformi, kanonski NAP blok, Google pretraga operatori, email šabloni, tracking tabela, definicija "gotovo")
   9. /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md — NOVO: kompletni body copy za 3 prioritetne stranice (/hydrafacial/, /epilacija/, /nega-lica/) — H1, H2 struktura, FAQ blokovi (Yoast-ready), CTA, tabele internih linkova sa anchor tekstovima
+  10. /outputs/sensiskin/blog-kucna-nega-SEO-brief-2026-06-09.md — SEO brief za blog post "razlika profesionalna i drogerijska kozmetika" — keyword #13, slug /saveti-za-negu-koze/razlika-profesionalna-i-drogerijska-kozmetika/, H2 struktura, 6x FAQ, 5x interni link, word count 850–1000 reči. Predan copywriteru.
+  11. /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md — NOVO: blog post body copy za keyword #13 — ~960 reči (body, bez FAQ), 6x FAQ Yoast-ready, 5x interni link sa anchor tekstovima, 4x alt tekst predlog, SEO paket na vrhu. Implementacija-ready za WordPress.
 Client decision: do the GBP guide IN PRACTICE first, before we write more docs.
 NEXT SESSION — pick up with:
   - OWNER ACTION (Phase B): Execute directory cleanup — mirandre.com claim + fix, navidiku.rs claim/email, ordinacije.info email, virtualnigrad.com email, Apple Business create, Bing Places create, Facebook/Instagram update, 011info.com + planplus.rs add. Playbook at /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md.
   - OWNER ACTION (Phase C — UNBLOCKED): Implement body copy from /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md into WordPress. Priority: HydraFacial → Epilacija → Nega lica. Use Yoast FAQ blok for FAQ sections. Add internal links per anchor tables.
+  - OWNER ACTION (Phase D — UNBLOCKED): Implement blog post from /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md into WordPress under /saveti-za-negu-koze/. Use Yoast FAQ blok for 6 FAQ pitanja. Add internal links per anchor table in file.
   - OWNER ACTION: Install WPCode / Insert Headers and Footers plugin, paste LocalBusiness JSON-LD
   - OWNER ACTION: Request indexing in GSC for each changed page after content is added
   - Also pending: fix the GBP guide's step-4 wording (services can't hold clickable links — link pages via Google Posts instead). HTML guide still needs edit.
@@ -57,6 +60,8 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
   - Cenovnik: /cenovnik-kozmetickih-tretmana-novi-sad/
 - 2026-06-09 | ISSUES FOUND: (a) Ballancer Pro has NO page (only homepage H2) yet Phase 2 optimized for /ballancer-pro/ — page doesn't exist. (b) TWO near-duplicate blog sections (/saveti-za-negu-koze/ vs /strucni-saveti-za-negu-koze/) = cannibalization risk, must resolve. (c) URL slugs are ALREADY SEO-good — no need to change them. (d) Some Phase 2 meta descriptions violate brand voice (superlatives "najnagrađivaniji na svetu", "najpreciznija") — product-marketing.md forbids overclaiming.
 - 2026-06-09 | BLOG SEO RULE confirmed: blog posts must NOT cannibalize service pages. Blog targets informational/question queries ("da li HydraFacial boli", "za koji tip kože", "koliko često raditi") while service page /hydrafacial-tretmani-lica-novi-sad/ targets local transactional queries ("hydrafacial Novi Sad"). Blog URL slug must differ clearly from service page slug.
+- 2026-06-09 | BLOG KEYWORD #13 ASSIGNED: keyword "razlika profesionalna i drogerijska kozmetika" → slug /saveti-za-negu-koze/razlika-profesionalna-i-drogerijska-kozmetika/ | INFORMATIONAL intent | no geo modifier | no cannibalization with any of 12 service/hub page keywords | SEO brief delivered to copywriter at /outputs/sensiskin/blog-kucna-nega-SEO-brief-2026-06-09.md
+- 2026-06-09 | BLOG POST #13 BODY COPY WRITTEN. ~960 reči (body), 6x FAQ Yoast-ready blok, 5x interni link sa anchor tekstom, 4x alt tekst predlog. SEO paket na vrhu fajla. Saved to /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md.
 - 2026-06-08 | Focus keyword for /mesojet-rf/ page: "mesojet RF Novi Sad" — chosen over "mesojet radiofrekvencija Novi Sad" because locals abbreviate RF, and competitor pages that rank use the "mesojet RF" short form. Transactional (booking) intent confirmed.
 - 2026-06-08 | Title tag and meta description finalized for /mesojet-rf/ — Yoast green-light criteria met (keyword in first sentence of meta, 120–155 chars, CTA included, 50–60 char title).
 - 2026-06-08 | Focus keyword for /nega-koze-sensi-skin/ page: "profesionalna nega kože Novi Sad" — chosen over "nega kože Novi Sad" (too broad/generic, high homepage-level competition) and "kozmetološki centar nega kože" (unnatural phrasing, low local search volume). "Profesionalna" qualifier narrows intent to service-seekers, not DIY skincare browsers, and matches the brand's positioning as a medical-aesthetic studio. This keyword is NOT duplicated — the homepage pipeline keyword "kozmetološki centar Novi Sad" remains available for the homepage.
@@ -82,6 +87,8 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 - 2026-06-09 | SEO (skills: seo-audit, schema) | PHASE C EXECUTION PLAYBOOK delivered | 12-page keyword/title/meta assignments, WordPress/Yoast entry instructions, LocalBusiness JSON-LD block, Service/FAQPage/BreadcrumbList schema guide, 3 content briefs (HydraFacial/Epilacija/Nega lica), hub-and-spoke internal linking map, Phase C "done" checklist + 8-week GSC success metrics | saved to /outputs/sensiskin/faza-c-onpage-schema-uputstvo-2026-06-09.md
 - 2026-06-09 | SEO (skill: directory-submissions) | PHASE B EXECUTION PLAYBOOK | NAP konzistentnost + cleanup starih direktorijuma — korak-po-korak za vlasnika koji izvršava sam | Live research potvrdio staru adresu na: mirandre.com, navidiku.rs, ordinacije.info, virtualnigrad.com (blog post) | Pokriva: kanonski NAP blok, 5 Google pretraga za audit, 8 direktorijuma + Apple/Bing + socijalne mreže, redosled po danima (3 dana), 13-stavčanu tracking tabelu, definiciju "gotovo" + KPI | saved to /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md
 - 2026-06-09 | COPYWRITING | Phase C body copy — top 3 service pages | /hydrafacial/ (~405 reči), /epilacija/ (~410 reči), /nega-lica/ (~455 reči) | All pages: H1+H2 structure per brief, FAQ blokovi (5/5/4 pitanja), CTA sa tačnim formatom telefona, tabele internih linkova sa anchor tekstovima | No content duplicated from blog post | saved to /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md
+- 2026-06-09 | SEO (skill: seo-audit) | BLOG SEO BRIEF — "razlika profesionalna i drogerijska kozmetika" | keyword #13 assigned, slug confirmed, H2 structure (5 odeljaka), 6x FAQ, 5x interni link, word count 850–1000 reči | No cannibalization confirmed vs. all 12 service/hub keywords | Predan copywriteru | saved to /outputs/sensiskin/blog-kucna-nega-SEO-brief-2026-06-09.md
+- 2026-06-09 | COPYWRITING | BLOG POST — "razlika profesionalna i drogerijska kozmetika" | Owner's authentic voice (Nataša Burka), ~960 reči body + 6x FAQ Yoast-ready blok + 5x interni link sa anchor tekstom + 4x alt tekst predlog + SEO paket | No superlatives, no overclaiming, fair treatment of home care role, all brief H2s followed, focus keyword in H1 + first paragraph, "Novi Sad" appears once naturally, Aura Reality + individualan pristup woven in (not forced), CTA with exact phone number | saved to /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md
 
 ## GBP / local data (2026-06-09)
 - Google listing CID (ludocid): 8612375676436028978 — permanent business ID. Feature ID hex: 0x475b11b33766c78d:0x77854e0c222f1e32.
@@ -132,10 +139,12 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 - COMPETITOR POSITIONING ON SERVICE PAGES: Never name competitors directly. Use indirect framing — "standardni protokol koji svi rade na isti način" to establish differentiation without naming rivals. Keeps brand voice clean and avoids reputation risks.
 - DIFFERENTIATOR DISTRIBUTION RULE (locked 2026-06-09): Do not badge-nail all differentiators on every page. Each page gets the ONE differentiator most relevant to its service context. "20+ godina iskustva" lands strongest on /epilacija/ (safety/protocol trust). "Aura Reality 3D dijagnostika" lands strongest on /hydrafacial/ and /nega-lica/ (personalization angle). "Ovlašteni studio" lands strongest on /hydrafacial/ (branded protocol). Use the others as supporting context only.
 - TRANSACTIONAL PAGES — word count ceiling: 350-450 reči for booking-intent pages (/hydrafacial/, /epilacija/). Going over dilutes the transactional signal and pushes the page toward informational. Hub pages (/nega-lica/) can go to 500 because their job is exploration, not immediate booking.
+- BLOG EDUCATIONAL POSTS — approved "credibility without overclaiming" device (locked 2026-06-09): Phrase "Ovo nije marketinška fraza. Razlika je tehnička i merljiva." (or equivalent) is an approved pattern for Nataša's voice when making a factual claim about apparatus/professional results that could sound like marketing. Use sparingly — once per post maximum.
+- BLOG FAIR-BALANCE RULE (locked 2026-06-09): Educational blog posts must honestly acknowledge what home care CAN do before explaining its limits. Opening a blog post by dismissing home care entirely violates Nataša's authentic, balanced voice and risks reader trust. Pattern confirmed effective: "Kućna nega i dalje ima svoju ulogu" → then explain the ceiling → then professional value.
 
 ## SEO targets
 
-### MASTER KEYWORD TABLE — Phase C (2026-06-09) — ALL ASSIGNMENTS ACTIVE
+### MASTER KEYWORD TABLE — Phase C + Blog (2026-06-09) — ALL ASSIGNMENTS ACTIVE
 
 | # | Stranica (slug) | Focus keyword | SEO Title | Chars | Meta (shortened) | Chars | Status |
 |---|----------------|---------------|-----------|-------|------------------|-------|--------|
@@ -151,9 +160,11 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 | 10 | /kontakt-sensi-skin-novi-sad/ | Sensi Skin Novi Sad kontakt | Sensi Skin Novi Sad — kontakt i zakazivanje | 49 | Sensi Skin Novi Sad — zakazite tretman telefonom 065/333-8-338 ili posetite nas na Brace Popovic 3, sprat 2. Radno vreme i mapa u nastavku. | 152 | ACTIVE |
 | 11 | /kozmeticki-proizvodi-sensi-skin-studio/ | dermokozmetika Novi Sad | Dermokozmetika Novi Sad — proizvodi Sensi Skin Studio | 53 | Dermokozmetika Novi Sad dostupna u Sensi Skin studiju — profesionalni proizvodi za negu koze odabrani od strane strucnjaka. Posetite nas ili zakazite. | 150 | ACTIVE — previously delivered 2026-06-08 |
 | 12 | /saveti-za-negu-koze/ | saveti za negu koze | Strucni saveti za negu koze — Sensi Skin, Novi Sad | 50 | Saveti za negu koze koje zaista funkcionisu — citajte blog Sensi Skin studija i naucite kako da brinete o kozi uz strucne savete. Zakazite odmah. | 145 | ACTIVE — previously delivered 2026-06-08 |
+| 13 | /saveti-za-negu-koze/razlika-profesionalna-i-drogerijska-kozmetika/ | razlika profesionalna i drogerijska kozmetika | Razlika profesionalna i drogerijska kozmetika — Sensi Skin | 55 | Razlika profesionalna i drogerijska kozmetika nije samo cena — u pitanju su koncentracija, prodiranje u kozu i strucna dijagnoza. Saznajte sta kucna nega moze, a sta ne. | 153 | COPY WRITTEN — pending WordPress implementation. File: /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md |
 
-**COLLISION CHECK**: All 12 keywords are unique. No two pages share a focus keyword.
-**GEO RULE COMPLIANCE**: "Novi Sad" in keyword only on pages 1, 2, 4, 7, 9, 10, 11 (geo pages). Pages 3, 5, 6, 8, 12 are thematic — no geo modifier.
+**COLLISION CHECK**: All 13 keywords are unique. No two pages share a focus keyword.
+**GEO RULE COMPLIANCE**: "Novi Sad" in keyword only on pages 1, 2, 4, 7, 9, 10, 11 (geo pages). Pages 3, 5, 6, 8, 12, 13 are thematic — no geo modifier.
+**BLOG CANNIBALIZATION CHECK**: Page #13 is informational; all service pages (1–11) are transactional/local. Zero overlap in keyword intent or phrasing. Slug is a subpage of blog hub #12, not a service page slug.
 
 ---
 
@@ -161,6 +172,9 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 - Brief #1 — /hydrafacial-tretmani-lica-novi-sad/: EXECUTED. Copy at /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md
 - Brief #2 — /epilacija/: EXECUTED. Copy at /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md
 - Brief #3 — /nega-lica/: EXECUTED. Copy at /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md
+
+### Blog content briefs (Phase D, 2026-06-09)
+- Brief #4 — /saveti-za-negu-koze/razlika-profesionalna-i-drogerijska-kozmetika/: EXECUTED. Copy at /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md. ~960 reči body + 6x FAQ + 5x interni link + 4x alt tekst. Pending WordPress implementation.
 
 ---
 

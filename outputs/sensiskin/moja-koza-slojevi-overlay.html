@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<title>Moja koža — anatomski presek (overlay)</title>
+<style>
+  html,body{margin:0;padding:0;background:#000;}
+  #stage{position:relative;width:1280px;height:720px;overflow:hidden;}
+  #photo{position:absolute;inset:0;width:1280px;height:720px;object-fit:cover;}
+  #ovl{position:absolute;inset:0;width:1280px;height:720px;}
+</style>
+</head>
+<body>
+<div id="stage">
+  <img id="photo" src="file:///C:/Users/Marko/SensiSkin/WIN_20260609_20_39_41_Pro.jpg" alt="" />
+  <svg id="ovl" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .ink{fill:#FAF7F2;font-family:'Segoe UI',Arial,sans-serif;}
+        .mut{fill:#C7D0DC;font-family:'Segoe UI',Arial,sans-serif;}
+        .b{font-weight:800;}
+      </style>
+      <clipPath id="lens"><circle cx="790" cy="475" r="88"/></clipPath>
+      <radialGradient id="lensShade" cx="50%" cy="42%" r="60%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.18)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,.25)"/>
+      </radialGradient>
+      <pattern id="coll" width="60" height="18" patternUnits="userSpaceOnUse">
+        <path d="M0,6 q15,-5 30,0 t30,0" fill="none" stroke="#FFF5E4" stroke-width="2" opacity=".8"/>
+        <path d="M0,13 q15,5 30,0 t30,0" fill="none" stroke="#F3E2C7" stroke-width="1.6" opacity=".6"/>
+      </pattern>
+      <filter id="ds" x="-40%" y="-40%" width="180%" height="180%">
+        <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.5"/>
+      </filter>
+    </defs>
+
+    <!-- title chip top-left -->
+    <rect x="28" y="26" width="430" height="64" rx="14" fill="rgba(13,27,42,.72)"/>
+    <text x="48" y="58" class="ink b" font-size="26">ANATOMSKI PRESEK KOŽE</text>
+    <text x="48" y="82" class="mut" font-size="18">Sensi Skin · prikaz slojeva na koži</text>
+
+    <!-- leader from lens to panel -->
+    <line x1="876" y1="455" x2="980" y2="250" stroke="#E0B341" stroke-width="2.5"/>
+    <circle cx="876" cy="455" r="5" fill="#E0B341"/>
+
+    <!-- ===== LENS on the cheek ===== -->
+    <g filter="url(#ds)">
+      <circle cx="790" cy="475" r="92" fill="#0D1B2A"/>
+      <g clip-path="url(#lens)">
+        <!-- layered bands -->
+        <rect x="698" y="387" width="184" height="14" fill="#F6E7D6"/>            <!-- stratum -->
+        <rect x="698" y="401" width="184" height="26" fill="#F1C7A3"/>            <!-- epidermis -->
+        <g fill="#5E3418"><circle cx="740" cy="414" r="3"/><circle cx="772" cy="418" r="3"/><circle cx="806" cy="413" r="3"/><circle cx="840" cy="417" r="3"/></g>
+        <rect x="698" y="427" width="184" height="78" fill="#E68A8A"/>            <!-- dermis -->
+        <rect x="698" y="427" width="184" height="78" fill="url(#coll)"/>
+        <path d="M734,440 q40,40 16,58" stroke="#C0392B" stroke-width="3" fill="none"/>  <!-- capillary -->
+        <rect x="698" y="505" width="184" height="38" fill="#FBF0C6"/>            <!-- fat -->
+        <g fill="#FFF0A0" stroke="#D9C24E" stroke-width="1.5">
+          <circle cx="724" cy="524" r="12"/><circle cx="756" cy="528" r="11"/><circle cx="790" cy="522" r="12"/><circle cx="824" cy="528" r="11"/><circle cx="856" cy="523" r="10"/>
+        </g>
+        <rect x="698" y="543" width="184" height="24" fill="#9c2f2c"/>            <!-- muscle -->
+        <path d="M700,553 q44,-4 92,0 t92,0" stroke="#7a1f1d" stroke-width="2.5" fill="none"/>
+        <rect x="698" y="387" width="184" height="180" fill="url(#lensShade)"/>
+      </g>
+      <!-- magnifier ring -->
+      <circle cx="790" cy="475" r="88" fill="none" stroke="#E0B341" stroke-width="5"/>
+      <circle cx="790" cy="475" r="92" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+    </g>
+
+    <!-- ===== INFO PANEL right ===== -->
+    <g>
+      <rect x="980" y="120" width="272" height="470" rx="18" fill="rgba(13,27,42,.82)" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+      <text x="1004" y="166" class="ink b" font-size="24">SLOJEVI KOŽE</text>
+      <rect x="1004" y="180" width="120" height="4" rx="2" fill="#E0B341"/>
+
+      <!-- rows -->
+      <g font-size="20">
+        <rect x="1004" y="206" width="26" height="26" rx="6" fill="#F6E7D6"/>
+        <text x="1042" y="219" class="ink b">Stratum corneum</text>
+        <text x="1042" y="240" class="mut" font-size="16">površinska barijera</text>
+
+        <rect x="1004" y="268" width="26" height="26" rx="6" fill="#F1C7A3"/>
+        <text x="1042" y="281" class="ink b">Epidermis</text>
+        <text x="1042" y="302" class="mut" font-size="16">pigment / melanin</text>
+
+        <rect x="1004" y="330" width="26" height="26" rx="6" fill="#E68A8A"/>
+        <text x="1042" y="343" class="ink b">Dermis</text>
+        <text x="1042" y="364" class="mut" font-size="16">kolagen · elastin · HA</text>
+
+        <rect x="1004" y="392" width="26" height="26" rx="6" fill="#FBE08A"/>
+        <text x="1042" y="405" class="ink b">Hipodermis</text>
+        <text x="1042" y="426" class="mut" font-size="16">potkožno masno tkivo</text>
+
+        <rect x="1004" y="454" width="26" height="26" rx="6" fill="#A83C38"/>
+        <text x="1042" y="467" class="ink b">Mišić / SMAS</text>
+        <text x="1042" y="488" class="mut" font-size="16">potpora i mimika</text>
+
+        <rect x="1004" y="516" width="26" height="26" rx="6" fill="#C0392B"/>
+        <text x="1042" y="529" class="ink b">Vaskularni sloj</text>
+        <text x="1042" y="550" class="mut" font-size="16">kapilari</text>
+      </g>
+    </g>
+
+    <!-- footer note -->
+    <rect x="28" y="664" width="900" height="34" rx="10" fill="rgba(13,27,42,.7)"/>
+    <text x="44" y="687" class="mut" font-size="17">Ilustrativni anatomski prikaz preko stvarne fotografije (vektorski overlay) — nije AI fotorealizam.</text>
+  </svg>
+</div>
+</body>
+</html>

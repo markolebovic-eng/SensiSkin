@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anatomija kože lica — interaktivni presek</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #1a1a2e; }
+  body {
+    color: #e8e2d8;
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 20px 48px; }
+
+  header { margin-bottom: 22px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; }
+  .titles h1 { font-size: 26px; font-weight: 700; letter-spacing: .2px; }
+  .titles h1 span { color: #e94560; }
+  .titles p { color: #9aa0b4; font-size: 13px; margin-top: 4px; }
+
+  .toggle { display: inline-flex; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 4px; }
+  .toggle button {
+    cursor: pointer; border: 0; background: transparent; color: #c7cbda;
+    font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 16px; border-radius: 999px;
+    transition: all .25s ease; letter-spacing: .3px;
+  }
+  .toggle button.active { color: #fff; }
+  .toggle button.art.active { background: #e94560; }
+  .toggle button.clin.active { background: #3aa0ad; }
+
+  .stage { display: flex; flex-wrap: wrap; gap: 18px; align-items: stretch; }
+  .card {
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px; padding: 16px;
+    box-shadow: 0 18px 50px -30px rgba(0,0,0,.8);
+  }
+  .card-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #767c92; margin-bottom: 8px; display: block; }
+
+  .face { flex: 1 1 250px; min-width: 240px; display: flex; flex-direction: column; }
+  .cross { flex: 1.25 1 360px; min-width: 330px; position: relative; }
+  .info { flex: 1 1 280px; min-width: 280px; }
+
+  svg { width: 100%; height: auto; display: block; }
+  .layer-hit { cursor: pointer; }
+
+  .tooltip {
+    position: absolute; pointer-events: none; z-index: 10;
+    background: rgba(14,14,28,.96); border: 1px solid rgba(255,255,255,.14);
+    border-radius: 12px; padding: 11px 13px; width: 215px;
+    box-shadow: 0 16px 40px -16px rgba(0,0,0,.9);
+    transition: opacity .12s ease;
+  }
+  .tooltip .tt-name { font-size: 13.5px; font-weight: 700; }
+  .tooltip .tt-sub { font-size: 10.5px; color: #9aa0b4; margin-bottom: 7px; }
+  .tooltip .tt-row { font-size: 11.5px; color: #d6d2c8; margin-top: 4px; }
+  .tooltip .tt-row b { color: #fff; font-weight: 600; }
+  .tooltip .tt-chip { display:inline-block; width:9px; height:9px; border-radius:3px; margin-right:6px; vertical-align:middle; }
+
+  /* Info panel */
+  .info-empty { color: #9aa0b4; font-size: 13px; line-height: 1.7; }
+  .info-empty .hint { display:flex; gap:10px; align-items:flex-start; margin-top:14px; }
+  .info-empty .dot { width:8px;height:8px;border-radius:50%; margin-top:6px; flex:0 0 auto; }
+  .ic-head { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .ic-badge { width:40px;height:40px;border-radius:12px; display:flex;align-items:center;justify-content:center; font-weight:800; font-size:18px; color:#1a1a2e; flex:0 0 auto; }
+  .ic-name { font-size:17px; font-weight:700; line-height:1.15; }
+  .ic-sub { font-size:11.5px; color:#9aa0b4; }
+  .ic-thick { display:inline-block; margin:2px 0 14px; font-size:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:4px 10px; border-radius:8px; }
+  .ic-label { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#767c92; margin:14px 0 6px; }
+  .ic-fn { font-size:13.5px; line-height:1.6; color:#ece8df; }
+  .ic-comp { display:flex; flex-wrap:wrap; gap:6px; }
+  .ic-comp span { font-size:11.5px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); padding:5px 9px; border-radius:999px; color:#d6d2c8; }
+  .ic-detail { font-size:12.5px; line-height:1.65; color:#b9bccb; margin-top:6px; }
+  .ic-close { margin-top:16px; cursor:pointer; border:1px solid rgba(255,255,255,.14); background:transparent; color:#c7cbda; font:inherit; font-size:12px; padding:7px 14px; border-radius:9px; transition:all .2s; }
+  .ic-close:hover { background:rgba(255,255,255,.07); }
+
+  .face-caption { text-align:center; font-size:11px; color:#767c92; margin-top:6px; }
+  footer { margin-top:22px; font-size:11px; color:#5e6478; line-height:1.6; }
+
+  @media (max-width: 720px) {
+    .stage { flex-direction: column; }
+    .cross, .face, .info { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+const { useState, useMemo, useRef } = React;
+
+/* ---------- deterministic RNG so artwork is stable ---------- */
+function makeRng(seed) {
+  let t = seed >>> 0;
+  return function () {
+    t += 0x6D2B79F5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/* ---------- geometry of the cross-section ---------- */
+const X0 = 26, X1 = 300;            // layer body left/right
+const BANDS = {
+  stratum:    { y0: 55,  y1: 84 },
+  epidermis:  { y0: 84,  y1: 130 },
+  dermis:     { y0: 130, y1: 356 },
+  hypodermis: { y0: 356, y1: 472 },
+  muscle:     { y0: 472, y1: 550 },
+  bone:       { y0: 550, y1: 612 },
+};
+const LABEL_Y = { stratum: 61, epidermis: 107, dermis: 232, hypodermis: 408, muscle: 503, bone: 580 };
+
+/* ---------- layer data (content) ---------- */
+const LAYERS = [
+  {
+    id: "stratum", num: 1,
+    name: "Stratum corneum", sub: "Rožnati sloj",
+    thickness: "0,01–0,02 mm",
+    fn: "Zaštitna barijera kože — sprečava gubitak vode i ulazak bakterija i nečistoća.",
+    components: ["Mrtve keratinizovane ćelije (korneociti)", "Lipidi (međućelijski „cement“)", "Prirodni faktor hidratacije (NMF)"],
+    detail: "Najpovršniji sloj do kojeg uglavnom dopiru kreme i serumi iz kućne nege. Eksfolijacija uklanja ove mrtve ćelije i osvežava ten. Kada je barijera oštećena, koža postaje suva, zategnuta i osetljiva.",
+    art: "#f6e7d6", clin: "#dfe3ea"
+  },
+  {
+    id: "epidermis", num: 2,
+    name: "Epidermis", sub: "Gornji sloj kože",
+    thickness: "0,05–0,15 mm",
+    fn: "Stvara nove ćelije kože i pigment; potpuno se obnavlja na otprilike 28 dana.",
+    components: ["Keratinociti", "Melanociti (melanin / pigment)", "Langerhansove ćelije (imunitet)"],
+    detail: "Nema sopstvene krvne sudove — hrani se difuzijom iz dermisa. U ovom sloju nastaje boja kože; neravnomeran melanin daje pigmentne mrlje. Zdrav ciklus obnove daje ujednačen, blistav ten.",
+    art: "#f1c7a3", clin: "#b9c4d6"
+  },
+  {
+    id: "dermis", num: 3,
+    name: "Dermis", sub: "Prava koža",
+    thickness: "1–3 mm (najdeblji sloj kože)",
+    fn: "Daje koži čvrstinu, elastičnost, ishranu i osećaj.",
+    components: ["Kolagen (čvrstina)", "Elastin (elastičnost)", "Krvni sudovi i kapilari", "Folikuli dlake", "Lojne i znojne žlezde", "Nervni završeci"],
+    detail: "Ovde profesionalni tretmani zaista deluju — stimulacija kolagena, ishrana, dubinska hidratacija. Sa godinama opada kolagen i elastin, pa nastaju bore i opuštanje. Kućne kreme retko dopiru ovako duboko, zbog čega aparaturni tretmani i koncentrati prave razliku.",
+    art: "#db8079", clin: "#cf93a9"
+  },
+  {
+    id: "hypodermis", num: 4,
+    name: "Hypodermis", sub: "Potkožno masno tkivo",
+    thickness: "2–10+ mm (varira)",
+    fn: "Toplotna izolacija, amortizacija i skladište energije; daje licu punoću i mladalačku zaobljenost.",
+    components: ["Masne ćelije (adipociti)", "Vezivno tkivo (septe)", "Veći krvni sudovi"],
+    detail: "Gubitak i pomeranje ovog sloja sa godinama dovode do upalih obraza i opuštanja konture lica. Volumen lica u velikoj meri zavisi baš od ovog sloja.",
+    art: "#f2cf73", clin: "#e6dcae"
+  },
+  {
+    id: "muscle", num: 5,
+    name: "Mišićni sloj — SMAS", sub: "Superficijalni mišićno-aponeurotski sistem",
+    thickness: "≈ 2–3 mm",
+    fn: "Pokreti i izrazi lica; nosi i pridržava tkiva iznad sebe.",
+    components: ["Mišićna vlakna", "Fibrozna aponeuroza (SMAS)"],
+    detail: "SMAS je sloj koji se zateže tokom face-lift operacija. Ponavljani mimički pokreti vremenom stvaraju mimičke bore (čelo, oko očiju, između obrva).",
+    art: "#a83c38", clin: "#8f5560"
+  },
+  {
+    id: "bone", num: 6,
+    name: "Kost — lobanja", sub: "Koštana osnova lica",
+    thickness: "Čvrsta strukturna osnova",
+    fn: "Strukturni okvir koji oblikuje crte i proporcije lica.",
+    components: ["Kortikalna kost", "Periost (opna kosti)"],
+    detail: "Sa godinama dolazi do blage resorpcije kosti lica (očne duplje, vilica), što menja potporu mekih tkiva i doprinosi promenama u izgledu.",
+    art: "#ece6d6", clin: "#c4ccd6"
+  },
+];
+
+const ACCENT = { art: "#e94560", clin: "#3aa0ad" };
+
+function SkinLayersVisualization() {
+  const [view, setView] = useState("art");        // "art" | "clin"
+  const [hovered, setHovered] = useState(null);
+  const [selected, setSelected] = useState(null);
+  const [tip, setTip] = useState({ x: 0, y: 0, w: 0 });
+  const crossRef = useRef(null);
+
+  const colorOf = (l) => (view === "art" ? l.art : l.clin);
+  const accent = ACCENT[view];
+  const activeId = hovered || selected;
+  const activeLayer = LAYERS.find((l) => l.id === activeId) || null;
+  const tooltipLayer = hovered ? LAYERS.find((l) => l.id === hovered) : null;
+  const infoLayer = selected ? LAYERS.find((l) => l.id === selected) : null;
+
+  /* ----- generated micro-artwork (stable) ----- */
+  const art = useMemo(() => {
+    const fibers = [];
+    const rc = makeRng(7);
+    for (let i = 0; i < 46; i++) {
+      const x = X0 + 14 + rc() * (X1 - X0 - 32);
+      const y = 162 + rc() * (344 - 162);
+      const l = 12 + rc() * 16, a = 1.4 + rc() * 3;
+      fibers.push(`M${x.toFixed(1)},${y.toFixed(1)} q ${(l/4).toFixed(1)},${(-a).toFixed(1)} ${(l/2).toFixed(1)},0 t ${(l/2).toFixed(1)},0`);
+    }
+    const fat = [];
+    const rf = makeRng(13);
+    for (let y = 374; y < 466; y += 23) {
+      for (let x = X0 + 16; x < X1 - 8; x += 25) {
+        fat.push({ cx: x + (rf() - .5) * 8, cy: y + (rf() - .5) * 8, r: 8 + rf() * 3 });
+      }
+    }
+    const trab = [];
+    const rb = makeRng(29);
+    for (let i = 0; i < 30; i++) {
+      trab.push({ cx: X0 + 10 + rb() * (X1 - X0 - 20), cy: 560 + rb() * 48, rx: 3 + rb() * 4, ry: 2 + rb() * 3, rot: Math.floor(rb() * 180) });
+    }
+    const caps = [];
+    for (let i = 0; i < 6; i++) caps.push(X0 + 32 + i * 42);
+    const stri = [];
+    for (let i = 0; i < 7; i++) stri.push(480 + i * 10);
+    return { fibers, fat, trab, caps, stri };
+  }, []);
+
+  /* ----- magnifier stripes for the face ----- */
+  const lens = useMemo(() => {
+    const w = [0.6, 1.1, 3.4, 2.1, 1.3, 1.0];
+    const sum = w.reduce((a, b) => a + b, 0);
+    const top = 207, h = 86;
+    let y = top;
+    return LAYERS.map((l, i) => {
+      const hh = (w[i] / sum) * h;
+      const seg = { y, h: hh, id: l.id };
+      y += hh;
+      return seg;
+    });
+  }, []);
+
+  const onMove = (e) => {
+    const r = crossRef.current.getBoundingClientRect();
+    setTip({ x: e.clientX - r.left, y: e.clientY - r.top, w: r.width });
+  };
+
+  const layerStyle = (l) => {
+    const dim = activeId && activeId !== l.id;
+    return { opacity: dim ? 0.32 : 1, transition: "opacity .3s ease" };
+  };
+
+  /* ----- render one layer's decorative content ----- */
+  function decor(l) {
+    const c = colorOf(l);
+    const b = BANDS[l.id];
+    if (l.id === "stratum") {
+      return (
+        <g>
+          {[0, 1, 2, 3].map((i) => (
+            <path key={i} d={`M${X0},${b.y0 + 6 + i * 6} q 34,${i % 2 ? -3 : 3} 68,0 t 68,0 t 68,0 t 68,0`}
+                  fill="none" stroke="rgba(0,0,0,.14)" strokeWidth="1" />
+          ))}
+        </g>
+      );
+    }
+    if (l.id === "epidermis") {
+      const re = makeRng(3); const dots = [];
+      for (let i = 0; i < 46; i++) dots.push({ cx: X0 + 8 + re() * (X1 - X0 - 16), cy: b.y0 + 6 + re() * (b.y1 - b.y0 - 16), r: 1.4 + re() * 1.3, mel: re() > .82 });
+      return (
+        <g>
+          {dots.map((d, i) => (
+            <circle key={i} cx={d.cx} cy={d.cy} r={d.r} fill={d.mel ? "rgba(70,40,30,.5)" : "rgba(255,255,255,.45)"} />
+          ))}
+          {/* rete ridges (wavy junction with dermis) */}
+          <path d={`M${X0},${b.y1} q 17,12 34,0 t 34,0 t 34,0 t 34,0 t 34,0 t 34,0 t 34,0 t 34,0`}
+                fill="none" stroke="rgba(0,0,0,.18)" strokeWidth="1.4" />
+        </g>
+      );
+    }
+    if (l.id === "dermis") {
+      return (
+        <g>
+          {/* collagen / elastin fibers */}
+          {art.fibers.map((d, i) => (
+            <path key={i} d={d} fill="none" stroke={view === "art" ? "rgba(255,255,255,.5)" : "rgba(255,255,255,.34)"} strokeWidth="1.1" strokeLinecap="round" />
+          ))}
+          {/* capillary loops in papillary dermis */}
+          {art.caps.map((x, i) => (
+            <path key={i} d={`M${x - 3},152 C ${x - 3},134 ${x + 3},134 ${x + 3},152`} fill="none" stroke="#c0392b" strokeWidth="1.6" strokeLinecap="round" />
+          ))}
+          {/* a deeper blood vessel */}
+          <path d="M210,158 q 10,40 -4,86 q -10,34 6,70" fill="none" stroke="#b5302b" strokeWidth="3" strokeLinecap="round" opacity=".85" />
+          <path d="M214,160 q 9,40 -4,84 q -9,32 6,68" fill="none" stroke="#d85b54" strokeWidth="1.2" strokeLinecap="round" opacity=".8" />
+
+          {/* hair follicle */}
+          <path d={`M${X0+38},84 L${X0+86},344`} stroke="rgba(60,35,25,.5)" strokeWidth="11" fill="none" strokeLinecap="round" />
+          <path d={`M${X0+38},84 L${X0+86},344`} stroke={c} strokeWidth="7" fill="none" strokeLinecap="round" opacity=".75" />
+          <path d={`M${X0+40},70 L${X0+86},342`} stroke="rgba(40,25,18,.85)" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <ellipse cx={X0+88} cy={350} rx="13" ry="15" fill="rgba(60,35,25,.55)" stroke="rgba(40,25,18,.6)" />
+          <ellipse cx={X0+88} cy={352} rx="6" ry="7" fill="#d85b54" opacity=".8" />
+          {/* sebaceous gland */}
+          {[[X0+62,180],[X0+74,176],[X0+70,190]].map((p,i)=>(
+            <circle key={i} cx={p[0]} cy={p[1]} r="7" fill={view==="art"?"#f4d98f":"#e3d39a"} stroke="rgba(0,0,0,.18)" />
+          ))}
+
+          {/* sweat gland with duct */}
+          <path d="M250,84 q 9,30 -2,58 q -9,28 2,58 q 8,28 -2,56 q -6,22 2,40"
+                fill="none" stroke="rgba(255,255,255,.5)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M242,316 q -11,7 -2,15 q 11,9 19,2 q 11,-9 0,-17 q -11,-7 -17,2 q -7,9 5,15 q 10,5 16,-3"
+                fill="none" stroke="#7fb0c4" strokeWidth="3" strokeLinecap="round" opacity=".9" />
+
+          {/* micro labels */}
+          <text x={X0+150} y={205} fontSize="7.5" fill="rgba(255,255,255,.6)">kolagen</text>
+          <text x={X0+8} y={150} fontSize="7.5" fill="rgba(255,255,255,.7)">kapilari</text>
+          <text x={X0+96} y={356} fontSize="7.5" fill="rgba(255,255,255,.7)">folikul dlake</text>
+          <text x={258} y={336} fontSize="7.5" fill="rgba(255,255,255,.7)">znojna žlezda</text>
+        </g>
+      );
+    }
+    if (l.id === "hypodermis") {
+      return (
+        <g>
+          {art.fat.map((f, i) => (
+            <g key={i}>
+              <circle cx={f.cx} cy={f.cy} r={f.r} fill={view === "art" ? "rgba(255,255,255,.16)" : "rgba(255,255,255,.12)"} stroke="rgba(120,80,20,.28)" strokeWidth="1" />
+              <circle cx={f.cx - f.r * .3} cy={f.cy - f.r * .3} r={f.r * .28} fill="rgba(255,255,255,.4)" />
+            </g>
+          ))}
+          {/* fibrous septa */}
+          <path d={`M${X0},372 q 70,18 140,0 t 140,0`} fill="none" stroke="rgba(120,80,20,.3)" strokeWidth="1.2" />
+          <text x={X0+8} y={368} fontSize="7.5" fill="rgba(255,255,255,.7)">masne ćelije</text>
+        </g>
+      );
+    }
+    if (l.id === "muscle") {
+      return (
+        <g>
+          {art.stri.map((y, i) => (
+            <path key={i} d={`M${X0},${y} q 34,-3 69,0 t 69,0 t 69,0 t 69,0`} fill="none" stroke="rgba(60,10,10,.4)" strokeWidth="1.6" />
+          ))}
+          {[60, 130, 200, 270].map((x, i) => (
+            <line key={i} x1={X0 + x % (X1 - X0)} y1={BANDS.muscle.y0 + 6} x2={X0 + x % (X1 - X0)} y2={BANDS.muscle.y1 - 6} stroke="rgba(0,0,0,.12)" strokeWidth="1" />
+          ))}
+          <text x={X0+8} y={BANDS.muscle.y0+16} fontSize="7.5" fill="rgba(255,255,255,.7)">mišićna vlakna (SMAS)</text>
+        </g>
+      );
+    }
+    if (l.id === "bone") {
+      return (
+        <g>
+          <line x1={X0} y1={BANDS.bone.y0 + 3} x2={X1} y2={BANDS.bone.y0 + 3} stroke="rgba(0,0,0,.2)" strokeWidth="2" />
+          {art.trab.map((t, i) => (
+            <ellipse key={i} cx={t.cx} cy={t.cy} rx={t.rx} ry={t.ry} fill="rgba(0,0,0,.1)" transform={`rotate(${t.rot} ${t.cx} ${t.cy})`} />
+          ))}
+          <text x={X0+8} y={BANDS.bone.y0+16} fontSize="7.5" fill="rgba(0,0,0,.45)">periost</text>
+        </g>
+      );
+    }
+    return null;
+  }
+
+  const tipLeft = tip.w && tip.x > tip.w - 230 ? tip.x - 228 : tip.x + 16;
+
+  return (
+    <div className="wrap">
+      <header>
+        <div className="titles">
+          <h1>Anatomija <span>kože lica</span></h1>
+          <p>Interaktivni presek — od površine do kosti. Pređite mišem preko sloja ili kliknite za detalje.</p>
+        </div>
+        <div className="toggle" role="group" aria-label="Prikaz">
+          <button className={"art " + (view === "art" ? "active" : "")} onClick={() => setView("art")}>Umetnički prikaz</button>
+          <button className={"clin " + (view === "clin" ? "active" : "")} onClick={() => setView("clin")}>Klinički prikaz</button>
+        </div>
+      </header>
+
+      <div className="stage">
+
+        {/* ---------------- FACE ---------------- */}
+        <div className="card face">
+          <span className="card-tag">Lice — mesto preseka</span>
+          <svg viewBox="0 0 400 420" role="img" aria-label="Silueta lica">
+            <defs>
+              <radialGradient id="skinG" cx="50%" cy="42%" r="62%">
+                <stop offset="0%" stopColor={view === "art" ? "#f7d9bf" : "#dfe1ea"} />
+                <stop offset="70%" stopColor={view === "art" ? "#eebd99" : "#c6cad8"} />
+                <stop offset="100%" stopColor={view === "art" ? "#d99b73" : "#aab0c2"} />
+              </radialGradient>
+              <radialGradient id="blush" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor={view === "art" ? "rgba(233,99,112,.55)" : "rgba(120,140,170,.5)"} />
+                <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+              </radialGradient>
+              <clipPath id="lensClip"><circle cx="322" cy="250" r="46" /></clipPath>
+            </defs>
+
+            {/* hair behind */}
+            <path d="M120,180 C112,86 158,40 200,40 C242,40 288,86 280,180 C280,150 300,250 286,300 C300,150 262,96 200,96 C138,96 100,150 114,300 C100,250 120,150 120,180 Z"
+                  fill={view === "art" ? "#3a2a35" : "#2b3550"} opacity=".9" />
+
+            {/* face */}
+            <path d="M200,72 C150,72 128,112 126,172 C124,232 152,302 200,356 C248,302 276,232 274,172 C272,112 250,72 200,72 Z"
+                  fill="url(#skinG)" stroke="rgba(0,0,0,.12)" strokeWidth="1" />
+
+            {/* cheeks */}
+            <ellipse cx="166" cy="250" rx="26" ry="18" fill="url(#blush)" />
+            <ellipse cx="234" cy="250" rx="26" ry="18" fill="url(#blush)" />
+
+            {/* brows */}
+            <path d="M146,176 Q166,168 186,176" fill="none" stroke="rgba(70,45,40,.7)" strokeWidth="3" strokeLinecap="round" />
+            <path d="M214,176 Q234,168 254,176" fill="none" stroke="rgba(70,45,40,.7)" strokeWidth="3" strokeLinecap="round" />
+            {/* eyes */}
+            <g>
+              <ellipse cx="166" cy="192" rx="14" ry="7" fill="#fff" opacity=".92" />
+              <circle cx="166" cy="192" r="4.6" fill="#5a4636" />
+              <circle cx="166" cy="192" r="2" fill="#221a12" />
+              <ellipse cx="234" cy="192" rx="14" ry="7" fill="#fff" opacity=".92" />
+              <circle cx="234" cy="192" r="4.6" fill="#5a4636" />
+              <circle cx="234" cy="192" r="2" fill="#221a12" />
+            </g>
+            {/* nose */}
+            <path d="M200,202 L193,242 Q200,249 207,242" fill="none" stroke="rgba(0,0,0,.18)" strokeWidth="2" strokeLinecap="round" />
+            {/* lips */}
+            <path d="M178,276 Q200,269 222,276 Q200,283 178,276 Z" fill={view === "art" ? "#c9605f" : "#9a6a7a"} opacity=".9" />
+            <path d="M180,279 Q200,294 220,279 Q200,287 180,279 Z" fill={view === "art" ? "#b5494a" : "#86566a"} opacity=".9" />
+
+            {/* sample marker on cheek + connector to lens */}
+            <line x1="246" y1="252" x2="276" y2="250" stroke={accent} strokeWidth="1.4" strokeDasharray="3 3" />
+            <circle cx="246" cy="252" r="5.5" fill="none" stroke={accent} strokeWidth="2" />
+            <circle cx="246" cy="252" r="1.6" fill={accent} />
+
+            {/* magnifier lens showing the layer stripes */}
+            <g clipPath="url(#lensClip)">
+              {lens.map((s) => {
+                const l = LAYERS.find((x) => x.id === s.id);
+                const isOn = activeId === s.id;
+                return <rect key={s.id} x="274" y={s.y} width="100" height={s.h + 0.5}
+                             fill={colorOf(l)} opacity={activeId && !isOn ? .4 : 1} />;
+              })}
+            </g>
+            <circle cx="322" cy="250" r="46" fill="none" stroke={accent} strokeWidth="3" />
+            <line x1="356" y1="284" x2="372" y2="302" stroke={accent} strokeWidth="6" strokeLinecap="round" />
+          </svg>
+          <div className="face-caption">Uveličani presek kože desnog obraza →</div>
+        </div>
+
+        {/* ---------------- CROSS SECTION ---------------- */}
+        <div className="card cross" ref={crossRef} onMouseMove={onMove} onMouseLeave={() => setHovered(null)}>
+          <span className="card-tag">Presek kože — slojevi</span>
+          <svg viewBox="0 0 440 624" role="img" aria-label="Presek slojeva kože">
+            <defs>
+              <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="rgba(255,255,255,.18)" />
+                <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+              </linearGradient>
+            </defs>
+
+            {/* surface label */}
+            <text x={X0} y={34} fontSize="11" fill="#9aa0b4">Površina kože</text>
+            <line x1={X0} y1={42} x2={X1} y2={42} stroke="rgba(255,255,255,.18)" strokeDasharray="4 4" />
+            <path d={`M${X1-6},38 l8,4 l-8,4`} fill="rgba(255,255,255,.4)" />
+
+            {LAYERS.map((l) => {
+              const b = BANDS[l.id];
+              const isOn = activeId === l.id;
+              return (
+                <g key={l.id} style={layerStyle(l)}>
+                  <rect x={X0} y={b.y0} width={X1 - X0} height={b.y1 - b.y0}
+                        rx="3" fill={colorOf(l)} stroke={isOn ? accent : "rgba(0,0,0,.18)"} strokeWidth={isOn ? 3 : 1} />
+                  <rect x={X0} y={b.y0} width={X1 - X0} height={Math.min(14, b.y1 - b.y0)} fill="url(#sheen)" />
+                  {decor(l)}
+                  {/* number badge */}
+                  <circle cx={14} cy={(b.y0 + b.y1) / 2} r="9" fill={colorOf(l)} stroke={isOn ? accent : "rgba(255,255,255,.3)"} strokeWidth={isOn ? 2.5 : 1.2} />
+                  <text x={14} y={(b.y0 + b.y1) / 2 + 3.4} fontSize="10" fontWeight="700" textAnchor="middle" fill="#1a1a2e">{l.num}</text>
+
+                  {/* right-side label + leader */}
+                  <line x1={X1} y1={(b.y0 + b.y1) / 2} x2={310} y2={LABEL_Y[l.id]} stroke={isOn ? accent : "rgba(255,255,255,.22)"} strokeWidth={isOn ? 1.6 : 1} />
+                  <text x={314} y={LABEL_Y[l.id] - 2} fontSize="11.5" fontWeight={isOn ? 700 : 600} fill={isOn ? "#fff" : "#d6d2c8"}>{l.name}</text>
+                  <text x={314} y={LABEL_Y[l.id] + 12} fontSize="9.5" fill="#8b90a4">{l.thickness}</text>
+                </g>
+              );
+            })}
+
+            {/* hit areas (on top, full row incl. label) */}
+            {LAYERS.map((l) => {
+              const b = BANDS[l.id];
+              return (
+                <rect key={l.id} className="layer-hit" x={0} y={b.y0} width={440} height={b.y1 - b.y0}
+                      fill="transparent"
+                      onMouseEnter={() => setHovered(l.id)}
+                      onClick={() => setSelected(selected === l.id ? null : l.id)} />
+              );
+            })}
+          </svg>
+
+          {/* tooltip */}
+          {tooltipLayer && (
+            <div className="tooltip" style={{ left: tipLeft, top: tip.y + 14 }}>
+              <div className="tt-name"><span className="tt-chip" style={{ background: colorOf(tooltipLayer) }}></span>{tooltipLayer.name}</div>
+              <div className="tt-sub">{tooltipLayer.sub}</div>
+              <div className="tt-row"><b>Debljina:</b> {tooltipLayer.thickness}</div>
+              <div className="tt-row"><b>Funkcija:</b> {tooltipLayer.fn}</div>
+              <div className="tt-row"><b>Sastav:</b> {tooltipLayer.components.slice(0, 3).join(", ")}{tooltipLayer.components.length > 3 ? "…" : ""}</div>
+            </div>
+          )}
+        </div>
+
+        {/* ---------------- INFO PANEL ---------------- */}
+        <div className="card info">
+          <span className="card-tag">Detalji sloja</span>
+          {!infoLayer && (
+            <div className="info-empty">
+              Kliknite na bilo koji sloj u preseku da otvorite detaljan opis — funkciju, sastav i zašto je važan za negu kože.
+              {LAYERS.map((l) => (
+                <div className="hint" key={l.id}>
+                  <span className="dot" style={{ background: colorOf(l) }}></span>
+                  <span><b style={{ color: "#e8e2d8" }}>{l.num}. {l.name}</b> — {l.sub}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          {infoLayer && (
+            <div>
+              <div className="ic-head">
+                <div className="ic-badge" style={{ background: colorOf(infoLayer) }}>{infoLayer.num}</div>
+                <div>
+                  <div className="ic-name">{infoLayer.name}</div>
+                  <div className="ic-sub">{infoLayer.sub}</div>
+                </div>
+              </div>
+              <span className="ic-thick">Debljina: {infoLayer.thickness}</span>
+
+              <div className="ic-label">Glavna funkcija</div>
+              <div className="ic-fn">{infoLayer.fn}</div>
+
+              <div className="ic-label">Ključne komponente</div>
+              <div className="ic-comp">
+                {infoLayer.components.map((c, i) => <span key={i}>{c}</span>)}
+              </div>
+
+              <div className="ic-label">Zašto je važno</div>
+              <div className="ic-detail">{infoLayer.detail}</div>
+
+              <button className="ic-close" onClick={() => setSelected(null)}>Zatvori</button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <footer>
+        Napomena: prikaz nije u razmeri — tanki slojevi (npr. stratum corneum) uvećani su radi preglednosti. Stvarne debljine navedene su uz svaki sloj.
+        &nbsp;·&nbsp; Edukativni materijal — Sensi Skin.
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<SkinLayersVisualization />);
+</script>
+</body>
+</html>
