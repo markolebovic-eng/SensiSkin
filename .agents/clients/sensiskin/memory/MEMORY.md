@@ -4,34 +4,39 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
-2026-06-09 — Blog post body copy for "razlika profesionalna i drogerijska kozmetika" written (copywriter). Keyword #13 status updated to COPY WRITTEN. Two brand voice reminders added from this session.
+2026-06-10 — GEO audit (2-phase) + complete JSON-LD schema for all 48 URLs delivered. Blog post body copy for "razlika profesionalna i drogerijska kozmetika" written (copywriter). Keyword #13 status updated to COPY WRITTEN.
 
 ## Active campaigns
 - Local SEO re-strategy for sensiskinstudio.com (in progress).
+- GEO/AI search optimization: schema layer being implemented.
 
-## ▶ WHERE WE LEFT OFF (2026-06-09) — read this first next session
-State: Phase C body copy DELIVERED for all 3 priority-zero service pages (HydraFacial, Epilacija, Nega lica). Content is implementation-ready in WordPress. Owner must copy-paste into WordPress Gutenberg editor using H1/H2 heading blocks, Yoast FAQ block for FAQ sections, and add internal links per the anchor table in each page's deliverable section.
-Delivered so far this session:
+## ▶ WHERE WE LEFT OFF (2026-06-10) — read this first next session
+State: Complete JSON-LD schema code delivered for ALL pages on sensiskinstudio.com. Ready to paste into Yoast Custom Schema fields. GEO audit identified dual sitemap as critical issue (owner may have already fixed this).
+Delivered so far (all sessions):
   1. /outputs/gbp-recenzije-vodic-2026-06-09.html — GBP + reviews guide (priority #1)
   2. /outputs/seo-restrategija-pregled-2026-06-09.md — half-page re-strategy overview (PRIOR VERSION, kept)
   3. /outputs/qr-recenzije-sensiskin-2026-06-09.png — static review QR (link: https://g.page/r/CTIeLyIMToV3EAE/review)
   4. /outputs/blog-hydrafacial-2026-06-09.md — edukativni blog post o HydraFacial tretmanu (Q&A format, ~800 words, SEO paket uključen)
-  5. /outputs/sensiskin/seo-restrategija-2026-06-09.md — NEW: full SEO re-strategy v2.0 (new repo location /outputs/sensiskin/)
-  6. /outputs/sensiskin/merenje-gsc-uputstvo-2026-06-09.md — measurement & verification playbook for Phase B/C (GSC, GBP, NAP, schema, AEO/GEO)
-  7. /outputs/sensiskin/faza-c-onpage-schema-uputstvo-2026-06-09.md — Phase C execution playbook: all 12 keyword/title/meta assignments, step-by-step Yoast instructions, LocalBusiness JSON-LD, Service/FAQPage/BreadcrumbList schema guide, 3 content briefs, hub-and-spoke internal linking plan, Phase C "done" definition + GSC success metrics
-  8. /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md — Phase B execution playbook: NAP konzistentnost + cleanup starih direktorijuma, korak-po-korak za vlasnika koji izvršava sam (13 platformi, kanonski NAP blok, Google pretraga operatori, email šabloni, tracking tabela, definicija "gotovo")
-  9. /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md — NOVO: kompletni body copy za 3 prioritetne stranice (/hydrafacial/, /epilacija/, /nega-lica/) — H1, H2 struktura, FAQ blokovi (Yoast-ready), CTA, tabele internih linkova sa anchor tekstovima
-  10. /outputs/sensiskin/blog-kucna-nega-SEO-brief-2026-06-09.md — SEO brief za blog post "razlika profesionalna i drogerijska kozmetika" — keyword #13, slug /saveti-za-negu-koze/razlika-profesionalna-i-drogerijska-kozmetika/, H2 struktura, 6x FAQ, 5x interni link, word count 850–1000 reči. Predan copywriteru.
-  11. /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md — NOVO: blog post body copy za keyword #13 — ~960 reči (body, bez FAQ), 6x FAQ Yoast-ready, 5x interni link sa anchor tekstovima, 4x alt tekst predlog, SEO paket na vrhu. Implementacija-ready za WordPress.
+  5. /outputs/sensiskin/seo-restrategija-2026-06-09.md — full SEO re-strategy v2.0
+  6. /outputs/sensiskin/merenje-gsc-uputstvo-2026-06-09.md — measurement & verification playbook for Phase B/C
+  7. /outputs/sensiskin/faza-c-onpage-schema-uputstvo-2026-06-09.md — Phase C execution playbook
+  8. /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md — Phase B NAP playbook
+  9. /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md — kompletni body copy za 3 prioritetne stranice (/hydrafacial/, /epilacija/, /nega-lica/)
+  10. /outputs/sensiskin/blog-kucna-nega-SEO-brief-2026-06-09.md — SEO brief za blog post keyword #13
+  11. /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md — blog post body copy za keyword #13 (~960 reči, Yoast-ready)
+  12. /outputs/sensiskin/geo-audit-izvestaj-2026-06-09.md — GEO audit phase 1 (WebSearch based)
+  13. /outputs/sensiskin/geo-crawl-audit-2026-06-09.md — GEO deep crawl audit (direct fetch, definitive)
+  14. /outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md — KORISTITI OVAJ: kompletan JSON-LD schema za svih 48 URL-ova (stariji json-ld-schemas- fajl ima pogrešan Aura Reality URL)
 Client decision: do the GBP guide IN PRACTICE first, before we write more docs.
 NEXT SESSION — pick up with:
-  - OWNER ACTION (Phase B): Execute directory cleanup — mirandre.com claim + fix, navidiku.rs claim/email, ordinacije.info email, virtualnigrad.com email, Apple Business create, Bing Places create, Facebook/Instagram update, 011info.com + planplus.rs add. Playbook at /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md.
-  - OWNER ACTION (Phase C — UNBLOCKED): Implement body copy from /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md into WordPress. Priority: HydraFacial → Epilacija → Nega lica. Use Yoast FAQ blok for FAQ sections. Add internal links per anchor tables.
-  - OWNER ACTION (Phase D — UNBLOCKED): Implement blog post from /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md into WordPress under /saveti-za-negu-koze/. Use Yoast FAQ blok for 6 FAQ pitanja. Add internal links per anchor table in file.
-  - OWNER ACTION: Install WPCode / Insert Headers and Footers plugin, paste LocalBusiness JSON-LD
-  - OWNER ACTION: Request indexing in GSC for each changed page after content is added
-  - Also pending: fix the GBP guide's step-4 wording (services can't hold clickable links — link pages via Google Posts instead). HTML guide still needs edit.
-  - PENDING FROM OWNER: baseline snapshot capture. Owner must fill in "Baseline (danas)" column from the measurement playbook.
+  - OWNER ACTION (SCHEMA — HIGHEST PRIORITY): Paste JSON-LD schemas from /outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md into Yoast Custom Schema. Order: (1) Yoast Knowledge Graph settings, (2) Početna strana, (3) HydraFacial, (4) Epilacija, (5) Aura Reality, (6) Kontakt, (7) Tim, (8) Mesojet RF, (9) Mesojet tretmani, (10) Dermalux, (11) Cenovnik, (12) 5 blog FAQPage posts.
+  - OWNER ACTION (Phase B): Execute directory cleanup — mirandre.com, navidiku.rs, ordinacije.info, virtualnigrad.com, Apple Business, Bing Places, 011info.com, planplus.rs. Playbook: /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md.
+  - OWNER ACTION (Phase C — UNBLOCKED): Implement body copy from /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md into WordPress. Priority: HydraFacial → Epilacija → Nega lica. Use Yoast FAQ blok for FAQ sections.
+  - OWNER ACTION (Phase D — UNBLOCKED): Implement blog post from /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md into WordPress under /saveti-za-negu-koze/.
+  - OWNER ACTION: Request indexing in GSC for each changed page after content is added.
+  - CONFIRMED DONE (owner confirmed): FAQPage schema for /sve-istine-o-laserskoj-epilaciji/ already added via Yoast Custom Schema.
+  - Also pending: fix the GBP guide's step-4 wording (services can't hold clickable links — use Google Posts instead). HTML guide still needs edit.
+  - PENDING FROM OWNER: baseline snapshot capture.
 Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers honest pushback over yes-manning. All deliverables in Serbian (Latin).
 
 ## Key decisions made
@@ -72,6 +77,8 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 - 2026-06-08 | Phase 2 SEO Audit completed — Google search results as of June 2026 still show OLD title tags ("Kozmeticki salon i salon lepote — Sensi Skin") on all pages. Phase 2 changes have NOT yet propagated to Google index. Either: (a) changes were implemented too recently and Google has not re-crawled, or (b) changes were not saved correctly in Yoast. Client must verify in WordPress Yoast that all title tags are saved, then submit pages to GSC for re-indexing. Phase 2 honest SEO score: 5.5/10 — technically the right inputs are in, but ranking impact is ZERO until Google re-crawls and until content is added.
 
 ## Completed tasks log
+- 2026-06-10 | SEO (skills: schema, ai-seo) | JSON-LD schema KOMPLETNO v2 | Fresh sitemap crawl: 14 stranica + 34 blog posta = 48 URL-ova. KRITIČAN ISPRAVAK: Aura Reality URL bio /aura-reality/ (POGREŠNO) — tačno je /aura-reality-3d-dijagnostika-koze/. Nijedno "already done" schema nije live na sajtu (sve 4 verifikovane URL-ove vraćaju NO JSON-LD). 5 blog FAQPage schema napisano sa verbatim Q&A (Ballancer Pro, Serum, Melazma, Tretmani pre/posle letovanja, Nega lica+kozmetičar). Article schema šablon + tabela za svih 29 Article-only postova. Cenovnik ItemList schema sa 13 tretmana i cenama. SEO meta tabela za svih 34 blog posta (focus keyphrase + meta opis). | saved to /outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md (KORISTITI OVAJ — stariji fajl json-ld-schemas- ima pogrešan Aura Reality URL)
+- 2026-06-09 | SEO (skills: seo-audit, ai-seo) | GEO audit — 2 faze: broad research + deep crawl | KRITIČNI NALAZI: (1) Dual sitemap — /sitemap.xml ima 23 mrtva URL-a sa starog sajta, /sitemap_index.xml je Yoast sa aktuelnim sadržajem. (2) FAQPage schema potpuno nedostaje na svim stranicama sa FAQ sadržajem. (3) Blogs nema Article schema. GEO score: 21/100. | saved to /outputs/sensiskin/geo-audit-izvestaj-2026-06-09.md + /outputs/sensiskin/geo-crawl-audit-2026-06-09.md
 - 2026-06-04 | orchestrator→copywriter | Homepage headline + subheadline | 3 variations delivered | saved to /outputs/homepage-headline-2026-06-04.md
 - 2026-06-08 | SEO agent | Yoast-ready focus keyword + title tag + meta description for /mesojet-rf/ | Delivered in agent response (no file output required)
 - 2026-06-08 | SEO agent | Yoast-ready focus keyword + title tag + meta description for /nega-koze-sensi-skin/ | Delivered in agent response (no file output required)
@@ -178,12 +185,17 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 
 ---
 
-### Schema implementation status (Phase C, 2026-06-09)
-- LocalBusiness (HealthAndBeautyBusiness): JSON-LD block written and ready to paste — install WPCode plugin, paste in header. NAP pre-filled, GBP CID linked.
-- Service: Yoast Schema tab → "Web Page" per treatment page; or per-page JSON-LD via WPCode "Content-Specific" for precision.
-- FAQPage: Yoast FAQ block on /hydrafacial/, /epilacija/, /nega-lica/ — auto-generates FAQPage schema. FAQ content written and ready to paste.
+### Schema implementation status (updated 2026-06-10)
+- COMPLETE SCHEMA FILE: /outputs/sensiskin/json-ld-schemas-2026-06-10.md — ready-to-paste JSON for ALL pages
+- LocalBusiness + WebSite: Homepage Custom Schema — JSON ready. ALSO configure Yoast Knowledge Graph settings first.
+- Service + FAQPage: HydraFacial (7 Q), Epilacija (4 Q), Aura Reality (5 Q) — JSON ready in schema file.
+- Service only: Mesojet RF, Mesojet tretmani, Dermalux — JSON ready in schema file.
+- Person + Organization: Tim stranica (/kozmetoloski-centar-sensi-skin/) — JSON ready in schema file. Includes all 6 team members.
+- BlogPosting (Article): set Yoast Schema tab → Article type = BlogPosting for all 10 blog posts. No Custom Schema needed.
+- FAQPage on blog: /sve-istine-o-laserskoj-epilaciji/ — ALREADY DONE by owner (confirmed).
 - BreadcrumbList: Enable in Yoast → SEO → Search Appearance → Breadcrumbs.
 - AggregateRating: DO NOT add until 10+ real GBP reviews collected.
+- IMPLEMENTATION TIME ESTIMATE: ~41 minutes for all pages per schema file table.
 
 ---
 
