@@ -4,6 +4,15 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
+2026-06-11 — GEO RE-AUDIT (live DOM crawl) after implementation. Score 21 → 62/100. Report: /outputs/sensiskin/geo-audit-izvestaj-2026-06-11.md.
+
+## ▶ RE-AUDIT FINDINGS (2026-06-11, verified live via Chrome --dump-dom)
+VERIFIED FIXED: robots.txt open to all AI bots (GPTBot/ClaudeBot/PerplexityBot/Google-Extended not blocked); on-site NAP consistent (Braće Popović everywhere, no Vojvode Bojovića); schema live = home(MedicalOrganization+WebSite+BeautySalon+ContactPoint), HydraFacial(FAQPage 7Q+Service), Epilacija(FAQPage 4Q+Service), Nega lica(Service+OfferCatalog), Mesojet RF/Dermalux(Service), O nama(Person — Nataša Burka), sve-istine-o-laserskoj-epilaciji(Article+FAQPage+LocalBusiness+Person+WebPage = best page); service pages now have real content.
+STILL NOT DONE: (1) 🔴 blog "razlika-profesionalna-i-drogerijska-kozmetika" returns 404 — NOT published yet (text ready, just not posted). (2) FAQ/FAQPage missing on Nega lica, Mesojet RF, Dermalux, (Aura Reality unchecked). (3) No AggregateRating/Review schema anywhere. (4) No BreadcrumbList. (5) /strucni-saveti-za-negu-koze/ duplicate still live (cannibalization). (6) No HowTo.
+NOT VERIFIABLE FROM SITE CRAWL: off-site directory NAP (Faza B), GBP, Luftika/SrediMe, real AI citations (need re-crawl, measure in 3–6 weeks).
+Per-dimension scores: AI vis 5/10, content 7, schema 8, E-E-A-T 6, topical 4, citability 5, technical 8, local 5.
+
+## Last updated (prior)
 2026-06-10 — GEO audit (2-phase) + complete JSON-LD schema for all 48 URLs delivered. Blog post body copy for "razlika profesionalna i drogerijska kozmetika" written (copywriter). Keyword #13 status updated to COPY WRITTEN.
 
 ## Active campaigns
