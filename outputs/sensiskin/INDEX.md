@@ -13,7 +13,7 @@ Svi outputi su organizovani po tipu. Datum se vidi u imenu svakog fajla (YYYY-MM
 - `faza1-seo-uputstvo` / `faza2-seo-uputstvo` (html + pdf) — ranije faze
 
 ## 03-geo-audit
-- `geo-audit-izvestaj-2026-06-11.md` — **najnoviji re-audit (skor 62/100)**
+- `geo-audit-izvestaj-2026-06-11.md` — **najnoviji re-audit (skor 64/100)**
 - `geo-audit-izvestaj-2026-06-09.md` — prvi audit (skor 21/100)
 - `geo-crawl-audit-2026-06-09.md` — deep crawl audit
 - `json-ld-schema-kompletno-2026-06-10.md` — **kompletan JSON-LD za svih 48 URL-ova (koristiti ovaj)**

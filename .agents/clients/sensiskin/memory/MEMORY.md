@@ -4,7 +4,16 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
-2026-06-11 — GEO RE-AUDIT (live DOM crawl) after implementation. Score 21 → 62/100. Report: /outputs/sensiskin/geo-audit-izvestaj-2026-06-11.md.
+2026-06-12 — ARTICLE SCHEMA SOLVED via SASWP plugin. See SASWP note below.
+
+## ▶ ARTICLE SCHEMA — SASWP (2026-06-12, RESOLVED)
+Site uses TWO schema plugins simultaneously: **Yoast SEO** (handles service pages) and **SASWP** (Schema & Structured Data for WP & AMP, handles blog posts + navigation). This was the root cause of 0/29 Article schema on blog posts despite Yoast "Article type" being set correctly — SASWP was overriding Yoast output on posts.
+FIX APPLIED: Configured SASWP → Add New Schema → Article → assigned to Post type. Verified: Article schema now appears on ALL blog posts (confirmed via validator.schema.org and page source).
+IMPORTANT FOR FUTURE AGENTS: Do NOT tell user to configure Article schema in Yoast for blog posts. SASWP handles schema for posts. Yoast Custom Schema field still works for service pages (Pages post type). Manual JSON-LD in /outputs/sensiskin/03-geo-audit/blog-article-json-svi-postovi-2026-06-11.md is now OBSOLETE — do not use (would duplicate SASWP output).
+STATUS: Article schema = ✅ LIVE on all 29 blog posts as of 2026-06-12.
+
+## ▶ BLOG CRAWL CORRECTION (2026-06-11) — read with re-audit
+Full crawl of all ~29 existing blog posts (initial re-audit only crawled the hub + 2 articles). Findings: site has ~30 quality educational posts (serum, hemijski pilinzi, melazma, rozacea, vrste akni, menopauza, predeo oko ociju, stetnost solarijuma, tipovi koze, dnevna rutina, alopecija…), each ~700–1700 body words. BUT: 0/29 have Article/BlogPosting schema, only 2/29 have FAQPage, 0/29 have datePublished in schema. => Topical authority corrected 4→7/10; Schema 8→7/10; overall 62→64. NEW HIGH-PRIORITY ACTION: bulk-add Article + datePublished/dateModified + author(Nataša Burka) schema to all ~30 posts (Yoast global "Post" type), FAQPage where Q&A exists. Content already exists — only markup missing.
 
 ## ▶ RE-AUDIT FINDINGS (2026-06-11, verified live via Chrome --dump-dom)
 VERIFIED FIXED: robots.txt open to all AI bots (GPTBot/ClaudeBot/PerplexityBot/Google-Extended not blocked); on-site NAP consistent (Braće Popović everywhere, no Vojvode Bojovića); schema live = home(MedicalOrganization+WebSite+BeautySalon+ContactPoint), HydraFacial(FAQPage 7Q+Service), Epilacija(FAQPage 4Q+Service), Nega lica(Service+OfferCatalog), Mesojet RF/Dermalux(Service), O nama(Person — Nataša Burka), sve-istine-o-laserskoj-epilaciji(Article+FAQPage+LocalBusiness+Person+WebPage = best page); service pages now have real content.
