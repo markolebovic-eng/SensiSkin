@@ -4,7 +4,7 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
-2026-06-12 — ARTICLE SCHEMA SOLVED via SASWP plugin. See SASWP note below.
+2026-06-12 — Social copy delivered: HydraFacial pre/posle Instagram + Facebook post (Nataša's voice). Article schema resolved via SASWP. See notes below.
 
 ## ▶ ARTICLE SCHEMA — SASWP (2026-06-12, RESOLVED)
 Site uses TWO schema plugins simultaneously: **Yoast SEO** (handles service pages) and **SASWP** (Schema & Structured Data for WP & AMP, handles blog posts + navigation). This was the root cause of 0/29 Article schema on blog posts despite Yoast "Article type" being set correctly — SASWP was overriding Yoast output on posts.
@@ -95,6 +95,7 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 - 2026-06-08 | Phase 2 SEO Audit completed — Google search results as of June 2026 still show OLD title tags ("Kozmeticki salon i salon lepote — Sensi Skin") on all pages. Phase 2 changes have NOT yet propagated to Google index. Either: (a) changes were implemented too recently and Google has not re-crawled, or (b) changes were not saved correctly in Yoast. Client must verify in WordPress Yoast that all title tags are saved, then submit pages to GSC for re-indexing. Phase 2 honest SEO score: 5.5/10 — technically the right inputs are in, but ranking impact is ZERO until Google re-crawls and until content is added.
 
 ## Completed tasks log
+- 2026-06-12 | SOCIAL (skills: social, copywriting) | HydraFacial pre/posle — Instagram + Facebook post | Nataša Burka's first-person voice; Instagram: scroll-stopping hook, Aura Reality 3D dijagnostika angle, fair-balance on home care, 5 branded/local hashtags, 2x Stories frames; Facebook: longer "why" format covering vortex mechanism, home care fair-balance, ovlašćeni studio + dijagnostika both woven in, full explanation of personalization protocol; approved credibility device used once per post; CTA exact format; no superlatives, no price mentions, "Novi Sad" appears once per post naturally | saved to /outputs/sensiskin/09-social/hydrafacial-pre-posle-social-2026-06-12.md
 - 2026-06-10 | SEO (skills: schema, ai-seo) | JSON-LD schema KOMPLETNO v2 | Fresh sitemap crawl: 14 stranica + 34 blog posta = 48 URL-ova. KRITIČAN ISPRAVAK: Aura Reality URL bio /aura-reality/ (POGREŠNO) — tačno je /aura-reality-3d-dijagnostika-koze/. Nijedno "already done" schema nije live na sajtu (sve 4 verifikovane URL-ove vraćaju NO JSON-LD). 5 blog FAQPage schema napisano sa verbatim Q&A (Ballancer Pro, Serum, Melazma, Tretmani pre/posle letovanja, Nega lica+kozmetičar). Article schema šablon + tabela za svih 29 Article-only postova. Cenovnik ItemList schema sa 13 tretmana i cenama. SEO meta tabela za svih 34 blog posta (focus keyphrase + meta opis). | saved to /outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md (KORISTITI OVAJ — stariji fajl json-ld-schemas- ima pogrešan Aura Reality URL)
 - 2026-06-09 | SEO (skills: seo-audit, ai-seo) | GEO audit — 2 faze: broad research + deep crawl | KRITIČNI NALAZI: (1) Dual sitemap — /sitemap.xml ima 23 mrtva URL-a sa starog sajta, /sitemap_index.xml je Yoast sa aktuelnim sadržajem. (2) FAQPage schema potpuno nedostaje na svim stranicama sa FAQ sadržajem. (3) Blogs nema Article schema. GEO score: 21/100. | saved to /outputs/sensiskin/geo-audit-izvestaj-2026-06-09.md + /outputs/sensiskin/geo-crawl-audit-2026-06-09.md
 - 2026-06-04 | orchestrator→copywriter | Homepage headline + subheadline | 3 variations delivered | saved to /outputs/homepage-headline-2026-06-04.md
@@ -149,6 +150,22 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 - BLOG: main blog /saveti-za-negu-koze/ = content hub (keep). Magazine section /strucni-saveti-za-negu-koze/ (only 3 PDF articles) = reposition as "Sensi Skin u medijima / Iz štampe" (authority signal) + transcribe PDFs to real text. Resolves cannibalization.
 - PHASE ORDER (corrected): A=GBP+reviews (done), B=NAP+local directories (PLAYBOOK DELIVERED, pending execution), C=on-page redo (PLAYBOOK + COPY DELIVERED, pending implementation), D=content+FAQ, E=links.
 
+## ▶ INSTAGRAM VOICE — REAL EXAMPLES (2026-06-12, verified from live posts)
+Analyzed 5 real posts from @sensi_skin. Key patterns to replicate:
+
+TONE: Warmer and more casual than previously documented. Mix of "Vi" (formal) and "ti" (informal) — switches freely, even within the same caption. Not strict.
+STRUCTURE: Short paragraphs, 1-3 sentences each. Line breaks between every paragraph. No walls of text.
+EMOJI USE: Light but present — 🌷✨💉📞 — functional, not decorative. One or two per post, usually at end of sentence.
+HOOKS used in real posts: "Koliko nas troši novac na skupe preparate..." (frustration hook), "Da li ste znali da se koža obnavlja..." (curiosity/education hook), "Šta je Mesojet tretman i zašto ga svi vole?" (direct question hook).
+CTA: Always ends with phone number 065 3338 338 (not 065/333-8-338 as previously documented — real format uses spaces). Sometimes "Pišite na @sensi_skin". Sometimes "Vaš Sensi Skin 🌷" sign-off.
+PRICE MENTION: One post explicitly mentions price (5.000 din / 3.500 din with tretman) — price mentions ARE allowed on Instagram, contrary to previous rule. Rule applies to blog/web, not IG.
+EDUCATION POSTS: Longer, step-by-step, explain the science simply. "Tokom tog procesa dolazi do smene ćelija..." — educational but not clinical.
+RESULTS POSTS (before/after): Very short caption. "Dubina bora je manja, tonus kože podignut, ten ujednačen, a jedrina vraćena — to su rezultati koje možete videti odmah nakon tretmana kada se koži pruži upravo ono što joj je u tom trenutku najpotrebnije ✓" — one paragraph, phone, done.
+HIGHEST PERFORMING POST (1413 likes, 2696 sends): Written by influencer/klijent (@masakupresanin), not Sensi Skin — UGC performs 10-40x better than brand posts. Priority: encourage/repost client content.
+SIGN-OFF patterns: "Vaš Sensi Skin 🌷" or just phone number. No formal closing.
+WHAT TO AVOID on IG: Long intros, "Posetite nas", corporate tone, hashtag spam. Real posts use NO hashtags or very few.
+NOTE: Real IG posts use significantly fewer hashtags than recommended (often zero). Brand relies on reach from content quality + saves/shares, not hashtag discovery.
+
 ## Brand voice reminders
 - Lead with customer frustration, not product features
 - "Finally works" resonates with the disappointed-by-other-brands audience
@@ -166,6 +183,7 @@ Tone reminder: client is hands-on, asks "correct me if I'm wrong," prefers hones
 - TRANSACTIONAL PAGES — word count ceiling: 350-450 reči for booking-intent pages (/hydrafacial/, /epilacija/). Going over dilutes the transactional signal and pushes the page toward informational. Hub pages (/nega-lica/) can go to 500 because their job is exploration, not immediate booking.
 - BLOG EDUCATIONAL POSTS — approved "credibility without overclaiming" device (locked 2026-06-09): Phrase "Ovo nije marketinška fraza. Razlika je tehnička i merljiva." (or equivalent) is an approved pattern for Nataša's voice when making a factual claim about apparatus/professional results that could sound like marketing. Use sparingly — once per post maximum.
 - BLOG FAIR-BALANCE RULE (locked 2026-06-09): Educational blog posts must honestly acknowledge what home care CAN do before explaining its limits. Opening a blog post by dismissing home care entirely violates Nataša's authentic, balanced voice and risks reader trust. Pattern confirmed effective: "Kućna nega i dalje ima svoju ulogu" → then explain the ceiling → then professional value.
+- SOCIAL COPY RULE (locked 2026-06-12): Same fair-balance and credibility-device rules apply to Instagram/Facebook captions as to blog posts. "Ovo nije reklamna fraza. Razlika je tehnička i merljiva." is the approved device for social too — once per post. Instagram captions must complement the visual (add why/science/reassurance), not describe it. Facebook posts can run longer to explain the mechanism — FB audience expects more context.
 
 ## SEO targets
 
