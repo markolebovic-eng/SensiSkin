@@ -31,6 +31,9 @@ Svi outputi su organizovani po tipu. Datum se vidi u imenu svakog fajla (YYYY-MM
 ## 06-merenje
 - `merenje-gsc-uputstvo-2026-06-09.md` — kako pratiti rezultate (GSC, GBP, AI provera)
 
+## 08-izvestaji
+- `marketinski-izvestaj-jun-2026.html` — **kompletan izveštaj za vlasnicu** (GSC + GA4 + sve urađeno + GEO skor + prioriteti)
+
 ## 07-vizuelni-materijali
 - `slojevi-koze-suncana-ostecenja` (html/pdf/png) — infografika „Slojevi kože i oštećenja od sunca" (SR)
 - `facial_layers_sun_damage` (html/pdf/png) — ista infografika (EN)

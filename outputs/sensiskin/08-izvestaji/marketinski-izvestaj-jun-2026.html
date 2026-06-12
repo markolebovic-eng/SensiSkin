@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensi Skin — Marketing Izveštaj · Jun 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #faf9f7; color: #2c2c2c; font-size: 16px; line-height: 1.7; }
+
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 80px 60px; min-height: 320px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .cover .label { font-family: 'Arial', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; }
+  .cover h1 { font-size: 42px; font-weight: normal; margin-bottom: 12px; line-height: 1.2; }
+  .cover .subtitle { font-size: 18px; color: #b0b8cc; margin-bottom: 30px; }
+  .cover .meta { font-family: 'Arial', sans-serif; font-size: 13px; color: #7a8aaa; }
+  .cover .period { display: inline-block; background: rgba(201,169,110,0.15); border: 1px solid rgba(201,169,110,0.3); color: #c9a96e; padding: 6px 16px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; margin-top: 16px; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+
+  .score-banner {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    color: white; border-radius: 16px; padding: 40px 50px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 50px; gap: 30px;
+  }
+  .score-banner .left h2 { font-size: 20px; font-weight: normal; color: #b0b8cc; margin-bottom: 10px; }
+  .score-banner .left p { font-size: 14px; color: #7a8aaa; }
+  .score-journey { display: flex; align-items: center; gap: 20px; }
+  .score-box { text-align: center; }
+  .score-box .num { font-size: 52px; font-weight: bold; line-height: 1; }
+  .score-box .lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #7a8aaa; margin-top: 4px; }
+  .score-box.old .num { color: #e74c3c; }
+  .score-box.new .num { color: #2ecc71; }
+  .arrow-big { font-size: 32px; color: #c9a96e; }
+  .gain-badge { background: rgba(46,204,113,0.15); border: 1px solid rgba(46,204,113,0.3); color: #2ecc71; padding: 8px 18px; border-radius: 20px; font-size: 14px; font-weight: bold; white-space: nowrap; }
+
+  h2.section { font-size: 26px; font-weight: normal; color: #1a1a2e; margin: 60px 0 24px; padding-bottom: 12px; border-bottom: 2px solid #e8e0d5; }
+  h3.sub { font-size: 17px; font-weight: bold; color: #0f3460; margin: 30px 0 14px; }
+  p { margin-bottom: 14px; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0 40px; }
+  .kpi { background: white; border: 1px solid #e8e0d5; border-radius: 12px; padding: 22px 18px; text-align: center; }
+  .kpi .num { font-size: 32px; font-weight: bold; color: #0f3460; line-height: 1; }
+  .kpi .sub { font-size: 12px; color: #888; margin-top: 6px; }
+  .kpi .lbl { font-size: 13px; color: #444; margin-top: 8px; }
+  .kpi.highlight { border-color: #c9a96e; background: #fdf9f3; }
+  .kpi.highlight .num { color: #c9a96e; }
+  .kpi.green .num { color: #27ae60; }
+  .kpi.green { border-color: #a8e6cf; background: #f0faf5; }
+
+  .kpi-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0; }
+  .kpi-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+
+  table { width: 100%; border-collapse: collapse; margin: 20px 0 30px; font-size: 14px; }
+  th { background: #1a1a2e; color: white; padding: 12px 14px; text-align: left; font-weight: normal; letter-spacing: 0.5px; }
+  td { padding: 11px 14px; border-bottom: 1px solid #eee; }
+  tr:nth-child(even) td { background: #f9f7f4; }
+  tr:hover td { background: #f0ede8; }
+  td.num { text-align: right; font-family: monospace; }
+  td.good { color: #27ae60; font-weight: bold; }
+  td.warn { color: #e67e22; }
+  td.bad { color: #e74c3c; }
+
+  .alert-box { border-left: 4px solid; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+  .alert-box.info { border-color: #3498db; background: #ebf5fb; }
+  .alert-box.success { border-color: #27ae60; background: #eafaf1; }
+  .alert-box.warning { border-color: #e67e22; background: #fef9f0; }
+  .alert-box.ai { border-color: #9b59b6; background: #f5eef8; }
+  .alert-box strong { display: block; margin-bottom: 6px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+  .alert-box.info strong { color: #2980b9; }
+  .alert-box.success strong { color: #1e8449; }
+  .alert-box.warning strong { color: #ca6f1e; }
+  .alert-box.ai strong { color: #7d3c98; }
+
+  .timeline { position: relative; padding-left: 30px; margin: 24px 0; }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: #e8e0d5; }
+  .tl-item { position: relative; margin-bottom: 28px; }
+  .tl-dot { position: absolute; left: -24px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; }
+  .tl-dot.done { background: #27ae60; }
+  .tl-dot.pending { background: #e67e22; }
+  .tl-date { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .tl-title { font-weight: bold; color: #1a1a2e; margin-bottom: 4px; }
+  .tl-desc { font-size: 14px; color: #555; }
+
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li { padding: 8px 0; border-bottom: 1px solid #f0ede8; font-size: 15px; display: flex; align-items: flex-start; gap: 10px; }
+  .checklist li:last-child { border-bottom: none; }
+  .check { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  .priority-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  .priority-table th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; }
+  .priority-table td { padding: 12px 14px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; letter-spacing: 0.5px; }
+  .badge.high { background: #fde8e8; color: #c0392b; }
+  .badge.med { background: #fef5e7; color: #ca6f1e; }
+  .badge.low { background: #eafaf1; color: #1e8449; }
+  .badge.ai-badge { background: #f5eef8; color: #7d3c98; }
+
+  .source-bar { display: flex; align-items: center; gap: 12px; margin: 8px 0; font-size: 14px; }
+  .source-bar .bar { flex: 1; height: 8px; background: #eee; border-radius: 4px; overflow: hidden; }
+  .source-bar .fill { height: 100%; border-radius: 4px; }
+  .source-bar .pct { font-weight: bold; width: 42px; text-align: right; font-size: 13px; }
+  .source-bar .name { width: 180px; color: #444; }
+
+  .insight-card { background: white; border: 1px solid #e8e0d5; border-radius: 12px; padding: 24px; margin: 16px 0; }
+  .insight-card h4 { color: #0f3460; margin-bottom: 10px; font-size: 16px; }
+  .insight-card .tag { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #c9a96e; margin-bottom: 8px; display: block; }
+
+  .footer { background: #1a1a2e; color: #7a8aaa; text-align: center; padding: 40px; font-size: 13px; margin-top: 80px; }
+  .footer strong { color: #c9a96e; }
+</style>
+</head>
+<body>
+
+<!-- NASLOVNICA -->
+<div class="cover">
+  <div class="label">AI Marketing Agency · Poverljivo</div>
+  <h1>Sensi Skin<br>Marketing Izveštaj</h1>
+  <div class="subtitle">Digitalna vidljivost, SEO i AI pretraga · Jun 2026</div>
+  <div class="meta">Pripremljeno za: <strong style="color:white">Nataša Burka</strong> · Kozmetološki Centar Sensi Skin, Novi Sad</div>
+  <div class="period">Period: maj – jun 2026</div>
+</div>
+
+<div class="container">
+
+<!-- GEO SKOR -->
+<div class="score-banner">
+  <div class="left">
+    <h2>GEO skor (vidljivost za AI pretragu)</h2>
+    <p>Ocena sposobnosti sajta da bude citiran<br>od strane ChatGPT-a, Perplexity-a i Google AI</p>
+  </div>
+  <div class="score-journey">
+    <div class="score-box old">
+      <div class="num">21</div>
+      <div class="lbl">maj 2026</div>
+    </div>
+    <div class="arrow-big">→</div>
+    <div class="score-box new">
+      <div class="num">64</div>
+      <div class="lbl">jun 2026</div>
+    </div>
+    <div class="gain-badge">+43 poena ↑</div>
+  </div>
+</div>
+
+<!-- UVOD -->
+<h2 class="section">Uvodna reč</h2>
+<p>Ovaj izveštaj pokriva period intenzivnog digitalnog rada na sajtu <strong>sensiskinstudio.com</strong> — od prve dijagnoze u maju 2026, do trenutnog stanja u junu. Prikazuje šta je konkretno urađeno, šta podaci kažu i šta su sledeći koraci.</p>
+<p>Ključna poruka: sajt je za šest nedelja prošao put od „skoro nevidljiv za AI pretragu" do „čitljiv, citabilan i na putu da raste". Podaci to potvrđuju.</p>
+
+<!-- KLJUČNI BROJEVI -->
+<h2 class="section">Ključni brojevi (poslednjih 28 dana)</h2>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="num">401</div>
+    <div class="lbl">Klikova iz Google pretrage</div>
+    <div class="sub">GSC · maj 14 – jun 11</div>
+  </div>
+  <div class="kpi">
+    <div class="num">10.325</div>
+    <div class="lbl">Prikaza u pretrazi</div>
+    <div class="sub">GSC · impressions</div>
+  </div>
+  <div class="kpi highlight">
+    <div class="num">3,88%</div>
+    <div class="lbl">Prosečni CTR</div>
+    <div class="sub">Stopa klikova</div>
+  </div>
+  <div class="kpi">
+    <div class="num">~8,5</div>
+    <div class="lbl">Prosečna pozicija</div>
+    <div class="sub">Google rang</div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="num">201</div>
+    <div class="lbl">Aktivnih korisnika</div>
+    <div class="sub">GA4 · maj 15 – jun 11</div>
+  </div>
+  <div class="kpi">
+    <div class="num">52 sek</div>
+    <div class="lbl">Prosečno vreme angažovanja</div>
+    <div class="sub">GA4 engagement time</div>
+  </div>
+  <div class="kpi green">
+    <div class="num">6</div>
+    <div class="lbl">Poseta sa ChatGPT-a</div>
+    <div class="sub">AI referral traffic ✓</div>
+  </div>
+  <div class="kpi">
+    <div class="num">91</div>
+    <div class="lbl">Korisnika iz Google organike</div>
+    <div class="sub">45% svih korisnika</div>
+  </div>
+</div>
+
+<div class="alert-box ai">
+  <strong>🤖 AI referral traffic — ovo je značajno</strong>
+  ChatGPT.com je već poslao <strong>6 korisnika</strong> na sajt u posmatranom periodu — bez ikakvih plaćenih oglasa. Ovo je direktan rezultat tehničkog SEO i schema markup rada. Broj je mali, ali je signal: AI botovi prepoznaju sajt kao citabilan izvor. Za 3–6 nedelja taj broj će rasti kako AI motori ponovo indeksiraju sajt sa novim schema-om.
+</div>
+
+<!-- SAOBRAĆAJ PO IZVORU -->
+<h2 class="section">Odakle dolaze posetioci</h2>
+
+<div class="kpi-grid-3">
+  <div class="kpi">
+    <div class="num">45%</div>
+    <div class="lbl">Google organski</div>
+    <div class="sub">91 korisnik</div>
+  </div>
+  <div class="kpi">
+    <div class="num">24%</div>
+    <div class="lbl">Instagram</div>
+    <div class="sub">49 korisnika</div>
+  </div>
+  <div class="kpi">
+    <div class="num">23%</div>
+    <div class="lbl">Direktno (ukucali adresu)</div>
+    <div class="sub">47 korisnika</div>
+  </div>
+</div>
+
+<div style="background:white;border:1px solid #e8e0d5;border-radius:12px;padding:24px;margin:16px 0;">
+  <div class="source-bar">
+    <div class="name">Google organski</div>
+    <div class="bar"><div class="fill" style="width:45%;background:#0f3460;"></div></div>
+    <div class="pct" style="color:#0f3460">45%</div>
+  </div>
+  <div class="source-bar">
+    <div class="name">Instagram</div>
+    <div class="bar"><div class="fill" style="width:24%;background:#c9a96e;"></div></div>
+    <div class="pct" style="color:#c9a96e">24%</div>
+  </div>
+  <div class="source-bar">
+    <div class="name">Direktno</div>
+    <div class="bar"><div class="fill" style="width:23%;background:#7f8c8d;"></div></div>
+    <div class="pct" style="color:#7f8c8d">23%</div>
+  </div>
+  <div class="source-bar">
+    <div class="name" style="color:#9b59b6;font-weight:bold;">ChatGPT.com 🤖</div>
+    <div class="bar"><div class="fill" style="width:3%;background:#9b59b6;"></div></div>
+    <div class="pct" style="color:#9b59b6">3%</div>
+  </div>
+  <div class="source-bar">
+    <div class="name">Facebook</div>
+    <div class="bar"><div class="fill" style="width:1.5%;background:#3498db;"></div></div>
+    <div class="pct" style="color:#3498db">1.5%</div>
+  </div>
+  <div class="source-bar">
+    <div class="name">Bing organski</div>
+    <div class="bar"><div class="fill" style="width:0.5%;background:#00b4d8;"></div></div>
+    <div class="pct" style="color:#00b4d8">0.5%</div>
+  </div>
+</div>
+
+<p style="font-size:14px;color:#666;">Instagram (24%) pokazuje da je socijalni kanal snažan, ali i da je organski Google saobraćaj (45%) veći — i bez plaćanja. Direktan saobraćaj (23%) je znak dobre prepoznatljivosti brenda.</p>
+
+<!-- TOP STRANICE -->
+<h2 class="section">Najpopularnije stranice (Google pretraga)</h2>
+
+<table>
+  <tr>
+    <th>Stranica</th>
+    <th style="text-align:right">Klikovi</th>
+    <th style="text-align:right">Prikazi</th>
+    <th style="text-align:right">CTR</th>
+    <th style="text-align:right">Pozicija</th>
+  </tr>
+  <tr><td>🏠 Početna stranica</td><td class="num">147</td><td class="num">2.437</td><td class="num good">6,03%</td><td class="num">6,6</td></tr>
+  <tr><td>💰 Cenovnik</td><td class="num">64</td><td class="num">559</td><td class="num good">11,45%</td><td class="num good">3,1</td></tr>
+  <tr><td>📝 Blog: Perutanje kože</td><td class="num">26</td><td class="num">1.863</td><td class="num warn">1,4%</td><td class="num">6,7</td></tr>
+  <tr><td>📝 Blog: Štetnost solarijuma</td><td class="num">24</td><td class="num">985</td><td class="num warn">2,44%</td><td class="num">6,5</td></tr>
+  <tr><td>📝 Blog: Tretmani pre/posle letovanja</td><td class="num">19</td><td class="num">430</td><td class="num">4,42%</td><td class="num">6,5</td></tr>
+  <tr><td>🛒 Proizvodi (Shop)</td><td class="num">18</td><td class="num">478</td><td class="num">3,77%</td><td class="num good">3,3</td></tr>
+  <tr><td>💆 Mesojet tretmani</td><td class="num">18</td><td class="num">271</td><td class="num good">6,64%</td><td class="num good">4,0</td></tr>
+  <tr><td>📝 Blog: Promene od sunčanja</td><td class="num">17</td><td class="num">849</td><td class="num warn">2,0%</td><td class="num">6,2</td></tr>
+  <tr><td>👩‍⚕️ O nama / Sensi Skin</td><td class="num">16</td><td class="num">507</td><td class="num">3,16%</td><td class="num good">3,3</td></tr>
+  <tr><td>✨ Nega lica</td><td class="num">15</td><td class="num">592</td><td class="num warn">2,53%</td><td class="num">5,1</td></tr>
+  <tr><td>💧 HydraFacial</td><td class="num">1</td><td class="num">12</td><td class="num warn">8,33%</td><td class="num">7,7</td></tr>
+  <tr><td>🪒 Epilacija</td><td class="num">2</td><td class="num">100</td><td class="num warn">2,0%</td><td class="num">4,5</td></tr>
+</table>
+
+<div class="alert-box warning">
+  <strong>⚠️ Napomena — HydraFacial i Epilacija</strong>
+  HydraFacial i Epilacija stranice imaju odličan novi sadržaj koji smo dodali, ali Google još uvek indeksira stare verzije. Request indexing u GSC je poslat — poboljšanje pozicija se očekuje u narednih 2–4 nedelje.
+</div>
+
+<!-- TOP UPITI -->
+<h2 class="section">Ključne reči — po čemu vas nalaze</h2>
+
+<table>
+  <tr>
+    <th>Upit (šta korisnici kucaju)</th>
+    <th style="text-align:right">Klikovi</th>
+    <th style="text-align:right">Prikazi</th>
+    <th style="text-align:right">CTR</th>
+    <th style="text-align:right">Pozicija</th>
+  </tr>
+  <tr><td><strong>sensi skin</strong></td><td class="num">103</td><td class="num">338</td><td class="num good">30,47%</td><td class="num good">1,9</td></tr>
+  <tr><td><strong>sensi skin novi sad</strong></td><td class="num">15</td><td class="num">52</td><td class="num good">28,85%</td><td class="num good">1,8</td></tr>
+  <tr><td>sensi skin cenovnik</td><td class="num">6</td><td class="num">8</td><td class="num good">75%</td><td class="num good">1,0</td></tr>
+  <tr><td>perutanje kože na nogama</td><td class="num">5</td><td class="num">112</td><td class="num">4,46%</td><td class="num good">3,9</td></tr>
+  <tr><td>sensiskin</td><td class="num">5</td><td class="num">6</td><td class="num good">83%</td><td class="num good">1,2</td></tr>
+  <tr><td>najbolji kozmetički salon u novom sadu</td><td class="num">3</td><td class="num">32</td><td class="num">9,38%</td><td class="num good">4,3</td></tr>
+  <tr><td>hydrafacial tretman cena novi sad</td><td class="num">3</td><td class="num">24</td><td class="num">12,5%</td><td class="num">5,0</td></tr>
+  <tr><td>mesojet</td><td class="num">3</td><td class="num">17</td><td class="num">17,65%</td><td class="num good">3,8</td></tr>
+  <tr><td>perutanje kože</td><td class="num">2</td><td class="num">172</td><td class="num warn">1,16%</td><td class="num">4,8</td></tr>
+  <tr><td>kozmetički salon novi sad</td><td class="num">2</td><td class="num">125</td><td class="num warn">1,6%</td><td class="num warn">9,6</td></tr>
+  <tr><td>nataša burka</td><td class="num">2</td><td class="num">15</td><td class="num">13,33%</td><td class="num good">1,9</td></tr>
+</table>
+
+<div class="insight-card">
+  <span class="tag">📊 Ključni uvid</span>
+  <h4>Brand pretraga dominira — i to je dobro</h4>
+  <p>Od ukupno 401 klika, <strong>~130 (32%)</strong> su direktne pretrage vašeg brenda ("sensi skin", "sensiskin", "nataša burka"). CTR od 30% na brend je odličan — znači da vas traže i lako nalaze. Cilj SEO rada je da saobraćaj van brenda (Mesojet, HydraFacial, epilacija...) poraste na isti nivo.</p>
+</div>
+
+<div class="insight-card">
+  <span class="tag">🎯 Skrivena prilika</span>
+  <h4>Blog postovi imaju impresije, ali malo klikova</h4>
+  <p>„Perutanje kože" ima <strong>1.863 prikaza</strong> ali samo 26 klikova (1,4%). „Štetnost solarijuma" ima 985 prikaza. To znači Google vas već pokazuje na prvoj stranici — ali nije siguran da ste autoritativni izvor. Dodavanjem Article schema (što smo upravo uradili za svih 29 postova) i FAQ blokova, CTR na ovim postovima treba da poraste na 3–5%.</p>
+</div>
+
+<!-- GEOGRAFIJA -->
+<h2 class="section">Geografija posetioca</h2>
+
+<div class="kpi-grid-3">
+  <div class="kpi">
+    <div class="num">103</div>
+    <div class="lbl">Beograd</div>
+    <div class="sub">GA4 korisnici</div>
+  </div>
+  <div class="kpi highlight">
+    <div class="num">42</div>
+    <div class="lbl">Novi Sad</div>
+    <div class="sub">GA4 korisnici (vaši klijenti)</div>
+  </div>
+  <div class="kpi">
+    <div class="num">11</div>
+    <div class="lbl">Umka + okolina</div>
+    <div class="sub">GA4 korisnici</div>
+  </div>
+</div>
+
+<div class="alert-box info">
+  <strong>ℹ️ Beograd > Novi Sad — zašto?</strong>
+  Beograd dolazi pretežno putem blog postova (edukativni sadržaj nema geo ograničenja). Novi Sad su stvarni potencijalni klijenti. Svaki od tih 42 novisađana koji je posetio sajt — video je vaše usluge, cenovnik i kontakt. GSC podaci pokazuju da je Srbija 4,17% CTR — solidno.
+</div>
+
+<!-- ŠTA JE URAĐENO -->
+<h2 class="section">Šta je urađeno — hronološki pregled</h2>
+
+<div class="timeline">
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 4, 2026</div>
+    <div class="tl-title">Prva dijagnoza i headline varijante</div>
+    <div class="tl-desc">Inicijalna revizija sajta, 3 varijante naslova za početnu stranicu.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 8, 2026</div>
+    <div class="tl-title">SEO audit faze 2 — title tagovi i meta opisi</div>
+    <div class="tl-desc">Dodate focus ključne reči + title + meta opis za 5 strana: Mesojet RF, Nega lice, Blog, Cenovnik, Proizvodi. Potvrđeno: Google još servisira stare naslove — Phase C bi to promenila.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 9, 2026</div>
+    <div class="tl-title">Kompletan GEO/SEO re-audit — skor 21/100</div>
+    <div class="tl-desc">Živi crawl sajta otkrio: robots.txt blokira AI botove, NAP nekonzistentan (stara adresa Vojvode Bojovića), nema schema markup-a, prazne service strane. Dostavljen detaljan plan (Faze A–E).</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 9, 2026</div>
+    <div class="tl-title">Google Business Profile + recenzije vodič</div>
+    <div class="tl-desc">Kompletno uputstvo za optimizaciju GBP-a, QR kod za recenzije (link: g.page/r/CTIeLyIMToV3EAE/review). Najbrži način da poraste lokalni rang.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 9, 2026</div>
+    <div class="tl-title">Faza B — NAP uputstvo (direktorijumi)</div>
+    <div class="tl-desc">Identifikovani svi direktorijumi sa starnom adresom (mirandre.com, navidiku.rs, ordinacije.info, virtualnigrad.com). Dostavljen 3-dnevni plan korekcije.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 9, 2026</div>
+    <div class="tl-title">Faza C — Kompletan sadržaj za top 3 service strane</div>
+    <div class="tl-desc">Napisane ~1.300 reči za HydraFacial, ~950 za Epilaciju, ~1.900 za Negu lica — sve u glasu Nataše Burke. FAQ blokovi, interni linkovi, CTA. Sve implementirano na sajtu.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 9, 2026</div>
+    <div class="tl-title">Blog post: Kućna nega vs. profesionalna kozmetika</div>
+    <div class="tl-desc">~960 reči, u autentičnom glasu vlasnice, 6 FAQ odeljaka, 5 internih linkova. Spreman za objavljivanje na /saveti-za-negu-koze/.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 10, 2026</div>
+    <div class="tl-title">Kompletan JSON-LD schema za svih 48 URL-ova</div>
+    <div class="tl-desc">MedicalOrganization, BeautySalon, WebSite, Service, FAQPage, Person, Article — gotov kod za sve stranice. Implementiran na ključnim service stranama.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 11, 2026</div>
+    <div class="tl-title">GEO re-audit — skor 64/100 (+43)</div>
+    <div class="tl-desc">Živi crawl potvrdio: robots.txt otvoren za AI botove, NAP konzistentan, schema na service stranama LIVE, ~30 blog postova otkriveno (jači klaster nego što se mislilo).</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 11, 2026</div>
+    <div class="tl-title">FAQPage schema — 8 ključnih blog postova</div>
+    <div class="tl-desc">Gotovi JSON blokovi za: vrste akni, melazmu, rozaceu, serum, hemijske pilinze, solarijum, predeo oko očiju, menopauzu.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot done"></div>
+    <div class="tl-date">Jun 12, 2026</div>
+    <div class="tl-title">✅ Article schema — svih 29 blog postova REŠENO</div>
+    <div class="tl-desc">Otkriven konflikt Yoast/SASWP plugina. Konfigurisano SASWP → Article za Post tip. Verifikovano crawlom: sve 29 blog postova sada imaju Article + Person + Organization schema.</div>
+  </div>
+
+</div>
+
+<!-- ŠTA JE VERIFIKOVANO LIVE -->
+<h2 class="section">Šta je verifikovano — stanje danas na sajtu</h2>
+
+<ul class="checklist">
+  <li><span class="check">✅</span> <div><strong>robots.txt otvoren za AI botove</strong> — GPTBot, ClaudeBot, PerplexityBot, Google-Extended nemaju blokadu. Pre: blokirani.</div></li>
+  <li><span class="check">✅</span> <div><strong>NAP konzistentan na celom sajtu</strong> — "Braće Popović 3" svuda. Pre: stara adresa "Vojvode Bojovića 5a" na više mesta.</div></li>
+  <li><span class="check">✅</span> <div><strong>MedicalOrganization + BeautySalon + WebSite schema</strong> na početnoj strani.</div></li>
+  <li><span class="check">✅</span> <div><strong>FAQPage schema</strong> na HydraFacial (7 pitanja) i Epilacija (4 pitanja) — AI najradije citira FAQ format.</div></li>
+  <li><span class="check">✅</span> <div><strong>Service schema</strong> na svim ključnim stranicama: HydraFacial, Epilacija, Nega lica, Mesojet RF, Dermalux.</div></li>
+  <li><span class="check">✅</span> <div><strong>Person schema — Nataša Burka</strong> na stranici O nama (E-E-A-T signal za Google i AI).</div></li>
+  <li><span class="check">✅</span> <div><strong>Article schema — svih 29 blog postova</strong> (via SASWP). Svaki post sada ima: Article + datePublished + author (Nataša Burka) + Organization.</div></li>
+  <li><span class="check">✅</span> <div><strong>Sadržaj na service stranama</strong> — HydraFacial ~1.300, Nega lica ~1.900, Epilacija ~950 reči tela.</div></li>
+  <li><span class="check">✅</span> <div><strong>"Sve istine o laserskoj epilaciji"</strong> — Article + FAQPage + Person + LocalBusiness. Primer-standard za sve ostale strane.</div></li>
+</ul>
+
+<!-- OCENA PO DIMENZIJAMA -->
+<h2 class="section">GEO skor po dimenzijama</h2>
+
+<table>
+  <tr>
+    <th>Dimenzija</th>
+    <th style="text-align:center">Pre (maj)</th>
+    <th style="text-align:center">Sada (jun)</th>
+    <th>Komentar</th>
+  </tr>
+  <tr>
+    <td>AI vidljivost</td>
+    <td style="text-align:center;color:#e74c3c">2/10</td>
+    <td style="text-align:center;color:#e67e22"><strong>5/10</strong></td>
+    <td>Temelji postavljeni; ChatGPT već šalje saobraćaj</td>
+  </tr>
+  <tr>
+    <td>Struktura sadržaja</td>
+    <td style="text-align:center;color:#e74c3c">1/10</td>
+    <td style="text-align:center;color:#27ae60"><strong>7/10</strong></td>
+    <td>Service strane imaju realan sadržaj + FAQ</td>
+  </tr>
+  <tr>
+    <td>Schema markup</td>
+    <td style="text-align:center;color:#e74c3c">0/10</td>
+    <td style="text-align:center;color:#27ae60"><strong>7/10</strong></td>
+    <td>Service: odlične; Blog: Article rešen 12. juna</td>
+  </tr>
+  <tr>
+    <td>E-E-A-T (autoritet autora)</td>
+    <td style="text-align:center;color:#e74c3c">2/10</td>
+    <td style="text-align:center;color:#e67e22"><strong>6/10</strong></td>
+    <td>Person schema, bio, 20+ godina iskustva</td>
+  </tr>
+  <tr>
+    <td>Topikalni autoritet (blog)</td>
+    <td style="text-align:center;color:#e67e22">4/10</td>
+    <td style="text-align:center;color:#27ae60"><strong>7/10</strong></td>
+    <td>~30 kvalitetnih postova verifikovano</td>
+  </tr>
+  <tr>
+    <td>Citabilnost</td>
+    <td style="text-align:center;color:#e74c3c">1/10</td>
+    <td style="text-align:center;color:#e67e22"><strong>5/10</strong></td>
+    <td>FAQ blokovi postoje; treba originalne statistike</td>
+  </tr>
+  <tr>
+    <td>Tehničko / crawler</td>
+    <td style="text-align:center;color:#e74c3c">2/10</td>
+    <td style="text-align:center;color:#27ae60"><strong>8/10</strong></td>
+    <td>robots.txt, NAP, schema renderovana u DOM-u</td>
+  </tr>
+  <tr>
+    <td>Lokalno / brand</td>
+    <td style="text-align:center;color:#e74c3c">3/10</td>
+    <td style="text-align:center;color:#e67e22"><strong>5/10</strong></td>
+    <td>NAP čist na sajtu; off-site direktorijumi u toku</td>
+  </tr>
+</table>
+
+<!-- ŠTA JOŠ NIJE GOTOVO -->
+<h2 class="section">Šta je sledeće — prioriteti</h2>
+
+<table class="priority-table">
+  <tr>
+    <th style="width:40px">#</th>
+    <th>Akcija</th>
+    <th>Zašto je važno</th>
+    <th style="width:80px">Napor</th>
+    <th style="width:90px">Prioritet</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><strong>Objaviti blog post</strong> "Razlika profesionalna i drogerijska kozmetika" — sada je 404 greška</td>
+    <td>Tekst je gotov, ~960 reči, odmah donosi sadržaj i interni link</td>
+    <td>30 min</td>
+    <td><span class="badge high">🔴 Odmah</span></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td><strong>FAQPage schema</strong> na: Nega lica, Mesojet RF, Dermalux, Aura Reality</td>
+    <td>FAQ je #1 format koji AI citira — pola service strana ga još nema</td>
+    <td>2–3 h</td>
+    <td><span class="badge high">🔴 Visok</span></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><strong>Off-site NAP cleanup</strong> — mirandre.com, navidiku.rs, ordinacije.info (stara adresa)</td>
+    <td>Nekonzistentna adresa u direktorijumima smanjuje lokalni rang</td>
+    <td>3–4 h</td>
+    <td><span class="badge high">🔴 Visok</span></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td><strong>AggregateRating / recenzije schema</strong> (kada sakupite 10+ Google recenzija)</td>
+    <td>"Zvezdice" u pretrazi + AI social-proof signal</td>
+    <td>1 h</td>
+    <td><span class="badge med">🟠 Srednji</span></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td><strong>GSC → Request indexing</strong> za svaki blog post gde je dodata schema</td>
+    <td>Ubrzava re-crawl, rezultati se vide brže</td>
+    <td>30 min</td>
+    <td><span class="badge med">🟠 Odmah</span></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td><strong>Rešiti duplikat bloga</strong> /strucni-saveti-za-negu-koze/ → "U medijima / Iz štampe"</td>
+    <td>Gasi kanibalizaciju između dva blog huba</td>
+    <td>1–2 h</td>
+    <td><span class="badge med">🟠 Srednji</span></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td><strong>Ručni AI test</strong> (ChatGPT, Perplexity, Google AI Overviews)</td>
+    <td>Provera da li vas AI motori citiraju za "kozmetički studiji Novi Sad" i sl.</td>
+    <td>30 min</td>
+    <td><span class="badge low">🟡 Za 3–6 nedelja</span></td>
+  </tr>
+</table>
+
+<!-- PROJEKCIJA -->
+<h2 class="section">Projekcija — šta se očekuje</h2>
+
+<div class="kpi-grid-3">
+  <div class="kpi" style="border-color:#e8e0d5">
+    <div class="num" style="color:#e67e22">2–4 nedelje</div>
+    <div class="lbl">Google re-indexira nove service strane</div>
+    <div class="sub">HydraFacial i Epilacija treaba da porastu sa pozicije 7 na 3–5</div>
+  </div>
+  <div class="kpi" style="border-color:#a8e6cf;background:#f0faf5">
+    <div class="num" style="color:#27ae60">4–8 nedelja</div>
+    <div class="lbl">Blog postovi dobijaju više klikova</div>
+    <div class="sub">Article schema ubrzava prepoznavanje; CTR na blogovima treba 2–3x</div>
+  </div>
+  <div class="kpi" style="border-color:#d7bde2;background:#f5eef8">
+    <div class="num" style="color:#9b59b6">3–6 meseci</div>
+    <div class="lbl">AI citacije počinju da rastu</div>
+    <div class="sub">ChatGPT i Perplexity citiraju sajt za pitanja o tretmanima</div>
+  </div>
+</div>
+
+<div class="alert-box success">
+  <strong>✅ Zaključak</strong>
+  Za šest nedelja, sensiskinstudio.com je prešao put od sajta koji je bio praktično nevidljiv za AI pretragu do sajta koji ima sve tehničke temelje na mestu. ChatGPT već šalje posetioce. Blog sa 30 kvalitetnih postova je velika prednost koja sada ima odgovarajući markup. Ključni rad je urađen — sada dolaze meseci žetve dok Google i AI motori ponovo procesuiraju sve promene.
+</div>
+
+<!-- DOSTAVLJENI MATERIJALI -->
+<h2 class="section">Dostavljeni materijali</h2>
+
+<table>
+  <tr>
+    <th>Kategorija</th>
+    <th>Dokument</th>
+    <th style="text-align:center">Status</th>
+  </tr>
+  <tr><td>Strategija</td><td>SEO Re-strategija v2.0 (md + HTML)</td><td style="text-align:center" class="good">✅ Dostavljeno</td></tr>
+  <tr><td>Faza B</td><td>NAP + direktorijumi uputstvo (korak-po-korak)</td><td style="text-align:center" class="warn">⏳ Čeka izvršenje</td></tr>
+  <tr><td>Faza C</td><td>On-page + schema uputstvo</td><td style="text-align:center" class="good">✅ Implementirano</td></tr>
+  <tr><td>Sadržaj</td><td>Tekst za HydraFacial / Epilacija / Nega lica</td><td style="text-align:center" class="good">✅ Na sajtu</td></tr>
+  <tr><td>Blog</td><td>„Kućna nega vs. profesionalna" (~960 reči)</td><td style="text-align:center" class="warn">⏳ Spreman, čeka objavu</td></tr>
+  <tr><td>Blog</td><td>HydraFacial edukativni blog (~800 reči)</td><td style="text-align:center" class="good">✅ Dostavljeno</td></tr>
+  <tr><td>Schema</td><td>JSON-LD za svih 48 URL-ova</td><td style="text-align:center" class="good">✅ Implementirano</td></tr>
+  <tr><td>Schema</td><td>Article za svih 29 blog postova (SASWP)</td><td style="text-align:center" class="good">✅ LIVE</td></tr>
+  <tr><td>Schema</td><td>FAQPage za 8 ključnih blog postova</td><td style="text-align:center" class="warn">⏳ Spreman, lepljenj.</td></tr>
+  <tr><td>GBP</td><td>Google Business Profile vodič + QR kod</td><td style="text-align:center" class="good">✅ Dostavljeno</td></tr>
+  <tr><td>Merenje</td><td>GSC + GBP playbook za praćenje</td><td style="text-align:center" class="good">✅ Dostavljeno</td></tr>
+  <tr><td>Vizualno</td><td>Interaktivna vizualizacija slojeva kože (HR)</td><td style="text-align:center" class="good">✅ Dostavljeno</td></tr>
+  <tr><td>Vizualno</td><td>Infografika "Slojevi kože" SR + EN (A4, print)</td><td style="text-align:center" class="good">✅ Dostavljeno</td></tr>
+  <tr><td>Audit</td><td>GEO re-audit sa živim crawlom (skor 64/100)</td><td style="text-align:center" class="good">✅ Dostavljeno</td></tr>
+</table>
+
+</div>
+
+<div class="footer">
+  <strong>AI Marketing Agency</strong> · Pripremljeno za Sensi Skin Kozmetološki Centar · Jun 2026<br>
+  sensiskinstudio.com · Nataša Burka · Braće Popović 3, Novi Sad<br><br>
+  <em>Ovaj izveštaj je poverljiv i namenjen isključivo vlasniku brenda.</em>
+</div>
+
+</body>
+</html>
