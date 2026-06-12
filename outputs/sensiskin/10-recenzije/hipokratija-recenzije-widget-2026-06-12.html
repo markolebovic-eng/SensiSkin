@@ -1,0 +1,478 @@
+<!-- SENSI SKIN — Recenzije karusel widget | Lepiti u Elementor Custom HTML -->
+<style>
+.ss-wrap {
+  font-family: 'Georgia', serif;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 52px 24px 64px;
+  background: #faf8f5;
+}
+
+/* HEADER */
+.ss-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.ss-header h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 400;
+  color: #2c2420;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+}
+.ss-header p {
+  font-size: 0.95rem;
+  color: #9e8e85;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+.ss-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e8e1da;
+  border-radius: 40px;
+  padding: 9px 20px;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ss-badge .stars { color: #c9a87c; font-size: 1rem; letter-spacing: 2px; }
+.ss-badge .score { font-size: 0.95rem; font-weight: 700; color: #2c2420; }
+.ss-badge .cnt   { font-size: 0.82rem; color: #9e8e85; }
+.ss-badge .src   { font-size: 0.78rem; color: #b5a99f; border-left: 1px solid #e0d8d2; padding-left: 10px; }
+
+/* CAROUSEL WRAPPER */
+.ss-carousel-outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ARROWS */
+.ss-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #d8cfc8;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 2;
+}
+.ss-arrow:hover { background: #f0ebe4; border-color: #c9a87c; }
+.ss-arrow:disabled { opacity: 0.3; cursor: default; }
+.ss-arrow svg { width: 18px; height: 18px; stroke: #6b5a50; stroke-width: 2; fill: none; }
+
+/* TRACK VIEWPORT */
+.ss-viewport {
+  overflow: hidden;
+  flex: 1;
+  margin: 0 16px;
+}
+
+.ss-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* CARD */
+.ss-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  background: #fff;
+  border: 1px solid #ede7e0;
+  border-radius: 14px;
+  padding: 26px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+.ss-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.ss-card-stars { color: #c9a87c; font-size: 0.95rem; letter-spacing: 2px; }
+.ss-card-date  { font-family: Arial, sans-serif; font-size: 0.75rem; color: #b5a99f; margin-top: 3px; }
+.ss-qmark { font-size: 2.6rem; line-height: 1; color: #ede7e0; font-family: Georgia, serif; margin-top: -4px; }
+.ss-text {
+  font-size: 0.91rem;
+  line-height: 1.72;
+  color: #3e3530;
+  flex-grow: 1;
+}
+.ss-card-footer {
+  border-top: 1px solid #f0ebe4;
+  padding-top: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.ss-tag    { font-family: Arial, sans-serif; font-size: 0.72rem; background: #f5ede4; color: #8c6a4e; padding: 4px 10px; border-radius: 20px; }
+.ss-author { font-family: Arial, sans-serif; font-size: 0.74rem; color: #b5a99f; }
+
+/* DOTS */
+.ss-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 28px;
+}
+.ss-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #d8cfc8;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.ss-dot.active { background: #c9a87c; transform: scale(1.3); }
+
+/* FOOTER */
+.ss-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+.ss-footer p { font-family: Arial, sans-serif; font-size: 0.79rem; color: #c1b6ae; }
+.ss-footer a { color: #9c7a5f; text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .ss-card { flex: 0 0 calc((100% - 20px) / 2); }
+}
+@media (max-width: 560px) {
+  .ss-card { flex: 0 0 100%; }
+  .ss-arrow { width: 36px; height: 36px; }
+}
+</style>
+
+<div class="ss-wrap">
+
+  <!-- HEADER -->
+  <div class="ss-header">
+    <h2>Šta naše klijentice kažu</h2>
+    <p>Recenzije prikupljene putem platforme Hipokratija</p>
+    <div class="ss-badge">
+      <span class="stars">★★★★★</span>
+      <span class="score">4.95 / 5</span>
+      <span class="cnt">249 recenzija</span>
+      <span class="src">Hipokratija.rs</span>
+    </div>
+  </div>
+
+  <!-- CAROUSEL -->
+  <div class="ss-carousel-outer">
+
+    <!-- Strelica levo -->
+    <button class="ss-arrow" id="ss-prev" aria-label="Prethodne recenzije">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <!-- Viewport -->
+    <div class="ss-viewport">
+      <div class="ss-track" id="ss-track">
+
+        <!-- 1 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">mart 2026.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Izuzetno iskustvo svaki put. Rešavaju probleme sa kožom deci i omladini u pubertetu — ciljano i znalački. Imam veliko poverenje u tim ove kuće. Sve je sterilno čisto, dame su veoma kulturne, a tretmani lica koji se rade ovde vrede svaki dinar.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">oktobar 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Sensi Skin je najsavremeniji centar za negu lica u Novom Sadu — slobodna sam da kažem i u celoj Vojvodini i šire. Od trenutka kada ih kontaktirate odišu profesionalizmom. Već posle prve posete vidite rezultate, što je razlog zašto sam im verna godinama.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">septembar 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Salon je prelep, osoblje fantastično i uvek mi popravi dan kada dođem. Koža mi nikada nije bila ovako blistava — dosta mojih drugarica je počelo da dolazi u Sensi Skin jer vide kako mi lice sjaji.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">oktobar 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Sensi Skin čine devojke koje su izuzetno potkovane znanjem. Svaki put se osećam kao da sam okružena naučnicama koje mi na delu pokažu da sve ono što znaju zaista daje rezultate. Preporodile su mi kožu i edukovale me.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">avgust 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Nisam sigurna da postoji kozmetički salon koji može da parira Sensi Skin-u. Profesionalnost, iskustvo, prijatan ambijent, higijena koja je neprikosnovena — apsolutno sve. Tople preporuke za tim Sensi Skin.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">avgust 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Divan salon, stručnost, ljubaznost i higijena su na visokom nivou. Dolazim 4 godine i prezadovoljna sam. Svaki tretman i svaka preporuka dale su sjajne rezultate na mojoj koži. Velika preporuka!</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica, 4 godine</span>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">oktobar 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Divno iskustvo, stručno osoblje, vrlo prijatne devojke — što mi je najbitnije, nisu napadne. Nisu od onih što uvaljivuju proizvode čim legneš na sto. Sve mi je lepo objašnjeno. Vidimo se uskoro opet.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">septembar 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Jako sam zadovoljna sa tretmanima. Volim što se uvek za svaki tretman prvo pogleda stanje kože, pa onda preporučuje odgovarajući tretman. Koža mi nikad lepše nije izgledala i sve pohvale za sve koje rade.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">decembar 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Presrećna sam nakon tretmana! Devojke su izuzetno prijatne, profesionalne i posvećene svakom detalju. Tretman je bio savršen od početka do kraja, a rezultat čak bolji nego što sam očekivala.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">mart 2026.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Divno iskustvo. Svaki put odem još više zadovoljna. Sve devojke su ljubazne, profesionalne i detaljne. Zaista se vidi kvalitet i ljubav prema poslu koji obavljaju. Hvala Darini na posvećenosti.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">maj 2026.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Stvarno prezadovoljna. Darina divna i stručna, sve je objasnila i preporučila dalje šta da radim. Nikada mi niko nije tako očistio lice dobro, a da se nisam zacrvenela i iziritirala koža.</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="ss-card">
+          <div class="ss-card-top">
+            <div>
+              <div class="ss-card-stars">★★★★★</div>
+              <div class="ss-card-date">decembar 2025.</div>
+            </div>
+            <div class="ss-qmark">"</div>
+          </div>
+          <p class="ss-text">Nakon tretmana lice mi je sinulo, koža zdrava zahvaljujući profesionalnom iskustvu kozmetičarke Nataše. Mogla bih zaista preporučiti svima, jer se svi mogu obradovati nakon tretmana!</p>
+          <div class="ss-card-footer">
+            <span class="ss-tag">Nega i tretmani lica</span>
+            <span class="ss-author">Verifikovana klijentica</span>
+          </div>
+        </div>
+
+      </div><!-- /track -->
+    </div><!-- /viewport -->
+
+    <!-- Strelica desno -->
+    <button class="ss-arrow" id="ss-next" aria-label="Sledeće recenzije">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+  </div><!-- /carousel-outer -->
+
+  <!-- DOTS -->
+  <div class="ss-dots" id="ss-dots"></div>
+
+  <!-- FOOTER -->
+  <div class="ss-footer">
+    <p>Sve recenzije su verifikovane putem platforme <a href="https://www.hipokratija.rs" target="_blank" rel="noopener">Hipokratija.rs</a>. Prikazano 12 od 249 recenzija.</p>
+  </div>
+
+</div><!-- /wrap -->
+
+<script>
+(function() {
+  var track    = document.getElementById('ss-track');
+  var viewport = track.parentElement;
+  var prevBtn  = document.getElementById('ss-prev');
+  var nextBtn  = document.getElementById('ss-next');
+  var dotsWrap = document.getElementById('ss-dots');
+
+  var cards      = track.querySelectorAll('.ss-card');
+  var total      = cards.length;
+  var current    = 0;
+  var perView    = 3;
+  var gap        = 20;
+
+  function getPerView() {
+    var w = viewport.offsetWidth;
+    if (w < 560) return 1;
+    if (w < 860) return 2;
+    return 3;
+  }
+
+  function totalPages() {
+    return Math.ceil(total / perView);
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    var pages = totalPages();
+    for (var i = 0; i < pages; i++) {
+      var d = document.createElement('button');
+      d.className = 'ss-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Stranica ' + (i + 1));
+      d.dataset.page = i;
+      d.addEventListener('click', function() { goTo(parseInt(this.dataset.page)); });
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function updateCardWidth() {
+    perView = getPerView();
+    var vw = viewport.offsetWidth;
+    var cardW = (vw - gap * (perView - 1)) / perView;
+    cards.forEach(function(c) {
+      c.style.flex = '0 0 ' + cardW + 'px';
+    });
+    buildDots();
+    goTo(0);
+  }
+
+  function goTo(page) {
+    var pages = totalPages();
+    if (page < 0) page = pages - 1;
+    if (page >= pages) page = 0;
+    current = page;
+
+    var vw    = viewport.offsetWidth;
+    var cardW = (vw - gap * (perView - 1)) / perView;
+    var step  = cardW + gap;
+    var idx   = current * perView;
+    track.style.transform = 'translateX(-' + (idx * step) + 'px)';
+
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+
+    var dots = dotsWrap.querySelectorAll('.ss-dot');
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(updateCardWidth, 120);
+  });
+
+  updateCardWidth();
+})();
+</script>

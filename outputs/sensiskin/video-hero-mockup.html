@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensi Skin Kozmetološki centar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+/* ─── RESET ───────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Lato', sans-serif; background: #fff; color: #2c2c2c; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ─── VARIABLES ───────────────────────────────── */
+:root {
+  --green:   #8a9a6f;
+  --green-d: #6b7a55;
+  --cream:   #f8f7f3;
+  --text:    #2c2c2c;
+  --muted:   #8a8a8a;
+  --border:  #e2e0d8;
+}
+
+/* ─── NAV ─────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+}
+
+.nav-menu > li {
+  position: relative;
+}
+
+.nav-menu > li > a {
+  display: block;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.nav-menu > li > a:hover { color: var(--green); }
+
+.nav-menu > li:hover .dropdown { display: block; }
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-radius: 4px;
+  padding: 8px 0;
+}
+
+.dropdown a {
+  display: block;
+  padding: 9px 18px;
+  font-size: 0.8rem;
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.dropdown a:hover { background: var(--cream); color: var(--green); }
+
+.nav-cta a {
+  background: var(--green);
+  color: #fff;
+  padding: 9px 18px;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.nav-cta a:hover { background: var(--green-d); }
+
+/* ─── HERO ────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.18);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 820px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.65);
+  margin-bottom: 22px;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: rgba(0,0,0,0.3);
+}
+
+.hero-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 300;
+  color: #1a1a1a;
+  line-height: 1.12;
+  letter-spacing: 0.03em;
+  margin-bottom: 22px;
+}
+
+.hero-sub {
+  font-size: clamp(0.88rem, 1.5vw, 1rem);
+  color: rgba(0,0,0,0.7);
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+}
+
+.hero-btn {
+  display: inline-block;
+  border: 1.5px solid rgba(0,0,0,0.6);
+  color: #1a1a1a;
+  padding: 14px 36px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  transition: all 0.25s;
+}
+
+.hero-btn:hover {
+  background: rgba(0,0,0,0.08);
+  border-color: #000;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(0,0,0,0.4);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:.35} 50%{opacity:1} }
+
+/* ─── SECTION BASE ────────────────────────────── */
+.section {
+  padding: 90px 40px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.section h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.section p {
+  font-size: 0.96rem;
+  line-height: 1.82;
+  color: #555;
+  max-width: 620px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+  padding: 12px 28px;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  transition: all 0.22s;
+}
+
+.btn:hover { background: var(--green); color: #fff; }
+
+.btn-filled {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn-filled:hover { background: var(--green-d); }
+
+/* accent square decorations */
+.sq {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: var(--green);
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+/* ─── TWO-COL LAYOUT ──────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.two-col.reverse { direction: rtl; }
+.two-col.reverse > * { direction: ltr; }
+
+.col-img {
+  background: var(--cream);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.col-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(138,154,111,0.08) 0%, transparent 60%);
+}
+
+.placeholder-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+/* ─── INTRO SECTION ───────────────────────────── */
+.section-intro {
+  background: var(--cream);
+  text-align: center;
+}
+
+.section-intro .section-inner { max-width: 760px; }
+
+.section-intro h2 {
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  max-width: 100%;
+}
+
+.section-intro p { max-width: 100%; margin-left: auto; margin-right: auto; }
+
+.sq-deco {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+/* ─── STAT ────────────────────────────────────── */
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.stat-badge .stat-num {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--green);
+}
+
+.stat-badge .stat-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ─── PRODUCTS ────────────────────────────────── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.product-card {
+  border: 1px solid var(--border);
+  padding: 24px;
+  text-align: center;
+  background: #fff;
+  transition: box-shadow 0.2s;
+}
+
+.product-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--cream);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border);
+  font-size: 0.7rem;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-size: 0.85rem;
+  color: var(--green);
+}
+
+/* ─── WHY US ──────────────────────────────────── */
+.why-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.why-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.why-list .sq { margin-top: 5px; flex-shrink: 0; }
+
+/* ─── REVIEWS ─────────────────────────────────── */
+.section-reviews {
+  background: var(--cream);
+}
+
+/* review carousel embedded from widget */
+.ss-reviews-embed {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ─── ABOUT ───────────────────────────────────── */
+.section-about { background: #fff; }
+
+/* ─── FOOTER ──────────────────────────────────── */
+footer {
+  background: #1e1e1e;
+  color: rgba(255,255,255,0.75);
+  padding: 60px 40px 30px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.footer-desc {
+  font-size: 0.83rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+}
+
+.footer-col h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.footer-col ul a {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s;
+}
+
+.footer-col ul a:hover { color: #fff; }
+
+.footer-contact p {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: 0;
+  max-width: none;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-links a {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.social-links a:hover { color: rgba(255,255,255,0.8); }
+
+/* ─── DEV NOTE ────────────────────────────────── */
+.dev-note {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #1e1e1e;
+  color: #c9a87c;
+  font-family: monospace;
+  font-size: 0.72rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  z-index: 999;
+  line-height: 1.6;
+  border-left: 3px solid #c9a87c;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .two-col.reverse { direction: ltr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .nav-menu { display: none; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 60px 20px; }
+  .nav { padding: 0 20px; }
+  footer { padding: 48px 20px 24px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- DEV NOTE -->
+<div class="dev-note">
+  MOCKUP — video hero preview<br>
+  sensiskinstudio.com replika<br>
+  ← zamena: hero slika → video
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- NAV                                         -->
+<!-- ═══════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-logo">Sensi Skin</div>
+  <ul class="nav-menu">
+    <li><a href="#">Početna</a></li>
+    <li>
+      <a href="#">O nama ▾</a>
+      <div class="dropdown">
+        <a href="#">Sensi Skin</a>
+        <a href="#">Tekstovi iz časopisa</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">Usluge ▾</a>
+      <div class="dropdown">
+        <a href="#">Aura Reality</a>
+        <a href="#">Mesojet tretmani</a>
+        <a href="#">Nega lica</a>
+        <a href="#">Hydrafacial® tretmani lica</a>
+        <a href="#">Mesojet RF</a>
+        <a href="#">Dermalux</a>
+        <a href="#">Epilacija</a>
+      </div>
+    </li>
+    <li><a href="#">Proizvodi</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Kontakt</a></li>
+    <li class="nav-cta"><a href="#">Cenovnik</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HERO — VIDEO POZADINA                       -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="hero">
+  <video
+    class="hero-video"
+    autoplay muted loop playsinline preload="auto"
+  >
+    <source src="../../SKRACENA VERZIJA.mov" type="video/mp4">
+    <source src="../../SKRACENA VERZIJA.mov" type="video/quicktime">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Kozmetološki centar Novi Sad</div>
+    <h1 class="hero-title">Sensi Skin<br>Kozmetološki centar</h1>
+    <p class="hero-sub">Tretmani lica i tela, nega kože i anti-age pristup koji čuva prirodan balans i donosi dugoročne rezultate.</p>
+    <a href="#" class="hero-btn">Sensi Skin proizvodi</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- INTRO                                        -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section section-intro">
+  <div class="section-inner">
+    <div class="sq-deco">
+      <div class="sq"></div><div class="sq"></div><div class="sq"></div>
+    </div>
+    <h2>Tretmani lica, tela i stručna nega usmerena ka očuvanju prirodnog balansa kože</h2>
+    <p>Savremeni kozmetološki centar u centru Novog Sada. Svaki tretman počinje analizom stanja kože — jer pravi rezultati dolaze od pristupa koji je prilagođen baš vama.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- AURA REALITY                                 -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <p class="tag">Novo i jedinstveno u Novom Sadu</p>
+        <h2>Aura Reality — Najpreciznija 3D dijagnostika kože i lica nove generacije</h2>
+        <p style="font-style:italic; color: var(--green); margin-bottom: 18px; font-size: 1rem;">"Lepota više nije stvar procene, već precizne analize"</p>
+        <p>Aura Reality koristi naprednu 3D i AI tehnologiju kako bi u nekoliko sekundi kreirala detaljan digitalni model vašeg lica i otkrila stvarno stanje kože, volumena i procesa starenja — informacije koje nam kažu koji tretman ima smisla konkretno za vas.</p>
+        <a href="#" class="btn">Pročitaj više</a>
+      </div>
+      <div class="col-img">
+        <span class="placeholder-icon">◈</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HYDRAFACIAL                                  -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="two-col reverse">
+      <div class="col-img">
+        <span class="placeholder-icon">◈</span>
+      </div>
+      <div>
+        <div class="stat-badge">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Zadovoljstvo klijenata</span>
+        </div>
+        <h2>Hydrafacial® tretman lica</h2>
+        <p>Hydrafacial® je trenutno najizvodjiviji tretman nege kože, sa preko 3.000.000 izvedenih tretmana godišnje širom sveta. Vortex vakuum otvara poru, blagi piling eksfolira, a infuzija seruma ishranjuje direktno u čistu, otvorenu poru.</p>
+        <a href="#" class="btn">Hydrafacial® tretman lica</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- LASERSKA EPILACIJA                           -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <p class="tag">Laserska epilacija</p>
+        <h2>Precizna epilacija sa diodnim laserom tri talasne dužine</h2>
+        <p>Diodni laser sa tri talasne dužine — 755 nm, 808 nm i 1064 nm — omogućava tretman svih tipova kože i boja dlake. Efikasno, bezbedno i dugotrajno rešenje za trajno uklanjanje dlačica.</p>
+        <a href="#" class="btn">Pročitaj više</a>
+      </div>
+      <div class="col-img">
+        <span class="placeholder-icon">◈</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- BALLANCER PRO                                -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="two-col reverse">
+      <div class="col-img">
+        <span class="placeholder-icon">◈</span>
+      </div>
+      <div>
+        <div class="stat-badge">
+          <span class="stat-num" style="font-size:1rem;">Rešava</span>
+          <span class="stat-label">posledice savremenog načina života</span>
+        </div>
+        <h2>Ballancer Pro</h2>
+        <p>Najnapredniji sistem presoterapije koji deluje na limfni sistem, poboljšava cirkulaciju i smanjuje otok. Idealan za oporavak, celulit i opšte blagostanje tela.</p>
+        <a href="#" class="btn">Ballancer Pro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MESOJET                                      -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <p class="tag">Mesojet</p>
+        <h2>Kako do lica holivudskih zvezda uz savremene Mesojet tretmane</h2>
+        <p>Patentirana tehnologija koja kombinuje hidrodermoabraziju, hemijske pilingove i transdermalnu infuziju aktivnih materija. Bez igala, bez bola — sa vidljivim rezultatima posle prvog tretmana.</p>
+        <a href="#" class="btn">Mesojet tretmani</a>
+      </div>
+      <div class="col-img">
+        <span class="placeholder-icon">◈</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PROIZVODI                                    -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section section-intro" style="background: #fff;">
+  <div class="section-inner" style="max-width: 1100px;">
+    <div class="sq-deco">
+      <div class="sq"></div><div class="sq"></div>
+    </div>
+    <h2>Naši proizvodi</h2>
+    <p style="margin: 0 auto 0;">Svi Sensi Skin proizvodi su bez parabena i mineralnih ulja, bez veštačkih boja i bezbedni za svakodnevnu upotrebu.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img"><span>◈</span></div>
+        <div class="product-name">Soft gel za umivanje</div>
+        <div class="product-price">2.600 рсд</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><span>◈</span></div>
+        <div class="product-name">Probio Glow krema</div>
+        <div class="product-price">3.100 рсд</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- O NAMA / ABOUT                               -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="two-col reverse">
+      <div class="col-img">
+        <span class="placeholder-icon">◈</span>
+      </div>
+      <div>
+        <div class="stat-badge">
+          <span class="stat-num">2014</span>
+          <span class="stat-label">Godina osnivanja</span>
+        </div>
+        <p class="tag">Misija i vizija</p>
+        <h2>Sensi Skin Kozmetološki centar</h2>
+        <p>Više od jedne decenije posvećenosti profesionalnoj nezi kože. Naš tim kontinuirano unapređuje znanje i prati najnovije trendove u kozmetologiji — jer verujemo da vaša koža zaslužuje samo ono što zaista funkcioniše.</p>
+        <a href="#" class="btn">O nama</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ZAŠTO SENSI SKIN                             -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section" style="background: #fff;">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <p class="tag">Naše vrednosti</p>
+        <h2>Zašto Sensi Skin?</h2>
+        <ul class="why-list">
+          <li><div class="sq"></div>Zato što ćemo dati sve od sebe da vam ponudimo najbolje rešenje</li>
+          <li><div class="sq"></div>Zato što razumemo potrebe klijenata</li>
+          <li><div class="sq"></div>Zato što obraćamo pažnju na detalje</li>
+          <li><div class="sq"></div>Zato što kod nas imate sve na jednom mestu</li>
+          <li><div class="sq"></div>Zato što ćemo vam se posvetiti</li>
+        </ul>
+      </div>
+      <div class="col-img" style="aspect-ratio:1;">
+        <span class="placeholder-icon">◈</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- RECENZIJE                                    -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section section-reviews">
+  <div class="ss-reviews-embed">
+
+    <div style="text-align:center; margin-bottom: 44px;">
+      <div class="sq-deco"><div class="sq"></div><div class="sq"></div><div class="sq"></div></div>
+      <h2 style="font-family:'Raleway',sans-serif; font-weight:300; font-size:clamp(1.5rem,2.8vw,2.1rem); color:#2c2c2c; margin-bottom:10px;">Šta naše klijentice kažu</h2>
+      <p style="font-size:0.92rem; color:#9e8e85; font-style:italic; margin-bottom:18px;">Recenzije prikupljene putem platforme Hipokratija</p>
+      <div style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid #e8e1da;border-radius:40px;padding:9px 20px;font-family:Arial,sans-serif;flex-wrap:wrap;justify-content:center;">
+        <span style="color:#c9a87c;font-size:1rem;letter-spacing:2px;">★★★★★</span>
+        <span style="font-size:0.95rem;font-weight:700;color:#2c2c2c;">4.95 / 5</span>
+        <span style="font-size:0.82rem;color:#9e8e85;">249 recenzija</span>
+        <span style="font-size:0.78rem;color:#b5a99f;border-left:1px solid #e0d8d2;padding-left:10px;">Hipokratija.rs</span>
+      </div>
+    </div>
+
+    <!-- Karusel -->
+    <style>
+    .rc-outer{position:relative;display:flex;align-items:center;gap:0;}
+    .rc-arr{flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1.5px solid #d8cfc8;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+    .rc-arr:hover{background:#f0ebe4;border-color:#c9a87c;}
+    .rc-arr svg{width:18px;height:18px;stroke:#6b5a50;stroke-width:2;fill:none;}
+    .rc-vp{overflow:hidden;flex:1;margin:0 16px;}
+    .rc-track{display:flex;gap:20px;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+    .rc-card{flex:0 0 calc((100% - 40px)/3);background:#fff;border:1px solid #ede7e0;border-radius:12px;padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;box-sizing:border-box;}
+    .rc-top{display:flex;justify-content:space-between;align-items:flex-start;}
+    .rc-stars{color:#c9a87c;font-size:.92rem;letter-spacing:2px;}
+    .rc-date{font-family:Arial,sans-serif;font-size:.73rem;color:#b5a99f;margin-top:3px;}
+    .rc-q{font-size:2.4rem;line-height:1;color:#ede7e0;font-family:Georgia,serif;margin-top:-4px;}
+    .rc-text{font-size:.9rem;line-height:1.72;color:#3e3530;flex-grow:1;font-family:'Lato',sans-serif;}
+    .rc-foot{border-top:1px solid #f0ebe4;padding-top:11px;display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+    .rc-tag{font-family:Arial,sans-serif;font-size:.71rem;background:#f5ede4;color:#8c6a4e;padding:4px 10px;border-radius:20px;}
+    .rc-auth{font-family:Arial,sans-serif;font-size:.72rem;color:#b5a99f;}
+    .rc-dots{display:flex;justify-content:center;gap:7px;margin-top:28px;}
+    .rc-dot{width:7px;height:7px;border-radius:50%;background:#d8cfc8;border:none;cursor:pointer;padding:0;transition:all .2s;}
+    .rc-dot.on{background:#c9a87c;transform:scale(1.3);}
+    @media(max-width:860px){.rc-card{flex:0 0 calc((100% - 20px)/2);}}
+    @media(max-width:560px){.rc-card{flex:0 0 100%;}.rc-arr{width:36px;height:36px;}}
+    </style>
+
+    <div class="rc-outer">
+      <button class="rc-arr" id="rPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="rc-vp">
+        <div class="rc-track" id="rTrack">
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">mart 2026.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Izuzetno iskustvo svaki put. Rešavaju probleme sa kožom deci i omladini u pubertetu — ciljano i znalački. Imam veliko poverenje u tim ove kuće. Sve je sterilno čisto, a tretmani vrede svaki dinar.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">oktobar 2025.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Sensi Skin je najsavremeniji centar za negu lica u Novom Sadu — slobodna sam da kažem i u celoj Vojvodini. Od trenutka kada ih kontaktirate odišu profesionalizmom. Verna klijentica godinama.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">septembar 2025.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Salon je prelep, osoblje fantastično. Koža mi nikada nije bila ovako blistava — dosta mojih drugarica je počelo da dolazi u Sensi Skin jer vide kako mi lice sjaji.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">oktobar 2025.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Sensi Skin čine devojke koje su izuzetno potkovane znanjem. Preporodile su mi kožu, edukovale me i naučile kako da dugoročno pružam svom licu ono što mu je potrebno.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">avgust 2025.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Nisam sigurna da postoji kozmetički salon koji može da parira Sensi Skin-u. Profesionalnost, iskustvo, prijatan ambijent, higijena koja je neprikosnovena — apsolutno sve.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">avgust 2025.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Divan salon, stručnost, ljubaznost i higijena su na visokom nivou. Dolazim 4 godine i prezadovoljna sam. Svaki tretman i svaka preporuka dale su sjajne rezultate na mojoj koži.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica, 4 godine</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">oktobar 2025.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Divno iskustvo, stručno osoblje — što mi je najbitnije, nisu napadne. Nisu od onih što uvaljivuju proizvode čim legneš na sto. Sve mi je lepo objašnjeno. Vidimo se uskoro opet.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">mart 2026.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Divno iskustvo. Svaki put odem još više zadovoljna. Zaista se vidi kvalitet i ljubav prema poslu koji obavljaju. Hvala Darini na posvećenosti.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+          <div class="rc-card">
+            <div class="rc-top"><div><div class="rc-stars">★★★★★</div><div class="rc-date">maj 2026.</div></div><div class="rc-q">"</div></div>
+            <p class="rc-text">Stvarno prezadovoljna. Darina divna i stručna, sve je objasnila i preporučila dalje. Nikada mi niko nije tako očistio lice, a da se nisam zacrvenela i iziritirala koža.</p>
+            <div class="rc-foot"><span class="rc-tag">Nega i tretmani lica</span><span class="rc-auth">Verifikovana klijentica</span></div>
+          </div>
+
+        </div>
+      </div>
+      <button class="rc-arr" id="rNext"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="rc-dots" id="rDots"></div>
+    <p style="text-align:center;margin-top:20px;font-family:Arial,sans-serif;font-size:0.78rem;color:#c1b6ae;">Sve recenzije su verifikovane putem platforme <a href="https://www.hipokratija.rs" target="_blank" style="color:#9c7a5f;">Hipokratija.rs</a>. Prikazano 9 od 249 recenzija.</p>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- FOOTER                                       -->
+<!-- ═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Sensi Skin</div>
+      <p class="footer-desc">Sensi Skin kozmetološki centar i studio lepote je mesto gde u prijatnoj atmosferi možete pružiti vašoj koži adekvatnu negu lica i tela.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Usluge</h4>
+      <ul>
+        <li><a href="#">Aura Reality</a></li>
+        <li><a href="#">HydraFacial®</a></li>
+        <li><a href="#">Nega lica</a></li>
+        <li><a href="#">Mesojet tretmani</a></li>
+        <li><a href="#">Epilacija</a></li>
+        <li><a href="#">Dermalux</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kompanija</h4>
+      <ul>
+        <li><a href="#">O nama</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Cenovnik</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>Kontakt</h4>
+      <p>
+        Braće Popović 3, sprat 2, stan 12<br>
+        Novi Sad<br><br>
+        +381 65 333 8338<br>
+        sensistudio@gmail.com
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Copyright © 2026 — Sensi Skin | Izrada sajta Studio digital</span>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var track=document.getElementById('rTrack');
+  var vp=track.parentElement;
+  var prev=document.getElementById('rPrev');
+  var next=document.getElementById('rNext');
+  var dotsW=document.getElementById('rDots');
+  var cards=track.querySelectorAll('.rc-card');
+  var total=cards.length, cur=0, pv=3, gap=20;
+
+  function getPV(){ var w=vp.offsetWidth; if(w<560)return 1; if(w<860)return 2; return 3; }
+  function pages(){ return Math.ceil(total/pv); }
+
+  function buildDots(){
+    dotsW.innerHTML='';
+    for(var i=0;i<pages();i++){
+      var d=document.createElement('button');
+      d.className='rc-dot'+(i===0?' on':'');
+      d.dataset.p=i;
+      d.addEventListener('click',function(){ go(+this.dataset.p); });
+      dotsW.appendChild(d);
+    }
+  }
+
+  function resize(){
+    pv=getPV();
+    var vw=vp.offsetWidth;
+    var cw=(vw-gap*(pv-1))/pv;
+    cards.forEach(function(c){ c.style.flex='0 0 '+cw+'px'; });
+    buildDots(); go(0);
+  }
+
+  function go(p){
+    var pg=pages();
+    if(p<0)p=pg-1; if(p>=pg)p=0;
+    cur=p;
+    var vw=vp.offsetWidth;
+    var cw=(vw-gap*(pv-1))/pv;
+    track.style.transform='translateX(-'+(cur*pv*(cw+gap))+'px)';
+    dotsW.querySelectorAll('.rc-dot').forEach(function(d,i){ d.classList.toggle('on',i===cur); });
+  }
+
+  prev.addEventListener('click',function(){ go(cur-1); });
+  next.addEventListener('click',function(){ go(cur+1); });
+  var t; window.addEventListener('resize',function(){ clearTimeout(t); t=setTimeout(resize,120); });
+  resize();
+})();
+</script>
+
+</body>
+</html>

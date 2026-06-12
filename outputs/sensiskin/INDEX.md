@@ -34,6 +34,14 @@ Svi outputi su organizovani po tipu. Datum se vidi u imenu svakog fajla (YYYY-MM
 ## 08-izvestaji
 - `marketinski-izvestaj-jun-2026.html` — **kompletan izveštaj za vlasnicu** (GSC + GA4 + sve urađeno + GEO skor + prioriteti)
 
+## 09-social
+- `hydrafacial-pre-posle-social-2026-06-12.md` — Instagram + Facebook copy za HydraFacial pre/posle
+- `aura-reality-dijagnostika-instagram-2026-06-12.md` — Instagram post Aura Reality (verzija 1)
+- `aura-hydrafacial-instagram-2026-06-12.md` — **Finalni postovi** sa stvarnim @sensi_skin glasom (Aura + HydraFacial x2)
+
+## 10-recenzije
+- `hipokratija-recenzije-widget-2026-06-12.html` — **WordPress HTML widget** sa 12 top recenzija (4.95/5 | 249 ukupno) — lepiti u Elementor → Custom HTML
+
 ## 07-vizuelni-materijali
 - `slojevi-koze-suncana-ostecenja` (html/pdf/png) — infografika „Slojevi kože i oštećenja od sunca" (SR)
 - `facial_layers_sun_damage` (html/pdf/png) — ista infografika (EN)
