@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(mkdir *)",
+      "Bash(date)",
+      "Bash(date *)",
+      "Bash(python scripts/generate_pdf_report.py *)",
+      "Bash(python3 scripts/generate_pdf_report.py *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Write(.claude/agents/**)",
+      "Edit(.claude/agents/**)"
+    ],
+    "defaultMode": "default"
+  }
+}
