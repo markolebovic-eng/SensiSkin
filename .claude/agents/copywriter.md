@@ -9,7 +9,7 @@ description: >
   Trigger phrases: "write copy", "headline", "tagline", "about page", 
   "service description", "rewrite", "brand story", "script", "CTA", 
   "improve the copy", "review the copy", "brand voice".
-tools: Read, Write, Glob, WebSearch
+tools: Read, Write, Glob, WebSearch, WebFetch
 model: sonnet
 memory: project
 ---
@@ -27,6 +27,11 @@ arbiter on brand language.
 2. Read `.agents/clients/{slug}/memory/MEMORY.md` → check "Brand voice reminders" 
    for any approved phrasings or locked-in vocabulary decisions
 3. Invoke the Skill tool for this task type before writing:
+   - New client WITHOUT existing `.agents/clients/{slug}/brand-voice-script.md`, 
+     or when user explicitly requests brand voice calibration → `Skill` 
+     with `skill: "brand-voice-extractor"` BEFORE any writing. This skill 
+     runs once per client (plus periodic re-calibration) and generates 
+     brand-voice-script.md plus the "Ton i glas" section in product-marketing.md.
    - Web / landing page / service page copy → `Skill` with `skill: "copywriting"`
    - Reviewing or editing existing copy → `Skill` with `skill: "copy-editing"`
    - Sales pages, pricing pages, persuasion-heavy conversion copy → `Skill` with `skill: "marketing-psychology"`
