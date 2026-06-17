@@ -1,0 +1,93 @@
+{
+  "url": "https://sensiskinstudio.com",
+  "date": "15. jun 2026.",
+  "brand_name": "Sensi Skin Kozmetološki Centar",
+  "report_title": "Interna Revizija Kapaciteta",
+  "report_subtitle": "AI Marketing Tim — Analiza alata, integracija i subagenatata",
+  "overall_score": 36,
+  "executive_summary": "AI marketing tim ima dobre sadržajne kapacitete i jasnu strategijsku viziju, ali je kritično blokiran nedostatkom API integracija i direktnog pristupa podacima. Svi workflow-ovi su manuelni — agenti isporučuju Markdown fajlove umesto da direktno objavljuju u WordPress. Tri prioritetne intervencije (WordPress REST API, GSC/GA4 API, aktivacija postojećih Canva/Higgsfield MCP alata) povećale bi operativnu efikasnost tima za procenjenih 60–70%.",
+  "categories": {
+    "Sadržajni Kapacitet": {
+      "score": 65,
+      "weight": "25%"
+    },
+    "SEO Kapacitet": {
+      "score": 55,
+      "weight": "20%"
+    },
+    "Analitički Kapacitet": {
+      "score": 15,
+      "weight": "20%"
+    },
+    "Automatizacija Workflow-a": {
+      "score": 10,
+      "weight": "15%"
+    },
+    "Plaćeni Marketing i Email": {
+      "score": 20,
+      "weight": "10%"
+    },
+    "Lokalni i GBP Kapacitet": {
+      "score": 25,
+      "weight": "10%"
+    }
+  },
+  "methodology_criteria": {
+    "Sadržajni Kapacitet": "Copywriter + social agent, brand voice, content strategija, srpski copy kvalitet",
+    "SEO Kapacitet": "SEO alati, schema, ai-seo, GSC/GBP API pristup, keyword istraživanje",
+    "Analitički Kapacitet": "Pristup GA4 i GSC podacima, automatski reporting, baseline merenje",
+    "Automatizacija Workflow-a": "WordPress publishing, scheduling, direktno objavljivanje bez manuelnog rada",
+    "Plaćeni Marketing i Email": "Meta/Google Ads API, email platforma API, kampanje i sekvence",
+    "Lokalni i GBP Kapacitet": "GBP management, review response, NAP monitoring, local-seo agent"
+  },
+  "findings": [
+    {
+      "severity": "Critical",
+      "finding": "Analytics agent nema direktan pristup podacima — ne može da povuce GA4 niti GSC metrike. Sve merenje performansi je manuelno. Bez baseline podataka, nije moguće izmeriti ROI od urađenog posla niti doneti data-driven odluke."
+    },
+    {
+      "severity": "Critical",
+      "finding": "WordPress objavljivanje je 100% manuelno — agenti pišu Markdown fajlove koje vlasnik mora da copy-paste u WordPress. Ovo blokira implementaciju svega urađenog: body copy, JSON-LD schema, blog postovi čekaju na ređu mesecima."
+    },
+    {
+      "severity": "High",
+      "finding": "Canva MCP i Higgsfield MCP su već integrisani u sistem ali nijedan agent ih ne koristi sistematično. Social agent piše caption-e bez vizuele. Neiskorišćen asset koji ne zahteva nikakav dodatni setup niti trošak."
+    },
+    {
+      "severity": "High",
+      "finding": "Nema dedikovanog local-seo agenta. GBP (Google Business Profile) je #1 leverage tačka za lokalni salon, ali ne postoji agent koji se fokusira isključivo na GBP management, review response i local citations."
+    },
+    {
+      "severity": "High",
+      "finding": "Social agent ima 12.000 pratilaca na Instagramu ali bez Instagram Graph API ne može da schedule-uje postove, čita engagement metrike niti predlaže optimizacije bazirane na podacima. Organski doseg se troši bez merenja."
+    },
+    {
+      "severity": "Medium",
+      "finding": "Paid-ads i email agenti postoje ali su latentni kapaciteti — nema API konekcija sa Meta Ads, Google Ads niti email platformom. Kada se krene sa tim kanalima, setup će biti nova kritična blokada."
+    },
+    {
+      "severity": "Medium",
+      "finding": "Nema automatskog monitoringa sajta između sesija. Agent ne zna kada Google re-crawla stranicu, kada se ranking promeni ili kada dodje do tehničke greške. Sve se otkriva tek kada korisnik pokrene novu sesiju."
+    },
+    {
+      "severity": "Low",
+      "finding": "Srpski spell/grammar checker ne postoji u sistemu. Copy na srpskom prolazi bez automatske provere dijaktitičnih znakova (š, ž, ć, đ) što može rezultirati greškama u finalnom objavljivanju sadržaja."
+    }
+  ],
+  "quick_wins": [
+    "Aktiviraj Canva MCP i Higgsfield odmah — već integrisani, $0 trošak, 0 dana setup-a. Sledeći put kada social ili copywriter agent treba vizuel, eksplicitno koristiti mcp__claude_ai_Canva__ alate za branded slike i Higgsfield za Reels video.",
+    "Kreiraj local-seo subagent definiciju (.claude/agents/local-seo.md) — ~1h rada, bez API-ja. Agent odmah počinje manuelni rad na GBP health-checku, Google Posts, review response templates i NAP auditu.",
+    "Generiši WordPress Application Password (WP Admin → Korisnici → Application Passwords) i dokumentuj REST API endpoint — priprema za direktno objavljivanje. Blokirajući korak koji traje 10 minuta ali otvara ceo publishing workflow."
+  ],
+  "medium_term": [
+    "Integriši Google Search Console API + GA4 API u istom Google Cloud projektu (~4h setup, besplatni API-ji). Ovo transformiše analytics agenta iz 'pisca planova' u pravog analitičara — automatski mesečni report umesto manuelnog otvaranja GA4.",
+    "Poveži WordPress REST API sa novim wordpress-publisher agentom — eliminacija 70% manuelnog rada. Agenti direktno objavljuju blog postove, unose Yoast meta tagove i injektuju JSON-LD schema bez ikakve intervencije vlasnika.",
+    "Integriši Google Business Profile API (~3h setup). local-seo agent automatski kreira mesečne Google Posts, prati nove recenzije i predlaže response templates za pozitivne i negativne komentare.",
+    "Poveži Instagram Graph API (Meta for Developers, ~4h setup). Social agent počinje da schedule-uje postove i meri engagement po postu — 12.000 pratilaca prestaje da bude neiskorišćen asset."
+  ],
+  "strategic": [
+    "Kreiraj visual subagent koji koristi Canva MCP + Higgsfield kao primarne alate za sve vizuelne deliverable-ove: Instagram vizueli, blog header slike, ad kreative. Agent postaje kreativni partner za social i paid-ads agente.",
+    "Integriši email platformu (Brevo ili Mailchimp API) sa email agentom — od pisanja sekvenci do direktnog importa, aktivacije i tracking-a open/click rate-a bez ikakve manuelne intervencije. Preduslov: postoji email lista klijenata.",
+    "Poveži Meta Ads API i Google Ads API pre prvog paid-ads budžeta. Paid-ads agent treba direktan pristup kampanjama da bi mogao da optimizuje — bez API-ja radi potpuno 'slepo' i ne može da meri ROAS niti CPA."
+  ]
+}

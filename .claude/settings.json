@@ -8,15 +8,21 @@
       "Bash(python scripts/generate_pdf_report.py *)",
       "Bash(python3 scripts/generate_pdf_report.py *)"
     ],
+    "ask": [
+      "Bash(git add)",
+      "Bash(git add *)",
+      "Bash(git commit)",
+      "Bash(git commit *)",
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(git pull)",
+      "Bash(git pull *)"
+    ],
     "deny": [
       "Bash(rm -rf *)",
       "Bash(sudo *)",
-      "Bash(git push)",
-      "Bash(git push *)",
       "Read(.env)",
-      "Read(.env.*)",
-      "Write(.claude/agents/**)",
-      "Edit(.claude/agents/**)"
+      "Read(.env.*)"
     ],
     "defaultMode": "default"
   }
