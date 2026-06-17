@@ -1,0 +1,105 @@
+{
+  "skill_name": "brand-voice-extractor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Extract the brand voice for our new client, a wellness coach in Novi Sad. Their website is wellnessnovisad.rs — they have a blog with about 15 posts. We're about to write their first newsletter.",
+      "expected_output": "Should read active-client.md to get slug. Should confirm WebFetch is available. Should attempt sitemap discovery at wellnessnovisad.rs/sitemap.xml and fallback paths. Should propose a balanced selection of 8-12 URLs mixing short/medium/long posts and educational/experiential/debunking types, favoring last 12-18 months. Should show the URL list to the user and ask for confirmation before fetching. After fetching, should analyze all 9 dimensions with concrete quotes from actual posts. Should generate both brand-voice-script.md and the 'Ton i glas' section for product-marketing.md. Should update MEMORY.md with script date and re-calibration suggestion.",
+      "assertions": [
+        "Reads active-client.md before proceeding",
+        "Attempts sitemap discovery before direct path fallbacks",
+        "Proposes 8-12 URLs with mix of length and type",
+        "Shows URL list to user and asks for confirmation",
+        "Analyzes all 9 dimensions with concrete quotes",
+        "Generates brand-voice-script.md at correct path",
+        "Appends 'Ton i glas' section to product-marketing.md",
+        "Keeps 'Ton i glas' section under 500 words",
+        "Forbidden list has minimum 5 items",
+        "Updates MEMORY.md with script date and re-calibration suggestion",
+        "Voice profile paragraph sounds like a description of a specific person, not generic"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Analyze the brand voice for a skincare clinic. Their site is at skincareclinic.rs — run the brand voice extractor.",
+      "expected_output": "Should attempt WebFetch on the sitemap. If WebFetch returns fewer than 200 words per page (JS-rendered site), should detect this condition and stop. Should clearly tell the user the site appears to be JavaScript-rendered (Wix/Squarespace/Webflow) and that autofetch won't work. Should ask the user to manually paste sample blog post texts instead of continuing to guess. Should NOT attempt to analyze with insufficient content. Should NOT generate a brand voice script based on sparse fetch results.",
+      "assertions": [
+        "Attempts WebFetch on sitemap or blog URLs",
+        "Detects fewer than 200 words returned per page",
+        "Identifies this as a likely JS-rendered site",
+        "Names likely platform types (Wix, Squarespace, Webflow)",
+        "Stops and asks user to manually paste samples",
+        "Does NOT attempt to analyze with sparse content",
+        "Does NOT generate brand-voice-script.md from insufficient data"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "It's been 6 months since we ran the brand voice extractor for this client. They've added a lot of new content. Can you re-calibrate?",
+      "expected_output": "Should detect that brand-voice-script.md already exists for the active client. Should enter re-calibration mode (mode 2). Should read existing brand-voice-script.md to identify the last analysis date. Should fetch only posts published AFTER that date (not re-analyze all posts). Should analyze 5-8 new posts. Should generate a DIFF document showing what has changed in the voice since last analysis. Should update product-marketing.md 'Ton i glas' section only where there are real changes, not wholesale rewrite. Should save old brand-voice-script.md as brand-voice-script-{date}.md before overwriting. Should update MEMORY.md with new re-calibration date.",
+      "assertions": [
+        "Detects existing brand-voice-script.md",
+        "Enters re-calibration mode instead of full analysis",
+        "Reads last analysis date from existing script",
+        "Fetches only posts published after last analysis date",
+        "Analyzes 5-8 new posts (not all posts)",
+        "Generates a DIFF document, not a full new script",
+        "Updates product-marketing.md only where voice has changed",
+        "Saves old brand-voice-script.md with date suffix before overwriting",
+        "Updates MEMORY.md with new re-calibration date"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I've pasted three blog posts below for you to analyze the brand voice. [Post 1 text...] [Post 2 text...] [Post 3 text...]",
+      "expected_output": "Should recognize this as Scenario C — user-provided samples. Should skip Phase 1 (Discovery) and Phase 2 (Sample selection) entirely. Should go directly to Phase 3 extraction using the provided texts. Should note in the output that only 3 samples were provided, which is below the recommended minimum of 5, and flag that patterns may be less reliable. Should still analyze all 9 dimensions as fully as the samples allow. Should generate both output files. Should recommend providing more samples for a more reliable calibration.",
+      "assertions": [
+        "Recognizes user-provided samples (Scenario C)",
+        "Skips Phase 1 Discovery entirely — no WebFetch attempts",
+        "Skips Phase 2 Sample selection",
+        "Goes directly to Phase 3 extraction",
+        "Notes that 3 samples is below the recommended minimum of 5",
+        "Flags that patterns may be less reliable with fewer samples",
+        "Analyzes all 9 dimensions with available content",
+        "Generates both brand-voice-script.md and Ton i glas section",
+        "Recommends providing more samples for better calibration"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Extract the brand voice for a physiotherapist. Their blog has exactly 5 posts — that's all they've published so far.",
+      "expected_output": "Should proceed with 5 posts (exactly the minimum threshold). Should use all 5 posts — no selection algorithm needed when at minimum. Should note in output that 5 posts is the minimum and patterns are preliminary. Should still analyze all 9 dimensions. Should note which dimensions have weaker signal due to limited sample size (e.g., CTA frequency percentages less reliable with only 5 posts). Should generate both output files. Should suggest the client publish more content and recommend re-calibration when 10+ posts are available.",
+      "assertions": [
+        "Accepts 5 posts as meeting the minimum threshold",
+        "Uses all 5 posts without applying selection algorithm",
+        "Notes in output that 5 posts is the minimum and patterns are preliminary",
+        "Analyzes all 9 dimensions",
+        "Flags which dimensions have weaker signal due to limited sample",
+        "Generates both output files",
+        "Suggests re-calibration when more posts are available"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "The brand voice profile you generated says the client is 'professional and warm with an empathetic approach.' That's the same description you'd give any wellness brand. Can you sharpen it?",
+      "expected_output": "Should recognize this as a generic voice profile failing the quality check. Should go back to the analyzed samples and extract more specific, differentiating characteristics. Should replace generic descriptors ('professional', 'warm', 'empathetic') with concrete behavioral descriptions: specific sentence patterns, recurring phrases or constructions, how exactly they open posts, what they specifically avoid. Should produce a voice profile paragraph that could only describe THIS client — not any wellness brand. Should also check and expand the forbidden list if it was too short. Should run the quality check criteria: profile sounds like a specific person, not a category.",
+      "assertions": [
+        "Recognizes 'professional and warm' as generic — fails quality check",
+        "Returns to analyzed samples for more specific signals",
+        "Replaces generic descriptors with concrete behavioral descriptions",
+        "Identifies specific recurring phrases or sentence constructions",
+        "Describes exactly how this client opens posts (not just 'warm opening')",
+        "Describes what this client specifically avoids (not generic list)",
+        "Produces a voice profile paragraph that is specific to this client",
+        "Checks that forbidden list has minimum 5 concrete items",
+        "Result reads like a description of a specific person when read aloud"
+      ],
+      "files": []
+    }
+  ]
+}
