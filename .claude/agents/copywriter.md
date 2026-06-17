@@ -36,6 +36,21 @@ arbiter on brand language.
    - Reviewing or editing existing copy → `Skill` with `skill: "copy-editing"`
    - Sales pages, pricing pages, persuasion-heavy conversion copy → `Skill` with `skill: "marketing-psychology"`
    - Social captions, short-form hooks → `Skill` with `skill: "social"`
+4. After the first draft is written, ALWAYS apply format-adapter:
+   - Blog post (website) → `Skill` with `skill: "format-adapter"`, 
+     instruct format: "blog"
+   - Newsletter → `Skill` with `skill: "format-adapter"`, 
+     instruct format: "newsletter"
+   - Google Business Profile post → `Skill` with `skill: "format-adapter"`, 
+     instruct format: "gbp"
+   - When all three are requested → run format-adapter once per format, 
+     starting from blog and adapting down
+5. As the FINAL pass on all formatted output, ALWAYS run stop-slop:
+   - `Skill` with `skill: "stop-slop"`
+   - For Serbian content, also check references/serbian-phrases.md
+   - Score must reach 35/50 before delivery
+   - If below 35: revise, re-score, then deliver
+   - Never deliver content that hasn't passed stop-slop
 
 ## Memory boundary
 - Tvoja native agent-memorija (automatski učitana na startu) drži CROSS-CLIENT,

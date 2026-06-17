@@ -1,0 +1,106 @@
+{
+  "skill_name": "format-adapter",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Format this draft as a blog post for the SensiSkin website. [Draft: 600-word text about dry skin care in winter, written in brand voice, covering causes, routine steps, and product types to use.]",
+      "expected_output": "Should structure the draft into the mandatory blog post format: H1 title (under 60 chars, no question, contains keyword), 80-120 word intro (opens with reader situation, no 'In this post...'), 3-4 H2 sections (statements not questions, 150-300 words each), closing section with specific CTA. Should add image placeholder after H1. Should add minimum 1-2 internal link placeholders. Should append META description draft under 155 characters at end. Should NOT rewrite the substance — same ideas, same voice, just structured. Should verify total word count is 800-1500.",
+      "assertions": [
+        "Produces H1 title under 60 characters, not a question",
+        "Intro is 80-120 words and opens with reader situation",
+        "H2 headings are statements, not questions",
+        "Each body section is 150-300 words",
+        "Closing section has specific CTA, not 'I hope this helped'",
+        "Image placeholder added after H1",
+        "At least 1 internal link placeholder present",
+        "META description appended, under 155 characters",
+        "Total word count is 800-1500",
+        "Substance unchanged — same ideas as draft"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Adapt this blog post draft as a newsletter. [Draft: 900-word blog post about hyaluronic acid for sensitive skin.]",
+      "expected_output": "Should distill the 900-word blog to 350-500 words total. Should extract one core idea from the blog, not compress all three sections. Should produce 3 subject line options: Option A curiosity angle, Option B direct benefit, Option C personal/question angle — each under 45 characters, no emojis, no ALL CAPS. Should produce 1 preview text (60-90 chars, different from subject lines). Should format body as flowing paragraphs (no H2 headings), paragraphs max 3 sentences. Should include exactly one CTA. Should add personal sign-off. Should NOT include tables or complex formatting.",
+      "assertions": [
+        "Total word count is 350-500",
+        "Produces exactly 3 subject line options with different angles",
+        "Each subject line is under 45 characters",
+        "Preview text is 60-90 characters and not a repeat of subject lines",
+        "Body has no H2 headings",
+        "No paragraph exceeds 3 sentences",
+        "Exactly one CTA",
+        "Includes personal sign-off",
+        "Focuses on one core idea, not a compressed summary of all blog sections",
+        "No tables or complex formatting"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Turn this into a Google Business Profile post. [Draft: 400-word article about the benefits of facial massage for lymphatic drainage, written for SensiSkin clients in Novi Sad.]",
+      "expected_output": "Should compress the draft to 900-1200 characters (hard limit 1500). Should open with a hook of 100-150 characters that works as a standalone teaser before 'Prikaži više'. Should develop one specific point in the body (600-800 characters). Should end with a specific CTA using a phone number as plain text. Should include a photo suggestion. Should state the character count in the delivery. Should NOT include hashtags. Should NOT include URLs or hyperlinks. Should flag if character count is between 1200-1500.",
+      "assertions": [
+        "Total character count is under 1500",
+        "Target is 900-1200 characters",
+        "Opening line is 100-150 characters and works as standalone teaser",
+        "No hashtags present",
+        "No URLs or hyperlinks in text",
+        "CTA includes phone number as plain text",
+        "Photo suggestion included",
+        "Character count stated in delivery",
+        "Focuses on one topic only"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "We have a draft about spring skin detox routines. Format it as all three: blog post, newsletter, and GBP post.",
+      "expected_output": "Should identify blog as the primary format and format it first. Should then adapt blog → newsletter by extracting one core idea and making it personal (not compressing everything). Should then adapt blog → GBP by finding the single sharpest point and compressing to character limit. Should NOT write three independent pieces from the draft. Should deliver all three clearly labeled. Each format should meet its own constraints (blog 800-1500 words, newsletter 350-500 words, GBP 900-1200 chars). Brand voice should be consistent across all three.",
+      "assertions": [
+        "Produces all three formats",
+        "Blog is formatted first and fully",
+        "Newsletter distills to one core idea, not compresses all",
+        "GBP extracts the sharpest single point",
+        "All three derive from the same draft, not written independently",
+        "Blog meets 800-1500 word count",
+        "Newsletter meets 350-500 word count",
+        "GBP meets 900-1200 character target",
+        "Brand voice consistent across all three formats"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Format this as a newsletter. [Draft: 1200-word blog post about five different skincare ingredients, one per section, each with its own benefits and usage tips.]",
+      "expected_output": "Should recognize that adapting all five ingredient sections into a 350-500 word newsletter is impossible without distillation — this is not compression, it requires picking ONE ingredient or ONE angle. Should select the most engaging or seasonally relevant single angle. Should explicitly tell the user which angle was chosen and why. Should produce a newsletter at 350-500 words covering only that angle well. Should NOT attempt to mention all five ingredients shallowly. Should suggest the other four ingredients as future newsletter topics.",
+      "assertions": [
+        "Recognizes that all five topics cannot fit in 350-500 words",
+        "Selects one topic or angle for the newsletter",
+        "Tells the user which angle was chosen and why",
+        "Newsletter word count is 350-500",
+        "Does not try to shallowly cover all five ingredients",
+        "Suggests other four as future newsletter topics",
+        "Produces 3 subject lines, preview text, single CTA"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Make this a GBP post. [Draft text that, when formatted, runs to approximately 1700 characters.]",
+      "expected_output": "Should count the characters and detect the post is over the 1500 hard limit (and well above the 900-1200 target). Should cut from the body only — never from the opening hook or CTA. Should NOT cut the CTA or shorten the opening below 100 characters. Should deliver the final post at 900-1200 characters. Should state both the original character count and the final character count. Should explain what was cut and why those specific parts were removed.",
+      "assertions": [
+        "Detects character count is over the 1500 hard limit",
+        "Cuts from body section only",
+        "Opening hook remains 100-150 characters",
+        "CTA remains intact",
+        "Final post is 900-1200 characters",
+        "States original character count in delivery",
+        "States final character count in delivery",
+        "Explains what was cut"
+      ],
+      "files": []
+    }
+  ]
+}
