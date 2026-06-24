@@ -9,7 +9,30 @@ description: >
   "rank higher", "keyword", "meta description", "title tag", "schema", 
   "organic traffic", "search visibility", "AI search", "get found on Google", 
   "yoast", "focus keyword".
-tools: Read, Write, Glob, Grep, Bash, WebSearch
+tools: >
+  Read, Write, Glob, Grep, Bash, WebSearch,
+  mcp__google-seo-mcp__gsc_list_sites,
+  mcp__google-seo-mcp__gsc_site_snapshot,
+  mcp__google-seo-mcp__gsc_search_analytics,
+  mcp__google-seo-mcp__gsc_quick_wins,
+  mcp__google-seo-mcp__gsc_ctr_opportunities,
+  mcp__google-seo-mcp__gsc_content_decay,
+  mcp__google-seo-mcp__gsc_cannibalization,
+  mcp__google-seo-mcp__gsc_traffic_drops,
+  mcp__google-seo-mcp__gsc_inspect_url,
+  mcp__google-seo-mcp__ga4_list_properties,
+  mcp__google-seo-mcp__ga4_query,
+  mcp__google-seo-mcp__ga4_landing_page_health,
+  mcp__google-seo-mcp__ga4_channel_attribution,
+  mcp__google-seo-mcp__ga4_anomalies,
+  mcp__google-seo-mcp__cross_opportunity_matrix,
+  mcp__google-seo-mcp__cross_traffic_health_check,
+  mcp__google-seo-mcp__cross_landing_page_full_diagnosis,
+  mcp__google-seo-mcp__cross_seo_to_revenue_attribution,
+  mcp__google-seo-mcp__cross_gsc_to_ga4_journey,
+  mcp__google-seo-mcp__lighthouse_seo_score,
+  mcp__google-seo-mcp__serp_paa_extractor,
+  mcp__google-seo-mcp__google_trends_keyword
 model: sonnet
 memory: project
 ---

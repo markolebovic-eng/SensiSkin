@@ -4,7 +4,47 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
-2026-06-12 — Social copy delivered: HydraFacial pre/posle Instagram + Facebook post (Nataša's voice). Article schema resolved via SASWP. See notes below.
+2026-06-24 — SEO audit completed (GSC + GA4 data, 90 days). Traffic drop confirmed (-21.6% clicks vs prior period). GA4 tracking gap critical (23% ratio). 5 pages selected + new title/meta delivered. New keyword added: /perutanje-koze/ → "perutanje kože". URL slug discrepancies flagged. Full report: /outputs/sensiskin/seo/seo-audit-2026-06.md
+
+## ▶ SEO AUDIT FINDINGS (2026-06-24)
+
+### Traffic status (GSC, 2026-03-24 to 2026-06-21)
+- Clicks: 1.519 (down 21.6% vs prior 90 days)
+- Impressions: 35.431 (down 4.7%)
+- Avg CTR: 4.29% (down from 5.21%)
+- Avg position: 8.15 (worse from 7.09)
+- Cause: Phase C content + title/meta changes NOT YET IMPLEMENTED. Old title format still showing in Google.
+
+### CRITICAL: GA4 Tracking Gap
+- GA4/GSC ratio: 0.226 (healthy = 0.7–1.3)
+- GA4 sees only 344 organic sessions vs 1.519 GSC organic clicks = 77% of organic traffic invisible in GA4
+- Must investigate BEFORE using any GA4 data for decisions
+- Likely causes: consent banner blocking GA4 on first pageview; misclassified organic → direct; GA4 tag missing on some pages
+- ACTION: GA4 Admin → Data Streams → verify measurement ID on all pages. Check Reports → Acquisition → see if Direct is anomalously high.
+
+### URL Slug Discrepancies Found (GSC vs MEMORY.md)
+- GSC shows `/kontakt/` — MEMORY.md has `/kontakt-sensi-skin-novi-sad/`. Check WordPress permalink.
+- GSC shows `/sensi-skin/` — MEMORY.md has `/kozmetoloski-centar-sensi-skin/`. May be duplicate or redirect.
+- GSC shows `/hydrafacial-tretman-lica/` — MEMORY.md has `/hydrafacial-tretmani-lica-novi-sad/`. Confirm actual slug before next iteration.
+- DO NOT change URL slugs — just verify which is active and align MEMORY.md in next session.
+
+### New keyword assigned (2026-06-24)
+- /perutanje-koze/ → focus keyword: "perutanje kože" | informational intent | 6.289 impressions / 90d | not in Master Table before this audit | no collision confirmed
+
+### Pages optimized in this audit (title/meta proposals delivered)
+All proposals in: /outputs/sensiskin/seo/seo-audit-2026-06.md
+1. /perutanje-koze/ — NEW keyword "perutanje kože" | title: "Perutanje kože — uzroci i tretmani | Sensi Skin" (51c) | meta: "Perutanje kože — uzroci, simptomi i kada potražiti pomoć stručnjaka. Saznajte šta radi Sensi Skin kad kućna nega više ne pomaže." (150c)
+2. /nega-lica/ — keyword "nega lica tretmani" (MEMORY #3 confirmed) | title: "Nega lica tretmani — Sensi Skin kozmetički studio" (50c) | meta: "Nega lica tretmani u Sensi Skin — higijenski tretmani, HydraFacial i mesojet prilagođeni Vašem tipu kože. Zakazite konsultaciju: 065/333-8-338." (152c)
+3. /kontakt/ — keyword "Sensi Skin Novi Sad kontakt" (MEMORY #10) | title: "Sensi Skin Novi Sad — kontakt i zakazivanje" (49c) | meta: "Sensi Skin Novi Sad — zakazite tretman telefonom 065/333-8-338 ili posetite nas na Braće Popović 3, sprat 2. Radno vreme i mapa u nastavku." (152c)
+4. /sensi-skin/ — keyword "kozmetički studio Novi Sad" (MEMORY #9) | title: "Kozmetički studio Novi Sad — o Sensi Skin centru" (50c) | meta: "Kozmetički studio Novi Sad — Sensi Skin, 20+ godina iskustva. Nataša Burka i tim za tretmane prilagođene Vašoj koži. Zakazite: 065/333-8-338." (147c)
+5. /epilacija/ — keyword "laserska epilacija Novi Sad" (MEMORY #2 confirmed) | title: "Laserska epilacija Novi Sad — Sensi Skin studio" (49c) | meta: "Laserska epilacija Novi Sad u Sensi Skin — profesionalna oprema, tretmani po tipu kože, dugotrajni rezultati. Zakazite konsultaciju: 065/333-8-338." (154c)
+
+### Implementation priority order (from this audit)
+1. Fix GA4 tracking gap (before anything else)
+2. /nega-lica/ and /epilacija/ — Phase C body copy + new title/meta together in one edit
+3. /perutanje-koze/ — title/meta only (content likely exists)
+4. /kontakt/ — title/meta (quick win, massive CTR gap)
+5. /sensi-skin/ — verify slug first, then title/meta
 
 ## ▶ ARTICLE SCHEMA — SASWP (2026-06-12, RESOLVED)
 Site uses TWO schema plugins simultaneously: **Yoast SEO** (handles service pages) and **SASWP** (Schema & Structured Data for WP & AMP, handles blog posts + navigation). This was the root cause of 0/29 Article schema on blog posts despite Yoast "Article type" being set correctly — SASWP was overriding Yoast output on posts.
@@ -205,7 +245,9 @@ NOTE: Real IG posts use significantly fewer hashtags than recommended (often zer
 | 12 | /saveti-za-negu-koze/ | saveti za negu koze | Strucni saveti za negu koze — Sensi Skin, Novi Sad | 50 | Saveti za negu koze koje zaista funkcionisu — citajte blog Sensi Skin studija i naucite kako da brinete o kozi uz strucne savete. Zakazite odmah. | 145 | ACTIVE — previously delivered 2026-06-08 |
 | 13 | /saveti-za-negu-koze/razlika-profesionalna-i-drogerijska-kozmetika/ | razlika profesionalna i drogerijska kozmetika | Razlika profesionalna i drogerijska kozmetika — Sensi Skin | 55 | Razlika profesionalna i drogerijska kozmetika nije samo cena — u pitanju su koncentracija, prodiranje u kozu i strucna dijagnoza. Saznajte sta kucna nega moze, a sta ne. | 153 | COPY WRITTEN — pending WordPress implementation. File: /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md |
 
-**COLLISION CHECK**: All 13 keywords are unique. No two pages share a focus keyword.
+| 14 | /perutanje-koze/ | perutanje kože | Perutanje kože — uzroci i tretmani \| Sensi Skin | 51 | Perutanje kože — uzroci, simptomi i kada potražiti pomoć stručnjaka. Saznajte šta radi Sensi Skin kad kućna nega više ne pomaže. | 150 | PROPOSAL DELIVERED — 2026-06-24 audit. Pending implementation. |
+
+**COLLISION CHECK**: All 14 keywords are unique. No two pages share a focus keyword.
 **GEO RULE COMPLIANCE**: "Novi Sad" in keyword only on pages 1, 2, 4, 7, 9, 10, 11 (geo pages). Pages 3, 5, 6, 8, 12, 13 are thematic — no geo modifier.
 **BLOG CANNIBALIZATION CHECK**: Page #13 is informational; all service pages (1–11) are transactional/local. Zero overlap in keyword intent or phrasing. Slug is a subpage of blog hub #12, not a service page slug.
 
