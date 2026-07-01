@@ -10,7 +10,7 @@ description: >
   "organic traffic", "search visibility", "AI search", "get found on Google", 
   "yoast", "focus keyword".
 tools: >
-  Read, Write, Glob, Grep, Bash, WebSearch,
+  Read, Write, Glob, Grep, WebSearch, WebFetch,
   mcp__google-seo-mcp__gsc_list_sites,
   mcp__google-seo-mcp__gsc_site_snapshot,
   mcp__google-seo-mcp__gsc_search_analytics,
@@ -32,7 +32,19 @@ tools: >
   mcp__google-seo-mcp__cross_gsc_to_ga4_journey,
   mcp__google-seo-mcp__lighthouse_seo_score,
   mcp__google-seo-mcp__serp_paa_extractor,
-  mcp__google-seo-mcp__google_trends_keyword
+  mcp__google-seo-mcp__google_trends_keyword,
+  mcp__google-seo-mcp__aeo_ai_bots_robots_audit,
+  mcp__google-seo-mcp__aeo_llms_txt_check,
+  mcp__google-seo-mcp__serp_aio_monitor,
+  mcp__google-seo-mcp__schema_extract_url,
+  mcp__google-seo-mcp__schema_validate_url,
+  mcp__google-seo-mcp__schema_suggest_for_page,
+  mcp__google-seo-mcp__migration_robots_audit,
+  mcp__google-seo-mcp__google_suggest,
+  mcp__google-seo-mcp__google_suggest_alphabet,
+  mcp__google-seo-mcp__migration_wp_audit_site,
+  mcp__google-seo-mcp__migration_broken_internal_links,
+  mcp__google-seo-mcp__migration_image_alt_coverage
 model: sonnet
 memory: project
 ---
