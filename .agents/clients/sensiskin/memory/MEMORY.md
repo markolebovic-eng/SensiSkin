@@ -4,6 +4,9 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
+2026-07-02 — Brand voice extracted (8 posts analyzed, script saved to .agents/clients/sensiskin/brand-voice-script.md; "Ton i glas" section appended to product-marketing.md). Three TEST DRAFT blog posts written for topic selection — NOT final content, await SEO handoff and client topic choice. Topics: skin longevity tretmani / LED terapija svetlom za kožu / analiza kože pre tretmana. Files: /outputs/sensiskin/blog/skin-longevity-2026-07-DRAFT.md, /outputs/sensiskin/blog/led-terapija-2026-07-DRAFT.md, /outputs/sensiskin/blog/analiza-koze-2026-07-DRAFT.md. All three passed stop-slop (scores: 38, 40, 40 / 50).
+
+## Last updated (prior)
 2026-06-24 — SEO audit completed (GSC + GA4 data, 90 days). Traffic drop confirmed (-21.6% clicks vs prior period). GA4 tracking gap critical (23% ratio). 5 pages selected + new title/meta delivered. New keyword added: /perutanje-koze/ → "perutanje kože". URL slug discrepancies flagged. Full report: /outputs/sensiskin/seo/seo-audit-2026-06.md
 
 ## ▶ SEO AUDIT FINDINGS (2026-06-24)

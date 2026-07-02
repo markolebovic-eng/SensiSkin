@@ -109,6 +109,58 @@ personalnoj atmosferi.
 
 ---
 
+## Ton i glas
+
+*Operativni vodič za kopirajtere — generisan analizom 8 blog postova, 2026-07-02*
+
+**Adresiranje:** Formalno do neutralno. "Vi" u CTA-ovima ("Pozovite nas", "zakažite"). "mi" za perspektivu studia ("u radu srećemo", "u studiju radimo"). Blog postovi retko koriste direktno "ti" — neutralan, grupisani ton dominira ("za sve vas koji...", treće lice). CTA uvek u formalnom množinskom obliku.
+
+**Otvaranje posta:** Tri dominantna obrasca:
+- Grupna relevantnost: "Za sve vas koji se negom kože bavite detaljno..."
+- Normalizacija brige: "To je normalna pojava" / smanjivanje anksioznosti pre rešenja
+- Stručna tvrdnja kao temelj: faktička tvrdnja o mehanizmu ili problemu
+Nije: retorička pitanja, privatne anegdote, clickbait.
+
+**Rečenice:** Srednje do duže u objašnjavajućim pasusima (16-22 reči). Ritam je stabilan i edukatorski, bez ritmičkih kontrasta. Stavke u listama su kratki apozitivni oblici, ne punokrvne rečenice.
+
+**Pasusi:** H2 struktura obavezna. Pasusi od 2-4 rečenice. Liste od 4-8 stavki za nizove prednosti, stanja ili koraka.
+
+**Karakteristične reči (koristi):**
+"tretman/tretmani", "nega/nege", "koža/kože", "klijentkinje", "serija tretmana", "konzultacija", "rutina", "stanje kože", "tip kože"
+
+**Tehnički termini:** Navodi se naziv, odmah sledi objašnjenje: "fotobiomodulacija (podsticanje ćelija na rad svetlošću)", "633 nm (crvena svetlost)". Specifični parametri (nm vrednosti, broj sesija, trajanje) su autoritet signal — koristiti ih.
+
+**Engleski termini:** Zadržati za brendirane tretmane i opremu: HydraFacial, Dermalux, Mesojet, LED, SPF. Sve ostalo na srpskom.
+
+**Registar:** Primarno stručni edukator. Sekundarno smirujući savetnik. Autoritet dolazi iz znanja i parametara, ne iz emotivne bliskosti.
+
+**Autoritet — kako se gradi:**
+- Konkretni parametri (nm, broj sesija, minuti) bez garancija
+- "U radu srećemo" / "u studiju radimo" — kolektivno iskustvo, ne lična autobiografija
+- Eksplicitno razgraničavanje kompetencija (šta doktor radi vs. kozmetolog)
+- Nuđenje konsultacije kao prirodni završni korak, ne prodajni pritisak
+
+**CTA stil:** Direktan, uvek na kraju. Standardna formula: "Pozovite nas na 065/333-8-338 i zakažite konsultaciju." Nema meke pozivnice, nema retoričkih pitanja kao CTA.
+
+## Izbegavati
+
+- "transformisati", "holistički pristup", "sveobuhvatni", "na putu ka", "na kraju dana"
+- "Naime", "Pre svega", "Generalno gledano"
+- "svakako", "zaista", "naravno", "bez sumnje" — kao filler reči
+- "može se reći", "treba napomenuti", "smatra se", "poznato je da"
+- "Ovo je veoma važno", "To je ključno" — bezlične deklaracije
+- "u kontekstu", "implementirati", "optimizovati", "pored toga", "štaviše"
+- "Nadam se da vam je ovo pomoglo" — AI završetak
+- Definisanje termina u prvoj rečenici posta
+- Liste duže od 8 stavki
+- Negativne reference na konkurenciju (po imenu ili opisno)
+- Konkretna obećanja rezultata ("garantovano", "sigurno ćete", "100%")
+- "magično rešenje", "Posetite nas i osetite razliku"
+- Em-crtica (—) u tekstu; koristiti zarez, tačku-zarez ili novu rečenicu
+- Superlative: "najmoćniji", "jedini pravi", "revolucionaran", "savršen"
+
+---
+
 ## Kanali / Key channels
 
 | Kanal | Prioritet | Upotreba |
