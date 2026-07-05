@@ -4,6 +4,12 @@ This file is read and updated by all agents. It acts as the project's
 persistent memory across sessions.
 
 ## Last updated
+2026-07-05 — Research agent first run: competitors.md created (9 competitors, all URLs WebSearch-proposed/unverified, local scrape skipped this run). 10 blog topics proposed from global trend research (17 firecrawl credits used) — full list at /outputs/sensiskin/research/topics-2026-07-05.md. Owner must confirm competitor URLs (esp. Divine Beauty, VIVA Beauty — no clear match found) before next run uses them.
+
+## Last updated (prior)
+2026-07-02 — GBP and newsletter adaptations of analiza-koze-2026-07-DRAFT.md completed. GBP: ~970 chars, plain text, "analiza = podaci ne pretpostavka" central message, CTA 065/333-8-338. Newsletter subject line pick: "Zašto isti tretman ne radi za sve" (34 chars); preview text 85 chars; body ~315 words, 2x H2. Both saved to /outputs/sensiskin/blog/formated/.
+
+## Last updated (prior)
 2026-07-02 — Brand voice extracted (8 posts analyzed, script saved to .agents/clients/sensiskin/brand-voice-script.md; "Ton i glas" section appended to product-marketing.md). Three TEST DRAFT blog posts written for topic selection — NOT final content, await SEO handoff and client topic choice. Topics: skin longevity tretmani / LED terapija svetlom za kožu / analiza kože pre tretmana. Files: /outputs/sensiskin/blog/skin-longevity-2026-07-DRAFT.md, /outputs/sensiskin/blog/led-terapija-2026-07-DRAFT.md, /outputs/sensiskin/blog/analiza-koze-2026-07-DRAFT.md. All three passed stop-slop (scores: 38, 40, 40 / 50).
 
 ## Last updated (prior)
@@ -330,3 +336,25 @@ NOTE: Real IG posts use significantly fewer hashtags than recommended (often zer
   13. AI check: Is Sensi Skin mentioned in ChatGPT and Perplexity for "kozmetički studiji Novi Sad"? (Yes/No)
 - KNOWN BASELINE SIGNAL (from prior audit): As of June 8, 2026, all GSC-visible title tags still show OLD format "Kozmeticki salon i salon lepote" — Phase 2 changes NOT yet indexed. This is the confirmed pre-Phase-C baseline for title tag state.
 - FAQ SCHEMA NOTE (jun 2026): Google deprecated FAQPage rich results in May 2026 (visual dropdowns gone from SERP). FAQPage schema markup remains valid and should be kept — it has AEO/AI citation value. Rich Results Test will lose FAQ check in June 2026; use validator.schema.org as fallback for FAQ schema validation.
+
+## Infrastructure — Firecrawl tooling (2026-07-05)
+- INSTALLED (per-machine, this MacBook): Node 26.4.0 via Homebrew; firecrawl-cli v1.19.24 globally via `firecrawl init --all`; 31 firecrawl skills in ~/.claude/skills/ (global, all clients).
+- AUTH: FIRECRAWL_API_KEY works via env var only — CLI does NOT store the key on disk. Key persistence location: DECISION PENDING (owner to confirm; proposal = shell profile ~/.zshenv, outside this public repo).
+- VERIFIED: `firecrawl --status` OK (authenticated, 1,025 credits), test scrape of firecrawl.dev → .firecrawl/install-check.md OK.
+- MCP registration for Claude Code (from docs.firecrawl.dev/mcp-server): `claude mcp add --transport http firecrawl https://mcp.firecrawl.dev/{API_KEY}/v2/mcp` (remote, recommended) or `claude mcp add firecrawl -e FIRECRAWL_API_KEY=... -- npx -y firecrawl-mcp` (local). MCP exposes 11 tools: firecrawl_scrape, firecrawl_map, firecrawl_search, firecrawl_parse, firecrawl_crawl, firecrawl_check_crawl_status, firecrawl_extract, firecrawl_agent, firecrawl_agent_status, firecrawl_interact, firecrawl_interact_stop.
+- DECISION PENDING: research agent architecture — (a) MCP tools in frontmatter vs (b) Bash + CLI skills. DO NOT build the research agent until owner picks.
+- NOTE: install must be repeated on the Mac (other machine) — npx/global npm install is per-machine.
+- NOTE: project .firecrawl/ dir is NOT in .gitignore (repo is public) — consider adding.
+
+## Firecrawl — decisions applied + cost data (2026-07-05)
+- DECIDED: API key persisted in ~/.zshenv (outside repo). .firecrawl/ added to .gitignore (line 4). Research agent architecture = CLI+Bash (option b), NOT MCP — workflow skills (competitive-intel, market-research, deep-research) cover the planned agent function.
+- CREDIT COSTS (official, firecrawl.dev/pricing): scrape/crawl/map/monitor = 1 credit/page; search = 2 credits/10 results; interact = 2 credits/browser-minute; agent = preview, 5 free daily runs + dynamic pricing; advanced features (JSON format, Enhanced Mode) cost extra.
+- PER-SKILL COST: NOT documented anywhere — skills are prompt playbooks, cost = sum of CLI calls they orchestrate. Measured test run (1 search @5 results + 2 scrapes) = 4 credits exactly per price list.
+- ESTIMATED per deep-research tier (from skill's own call counts × official prices): Quick ~11-20 credits, Thorough ~25-45, Exhaustive ~45+. competitive-intel ≈ 3-6 credits/competitor (pages scraped) + interact minutes if browser needed.
+- NEXT STEP: write research agent definition (CLI+Bash + firecrawl skills). Agent NOT yet created.
+
+## Research agent created (2026-07-05)
+- CREATED: .claude/agents/research.md — weekly/on-demand blog topic research (10 topics, client picks 2-3). Architecture: CLI+Bash + own lightweight flow (does NOT delegate to firecrawl workflow skills — deep-research rejects top-N lists). Credit budget ~10-20/run. Deliverable: /outputs/{slug}/research/topics-{YYYY-MM-DD}.md, Serbian Latin.
+- competitors.md does NOT yet exist — agent creates it on first run with defaults (epilacija: Vita Elos, Divine Beauty [unverified], Studio LiliuM, K2 Derma, Dr. Glavinić; kozmetološki centar: Soze Beauty, Ceca Skincare, Madam In, VIVA Beauty). Owner should review/expand it after first run.
+- Requires VSCode Reload Window before first invocation (new agent file).
+- UPDATE (2026-07-05, izmena 4): research.md now auto-discovers missing competitor URLs via WebSearch (added to tools) but marks them "[PREDLOŽENO - NEVERIFIKOVANO]" in competitors.md and SKIPS them for map/scrape until owner confirms; unresolved searches logged as "URL nije pronađen, potrebna ručna provera".

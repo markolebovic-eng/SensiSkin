@@ -1,6 +1,7 @@
 .env
 .env.*
 !.env.example
+.firecrawl/
 *.key
 *.pem
 *.p12
