@@ -9,7 +9,8 @@ SensiSkin is an AI marketing agency built ON Claude Code. Not a Node app — pac
 
 Key structure (per CLAUDE.md and confirmed on disk):
 - `.claude/agents/`, `.claude/skills/` — agent + skill definitions (committed).
-- `.claude/agent-memory/<agent>/` — this repo overrides Claude Code's default machine-local auto-memory location into an IN-REPO path. So agent memory IS within version-control range and must be handled deliberately in .gitignore. As of audit, agent-memory/ is UNtracked (not committed).
+- `.claude/agent-memory/<agent>/` — this is the DOCUMENTED default location for `memory: project` scope (verified code.claude.com/docs/en/sub-agents: project→.claude/agent-memory/, local→.claude/agent-memory-local/, user→~/.claude/agent-memory/). NOT a custom override, as an earlier note wrongly stated. As of 2026-07-06 audit these files ARE COMMITTED (git-tracked) and shared via VCS — so agent memory is cross-client and team-visible. All 11 agents use `memory: project`.
+- Native MEMORY.md auto-inject: only first 200 lines / 25KB (whichever first) of an agent's `.claude/agent-memory/<agent>/MEMORY.md` is injected into its system prompt. The per-client `.agents/clients/{slug}/memory/MEMORY.md` is DIFFERENT — it is read manually via Read tool per CLAUDE.md rules, so the 25KB cap does not gate it; it is read in full every task (sensiskin's is ~75KB/393 lines = heavy per-task context cost).
 - `.agents/agency/` and `.agents/clients/{slug}/` — client context, product-marketing.md, memory/MEMORY.md. Active client resolved via `.agents/agency/active-client.md`. Currently `sensiskin`.
 - `outputs/{slug}/` — client deliverables (md/html/pdf/png). INTENTIONALLY TRACKED — these are the agency's product, not build artifacts. Do NOT propose ignoring outputs/.
 
