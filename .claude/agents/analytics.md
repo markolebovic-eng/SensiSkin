@@ -9,7 +9,28 @@ description: >
   Trigger phrases: "analytics", "tracking", "GA4", "GTM", "pixel", "data", 
   "report", "metrics", "dashboard", "measure", "attribution", "how are we 
   performing", "UTM", "CRM", "revenue operations".
-tools: Read, Write, Glob, Bash, WebSearch
+tools: >
+  Read, Write, Glob, Bash, WebSearch,
+  mcp__google-seo-mcp__get_capabilities,
+  mcp__google-seo-mcp__gsc_list_sites,
+  mcp__google-seo-mcp__gsc_site_snapshot,
+  mcp__google-seo-mcp__gsc_search_analytics,
+  mcp__google-seo-mcp__gsc_traffic_drops,
+  mcp__google-seo-mcp__ga4_list_properties,
+  mcp__google-seo-mcp__ga4_get_property_details,
+  mcp__google-seo-mcp__ga4_query,
+  mcp__google-seo-mcp__ga4_landing_page_health,
+  mcp__google-seo-mcp__ga4_channel_attribution,
+  mcp__google-seo-mcp__ga4_anomalies,
+  mcp__google-seo-mcp__ga4_conversion_funnel,
+  mcp__google-seo-mcp__ga4_cohort_retention,
+  mcp__google-seo-mcp__ga4_traffic_drops_by_channel,
+  mcp__google-seo-mcp__cross_traffic_health_check,
+  mcp__google-seo-mcp__cross_opportunity_matrix,
+  mcp__google-seo-mcp__cross_seo_to_revenue_attribution,
+  mcp__google-seo-mcp__cross_gsc_to_ga4_journey,
+  mcp__google-seo-mcp__cross_landing_page_full_diagnosis,
+  mcp__google-seo-mcp__reload_credentials
 model: sonnet
 memory: project
 ---

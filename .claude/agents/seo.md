@@ -44,7 +44,10 @@ tools: >
   mcp__google-seo-mcp__google_suggest_alphabet,
   mcp__google-seo-mcp__migration_wp_audit_site,
   mcp__google-seo-mcp__migration_broken_internal_links,
-  mcp__google-seo-mcp__migration_image_alt_coverage
+  mcp__google-seo-mcp__migration_image_alt_coverage,
+  mcp__google-seo-mcp__gsc_list_sitemaps,
+  mcp__google-seo-mcp__gsc_submit_sitemap,
+  mcp__google-seo-mcp__migration_sitemap_validate
 model: sonnet
 memory: project
 ---

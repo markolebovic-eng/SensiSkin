@@ -1,0 +1,1 @@
+- [Trend-lag content routing](feedback_trend_lag_routing.md) — for beauty/local-service blog topic research, exploit the international→Serbia 3-6mo trend lag as a "get there first" gap

@@ -1,6 +1,8 @@
 .env
 .env.*
 !.env.example
+sensiskin-analytics-*.json
+SKRACENA VERZIJA.mov
 .firecrawl/
 *.key
 *.pem
@@ -33,6 +35,7 @@ env/
 !outputs/
 !outputs/**
 !**/.gitkeep
+**/~$*
 
 WIN_*.jpg
 moja-koza-slojevi-overlay.png

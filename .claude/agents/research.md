@@ -7,7 +7,12 @@ description: >
   topics", "blog topics", "topic ideas", "what should we write about", 
   "weekly topic research", "trend research", "competitor content", 
   "content gap", "teme za blog", "istraži teme", "predlozi tema".
-tools: Read, Write, Glob, Grep, Bash, WebSearch
+tools: >
+  Read, Write, Glob, Grep, Bash, WebSearch,
+  mcp__google-seo-mcp__gsc_search_analytics,
+  mcp__google-seo-mcp__gsc_content_decay,
+  mcp__google-seo-mcp__ga4_content_decay,
+  mcp__google-seo-mcp__ga4_query
 model: sonnet
 memory: project
 ---
