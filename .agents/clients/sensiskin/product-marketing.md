@@ -113,7 +113,7 @@ personalnoj atmosferi.
 
 *Operativni vodič za kopirajtere — generisan analizom 8 blog postova, 2026-07-02*
 
-**Adresiranje:** Formalno do neutralno. "Vi" u CTA-ovima ("Pozovite nas", "zakažite"). "mi" za perspektivu studia ("u radu srećemo", "u studiju radimo"). Blog postovi retko koriste direktno "ti" — neutralan, grupisani ton dominira ("za sve vas koji...", treće lice). CTA uvek u formalnom množinskom obliku.
+**Adresiranje:** Formalno do neutralno. "Vi" u CTA-ovima ("Pozovite nas", "zakažite"). "mi" za perspektivu studia ("u radu srećemo", "u studiju radimo"). Blog postovi retko koriste direktno "ti" — neutralan, grupisani ton dominira ("za sve vas koji...", treće lice). CTA uvek u formalnom množinskom obliku. **Pravopis formalnog obraćanja: "Vi/Vaš/Vaše/Vašoj/Vašeg" itd. UVEK velikim početnim slovom** (owner ispravka, 2026-07-10) — ovo je standardni srpski pravopis učtivosti i mora se primenjivati dosledno u svakom CTA-u i obraćanju čitaocu.
 
 **Otvaranje posta:** Tri dominantna obrasca:
 - Grupna relevantnost: "Za sve vas koji se negom kože bavite detaljno..."
@@ -126,7 +126,9 @@ Nije: retorička pitanja, privatne anegdote, clickbait.
 **Pasusi:** H2 struktura obavezna. Pasusi od 2-4 rečenice. Liste od 4-8 stavki za nizove prednosti, stanja ili koraka.
 
 **Karakteristične reči (koristi):**
-"tretman/tretmani", "nega/nege", "koža/kože", "klijentkinje", "serija tretmana", "konzultacija", "rutina", "stanje kože", "tip kože"
+"tretman/tretmani", "nega/nege", "koža/kože", "klijentkinje", "serija tretmana", "rutina", "stanje kože", "tip kože"
+
+**NIKAD ne koristiti — "konsultacija/konsultacije":** Sensi Skin nema uslugu "konsultacija" kao zaseban korak (owner ispravka, 2026-07-10) — klijenti direktno zakazuju tretman. CTA uvek glasi "zakažite tretman" / "zakažite [naziv tretmana]", nikad "zakažite konsultaciju" ili "dogovorite konsultaciju".
 
 **Tehnički termini:** Navodi se naziv, odmah sledi objašnjenje: "fotobiomodulacija (podsticanje ćelija na rad svetlošću)", "633 nm (crvena svetlost)". Specifični parametri (nm vrednosti, broj sesija, trajanje) su autoritet signal — koristiti ih.
 
@@ -138,9 +140,9 @@ Nije: retorička pitanja, privatne anegdote, clickbait.
 - Konkretni parametri (nm, broj sesija, minuti) bez garancija
 - "U radu srećemo" / "u studiju radimo" — kolektivno iskustvo, ne lična autobiografija
 - Eksplicitno razgraničavanje kompetencija (šta doktor radi vs. kozmetolog)
-- Nuđenje konsultacije kao prirodni završni korak, ne prodajni pritisak
+- Nuđenje zakazivanja tretmana kao prirodni završni korak, ne prodajni pritisak
 
-**CTA stil:** Direktan, uvek na kraju. Standardna formula: "Pozovite nas na 065/333-8-338 i zakažite konsultaciju." Nema meke pozivnice, nema retoričkih pitanja kao CTA.
+**CTA stil:** Direktan, uvek na kraju. Standardna formula: "Pozovite nas na 065/333-8-338 i zakažite Vaš tretman." Nema meke pozivnice, nema retoričkih pitanja kao CTA.
 
 ## Izbegavati
 

@@ -25,3 +25,4 @@ prebacuje u "Zatraženo".
 | pre 2026-07-06 (Windows sesije) | https://sensiskinstudio.com/prva-pomoc-kozi-u-hladnim-danima/ | potvrdio vlasnik 2026-07-06 |
 | pre 2026-07-06 (Windows sesije) | https://sensiskinstudio.com/sve-istine-o-laserskoj-epilaciji/ | potvrdio vlasnik 2026-07-06 |
 | pre 2026-07-06 (Windows sesije) | https://sensiskinstudio.com/sinergija-estetskih-procedura-i-tretmana-lica/ | potvrdio vlasnik 2026-07-06 |
+| 2026-07-13 | https://sensiskinstudio.com/hydrafacial-mesecna-rutina/ | Nov post, objavljen javno 2026-07-13. Vlasnik zatražio Request Indexing isti dan — GSC URL Inspection potvrđuje "Submitted and indexed", crawl 17:08 UTC (~2 min posle objave, veoma brzo). GA4 pageviews/bounce prati se pod pagePath `/hydrafacial-mesecna-rutina/` — 0 sesija u trenutku prve provere (isti dan kao objava, očekivano, nema još organskog saobraćaja).

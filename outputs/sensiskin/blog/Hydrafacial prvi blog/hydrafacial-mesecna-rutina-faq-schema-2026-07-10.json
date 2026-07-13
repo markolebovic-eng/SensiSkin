@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Koliko često treba raditi HydraFacial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HydraFacial se najčešće radi na svakih 6 do 8 nedelja. Taj interval prati prosečan ciklus obnavljanja kože i vreme potrebno da se pore ponovo začepe u meri koja opravdava novo čišćenje. Kod masne kože interval može biti kraći, kod suve i osetljive duži."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Da li je interval za HydraFacial isti za svaki tip kože?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne. Masna koža sklona začepljenim porama može imati koristi od nešto kraćeg intervala, dok suva i osetljiva koža ponekad traži duži razmak između sesija."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kako se prati napredak kod redovne HydraFacial rutine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "U Sensi Skin Kozmetološkom Centru napredak se prati kroz Aura Reality 3D dijagnostiku, koja meri hidrataciju, sadržaj sebuma i elastičnost kože i upoređuje rezultate sa prethodnim posetama."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Koji su znaci da je vreme za sledeći HydraFacial termin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pore koje su bile čiste počinju da deluju zapušenije, ten gubi ujednačenost, a proizvodi iz kućne nege deluju kao da rade sporije nego pre mesec dana."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Da li HydraFacial mesečna rutina zamenjuje kućnu negu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne. HydraFacial dopunjuje kućnu negu i radi tamo gde kućni proizvodi ne mogu da dopru, u dubljim slojevima pora i epidermisa."
+      }
+    }
+  ]
+}

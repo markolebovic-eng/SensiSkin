@@ -4,7 +4,7 @@ keyword: hydrafacial mesečna rutina
 seo_title: "HydraFacial mesečna rutina, ne jednokratni tretman"
 meta_description: "HydraFacial mesečna rutina daje bolje rezultate od povremenih poseta jer prati ciklus obnove kože. Saznajte pravi interval. Zakažite: 065/333-8-338."
 slug: hydrafacial-mesecna-rutina
-status: "SEO-OPTIMIZED DRAFT — spremno za objavu po izboru klijenta"
+status: "OBJAVLJENO KAO PRIVATE — WP post ID 2661, čeka ručnu javnu objavu vlasnika (2026-07-10)"
 date: 2026-07-07
 seo_date: 2026-07-07
 ---
@@ -43,11 +43,11 @@ Efekat se gradi kroz seriju, ne kroz pojedinačnu posetu.
 
 Šest do osam nedelja je opšta smernica, ne pravilo bez izuzetaka. Masna koža sklona začepljenim porama može imati koristi od nešto kraćeg intervala. Suva i osetljiva koža ponekad traži duži razmak između sesija, da se izbegne prekomerna stimulacija.
 
-U Sensi Skin studiju, interval se prilagođava stanju kože koje vidimo pri svakoj poseti, ne šablonu koji važi za sve klijentkinje podjednako. Kod prve posete radimo pregled stanja kože, a interval za naredne tretmane dogovaramo na osnovu toga.
+U Sensi Skin Kozmetološkom Centru, interval se prilagođava stanju kože koje vidimo pri svakoj poseti, ne šablonu koji važi za sve klijentkinje podjednako. Kod prve posete radimo pregled stanja kože, a interval za naredne tretmane dogovaramo na osnovu toga.
 
 ## Praćenje napretka kroz seriju
 
-Kad je HydraFacial deo rutine, ima smisla pratiti i kako se stanje kože menja tokom vremena, ne samo kako izgleda odmah posle tretmana. U Sensi Skin studiju to radimo kroz [Aura Reality 3D dijagnostiku](https://sensiskinstudio.com/aura-reality-3d-dijagnostika-koze/): pre određenih tretmana proveravamo parametre poput hidratacije, sadržaja sebuma i elastičnosti i upoređujemo ih sa prethodnim merenjima.
+Kad je HydraFacial deo rutine, ima smisla pratiti i kako se stanje kože menja tokom vremena, ne samo kako izgleda odmah posle tretmana. U Sensi Skin Kozmetološkom Centru to radimo kroz [Aura Reality 3D dijagnostiku](https://sensiskinstudio.com/aura-reality-3d-dijagnostika-koze/): pre određenih tretmana proveravamo parametre poput hidratacije, sadržaja sebuma i elastičnosti i upoređujemo ih sa prethodnim merenjima.
 
 Ovo pokazuje da li rutina zaista donosi rezultat na nivou koji se ne vidi golim okom, ne samo utisak da "koža izgleda bolje". Za klijentkinje koje ulažu u redovnu rutinu, ovaj uvid pomaže da se interval i kombinacija tretmana prilagode prema tome kako koža stvarno reaguje, umesto da se drži isti raspored bez obzira na rezultate.
 
@@ -75,6 +75,8 @@ Ne morate čekati poseban događaj da biste zakazali prvi HydraFacial. Ako prime
 
 Prva poseta je i prilika da procenimo vaše trenutno stanje kože, jer HydraFacial mesečna rutina ima smisla samo kad je prilagođena vašoj koži. Pozovite nas na 065/333-8-338 i zakažite konsultaciju.
 
+**Sensi Skin Kozmetološki Centar - ovlašćeni partner [HydraFacial](https://revelo.hr/hydrafacial/) uređaja.**
+
 ```json
 <!-- FAQPage schema — dodati kao core/html blok na kraju posta pri objavi -->
 {
@@ -83,10 +85,10 @@ Prva poseta je i prilika da procenimo vaše trenutno stanje kože, jer HydraFaci
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Zašto se HydraFacial preporučuje na svakih 6 do 8 nedelja?",
+      "name": "Koliko često treba raditi HydraFacial?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Interval od 6 do 8 nedelja prati prosečan ciklus obnavljanja kože i vreme potrebno da se pore ponovo začepe u meri koja opravdava novo čišćenje."
+        "text": "HydraFacial se najčešće radi na svakih 6 do 8 nedelja. Taj interval prati prosečan ciklus obnavljanja kože i vreme potrebno da se pore ponovo začepe u meri koja opravdava novo čišćenje. Kod masne kože interval može biti kraći, kod suve i osetljive duži."
       }
     },
     {
@@ -102,7 +104,7 @@ Prva poseta je i prilika da procenimo vaše trenutno stanje kože, jer HydraFaci
       "name": "Kako se prati napredak kod redovne HydraFacial rutine?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "U Sensi Skin studiju napredak se prati kroz Aura Reality 3D dijagnostiku, koja meri hidrataciju, sadržaj sebuma i elastičnost kože i upoređuje rezultate sa prethodnim posetama."
+        "text": "U Sensi Skin Kozmetološkom Centru napredak se prati kroz Aura Reality 3D dijagnostiku, koja meri hidrataciju, sadržaj sebuma i elastičnost kože i upoređuje rezultate sa prethodnim posetama."
       }
     },
     {
