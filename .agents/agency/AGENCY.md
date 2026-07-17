@@ -23,6 +23,7 @@ To switch clients, the orchestrator updates `active-client.md` with the new slug
 | Client slug | Brand name | Status |
 |-------------|------------|--------|
 | sensiskin | Sensi Skin Kozmetološki Centar | Active |
+| casa-montana | Casa Montana (luksuzna brvnara, Kopaonik) | Active |
 
 *(Add new clients here as they are onboarded)*
 
@@ -81,6 +82,12 @@ Each service maps to one or more available skills:
 - Cold email outreach → `cold-email`
 - B2B prospecting → `prospecting`
 - Sales enablement materials → `sales-enablement`
+
+### Video Production
+- Cinematic property walkthrough videos (real estate/rental listings) →
+  `property-walkthrough` agent (NOT a skill — invoke the agent directly;
+  uses Higgsfield MCP for generation/stitching, Apify for Booking.com photo
+  scraping, direct fetch for Airbnb)
 
 ## How agents use skills
 
