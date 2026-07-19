@@ -49,6 +49,28 @@ video walkthrough not embedded anywhere, favicon not wired to the real
 brand asset, Instagram link is a dead generic placeholder, and site
 messaging is sale-only (ignores the dual sale/rental positioning).
 
+2026-07-19 | SITE REVIEW ADOPTED AS CURRENT FINAL PLAN + owner decisions
+(these SUPERSEDE earlier "99% rental / 1% sale" framing). Full plan:
+outputs/casa-montana/site-review/revizija-sajta-2026-07-19.md — every agent
+working on this client/site MUST read it first.
+- IMPORTANT REFRAME: **sale matters financially to the AGENCY** (we earn a
+  percentage when the house sells through us); rental is a bonus for the
+  client. So the goal is NOT a rental-only site. The current dual
+  sale/rental balance on the site STAYS; a dedicated "prodaja" (sale)
+  button is planned as an addition. Do NOT aggressively flip tone to
+  rental. Only concrete copy tasks left: fix the one line that disparages
+  renting (Intro "ne za jedan izdatak") and add the positioning line
+  "chalet u Alpima, ali na Kopaoniku" (currently absent from the site).
+- APPROVAL GATE: NOTHING on the client site/repo (ognjenzekovic/casa-montana)
+  gets changed without Marko's explicit prior approval. Ask first for EVERY
+  change, execute only after he approves (via PR).
+- GA4: create a NEW property (no existing account to connect).
+- Missing data (m², plot size, ratings, working email, IG handle, map
+  coords) will be supplied by owner in due time — stay open until then.
+- Domain: waiting for the regular domain (casamontana.rs). Site lives on the
+  github.io URL for now; finalize canonical/og:url/email only once the
+  domain is known.
+
 ## Completed tasks log
 2026-07-18 | orchestrator (direct, no subagent) | Pulled 15 real listing
 photos directly from Airbnb via curl (no Apify needed for this source) |
@@ -96,8 +118,54 @@ naming J2Ski directly) for any future GBP/website description copy for this
 client.
 
 ## SEO targets
-Not started — website for Casa Montana brand is planned by owner but not
-yet built. Revisit once site work begins.
+Site is now LIVE (2026-07-18/19) at http://ognjenzekovic.github.io/casa-montana/
+(github.io URL, 200 OK — CNAME removed so no more redirect to dead
+casamontana.rs; DNS still unresolved). Full site review done 2026-07-19:
+outputs/casa-montana/site-review/revizija-sajta-2026-07-19.md. Headline
+findings: (1) SPA with no prerender → content invisible to AI/GEO crawlers,
+(2) NO analytics at all → our agreed click-to-OTA conversion metric is
+unmeasurable, (3) whole site is written SALE-first ("na prodaju", "pre
+kupovine", "posed") which contradicts the 99% rental/brand goal, (4) zero
+JSON-LD schema, no robots.txt, no sitemap.xml, (5) og:image is a relative
+path → broken social share preview, (6) live `[XXX] m²` placeholders in
+Specs, (7) rating inconsistency (Trust says 5.0, Book says 9.8/10),
+(8) video walkthrough still not embedded, (9) gallery has real photos by
+room now BUT terase=0 and sauna missing entirely (our top differentiators),
+(10) Instagram link dead (generic instagram.com), mailto uses dead domain.
+Book.tsx DOES funnel to Booking+Airbnb (good, matches strategy). We are repo
+collaborators so we can execute technical SEO/GEO fixes via PR; content
+figures (m², ratings, email, IG handle) need owner data. Awaiting Marko's
+decisions on tone-flip aggressiveness, what we may edit directly vs via
+owner, GA4 account, and final domain.
+
+## Marketing strategy scouting (2026-07-18)
+Full report: outputs/casa-montana/research/marketing-strategije-2026-07-18.md
+(scouting only, not a final plan — owner to pick 4-6 strategies). Firecrawl
+spend: 6 credits (997→991), well under 15-25 budget; rest of research via
+free WebSearch. Key findings worth remembering:
+- **Villa Prive and Spa** (Casa Montana's closest named competitor per
+  J2Ski) has NO confirmed own branded website — only a white-label OTA
+  directory page (visitaserbia.com), relies entirely on Booking/Airbnb/
+  directories. This is Casa Montana's biggest identified local gap: a real
+  branded site (already planned) is a differentiator the moment it launches.
+- **Kežman Mountain Houses** is the most sophisticated local competitor:
+  own professional site, "Be direct with us" newsletter capture + seasonal
+  book-direct promo codes (Black Friday, Early Bird) on the homepage,
+  active weekly Instagram Reels embedded live on-site, ~8.5K IG followers.
+  Worth studying their book-direct mechanic when Casa Montana's site goes
+  live — see [[casa-montana-marketing-research]] for full breakdown.
+- Global leaders (Firefly Collection, Oxford Ski Company, Consensio
+  Chalets) are agency/portfolio operators (700-1000+ properties, decades
+  of staff) — their scale tactics (press walls, concierge teams, loyalty
+  programs) are NOT realistically transferable to a single house; only the
+  underlying principle (sell the experience/trust, not the bed; one clear
+  "why book direct" message) transfers in miniature.
+- Global STR/Airbnb tactical layer (WebSearch only, no scrape): 3-5 Reels/
+  week focused on the DESTINATION not the house, GBP profile is ~32% of
+  local ranking weight, 20+ listing photos + amenity tagging drives Airbnb
+  search visibility (flagged for the separate OTA agency, out of our
+  scope), post-stay + anniversary emails are the two easiest automations
+  to start an email list with.
 
 ## Conversion insights
 [cro agent logs A/B test results and winning variants here]
