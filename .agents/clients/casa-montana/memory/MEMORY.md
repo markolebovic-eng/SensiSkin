@@ -72,6 +72,34 @@ working on this client/site MUST read it first.
   domain is known.
 
 ## Completed tasks log
+2026-07-20 | claude (direct) | Exterior cinematic reel from 12 owner-shot
+iPhone clips (~/Desktop/Casa Montana/Snimci - Claude/) | ffmpeg LOCAL, no
+Higgsfield/no AI — pure edit | output: outputs/casa-montana/exterior-video/
+casa-montana-eksterijer-9x16-2026-07-20.mp4 (1080x1920, 30fps, silent,
+~22.5s, 32MB) + EDIT.md. Curated 8 of 12 clips into arrival→facade→forest→
+craft→stream→stream-to-house→entrance→brand-sign order, 0.5s crossfades,
+fade in/out. NOTE for future video work: these iPhone clips are 4K 10-bit
+HLG HDR (BT.2020); the brew ffmpeg 8.1.2 build here has NO zscale/libzimg/
+libplacebo, so proper HDR tonemap isn't available — used direct decode +
+gentle grade (eq contrast1.08/sat1.12/gamma0.975 + unsharp), visually
+verified fine. Interior folder not yet provided (only exterior done). ffmpeg
+installed via brew this session.
+2026-07-21 | claude (direct) | v3 exterior showcase reel (owner rejected v1:
+bad dissolve transitions, over-compressed, broken HDR) | output:
+outputs/casa-montana/exterior-video/vikendica_reel_v3.mp4 (1080x1920, 30fps,
+Rec.709-tagged, hard cuts only, 20.0s, 36.6MB) + vikendica_reel_v3_EDIT.md.
+KEY FIX for HDR: brew ffmpeg lacks zscale, so downloaded a static arm64
+ffmpeg WITH zscale (Martin Riedl build, saved at scratchpad/ffbin/ffmpeg via
+https://ffmpeg.martin-riedl.de/redirect/latest/macos/arm64/release/ffmpeg.zip)
+and did a proper HLG->SDR tonemap (zscale linear npl=100 -> tonemap hable ->
+bt709), validated on 3 test frames. Target is SDR Rec.709 (NOT HDR — IG/TikTok
+break HDR). Encode CRF19 + maxrate 16M (no more 12M cap that caused mushy
+foliage). Order by trend ruleset (hook=approach push-in, journey, shot-scale
+rhythm, match cut on stream pans, loop-friendly wide closer). Folder now has
+11 clips: 1.MOV = renamed approach (ex-IMG_4896); owner deleted the CASA
+MONTANA sign clip (ex-4901). Reel is MUTE (owner adds music later; cut list
+in EDIT.md for beat-sync). Interior folder still not provided.
+
 2026-07-18 | orchestrator (direct, no subagent) | Pulled 15 real listing
 photos directly from Airbnb via curl (no Apify needed for this source) |
 saved to .agents/clients/casa-montana/photos/airbnb/ | Booking.com direct
