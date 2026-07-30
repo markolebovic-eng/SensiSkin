@@ -92,6 +92,15 @@ blizu svega na Kopaoniku, luksuzan enterijer koji ima apsolutno sve što je
 potrebno za pravi vikend/getaway u prirodi — **"chalet u Alpima, ali na
 Kopaoniku."**
 
+> ⚠️ **Napomena (2026-07-31):** Marko je eksplicitno rekao da mu se konkretna
+> formulacija "chalet u Alpima, ali na Kopaoniku" nikako ne sviđa i da se ne
+> koristi u budućem tekstu (sajt/blog/social/budući GBP). Već live GBP opis
+> (koji je koristi) ostaje netaknut kao odobren istorijski tekst — ovo važi
+> samo unapred. Sama IDEJA pozicioniranja iznad (rustičnost + izolovanost +
+> blizina + luksuzan enterijer) i dalje stoji — povučena je samo ova
+> konkretna rečenica, ne ceo koncept. Detalji: `brand-voice-script.md`
+> before/after #13, `memory/MEMORY.md` "Brand voice reminders".
+
 **Ključni diferencijatori**:
 1. Već dokazana, aktivna istorija izdavanja (nije nova/neispitana nekretnina)
 2. Spoljno prepoznata reputacija (pominjanje na J2Ski pored Villa Prive and Spa)
@@ -99,6 +108,33 @@ Kopaoniku."**
    za ličnu upotrebu i kao gotova investiciona jedinica
 4. Sauna + veće terase na oba sprata — nadstandard u odnosu na tipičan
    kopaonički smeštaj te veličine
+
+---
+
+## Ton i glas / Brand Voice
+
+Puni dokument: `brand-voice-script.md` (isti folder). Rekonstruisan iz
+korpus-analize globalnih chalet/cabin lidera + regionalnog i domaćeg tržišta
+(2026-07-31) — ne izmišljen, dokazna baza u `references/voice-corpus-analysis-2026-07.md`.
+
+**Voice DNA u kratkim crtama:**
+- Svaku apstrakciju ("mir", "luksuz") uzemlji u konkretan čulni detalj
+  (materijal, biljka, zvuk, doba dana) — nikad gola.
+- Kuća je subjekat rečenice podjednako koliko i gost; eksplicitno "Vi" čuvaj
+  za CTA/booking/email, ne za atmosferske pasuse.
+- Luksuz redefiniši kroz kontrast jednom po tekstu ("nije X, nego Y") —
+  ne ponavljaj kao dekorativan pridev.
+- Kratke rečenice u atmosferi (8-16 reči), max jedna "koji" klauza.
+- Svaka tvrdnja o poverenju nosi stvaran broj + izvor (ocena+platforma,
+  godine ugošćavanja).
+- Nikad ne ponavljaj istu retoričku formulu za više prostorija/objekata u
+  istom tekstu (najčešća greška nađena na domaćem tržištu).
+
+Postojeći sajt copy (translations.ts) je već VEĆINOM na ovom glasu — brand
+voice rad ovde nije bio popravka nečeg pogrešnog, nego formalizacija onoga
+što je već intuitivno dobro pisano, plus uklanjanje 2-3 sitnice (ponovljena
+fraza "bez kompromisa", "kuhinja opremljena" umešana u atmosferski pasus).
+Pun before/after u `brand-voice-script.md`.
 
 ---
 

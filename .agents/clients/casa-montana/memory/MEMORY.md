@@ -72,6 +72,73 @@ working on this client/site MUST read it first.
   domain is known.
 
 ## Completed tasks log
+2026-07-28 | claude | Fresh live-site review (site now LIVE at casamontana.rs,
+DNS fixed, HTTPS ok) after dev pushed 8 commits | report:
+outputs/casa-montana/site-review/revizija-sajta-2026-07-28.md. DEV PROGRESS
+since 2026-07-19: gallery fully populated incl. sauna+terrace with day/night
+variants; Specs filled (200 m² living / 700 m² plot); SR/EN localization
+(client-side localStorage toggle); 2nd sale button + Instagram + mobile nav.
+STILL OUR WORK (all unaddressed): SPA has NO prerender (content invisible to
+AI/GEO), NO analytics/GA4, blog is HASH-routed (#/blog) + MOCK placeholder
+content (zero SEO value, cards link nowhere), no robots.txt/sitemap.xml, no
+JSON-LD schema, og:image still relative (broken social share), title/meta
+still sale-only, bilingual but NO hreflang/per-language URLs (EN version
+invisible to search), no canonical, Trust rating inconsistency persists
+(Trust 5.0/14/13 vs Book 9.8/10 — label sources), video walkthrough still not
+embedded, intro line "ne za jedan izdatak" still disparages rental. Proposed
+3 waves: (1) quick PR wins (GA4+click tracking, og/canonical/title/meta,
+schema, robots+sitemap, alts, video embed, copy tweaks); (2) architecture:
+prerender (unlocks GEO + indexable blog + hreflang) + blog real routing;
+(3) content: real bilingual blog posts on local/GEO topics. Repo change gate
+still applies — nothing pushed, awaiting Marko's pick of what to start.
+2026-07-28 | claude | Wave 1 (part 1) SHIPPED AS PR (not merged): branch
+`seo/wave-1-technical` → **PR #1** https://github.com/ognjenzekovic/casa-montana/pull/1
+(ognjenzekovic requested as reviewer). Additive technical SEO/GEO only:
+index.html canonical + absolute og:image/og:url/twitter:image/og:locale +
+static LodgingBusiness JSON-LD in <head> (rating/phone omitted pending source
+confirm); new public/robots.txt (allows AI bots + sitemap link) + public/
+sitemap.xml (homepage). DO NOT MERGE without Marko/dev approval (merge = push
+to main = auto-deploy). Process choice: PR stays open until dev/owner approves.
+Deferred to next PRs (need Marko input): GA4 (needs Measurement ID), video
+walkthrough embed (self-host vs YouTube decision), title/meta rewrite (needs
+approved wording), aggregateRating (needs rating sources: Trust 5.0/14/13 vs
+Book 9.8/10 — which is Airbnb vs Booking). Self-contained todo for a follow-up
+PR: gallery rich alt texts + soften "ne za jedan izdatak" line.
+2026-07-28 (later) | claude | EXTENDED PR #1 (2 commits, still branch
+`seo/wave-1-technical`, still OPEN/not merged) to cover most of Wave 1 after
+Marko said "moze sve osim video" + confirmed 9.8=Booking, 5.0=Airbnb.
+Commit 2 adds: title/meta rewrite sr+en (sale-only -> "luksuzna brvnara sa
+saunom na Kopaoniku" / rental+brand+local kw, "izdavanje i prodaja") in
+index.html + translations.ts; aggregateRating 9.8/10 Booking in the JSON-LD
+(ratingCount=14 = TO VERIFY vs Booking actual); richer localized gallery alt
+(room+day/night+"luksuzna brvnara na Kopaoniku"); rating-source disambiguation
+(Trust label -> "Prosečna ocena na Airbnb-u" for 5.0; Book body -> "9.8/10 na
+Booking-u"); softened intro ("ne za jedan izdatak" -> "ne za jedan trenutak").
+Ran `npm ci && npm run build` locally = build PASSES (TS + vite ok). PR title/
+body updated to full Wave-1 scope. STILL DEFERRED (need input): GA4 (Measurement
+ID — create property or provide G-XXXX; deliberately NOT shipped as inert
+placeholder), video embed (no final video yet). Wave 2 = prerender + hreflang +
+real blog routing (architecture). PR must NOT be merged without dev/owner
+approval (merge=deploy).
+2026-07-28 (later still) | claude | GA4 ADDED to PR #1 (3rd commit, still
+OPEN/not merged). Marko created the GA4 property himself in the GA dashboard
+(couldn't be done via API/agent — needs Marko's Google login) and pasted the
+gtag snippet with **Measurement ID G-K1SZ80NW26** — CONFIRMED via
+mcp__google-seo-mcp__ga4_list_properties that this is a genuinely NEW property
+(the only pre-existing GA4 property on the connected Google account is
+SensiSkin's "Kozmetološki Centar", properties/532419831 — correctly NOT
+reused). Added: gtag.js snippet in index.html; new src/lib/analytics.ts
+(trackOutboundClick() helper, no-op if gtag absent); wired onClick ->
+'outbound_click' GA4 event on Book.tsx's Booking/Airbnb/Instagram buttons and
+Close.tsx's mailto CTA (destination='contact', covers the ~1% sale-inquiry
+path). This makes click-to-OTA — the agreed conversion metric — measurable
+for the first time. Consent Mode (EEA GDPR) explicitly NOT configured: only
+functions with a cookie-consent banner (CMP) feeding it signals, which this
+site doesn't have; flagged as a possible future task, not done now. `npm run
+build` verified passing after each commit. **Wave 1 is now COMPLETE except
+video embed** (no final video yet) — everything else (technical schema/meta/
+robots/sitemap + title/meta rewrite + ratings + alt text + copy + GA4/
+tracking) is in PR #1, still awaiting dev/owner review, still NOT merged.
 2026-07-20 | claude (direct) | Exterior cinematic reel from 12 owner-shot
 iPhone clips (~/Desktop/Casa Montana/Snimci - Claude/) | ffmpeg LOCAL, no
 Higgsfield/no AI — pure edit | output: outputs/casa-montana/exterior-video/
@@ -116,8 +183,13 @@ that source, as anticipated.
   can be added anytime to photos/local/.
 
 ## Brand voice reminders
-Positioning line to reuse verbatim across future copy: "chalet u Alpima, ali
-na Kopaoniku." Never disclose price. Never claim "3D" or "Matterport" for
+⚠️ RETIRED (2026-07-31, Marko explicit correction): "chalet u Alpima, ali na
+Kopaoniku" — do NOT reuse this line in any NEW copy (site, blog, social,
+future GBP updates). Marko said he dislikes it outright. Scope confirmed:
+the already-live GBP description (below) stays untouched as approved
+historical text — this only affects future writing, not a retroactive edit
+of live GBP copy. See brand-voice-script.md before/after #13 for the
+corrected note. Never disclose price. Never claim "3D" or "Matterport" for
 the walkthrough video — always "cinematic walkthrough."
 
 brand-voice-extractor skill NOT run for this client (no existing blog/site
@@ -207,6 +279,27 @@ free WebSearch. Key findings worth remembering:
 ## Analytics baselines
 [analytics agent records key metric benchmarks here]
 
+## ⏸ PAUSED (2026-07-30) — GSC/GA4 access for Casa Montana not yet connected
+Marko verified `https://casamontana.rs/` in GSC himself (his own Google
+login, via the "Google Analytics" method once Wave-1's gtag went live). But
+the `google-seo-mcp` tool Claude uses is authenticated as a **service
+account** scoped only to SensiSkin (`claude-gsc@sensiskin-analytics.iam.
+gserviceaccount.com`) — so `gsc_list_sites`/`ga4_list_properties` don't see
+Casa Montana yet, and Marko does NOT want to just add that same service
+account to Casa Montana (reusing one identity across clients would make any
+active-client switching meaningless — it'd see both always, regardless of
+which credential file is "active"). Agreed plan: Marko creates a SEPARATE
+GCP service account (in the same `sensiskin-analytics` GCP project, which is
+just an IAM container, not a data-mixing risk) dedicated to Casa Montana,
+grants it access on Casa Montana's GSC + GA4, sends Claude the JSON key —
+then Claude repoints the MCP's env var at a neutral `active-gsc-sa.json`
+path and copies the right client's key into it + calls `reload_credentials`
+every time the active client changes. Full plan + exact steps: personal
+memory `casa-montana-gsc-per-client-setup.md` (not in this repo). Explicitly
+shelved for now — Marko wants to work on other Casa Montana things first.
+DO NOT add the SensiSkin service account to Casa Montana's GSC/GA4 as a
+shortcut — that defeats the whole point, revisit this note instead.
+
 ## Prvi video walkthrough isporučen (2026-07-17)
 - Model: Kling 3.0 Turbo (budžetska varijanta, 720p, 3s/klip, 16:9) — vlasnik odobrio nakon preflight poređenja cena (Seedance 2.0 std = 22.5 kr/klip vs Kling Turbo = 4.5 kr/klip, 80% jeftinije).
 - Svih 12 prepoznatljivih prostorija animirano (kuća je manja pa nije rađena standardna 6-10 kuracija) — pokrivene sve iz rasporeda OSIM garaže i nedovršenog apartmana (nisu se pojavile ni na Airbnb ni na Booking galeriji, potrebne dodatne fotografije od vlasnika).
@@ -222,3 +315,10 @@ free WebSearch. Key findings worth remembering:
 - NAČIN IZRADE — bitno za buduće: NIJE korišćen AI (vlasnik tražio "ništa izmišljeno, skroz realistično") — osnova su PRAVE dron fotografije sa Airbnb listinga, "CASA MONTANA / KOPAONIK" natpis dodat programski (Pillow, Didot font, razmaknuta velika slova, cinematični edge-gradijent) — tekst savršeno oštar, fotografija netaknuta.
 - OTKRIĆE: Airbnb servira i 2560px verzije fotografija sa ?im_w=2560 parametrom na original URL (originalno skinute bile 1200x900) — hi-res verzije 3 dron kadra u photos/hires/.
 - Higgsfield MCP bio diskonektovan tokom ovog zadatka (drugi put u sesiji; prošli put se sam vratio) — nije ni bio potreban za covere.
+
+## Brand voice script konstruisan (2026-07-31)
+Corpus research (research agent, 43 stranice, 64 kredita) + sinteza (glavna sesija) → `brand-voice-script.md` + `references/voice-corpus-analysis-2026-07.md`. Postojeći sajt copy je već većinom na glasu; samo 2-3 sitne ispravke (ponovljeno "bez kompromisa", činjenica umešana u atmosferski pasus). Sloj B (regionalni jezički most) NIJE ispunio svrhu — Vila Planinka čitana na engleskom, ne slovenačkom; ponoviti pre sledeće velike copy runde ako treba jači dokaz za srpsku adaptaciju.
+
+## Homepage copy rewrite (2026-07-31) — PR #2, OPEN, nije merge-ovan
+Marko i vlasnik: postojeći sajt copy "previše AI, razbacano, bez strukture". Dijagnoza: ista negacija-figura ("X nije, ovo je Y") ponovljena 3x (hero/intro/story) bez napretka, "katalog" 2x, "bez kompromisa"/"no compromises" 2x — tačno greška koju je istraživanje flagovalo kod konkurenta. Popravka (SR+EN sinhronizovano): figura ostaje SAMO u intro.statement; svaka sekcija sad nosi NOVU informaciju (hero=dolazak+izolacija, intro=greda+"poslednja kuća pre šume", story=zanat, location=pristup+privatnost); "bez kompromisa" zamenjeno konkretnim detaljem (bez komšijske kuće na vidiku); "kuhinja opremljena" (gola činjenica u atmosferskom pasusu) zamenjeno scenom (kuvanje večere za ceo sto); hero.scroll "nekretninu"→"kuću". Netaknuto namerno: Trust citat (pravi gost review), Book CTA (već dobar model), Closer, title/meta/OG/schema (SEO iz Wave 1, van obima). `npm run build` prošao, grep potvrdio 0 ostataka klišea. Branch `copy/brand-voice-rewrite` → PR #2 https://github.com/ognjenzekovic/casa-montana/pull/2, ognjenzekovic reviewer, NE MERGE-OVATI bez odobrenja.
+2026-07-31 (isti dan, nastavak) | PR #2 PROŠIREN 2. commit-om — vlasnik odbio prvi patch kao "nedovoljan", tražio pun "kao da ne postoji tekst" rewrite u chatu. Iterirano uživo: (1) "chalet u Alpima, ali na Kopaoniku" TRAJNO POVUČENA — vlasniku se ne sviđa, ne koristiti nigde ubuduće (GBP ostaje netaknut, videti "Brand voice reminders" gore i brand-voice-script.md #13); (2) Hero POJEDNOSTAVLJEN na JEDNU činjeničnu rečenicu — vlasnik eksplicitno odbio poetske dodatke ("previše je lupati gluposti da bi rečenica izgledala bolje") — ubuduće: hero ostaje faktičan, ne "ulepšavati" veštački; (3) Story koristi Varijantu B — uvodi "potok" prvi put na sajtu (pravi detalj iz Trust gost-citata, stvara odjek umesto izolovanog pominjanja). VAŽNA ČINJENIČNA ISPRAVKA (ne stilska): "10 minuta od Nacionalnog parka" bilo POGREŠNO svuda (vlasnik potvrdio, stvarno je 5 minuta) — ispravljeno na SVIH 7 mesta uključujući već live Wave 1 SEO tekst (SR+EN meta description, SR+EN Location naslov, index.html meta/og/JSON-LD). Ovo je bila neotkrivena greška iz Wave 1 revizije. `npm run build` prošao, grep potvrdio 0 ostataka "10/deset minuta". I dalje isti PR #2, i dalje NE MERGE-OVATI bez odobrenja.
