@@ -38,34 +38,35 @@
     {
       "id": 3,
       "prompt": "We just migrated from WordPress to Next.js and our organic traffic dropped 40% in the last month. Help!",
-      "expected_output": "Should treat this as an urgent migration diagnostic. Should immediately check: redirect mapping (301s from old URLs to new), canonical tags on new pages, robots.txt not blocking crawlers, XML sitemap submitted and updated, meta tags preserved. Should check for common migration issues: redirect chains/loops, soft 404s, lost internal links, changed URL structures without redirects. Should reference Search Console coverage report for indexation issues. Should provide a prioritized recovery plan with critical fixes first. Should mention monitoring timeline expectations (recovery can take weeks).",
+      "expected_output": "Should route to references/site-moves.md, not the general audit framework. Should check the documented migration failure list: 302s instead of 301/308, redirect chains beyond 3 hops or loops, old URLs 404ing, many-to-one redirects to the homepage (soft 404 risk), development noindex or Disallow: / still live, canonicals still pointing at old URLs, internal links still pointing at old URLs, Change of Address not submitted (noting it is NOT needed for HTTP-to-HTTPS but IS needed per subdomain and www/non-www variant for a domain move), new sitemap not submitted, and a server unable to absorb the post-migration crawl surge. Should state Google's timing expectation: a medium-sized site takes a few weeks for most pages to move in the index, larger sites longer, and ranking fluctuation during that window is expected. Should state that 301 and other permanent redirects do not cause a loss in PageRank. Should cross-check against references/search-diagnostics.md so a coincident core update is not misattributed to the migration.",
       "assertions": [
-        "Treats as urgent migration diagnostic",
-        "Checks redirect mapping (301s)",
-        "Checks canonical tags on new pages",
-        "Checks robots.txt not blocking crawlers",
-        "Checks XML sitemap updated and submitted",
-        "Checks for redirect chains or loops",
-        "Checks for soft 404s",
-        "References Search Console coverage report",
-        "Provides prioritized recovery plan",
-        "Mentions recovery timeline expectations"
+        "Routes to references/site-moves.md",
+        "Checks redirect type (301/308 not 302) and chain length",
+        "Checks for development noindex or Disallow left live on the new site",
+        "Checks canonicals and internal links point to new URLs",
+        "Checks Change of Address, and knows it is not needed for HTTP-to-HTTPS",
+        "Warns against many-to-one redirects to the homepage as a soft 404 risk",
+        "States 301 redirects do not lose PageRank",
+        "Gives Google's documented recovery timeline (weeks for medium sites)",
+        "Rules out a coincident core update before attributing the drop to the migration",
+        "Provides prioritized recovery plan"
       ],
       "files": []
     },
     {
       "id": 4,
       "prompt": "Review the technical SEO of our e-commerce site. We have about 50,000 products and use faceted navigation.",
-      "expected_output": "Should focus on e-commerce-specific technical issues: faceted navigation creating duplicate content, crawl budget management for large product catalog, parameterized URLs, product schema markup (with the caveat about detection limitations). Should check for thin category pages, duplicate product descriptions, out-of-stock page handling. Should address crawl budget issues: pagination, infinite scroll handling, session IDs in URLs. Should provide structured findings with Impact ratings and specific fixes.",
+      "expected_output": "Should route to references/ecommerce-seo.md. Should lead with faceted navigation crawl control: decide first whether facet URLs need to be indexed at all, then use robots.txt disallow patterns or URL fragments as the primary methods, noting Google calls rel=canonical and rel=nofollow 'generally less effective in the long term'. Should check whether category pages link to every product (Googlebot does not submit searches into a site search box) and recommend a sitemap or Merchant Center feed where they cannot. Should check pagination: unique URL per page, self-referencing canonical per page, never canonical page 2+ to page 1, no fragments for page numbers, and crawlable <a href> pagination beneath any infinite scroll or load-more. Should NOT flag shared titles/descriptions across paginated pages as a defect (explicitly permitted by Google) and should NOT flag missing rel=next/rel=prev (Google no longer uses them). Should confirm 50,000 products sits inside Google's stated crawl budget scope. Should mention product schema with the detection limitation caveat.",
       "assertions": [
-        "Addresses faceted navigation duplicate content",
-        "Addresses crawl budget for large catalog",
-        "Checks for parameterized URL issues",
+        "Routes to references/ecommerce-seo.md",
+        "Leads with faceted navigation crawl control",
+        "Prefers robots.txt or fragments over canonical/nofollow for facets",
+        "Checks that category pages link to all products; knows Googlebot does not use site search",
+        "Checks pagination has unique URLs and self-referencing canonicals per page",
+        "Does NOT flag shared titles/descriptions on paginated pages as a defect",
+        "Does NOT flag missing rel=next/rel=prev",
+        "Checks crawlable pagination beneath infinite scroll or load-more",
         "Mentions product schema with detection limitation caveat",
-        "Checks for thin category pages",
-        "Checks for duplicate product descriptions",
-        "Addresses out-of-stock page handling",
-        "Addresses pagination and infinite scroll",
         "Findings include Impact ratings and specific fixes"
       ],
       "files": []
@@ -76,14 +77,15 @@
       "expected_output": "Should apply the Content/Blog Sites framework: check for outdated content not refreshed, keyword cannibalization, missing topical clustering, poor internal linking, missing author pages. Should audit on-page elements: title tags, meta descriptions, heading structure, keyword targeting per post. Should assess E-E-A-T signals for blog content. Should check for content depth issues and whether posts answer search intent. Should recommend a content audit process and provide a prioritized action plan for the existing content library.",
       "assertions": [
         "Applies Content/Blog Sites framework",
-        "Checks for outdated content",
         "Checks for keyword cannibalization",
         "Checks for topical clustering",
         "Checks for internal linking quality",
-        "Checks for author pages and E-E-A-T signals",
-        "Audits title tags, meta descriptions, heading structure",
+        "Audits title tags and meta descriptions without asserting a Google character limit",
+        "Does NOT recommend a word count target",
+        "Does NOT flag multiple H1s or skipped heading levels as SEO issues",
+        "Does NOT promise to improve an 'E-E-A-T score'",
+        "Does NOT recommend date-bumping as a freshness tactic",
         "Assesses whether content answers search intent",
-        "Recommends content audit process",
         "Provides prioritized action plan"
       ],
       "files": []
@@ -107,28 +109,62 @@
     {
       "id": 7,
       "prompt": "Our site loads really slowly, especially on mobile. Pages take 5-6 seconds to load. Is this hurting our SEO?",
-      "expected_output": "Should focus on Site Speed and Core Web Vitals. Should explain CWV thresholds: LCP < 2.5s, INP < 200ms, CLS < 0.1, and that 5-6s load time is well above acceptable. Should investigate speed factors: server response time (TTFB), image optimization, JavaScript execution, CSS delivery, caching headers, CDN usage, font loading. Should recommend specific tools: PageSpeed Insights, WebPageTest, Chrome DevTools, Search Console CWV report. Should explain that yes, page speed is a ranking factor and directly impacts SEO. Should provide prioritized fixes.",
+      "expected_output": "Should focus on Core Web Vitals and cite the thresholds: LCP within 2.5s, INP under 200ms, CLS under 0.1, noting INP replaced FID in March 2024. Should identify 5-6s as well above the LCP threshold. Should investigate TTFB, image optimization, JavaScript execution, CSS delivery, caching, CDN and font loading. Should recommend PageSpeed Insights, Lighthouse, WebPageTest and the Search Console Core Web Vitals report, and should NOT recommend the Mobile-Friendly Test or Mobile Usability report (both retired from Google's documentation in December 2023). Should state the ranking relationship accurately: Core Web Vitals are used by Google's ranking systems, but there is no single page experience signal and good scores do not guarantee top rankings. Should frame speed work as user experience with a ranking component, not as a ranking fix. Should cover the other page experience aspects Google names: HTTPS, mobile display, ad load, intrusive interstitials, main content distinguishable from the rest.",
       "assertions": [
-        "Focuses on Core Web Vitals",
-        "Explains CWV thresholds (LCP, INP, CLS)",
-        "Identifies 5-6s as well above acceptable",
+        "Cites correct CWV thresholds (LCP 2.5s, INP 200ms, CLS 0.1)",
+        "Identifies 5-6s as well above the LCP threshold",
+        "States there is no single page experience ranking signal",
+        "Does not claim good CWV guarantees rankings",
+        "Does NOT recommend the retired Mobile-Friendly Test or Mobile Usability report",
+        "Covers other page experience aspects (HTTPS, interstitials, ad load)",
         "Investigates specific speed factors",
-        "Recommends specific diagnostic tools",
-        "Confirms page speed impacts SEO rankings",
-        "Provides prioritized speed fixes",
-        "Addresses mobile-specific performance"
+        "Provides prioritized speed fixes"
       ],
       "files": []
     },
     {
       "id": 8,
       "prompt": "I want to add FAQ schema to my product pages. Can you help me set that up?",
-      "expected_output": "Should recognize this is a schema markup implementation task, not an SEO audit. Should defer to or cross-reference the schema skill, which specifically handles structured data implementation including FAQ schema. May briefly mention that FAQ schema can enable rich results, but should make clear that schema is the right skill for implementation.",
+      "expected_output": "Should NOT simply route to the schema skill. Should state that the FAQ rich result is retired: Google added a deprecation notice in May 2026, the feature stopped appearing on 7 May 2026, and the documentation was removed in June 2026. FAQPage markup is harmless but produces no rich result, so the work has no return. Should note the same applies to HowTo. Should then offer what is actually available for product pages from Google's current supported list - Product, product snippet, merchant listing, product variants, review snippet, shipping policy, return policy, loyalty program, breadcrumb - and route implementation of those to the schema skill. Should not invent a replacement feature.",
       "assertions": [
-        "Recognizes this as schema markup implementation",
-        "References or defers to schema skill",
+        "States the FAQ rich result is retired and gives the May 2026 date",
+        "Explains FAQPage markup now produces no rich result",
+        "Notes HowTo is also retired",
+        "Offers currently supported alternatives relevant to product pages",
+        "Routes implementation of those types to the schema skill",
         "Does not attempt a full SEO audit",
-        "May briefly mention FAQ schema benefits"
+        "Does not invent a replacement feature"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Our organic traffic fell about 35% starting three weeks ago. Nothing changed on the site that I know of. What happened?",
+      "expected_output": "Should treat this as a diagnosis, not an audit, and route to references/search-diagnostics.md. Should check the Search Console Data Anomalies page first to rule out a Google-side data or logging issue. Should read the clicks-vs-impressions pattern and explain what each pairing implies (impressions flat with clicks down points at title links and snippets, not rankings). Should work Google's six documented causes: technical issues, security issues, spam issues and manual actions, algorithmic update, seasonality and changing interests, and site moves. Should name the specific Search Console report per cause (Crawl stats, Page indexing, Security Issues, Manual Actions). Should apply the four Performance-report filters: 16-month date range for seasonality, period comparison across every tab, search type separation, and the Pages table sorted by Clicks Difference to establish blast radius. Should use Google Trends to separate a site-specific drop from a market-wide demand shift. If a core update is suspected, should apply the timing discipline: confirm the rollout finished on the Search Status Dashboard, wait a full week after completion, and compare that week to a week before the rollout started. Should not recommend quick fixes or content deletion as a first response.",
+      "assertions": [
+        "Treats it as a diagnosis and routes to references/search-diagnostics.md",
+        "Checks Search Console Data Anomalies before assuming a site cause",
+        "Separates clicks from impressions and interprets the pattern",
+        "Works through Google's six documented causes",
+        "Names the specific Search Console report per cause",
+        "Applies the 16-month date range to test for seasonality",
+        "Uses the Pages table to establish blast radius (site-wide vs group vs single page)",
+        "Uses Google Trends to test whether demand moved market-wide",
+        "Applies core-update timing discipline (rollout complete, wait a week, compare pre-rollout)",
+        "Advises against quick fixes and against deleting content as a first response"
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "We want to show up in Google's AI Overviews and get mentioned by ChatGPT. Can you audit our SEO for that?",
+      "expected_output": "Should recognize this as an AI-surface request and route to the geo skill rather than running seo-audit. Should state that geo is the umbrella skill and already contains the full technical and content SEO layer, so running both duplicates work and can produce conflicting recommendations. Should not begin the technical SEO audit framework in this skill.",
+      "assertions": [
+        "Recognizes the AI-surface component",
+        "Routes to the geo skill",
+        "Explains geo already contains the SEO layer",
+        "Does not run a seo-audit in parallel",
+        "Does not begin the audit framework in this skill"
       ],
       "files": []
     }

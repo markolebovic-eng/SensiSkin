@@ -69,7 +69,20 @@ The SEO foundation inside every GEO engagement. Written once here; `seo-audit` c
 - [ ] All main content translated, not just navigation chrome
 - [ ] No IP or `Accept-Language` redirects — Googlebot crawls from US IPs with no `Accept-Language` header
 
-Detail: `seo-audit/references/international-seo.md`. That reference is genuinely strong; use it as-is.
+Detail: `seo-audit/references/international-seo.md`.
+
+## Where the depth lives
+
+This checklist is the pass/fail worksheet. When an item fails, the diagnostic method is in
+`seo-audit`, not here — do not restate it:
+
+- Traffic dropped, core update, manual action → `seo-audit/references/search-diagnostics.md`
+- Migration or replatform → `seo-audit/references/site-moves.md`
+- Faceted navigation, pagination, catalogue → `seo-audit/references/ecommerce-seo.md`
+- Sitemaps, canonicalisation, JavaScript rendering, snippet directives, structured-data feature
+  status, featured snippets, Discover → `seo-audit/SKILL.md`
+- The list of things Google says don't matter → `seo-audit/SKILL.md`, "Things Google says don't
+  matter". Worth reading before any audit; it prevents a whole class of false findings.
 
 ## Content quality
 

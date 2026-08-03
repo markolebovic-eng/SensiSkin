@@ -1,6 +1,6 @@
 ---
 name: geo
-description: "Use for any work on visibility in AI search and AI answers, on any engine. Trigger phrases: 'GEO,' 'generative engine optimization,' 'AEO,' 'answer engine optimization,' 'LLMO,' 'AI SEO,' 'AI search visibility,' 'AI Overviews,' 'AI Mode,' 'get cited by AI,' 'AI citations,' 'why don't we show up in ChatGPT,' 'why doesn't Perplexity mention us,' 'optimize for ChatGPT/Claude/Perplexity/Gemini/Copilot,' 'LLM optimization,' 'AI visibility audit,' 'llms.txt,' 'are AI bots blocked,' 'zero-click search.' This is the UMBRELLA skill for AI search engagements and it INCLUDES the full technical and content SEO layer — do not run seo-audit separately alongside it. Use seo-audit instead only when the request is purely about Google/Bing organic rankings with no AI-surface component. For structured data implementation invoked as its own task, see schema. For AI agents browsing, comparing, or transacting on the site, see agentic-readiness."
+description: "Use for any work on visibility in AI search and AI answers, on any engine. Trigger phrases: 'GEO,' 'generative engine optimization,' 'AEO,' 'answer engine optimization,' 'LLMO,' 'AI SEO,' 'AI search visibility,' 'AI Overviews,' 'AI Mode,' 'get cited by AI,' 'AI citations,' 'why don't we show up in ChatGPT,' 'why doesn't Perplexity mention us,' 'optimize for ChatGPT/Claude/Perplexity/Gemini/Copilot,' 'LLM optimization,' 'AI visibility audit,' 'llms.txt,' 'are AI bots blocked,' 'zero-click search.' This is the UMBRELLA skill for AI search engagements and it INCLUDES the full technical and content SEO layer — do not run seo-audit separately alongside it, or you will duplicate work and produce conflicting recommendations. ROUTING — use **seo-audit** instead, not this skill, when the request has no AI-answer component at all: a Google/Bing organic audit, 'why did our traffic drop,' a core update or manual action, a site migration or replatform, redirects, canonicals, hreflang, sitemaps, faceted navigation, JavaScript SEO, Core Web Vitals, featured snippets, or Google Discover. Those live in seo-audit with full Google-documented method; this skill links to them rather than restating them. For structured data implementation invoked as its own task, see schema. For AI agents browsing, comparing, or transacting on the site, see agentic-readiness."
 metadata:
   version: 1.0.0
   last-research: 2026-08-03
@@ -30,7 +30,13 @@ Client asks about AI visibility / GEO / AEO / being cited by AI
   └─> THIS SKILL. Run the workflow below.
 
 Client asks "why did organic traffic drop", no AI angle
-  └─> seo-audit
+  └─> seo-audit, and specifically seo-audit/references/search-diagnostics.md
+
+Client is migrating, replatforming, or changing domain
+  └─> seo-audit/references/site-moves.md
+
+Client has an ecommerce catalogue / faceted navigation problem
+  └─> seo-audit/references/ecommerce-seo.md
 
 Client asks to implement specific structured data
   └─> schema (this skill invokes it)

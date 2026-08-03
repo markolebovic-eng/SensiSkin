@@ -2,6 +2,12 @@
 
 Detailed evidence backing the International SEO & Localization section of the SEO Audit skill. Organized by topic with source URLs and key quotes.
 
+**Sourcing rule for this file.** Statements attributed to Google are traceable to the Google
+Search Central corpus (`research/raw/pages/`) or to a named Google source. Third-party study
+figures were removed in the 2026-08 pass because they could not be traced to the cited source —
+several were mis-stated or invented. If you need a prevalence statistic for a client deliverable,
+measure the client's own site; do not reintroduce an industry number without a verifiable source.
+
 ---
 
 ## Hreflang
@@ -19,11 +25,14 @@ Google combines signals from both HTML and sitemaps. If the same language-region
 
 Google's docs: "If page X links to page Y, page Y must link back to page X. If not, those annotations may be ignored or not interpreted correctly."
 
-Every page must include itself (self-referencing) in the hreflang set. Missing self-referencing is the #1 error found by Semrush audits. A study of 374,756 domains found 67% of hreflang implementations had issues.
+Every page must include itself (self-referencing) in the hreflang set.
+
+Hreflang errors are common enough that the check is worth running on every multilingual audit —
+but check the client's own implementation rather than quoting an industry prevalence figure. The
+error-rate statistics previously cited here (a "67% of 374,756 domains" study and a "#1 error"
+superlative) could not be traced to the sources they were attributed to and have been removed.
 
 - [Google Search Central: Localized Versions](https://developers.google.com/search/docs/specialty/international/localized-versions)
-- [Semrush: 9 Common Hreflang Errors](https://www.semrush.com/blog/hreflang-errors/)
-- [SE Land: 31% of International Websites Contain Hreflang Errors](https://searchengineland.com/study-31-of-international-websites-contain-hreflang-errors-395161)
 
 ### x-default
 
@@ -36,14 +45,15 @@ Introduced April 2013. Designates the fallback page for users whose language/reg
 
 Language: ISO 639-1 (2-letter). Region: ISO 3166-1 Alpha 2 (2-letter). Format: `language[-script][-region]`.
 
-You cannot specify a region code alone. Common mistakes: `en-UK` (should be `en-GB`), `es-419` (not ISO 3166-1). A study found 8.9% of sites using hreflang contain invalid language codes.
+You cannot specify a region code alone. Common mistakes: `en-UK` (should be `en-GB`), `es-419` (not ISO 3166-1).
+
+Invalid codes are worth checking on every locale cluster. A previously cited "8.9% of sites" figure was removed — it did not appear in the source it was attributed to.
 
 - [Google Search Central: Localized Versions](https://developers.google.com/search/docs/specialty/international/localized-versions)
-- [SE Land: 31% Study](https://searchengineland.com/study-31-of-international-websites-contain-hreflang-errors-395161)
 
 ### Hreflang at Scale (20+ locales)
 
-With 20 locales, HTML `<head>` hreflang adds ~1.5KB per page for zero user benefit. Sitemap-based hreflang has zero runtime performance impact. `<xhtml:link>` child elements do NOT count toward the 50,000 URL sitemap limit (only `<loc>` elements count).
+At 20+ locales, in-`<head>` hreflang adds a per-page byte cost with no user benefit, on every page, on every request. Sitemap-based hreflang moves that cost off the page entirely. (The specific "~1.5KB" figure previously stated here was not sourced and has been removed — if the size matters to the decision, measure the client's own markup.) `<xhtml:link>` child elements do NOT count toward the 50,000 URL sitemap limit (only `<loc>` elements count).
 
 John Mueller recommends focusing hreflang on pages receiving wrong-language traffic, not every page: "I wouldn't do it for any of the other pages of the site because it's so complex & hard to manage."
 
@@ -94,7 +104,7 @@ Google's duplicate detection runs BEFORE hreflang evaluation. To keep both versi
 
 ### Pagination Across Locales
 
-Google: "Don't use the first page of a paginated sequence as the canonical page. Instead, give each page its own canonical URL." Each paginated page in each locale gets self-referencing canonical. `rel="next/prev"` deprecated March 2019.
+Google: "Don't use the first page of a paginated sequence as the canonical page. Instead, give each page its own canonical URL." Each paginated page in each locale gets a self-referencing canonical. `rel="next"`/`rel="prev"`: Google's current wording is "Google no longer uses these tags, although these links may still be used by other search engines" — their absence is not a finding. (The previously stated "deprecated March 2019" date is not in Google's current documentation; the removal is what matters, not the date.)
 
 - [Google: Pagination Best Practices](https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading)
 
@@ -113,7 +123,7 @@ Split sitemaps by content type, not by locale. Splitting by locale creates maint
 
 ### Size Limits
 
-50,000 URLs / 50MB uncompressed per sitemap. Only `<loc>` elements count toward the 50K limit. But with 20 hreflang alternates per entry, the 50MB file size limit becomes the bottleneck. Plan for 2,000-5,000 URLs per sitemap when using full hreflang.
+50,000 URLs / 50MB uncompressed per sitemap — both documented by Google. Only `<loc>` elements count toward the 50K limit. Consequence: with many hreflang alternates per entry, the **50MB size limit binds long before the 50K URL limit does**. The "2,000–5,000 URLs per sitemap" planning figure previously given here was an unsourced estimate; derive the real number from the client's own average entry size (50MB ÷ bytes per `<url>` block) rather than quoting it.
 
 - [Google: Build and Submit a Sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
 - [SERoundtable: Sitemap 50,000 Limit](https://www.seroundtable.com/google-sitemap-50-000-limit-based-on-location-urls-not-alternative-urls-33843.html)
@@ -184,7 +194,7 @@ Use `localePrefix: 'always'` (next-intl) or equivalent. Never hide locale from U
 
 Google removed longstanding guidance advising against auto-translated content in mid-2025. Current stance: "Our policies do not strictly define content that has been translated by AI as spam." The scaled content abuse policy mentions translation as a possible vector, but does not ban it.
 
-Reddit scaled AI translations to 35+ languages with Google's knowledge. The key distinction is intent and quality, not the method.
+The key distinction is intent and quality, not the method. (A specific "Reddit translated into 35+ languages" figure previously stated here was removed — the language count was not verifiable from the cited article.)
 
 - [Google Spam Policies](https://developers.google.com/search/docs/essentials/spam-policies)
 - [Glenn Gabe: Auto-Translating Content](https://www.gsqi.com/marketing-blog/auto-translating-content-google-scaled-content-abuse/)
@@ -218,7 +228,9 @@ Translate ALL content on a page if you create a locale version. Untranslated met
 
 ### Crawl Budget
 
-Only a concern for 1M+ pages or 10K+ pages changing daily. But alternate URLs (hreflang targets) do consume crawl budget. Broken hreflang links waste budget AND invalidate signals.
+Google's stated scope: 1M+ pages changing moderately often, or 10K+ pages changing daily, or a large share of URLs in "Discovered – currently not indexed". Google adds that these are "a rough estimate to help you classify your site… not exact thresholds." Note that crawl budget is per hostname, so a per-country subdomain strategy splits it.
+
+Alternate URLs (hreflang targets) do consume crawl budget — Google lists hreflang alternates explicitly alongside AMP, CSS, JS and XHR fetches. Broken hreflang links waste budget AND invalidate the cluster.
 
 - [Google: Crawl Budget Management](https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget)
 - [Google Blog: Crawl Budget](https://developers.google.com/search/blog/2017/01/what-crawl-budget-means-for-googlebot)

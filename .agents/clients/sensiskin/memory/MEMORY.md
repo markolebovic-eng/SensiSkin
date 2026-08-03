@@ -3,6 +3,38 @@
 This file is read and updated by all agents. It acts as the project's 
 persistent memory across sessions.
 
+## ▶ 🔴 CORRECTION — FAQPage and HowTo rich results are DEAD (2026-08-04, seo-audit skill pass)
+
+**Google retired the FAQ rich result: deprecation notice May 2026, feature stopped appearing
+7 May 2026, documentation removed June 2026. HowTo was retired earlier (2023).** Neither appears
+in Google's current structured-data gallery. Source: 178-page Search Central corpus,
+`research/raw/pages/search_updates.md` + `..._structured_data_search_gallery.md`.
+
+**This invalidates advice given to this client in June 2026** (Faza C, 2026-06-09/10/11), which
+recommended FAQPage schema across service pages and blog posts. That advice was already ~1 month
+stale when given — the seo-audit skill carried the wrong fact until this pass. Owner was informed
+2026-08-04.
+
+**DO NOT REMOVE the existing markup.** Confirmed live on `/hydrafacial-tretmani-lica-novi-sad/`,
+`/epilacija/`, `/aura-reality-3d-dijagnostika-koze/`, `/sve-istine-o-laserskoj-epilaciji/`,
+posts 2661 and 2733, and others. It is harmless — no penalty, nothing blocked. Removing it is
+work with zero upside and non-zero breakage risk. Leave it.
+
+**DO change these three things:**
+1. **Never recommend adding FAQPage or HowTo again**, and never count existing FAQPage as schema
+   coverage in an audit score.
+2. **The visible FAQ content on the page remains valuable and correct** — it answers real user
+   questions and gives a citable passage. That half of the June advice stands. Keep writing FAQ
+   sections; just stop marking them up for a rich result that no longer exists.
+3. **Value of FAQPage markup for Bing and AI engines is UNVERIFIED.** Do not claim it helps there
+   to justify the existing markup, and do not claim it doesn't. Scope every claim to an engine.
+
+`schema_extract.py` now flags both types at runtime (`RETIRED:` line). The authoritative table
+lives in `.claude/skills/seo-audit/SKILL.md` → "Structured Data — what Google currently supports".
+⚠️ The **`schema` skill itself is still wrong** — it ships FAQPage/HowTo as live recommendations
+in its types table, `references/schema-examples.md`, and eval 2. Do not trust it on feature status
+until it gets its own corpus pass.
+
 ## ▶ NEW BLOG POST CREATED — "AI analiza kože" (2026-07-27, wordpress-edit, PRIVATE)
 Created live via WP REST API: **post ID 2733, slug `ai-analiza-koze`**, **PUBLISHED public 2026-07-27** after full pre-publish check pass (Yoast SEO+readability all green except the accepted bold→now-H2 note; internal+media links 200; FAQPage validated via schema_validate_url = "declares 5 questions"; outbound forefrontdermatology returns 403 to bots = Cloudflare, human-OK). Live: https://sensiskinstudio.com/ai-analiza-koze/ (edit: https://sensiskinstudio.com/wp-admin/post.php?post=2733&action=edit).
 IMPORTANT SASWP FINDING (2026-07-27): a post CREATED+PUBLISHED entirely via REST does NOT get SASWP's auto Article schema (new post 2733 renders only FAQPage; old editor-saved posts like 1899 render Article+Person+ImageObject+FAQPage). SASWP attaches Article on an EDITOR save, not a REST save. RESOLUTION for post 2733 (owner-approved 2026-07-27): added a **manual Article JSON-LD** as a `core/html` block alongside FAQ (headline, description, image=featured 2729, datePublished 2026-07-27T18:32:19+02:00, author Person "Nataša Burka", publisher Organization "Sensi Skin Kozmetološki Centar" + logo webp). Validated live via schema_validate_url → "Article declares author" + "FAQPage declares 5 questions", 5 JSON-LD graphs. Also FIXED category: post was in Uncategorized [1] → moved to **Blog [23]** (the blog category, 34 posts; id 24=nega-lica, id 1=uncategorized). ⚠️ CONSEQUENCE: since a manual Article now exists on 2733, do NOT do a wp-admin editor "Update" on it expecting SASWP to add Article — SASWP would then add a SECOND Article (duplicate); if an editor-save ever happens, remove the manual Article block. (For FUTURE REST-published posts either add manual Article the same way OR editor-save once for SASWP — pick one, never both.) Source draft: `/outputs/sensiskin/blog/ai-aplikacije-vs-aura-reality-2026-07-DRAFT.md` (SEO pass done 2026-07-07 + brand-name fix 2026-07-27: "Sensi Skin studiju"→"Sensi Skin Kozmetološkom Centru" ×2). Focus keyphrase "AI analiza kože", Yoast title 53c / meta 141c persisted via REST. Body = **real `<h2>` subheadings** (8) — owner CHOSE real headings over the bold-paragraph site standard when Yoast readability flagged "Distribucija podnaslova" red (2026-07-27). This diverges from the old bold-paragraph standard (posts 2047/2661) and may become the new template for future posts (see skill Section 4 reference-page note). Also shortened long sentences 29.1%→~8.6% (Yoast "Dužina rečenica"). Real H2 also makes the "keyphrase u podnaslovima" SEO check pass (2 of the 8 H2s contain "AI analiza kože"). NOTE possible visual inconsistency: this post's H2s render in the theme heading style, unlike older posts' bold-paragraph subheadings — owner accepted this.
@@ -113,7 +145,7 @@ Full crawl of all ~29 existing blog posts (initial re-audit only crawled the hub
 
 ## ▶ RE-AUDIT FINDINGS (2026-06-11, verified live via Chrome --dump-dom)
 VERIFIED FIXED: robots.txt open to all AI bots (GPTBot/ClaudeBot/PerplexityBot/Google-Extended not blocked); on-site NAP consistent (Braće Popović everywhere, no Vojvode Bojovića); schema live = home(MedicalOrganization+WebSite+BeautySalon+ContactPoint), HydraFacial(FAQPage 7Q+Service), Epilacija(FAQPage 4Q+Service), Nega lica(Service+OfferCatalog), Mesojet RF/Dermalux(Service), O nama(Person — Nataša Burka), sve-istine-o-laserskoj-epilaciji(Article+FAQPage+LocalBusiness+Person+WebPage = best page); service pages now have real content.
-STILL NOT DONE: (1) 🔴 blog "razlika-profesionalna-i-drogerijska-kozmetika" returns 404 — NOT published yet (text ready, just not posted). (2) FAQ/FAQPage missing on Nega lica, Mesojet RF, Dermalux, (Aura Reality unchecked). (3) No AggregateRating/Review schema anywhere. (4) No BreadcrumbList. (5) /strucni-saveti-za-negu-koze/ duplicate still live (cannibalization). (6) No HowTo.
+STILL NOT DONE: (1) 🔴 blog "razlika-profesionalna-i-drogerijska-kozmetika" returns 404 — NOT published yet (text ready, just not posted). (2) ~~FAQ/FAQPage missing on Nega lica, Mesojet RF, Dermalux, (Aura Reality unchecked)~~ → **CORRECTED 2026-08-04: only the *visible FAQ content* is still worth adding on those pages; do NOT add FAQPage markup — the rich result is dead (see 🔴 correction at top).** (3) No AggregateRating/Review schema anywhere. (4) No BreadcrumbList. (5) /strucni-saveti-za-negu-koze/ duplicate still live (cannibalization). (6) ~~No HowTo.~~ → **NOT A GAP, DELETED 2026-08-04: HowTo rich result was retired by Google in 2023. Never add it.**
 NOT VERIFIABLE FROM SITE CRAWL: off-site directory NAP (Faza B), GBP, Luftika/SrediMe, real AI citations (need re-crawl, measure in 3–6 weeks).
 Per-dimension scores: AI vis 5/10, content 7, schema 8, E-E-A-T 6, topical 4, citability 5, technical 8, local 5.
 
@@ -143,7 +175,8 @@ Delivered so far (all sessions):
   14. /outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md — KORISTITI OVAJ: kompletan JSON-LD schema za svih 48 URL-ova (stariji json-ld-schemas- fajl ima pogrešan Aura Reality URL)
 Client decision: do the GBP guide IN PRACTICE first, before we write more docs.
 NEXT SESSION — pick up with:
-  - OWNER ACTION (SCHEMA — HIGHEST PRIORITY): Paste JSON-LD schemas from /outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md into Yoast Custom Schema. Order: (1) Yoast Knowledge Graph settings, (2) Početna strana, (3) HydraFacial, (4) Epilacija, (5) Aura Reality, (6) Kontakt, (7) Tim, (8) Mesojet RF, (9) Mesojet tretmani, (10) Dermalux, (11) Cenovnik, (12) 5 blog FAQPage posts.
+  - OWNER ACTION (SCHEMA — HIGHEST PRIORITY): Paste JSON-LD schemas from /outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md into Yoast Custom Schema. Order: (1) Yoast Knowledge Graph settings, (2) Početna strana, (3) HydraFacial, (4) Epilacija, (5) Aura Reality, (6) Kontakt, (7) Tim, (8) Mesojet RF, (9) Mesojet tretmani, (10) Dermalux, (11) Cenovnik, ~~(12) 5 blog FAQPage posts~~.
+    ⚠️ **STEP 12 CANCELLED 2026-08-04** — the FAQ rich result is dead (see 🔴 correction at top of file). Do not do that work; it would earn nothing. Steps 1–11 are unaffected (Organization, LocalBusiness, Service, Person are all still fully supported features). Also re-check the source file `/outputs/sensiskin/json-ld-schema-kompletno-2026-06-10.md` for FAQPage blocks before pasting anything from it — skip those blocks, paste the rest.
   - OWNER ACTION (Phase B): Execute directory cleanup — mirandre.com, navidiku.rs, ordinacije.info, virtualnigrad.com, Apple Business, Bing Places, 011info.com, planplus.rs. Playbook: /outputs/sensiskin/faza-b-nap-direktorijumi-uputstvo-2026-06-09.md.
   - OWNER ACTION (Phase C — UNBLOCKED): Implement body copy from /outputs/sensiskin/faza-c-sadrzaj-top3-strane-2026-06-09.md into WordPress. Priority: HydraFacial → Epilacija → Nega lica. Use Yoast FAQ blok for FAQ sections.
   - OWNER ACTION (Phase D — UNBLOCKED): Implement blog post from /outputs/sensiskin/blog-kucna-nega-vs-profesionalna-2026-06-09.md into WordPress under /saveti-za-negu-koze/.

@@ -51,6 +51,17 @@ AI_RELEVANT_NOTES = {
     "sameAs": "Feeds entity resolution across every engine - the strongest off-site GEO signal in markup.",
 }
 
+# Types whose Google rich result has been retired. Markup is harmless but earns nothing,
+# so it must not be counted as coverage or recommended as new work.
+# Source: /search/docs/appearance/structured-data/search-gallery + Search Central changelog.
+RETIRED_TYPES = {
+    "FAQPage": "FAQ rich result retired - deprecation notice May 2026, stopped appearing 7 May 2026, "
+               "documentation removed June 2026. Markup produces no rich result. Do not count as coverage; "
+               "do not recommend adding more.",
+    "HowTo": "How-to rich result retired - no longer shown on desktop or mobile, documentation removed. "
+             "Markup produces no rich result.",
+}
+
 
 def fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -108,6 +119,8 @@ def analyse(url, html):
                 if prop not in n:
                     findings.append(f"{t}: missing required property '{prop}'")
 
+    retired = [f"{t}: {RETIRED_TYPES[t]}" for t in sorted(inventory) if t in RETIRED_TYPES]
+
     notes = []
     blob = json.dumps(blocks)
     for prop, note in AI_RELEVANT_NOTES.items():
@@ -121,6 +134,7 @@ def analyse(url, html):
         "types": inventory,
         "parse_errors": errors,
         "missing_required": findings,
+        "retired_types": retired,
         "ai_notes": notes,
         "js_injection_warning": len(blocks) == 0,
     }
@@ -138,6 +152,8 @@ def report(r):
         print(f"  PARSE ERROR: {e}")
     for f in r["missing_required"]:
         print(f"  GAP: {f}")
+    for t in r.get("retired_types", []):
+        print(f"  RETIRED: {t}")
     for n in r["ai_notes"]:
         print(f"  NOTE: {n}")
     if not r["parse_errors"] and not r["missing_required"]:
