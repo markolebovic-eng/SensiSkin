@@ -8,8 +8,8 @@ Complete JSON-LD examples for common schema types.
 - Article / BlogPosting
 - Product
 - SoftwareApplication
-- FAQPage
-- HowTo
+- FAQPage — 🔴 RETIRED (reference only)
+- HowTo — 🔴 RETIRED (reference only)
 - BreadcrumbList
 - LocalBusiness
 - Event
@@ -160,9 +160,13 @@ For SaaS product pages and app landing pages.
 
 ---
 
-## FAQPage
+## FAQPage — 🔴 RETIRED
 
-For pages with frequently asked questions.
+**Google's FAQ rich result was retired 7 May 2026; documentation removed June 2026.**
+This example is kept only for reading and validating markup that already exists on a site.
+**Do not use it as a template for new work.** If a page already has visible FAQ content and
+this markup, leave both alone — removing it has no upside. Never add it to a page with no
+visible FAQ section (structured-data policy violation).
 
 ```json
 {
@@ -191,9 +195,10 @@ For pages with frequently asked questions.
 
 ---
 
-## HowTo
+## HowTo — 🔴 RETIRED
 
-For instructional content and tutorials.
+**Google's How-to rich result was retired in 2023** — documentation removed, no longer shown
+on desktop or mobile. Kept for reading existing markup only. Never add it.
 
 ```json
 {

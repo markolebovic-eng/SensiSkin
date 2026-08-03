@@ -1,8 +1,8 @@
 ---
 name: schema
-description: When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions "schema markup," "structured data," "JSON-LD," "rich snippets," "schema.org," "FAQ schema," "product schema," "review schema," "breadcrumb schema," "Google rich results," "knowledge panel," "star ratings in search," or "add structured data." Use this whenever someone wants their pages to show enhanced results in Google. For broader SEO issues, see seo-audit. For AI search optimization, see geo.
+description: When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions "schema markup," "structured data," "JSON-LD," "rich snippets," "schema.org," "FAQ schema," "product schema," "review schema," "breadcrumb schema," "Google rich results," "knowledge panel," "star ratings in search," or "add structured data." Use this whenever someone wants their pages to show enhanced results in Google. FEATURE STATUS — FAQPage and HowTo rich results are RETIRED (FAQ on 7 May 2026, HowTo in 2023); never propose either as new work, and never mark up content that is not visible on the page. The authoritative list of currently supported types lives in seo-audit's "Structured Data" section. For broader SEO issues, see seo-audit. For AI search optimization, see geo.
 metadata:
-  version: 2.1.0
+  version: 2.2.0
 ---
 
 # Schema Markup
@@ -57,13 +57,34 @@ Before implementing schema, understand:
 | Article | Blog posts, news | headline, image, datePublished, author |
 | Product | Product pages | name, image, offers |
 | SoftwareApplication | SaaS/app pages | name, offers |
-| FAQPage | FAQ content | mainEntity (Q&A array) |
-| HowTo | Tutorials | name, step |
 | BreadcrumbList | Any page with breadcrumbs | itemListElement |
 | LocalBusiness | Local business pages | name, address |
 | Event | Events, webinars | name, startDate, location |
 
+### 🔴 Retired — do not recommend
+
+| Type | Status |
+|---|---|
+| **FAQPage** | Google's FAQ rich result was **retired 7 May 2026**; documentation removed June 2026. Markup is harmless but earns no rich result. Never propose it as new work. If a page already has a visible FAQ section and existing markup, leave it — removing it has no upside |
+| **HowTo** | Retired 2023. Documentation removed, no longer shown on desktop or mobile |
+
+**Never add either to a page without a visible, matching section.** Google:
+*"Don't mark up content that is not visible to readers of the page"* — violating this
+*"possibly cause[s] it to be marked as spam"*, which means a manual action.
+
+**Before recommending ANY type, check it is still supported.** Google retires features and
+audit templates lag by years. The current list is maintained in
+`.claude/skills/seo-audit/SKILL.md` → "Structured Data — what Google currently supports",
+extracted from Google's search gallery (2026-06-15). Types that skill lists and this table
+does not — Course list, Dataset, Discussion forum, Profile page, Vacation rental, Video,
+Speakable, Math solver, Image metadata, Job posting, Q&A, Recipe, Review snippet, Movie,
+Employer aggregate rating, Subscription/paywalled content, plus the merchant extensions
+(product snippet, merchant listing, product variants, shipping policy, return policy,
+loyalty program) — are all live and fair game.
+
 **For complete JSON-LD examples**: See [references/schema-examples.md](references/schema-examples.md)
+⚠️ That file still contains FAQPage and HowTo examples. They are kept for reference when
+reading or validating existing markup — not as templates for new work.
 
 ---
 
@@ -80,9 +101,6 @@ Recommended: dateModified, publisher, description
 ### Product
 Required: name, image, offers (price + availability)
 Recommended: sku, brand, aggregateRating, review
-
-### FAQPage
-Required: mainEntity (array of Question/Answer pairs)
 
 ### BreadcrumbList
 Required: itemListElement (array with position, name, item)

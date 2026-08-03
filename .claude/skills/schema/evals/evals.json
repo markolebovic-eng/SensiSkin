@@ -19,14 +19,15 @@
     {
       "id": 2,
       "prompt": "We have a FAQ page with 20 questions about our product. How do I add FAQ schema to get the rich results in Google?",
-      "expected_output": "Should implement FAQPage schema in JSON-LD format. Should show the correct structure: FAQPage as mainEntity containing Question items, each with acceptedAnswer. Should provide a complete code example with 2-3 sample questions. Should explain that FAQ schema can enable rich results showing questions/answers directly in search. Should note Google's guidelines for FAQ schema (factual answers, not promotional). Should recommend validation approach.",
+      "expected_output": "Should NOT implement FAQPage schema as requested. Should state that Google's FAQ rich result was retired on 7 May 2026 (deprecation notice May 2026, documentation removed June 2026), so FAQPage markup no longer produces any rich result and the work has no return. Should note HowTo was retired in 2023 too. Should also state the policy constraint: markup must never be added for content that is not visible on the page, because Google's structured data policy prohibits it and violations can be marked as spam. Since this user does have a real visible FAQ page, the honest answer is that adding the markup is permitted but earns nothing in Google, and any claim it helps AI engines is unverified. Should redirect the effort to structured data that is still supported and relevant to the page, and should not invent a replacement feature.",
       "assertions": [
-        "Implements FAQPage schema in JSON-LD",
-        "Shows correct nested structure (FAQPage > Question > Answer)",
-        "Provides complete code example",
-        "Explains rich result benefits",
-        "Notes Google's FAQ schema guidelines",
-        "Recommends validation"
+        "States the FAQ rich result is retired and gives the 7 May 2026 date",
+        "Explains FAQPage markup now produces no rich result",
+        "Notes HowTo is also retired",
+        "States markup must not be added for content not visible on the page",
+        "Does not claim FAQPage helps AI engines as established fact",
+        "Redirects effort to currently supported structured data",
+        "Does not invent a replacement feature"
       ],
       "files": []
     },

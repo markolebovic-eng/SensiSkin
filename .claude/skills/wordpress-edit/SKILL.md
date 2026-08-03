@@ -1,6 +1,6 @@
 ---
 name: wordpress-edit
-description: When the user wants to run SEO/GEO optimization directly on the live SensiSkin WordPress site (sensiskinstudio.com) via the REST API — reading or changing title tags, meta descriptions, focus keyphrases, page/post body content, FAQ schema, or creating new blog posts. Also use when the user mentions "wordpress edit," "izmeni na sajtu," "primeni na WordPress," "novi blog post," "ubaci FAQ semu," "izmeni title/meta na sajtu," or references a specific page/post ID/URL to edit live. This skill is the only one in this project authorized to write to the live WordPress site — seo-audit and schema skills analyze and recommend, this skill executes. Requires WP_SITE_URL, WP_USERNAME, WP_APP_PASSWORD in the project's local `.env` file (never committed, never printed).
+description: When the user wants to run SEO/GEO optimization directly on the live SensiSkin WordPress site (sensiskinstudio.com) via the REST API — reading or changing title tags, meta descriptions, focus keyphrases, page/post body content, structured data, or creating new blog posts. Also use when the user mentions "wordpress edit," "izmeni na sajtu," "primeni na WordPress," "novi blog post," "ubaci FAQ semu," "izmeni title/meta na sajtu," or references a specific page/post ID/URL to edit live. This skill is the only one in this project authorized to write to the live WordPress site — seo-audit and schema skills analyze and recommend, this skill executes. NOTE on FAQ schema: the Google FAQ rich result was retired 7 May 2026, and FAQPage markup must never be added to a page without a visible FAQ section (structured-data policy violation, manual-action risk) — Section 3 gates this; do not add it on request without reading that section first. Requires WP_SITE_URL, WP_USERNAME, WP_APP_PASSWORD in the project's local `.env` file (never committed, never printed).
 metadata:
   version: 1.0.0
 ---
@@ -437,15 +437,73 @@ JSON-LD copy, when checking for a specific tag/style.
 
 ---
 
-## 3. FAQ schema (GEO/AI-search optimization) — add to every page worked on
+## 3. FAQ schema — CONDITIONAL, never automatic
 
-Per standing instruction: every page/post touched by this skill should get a
-**FAQPage JSON-LD schema block** added, even though Google retired the visual
-FAQ rich-result dropdown (May 2026) — the schema still has real citation value
-for AI answer engines (ChatGPT, Perplexity, Google AI Overviews), which is the
-whole point of doing this ("GEO"/AEO, not classic SERP rich results).
+> **🔴 RULE CHANGED 2026-08-04 (seo-audit corpus pass). The previous standing
+> instruction — "add a FAQPage block to every page worked on", explicitly
+> without visible FAQ text — was a structured-data policy violation. Do not
+> follow it. Read this whole section before adding any FAQ schema.**
 
-Rules for the FAQ content itself:
+### The hard gate
+
+**Never add FAQPage markup to a page that has no visible FAQ section.**
+
+Google's structured data policy: *"Don't mark up content that is not visible to
+readers of the page."* Consequence, same document: violating a quality guideline
+can *"possibly cause it to be marked as spam."* Structured-data spam earns a
+manual action. Source: `/search/docs/appearance/structured-data/sd-policies`,
+extracted in `.claude/skills/seo-audit/SKILL.md` → "Structured Data".
+
+The old instruction produced exactly the prohibited state: invisible Q&A markup
+describing content no reader could see. It was a real risk to the client's site,
+not a stylistic preference.
+
+### Decision procedure
+
+```
+Does the page already show a visible FAQ section to readers?
+  ├─ NO  → Do NOT add FAQPage markup. Full stop.
+  │        If the page would benefit from an FAQ, propose the VISIBLE
+  │        content to the owner first. Markup only follows publication.
+  └─ YES → Markup is permitted. It must mirror the visible Q&A verbatim —
+           same questions, same answers, nothing extra. Continue below.
+```
+
+### What to tell the owner about value
+
+Be honest about what this earns, because the previous rationale overstated it:
+
+- **Google rich result: gone.** Retired 7 May 2026, documentation removed June
+  2026. FAQPage produces no visual dropdown. This is documented and certain.
+- **AI answer engines: UNVERIFIED.** There is no evidence in our corpus or in
+  vendor documentation that FAQPage markup improves citation in ChatGPT,
+  Perplexity or AI Overviews. The earlier claim that it "still has real citation
+  value for AI answer engines" was asserted, not sourced. Do not repeat it to
+  the owner as fact. Per the geo skill's standing rule: *scope every claim to an
+  engine; an unscoped claim is a bug.*
+- **What actually carries citation value is the visible Q&A text itself** — a
+  self-contained question with a direct answer is a retrievable passage whether
+  or not it is marked up. That is the deliverable. The markup is a free,
+  probably-neutral extra on top of it.
+
+So: never sell FAQ schema as the work. Sell the FAQ content. Add the markup
+because it costs nothing once the content exists.
+
+### Existing FAQPage markup already on the site
+
+**Leave it.** Confirmed live on `/hydrafacial-tretmani-lica-novi-sad/`,
+`/epilacija/`, `/aura-reality-3d-dijagnostika-koze/`,
+`/sve-istine-o-laserskoj-epilaciji/`, posts 2661 and 2733, and others. Those
+pages have real visible FAQ sections, so they are compliant and harmless.
+Removing them is work with zero upside. See the 🔴 correction at the top of
+`.agents/clients/sensiskin/memory/MEMORY.md`.
+
+⚠️ **Audit exception:** if you find a page carrying FAQPage markup with *no*
+visible FAQ section, that one is non-compliant — flag it to the owner and either
+publish the visible content or strip the markup.
+
+### Rules for the FAQ content itself (unchanged, still correct)
+
 - **3-5 questions**, grounded strictly in claims **already made in the existing
   article body** — do not invent new facts, statistics, or claims that aren't
   already substantiated in the page's own text. This is the same fair-balance /
@@ -453,18 +511,26 @@ Rules for the FAQ content itself:
   `.agents/clients/sensiskin/product-marketing.md` and the brand voice rules in
   MEMORY.md) — a fabricated FAQ answer is a factual-accuracy risk, not just a
   style one.
+- Phrase questions the way people actually search. Where possible ground them in
+  a real query — GSC data or `google_suggest` — as was done for post 2661
+  ("koliko često raditi hydrafacial").
 - Check first whether the page already has a `FAQPage` type via
   `mcp__google-seo-mcp__schema_extract_url` — don't duplicate.
 - Implementation: append a `core/html` Gutenberg block containing a single
   `<script type="application/ld+json">` tag with the FAQPage schema, to the end
   of the content (both the `content` field and, if Elementor is active, inside
-  `_elementor_data` per Step D). This is invisible/non-visual — it does not add
-  a visible FAQ section to the page unless the owner separately asks for
-  visible on-page FAQ text too (that's a content-visibility decision, different
-  from just adding the schema — ask if unclear which they want).
+  `_elementor_data` per Step D).
 - Verify with `mcp__google-seo-mcp__schema_validate_url` after clearing cache —
   confirm `FAQPage` appears in `types` and `successes` includes something like
-  "FAQPage declares N questions", with no new `issues`.
+  "FAQPage declares N questions", with no new `issues`. **Validation passing does
+  not mean the markup is permitted** — the validator cannot see whether the Q&A
+  is visible on the page. That check is yours.
+
+### HowTo
+
+**Never add it.** Google retired the How-to rich result in 2023; documentation
+removed, no longer shown on desktop or mobile. Unlike FAQ there is no
+visible-content case for adding it to this site.
 
 ---
 
@@ -516,8 +582,9 @@ existing one):
    **never publish directly to `status: "publish"` without the owner reviewing
    the draft first.** Set title, content (as clean Gutenberg block HTML,
    matching the site's existing bold-paragraph pseudo-heading convention unless
-   told otherwise), and the `_yoast_wpseo_*` meta fields, plus a FAQ block per
-   Section 3, all in the same draft-creation call.
+   told otherwise), and the `_yoast_wpseo_*` meta fields, all in the same
+   draft-creation call. **FAQ schema is not automatic here** — add it only if
+   the post carries a visible FAQ section, per the gate in Section 3.
 5. Report the draft edit URL (`{WP_SITE_URL}/wp-admin/post.php?post={new_id}&action=edit`)
    back to the owner for review before ever setting status to `publish`.
 6. A brand-new post has no Elementor data by default (Gutenberg content only)
@@ -579,6 +646,10 @@ reconstructing the pattern from scratch each session.
   indexing/visibility review). This skill (`wordpress-edit`) is the execution
   arm once specific pages/posts are identified as needing changes.
 - **schema** skill — general schema.org reference; this skill's Section 3 is
-  the project-specific FAQPage implementation procedure.
+  the project-specific FAQPage implementation procedure. For what Google
+  currently supports as a rich result, the single authority across all skills is
+  `.claude/skills/seo-audit/SKILL.md` → "Structured Data — what Google currently
+  supports". `schema` and this skill both defer to it; if they ever disagree,
+  seo-audit wins and the other is stale.
 - **copywriter** agent — for drafting new body copy / new blog posts in brand
   voice; this skill handles the technical publish step, not prose authorship.
