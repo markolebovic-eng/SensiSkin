@@ -1,0 +1,1248 @@
+[
+ {
+  "url": "https://developers.google.com/crawling/docs/about-crawling",
+  "title": "Things to Know about Google's Web Crawling | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-03",
+  "chars": 6579,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/changelog",
+  "title": "Google's Crawling Documentation Changelog | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-22",
+  "chars": 8024,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawl-budget",
+  "title": "Crawl Budget Management | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-22",
+  "chars": 9080,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/apis-user-agent",
+  "title": "APIs-Google User Agent | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-11-21",
+  "chars": 3334,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/feedfetcher",
+  "title": "Google Feedfetcher | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-11",
+  "chars": 4400,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+  "title": "Google's common crawlers | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-14",
+  "chars": 10442,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-special-case-crawlers",
+  "title": "Google Special-Case Crawlers | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-11",
+  "chars": 7293,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers",
+  "title": "Google User-Triggered Fetchers | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-16",
+  "chars": 5959,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/overview-google-crawlers",
+  "title": "Google Crawler (User Agent) Overview | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-12",
+  "chars": 7201,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/read-aloud-user-agent",
+  "title": "Google Read Aloud User Agent | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-02",
+  "chars": 2261,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/reduce-crawl-rate",
+  "title": "Reduce Google Crawl Rate | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 3750,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/verify-google-requests",
+  "title": "Verify Requests from Google Crawlers and Fetchers | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-20",
+  "chars": 4445,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/verifying-googlebot",
+  "title": "Verify Requests from Google Crawlers and Fetchers | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-20",
+  "chars": 4445,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/web-bot-auth",
+  "title": "Google's Guide to Authenticating Requests with Web Bot Auth (Experimental) | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-05-04",
+  "chars": 5452,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/faceted-navigation",
+  "title": "Managing crawling of faceted navigation URLs | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 6012,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/myths-about-crawling",
+  "title": "Myths and facts about crawling | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 6112,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/robots-txt/create-robots-txt",
+  "title": "Create and Submit a robots.txt File | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-11-21",
+  "chars": 9678,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
+  "title": "How Google Interprets the robots.txt Specification | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-08",
+  "chars": 19316,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/robots-txt/submit-updated-robots-txt",
+  "title": "Updating Your Robots.txt File | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-11-21",
+  "chars": 3023,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/robots-txt/useful-robots-txt-rules",
+  "title": "Useful robots.txt Rules | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-12",
+  "chars": 4171,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/troubleshooting/dns-network-errors",
+  "title": "Debug Network and DNS Errors for Google's Crawlers | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 3670,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/crawling/docs/troubleshooting/http-status-codes",
+  "title": "How HTTP Status Codes Affect Google's Crawlers | Google Crawling Infrastructure \u00a0|\u00a0 Crawling infrastructure \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-04",
+  "chars": 6578,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/blog",
+  "title": "Search and SEO Blog | Google Search Central \u00a0|\u00a0 Google Search Central Blog \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-16",
+  "chars": 2450,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs",
+  "title": "Documentation to Improve SEO | Google Search Central \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-02-04",
+  "chars": 4634,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance",
+  "title": "Google Search Appearance | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-15",
+  "chars": 2258,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/ad-network-and-translation",
+  "title": "Ad Networks & Translation Search Features | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5608,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/ai-features",
+  "title": "AI Features and Your Website | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 6648,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/avoid-intrusive-interstitials",
+  "title": "Interstitials and dialogs | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4075,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/core-updates",
+  "title": "Google Search's Core Updates | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 6165,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/core-web-vitals",
+  "title": "Understanding Core Web Vitals and Google search results | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1988,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/enable-web-stories",
+  "title": "Enable Web Stories on Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-01",
+  "chars": 4063,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/enriched-search-results",
+  "title": "Enriched and Interactive Search Results | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4278,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/establish-business-details",
+  "title": "Add Business Details to Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4345,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/favicon-in-search",
+  "title": "Define Website Favicon for Search Results | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-04",
+  "chars": 4267,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/featured-snippets",
+  "title": "Featured Snippets and Your Website | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2938,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/flexible-sampling",
+  "title": "Flexible Sampling Guidelines | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5115,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/google-discover",
+  "title": "Get on Discover | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-09",
+  "chars": 6523,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/google-images",
+  "title": "Image SEO Best Practices | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-02",
+  "chars": 12759,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/package-tracking",
+  "title": "Package Tracking on Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-14",
+  "chars": 3056,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/page-experience",
+  "title": "Understanding Google Page Experience | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4276,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/preferred-sources",
+  "title": "Guide to Preferred Sources in Google Search for Web Publishers | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-05-27",
+  "chars": 2976,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/publication-dates",
+  "title": "Add a Byline Date to Google Search Results | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3988,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/ranking-systems-guide",
+  "title": "A Guide to Google Search Ranking Systems | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11685,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/reviews-system",
+  "title": "Google Search's Reviews System | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2692,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/site-names",
+  "title": "Site Names in Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 13328,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/sitelinks",
+  "title": "Learn About What Sitelinks Are | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1626,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/snippet",
+  "title": "How to Write Meta Descriptions | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-04-20",
+  "chars": 8224,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/spam-updates",
+  "title": "Google Search Spam Updates | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1515,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+  "title": "Learn About Article Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 14807,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/book",
+  "title": "Book Schema for Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 40810,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb",
+  "title": "How To Add Breadcrumb (BreadcrumbList) Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 22678,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/carousel",
+  "title": "Carousel (ItemList) Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 29911,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/carousels-beta",
+  "title": "Carousels (Beta) Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-01-21",
+  "chars": 34326,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/course",
+  "title": "Use Schema for Course List | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11603,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/dataset",
+  "title": "Dataset Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 9223,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/discussion-forum",
+  "title": "Discussion Forum (DiscussionForumPosting, SocialMediaPosting) Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-24",
+  "chars": 8488,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/education-qa",
+  "title": "Education Q&A Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-01-06",
+  "chars": 15236,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/employer-rating",
+  "title": "Employer Rating (EmployerAggregateRating) Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 8931,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/event",
+  "title": "Learn About Google Event Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 36698,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/factcheck",
+  "title": "Fact Check (ClaimReview) Markup for Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 18649,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript",
+  "title": "Generate Structured Data with JavaScript | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5492,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata",
+  "title": "Google Images SEO: Image Metadata | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 32490,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+  "title": "Intro to How Structured Data Markup Works | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11224,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/job-posting",
+  "title": "Learn About Job Posting Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 47892,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+  "title": "Local Business (LocalBusiness) Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 8486,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/loyalty-program",
+  "title": "Loyalty Program Structured Data (MemberProgram) | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11947,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/math-solvers",
+  "title": "Math Solver (MathSolver) Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 18509,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing",
+  "title": "How To Add Merchant Listing Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-07",
+  "chars": 86666,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/movie",
+  "title": "Mark Up Movies with Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11120,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/organization",
+  "title": "Organization Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-04-15",
+  "chars": 19466,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/paywalled-content",
+  "title": "Subscription and Paywalled Content Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 9992,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/product",
+  "title": "Intro to Product Structured Data on Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5256,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet",
+  "title": "How To Add Product Snippet Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 42993,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/product-variants",
+  "title": "Product Variant Structured Data (ProductGroup, Product) | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-05-20",
+  "chars": 44388,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/profile-page",
+  "title": "Profile Page (ProfilePage) Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4535,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/qapage",
+  "title": "Schema for Q&A Pages (QAPage) | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-15",
+  "chars": 7031,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/recipe",
+  "title": "Recipe Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 26827,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/return-policy",
+  "title": "Merchant Return Policy Structured Data (MerchantReturnPolicy) | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 21006,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/review-snippet",
+  "title": "Review Snippet (Review, AggregateRating) Structured Data | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-24",
+  "chars": 44241,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+  "title": "General Structured Data Guidelines | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-10",
+  "chars": 10471,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/search-gallery",
+  "title": "Structured Data Markup that Google Search Supports | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-15",
+  "chars": 6291,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/shipping-policy",
+  "title": "Merchant Shipping Policy Structured Data (ShippingService) | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-01-07",
+  "chars": 30528,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/software-app",
+  "title": "Software App (SoftwareApplication) Schema | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3106,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/speakable",
+  "title": "Speakable (BETA) Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 7712,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/vacation-rental",
+  "title": "Vacation Rental Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 23828,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/video",
+  "title": "Video (VideoObject, Clip, BroadcastEvent) Schema Markup | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-13",
+  "chars": 7605,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/title-link",
+  "title": "Influencing Title Links in Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11390,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/top-places-list",
+  "title": "Top Places List Optimization | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1463,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/translated-results",
+  "title": "Translated Google Search Results | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2963,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/video",
+  "title": "Video SEO Best Practices | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 20176,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/visual-elements-gallery",
+  "title": "Visual Elements Gallery of Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-04",
+  "chars": 8523,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/web-stories-content-policy",
+  "title": "Google Web Story Content Policies | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2808,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/web-stories-creation-best-practices",
+  "title": "Best Practices for Creating Web Stories | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-09",
+  "chars": 9253,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing",
+  "title": "Google Crawling and Indexing | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3022,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/301-redirects",
+  "title": "Redirects and Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-04-14",
+  "chars": 11046,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/amp",
+  "title": "About AMP on Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-01",
+  "chars": 3335,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/amp/enhance-amp",
+  "title": "Enhance AMP Content in Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-01",
+  "chars": 4352,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/amp/remove-amp",
+  "title": "How To Remove your AMP Pages From Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-01",
+  "chars": 4911,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/amp/validate-amp",
+  "title": "Validate your AMP Pages | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-01",
+  "chars": 2197,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl",
+  "title": "Ask Google to Recrawl Your Website | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1842,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/block-indexing",
+  "title": "Block Search Indexing with noindex | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4364,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/canonicalization",
+  "title": "What is URL Canonicalization | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-10",
+  "chars": 3619,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/canonicalization-troubleshooting",
+  "title": "Fix Canonicalization Issues | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-10",
+  "chars": 4584,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+  "title": "How to Specify a Canonical with rel=\"canonical\" and Other Methods | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-10",
+  "chars": 14276,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/control-what-you-share",
+  "title": "Control the Content You Share on Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3592,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/googlebot",
+  "title": "What Is Googlebot | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-03",
+  "chars": 3868,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/indexable-file-types",
+  "title": "File Types Indexable by Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-02-03",
+  "chars": 2522,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/dynamic-rendering",
+  "title": "Dynamic Rendering as a workaround | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3236,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/fix-search-javascript",
+  "title": "Fix Search-Related JavaScript Problems | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 8670,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+  "title": "Understand JavaScript SEO Basics | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-04",
+  "chars": 14080,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/lazy-loading",
+  "title": "Fix Lazy-Loaded Website Content | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3516,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/keep-redacted-information-out",
+  "title": "Keep Redacted Information out of Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 6064,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+  "title": "SEO Link Best Practices for Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 8249,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing",
+  "title": "Mobile-first Indexing Best Practices | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 20668,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/pause-online-business",
+  "title": "Temporarily Pause Or Disable Website | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 9525,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/prevent-images-on-your-page",
+  "title": "Remove your own site's images from Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4738,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links",
+  "title": "Qualify Outbound Links for SEO | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3059,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/remove-information",
+  "title": "Remove Your Site Info from Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2409,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag",
+  "title": "Robots Meta Tags Specifications | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-03-24",
+  "chars": 18928,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+  "title": "Robots.txt Introduction and Guide | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5781,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/site-move-no-url-changes",
+  "title": "Changing Your Web Hosting and SEO | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 6287,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes",
+  "title": "Site Moves and Migrations | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-17",
+  "chars": 22038,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+  "title": "Build and Submit a Sitemap | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-08",
+  "chars": 12653,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/combine-sitemap-extensions",
+  "title": "How to Combine Sitemap Extensions | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4377,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps",
+  "title": "Image Sitemaps | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3139,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/large-sitemaps",
+  "title": "Manage Your Sitemaps With Sitemap Index Files | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3230,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+  "title": "Create a News Sitemap | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5272,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview",
+  "title": "What Is a Sitemap | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3465,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps",
+  "title": "Video Sitemaps and Examples | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-05-20",
+  "chars": 20083,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/special-tags",
+  "title": "Meta Tags and Attributes that Google Supports | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 8387,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors",
+  "title": "Troubleshoot Google Search Crawling Errors | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 16245,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/url-structure",
+  "title": "URL Structure Best Practices for Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 10264,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/valid-page-metadata",
+  "title": "Valid Page Metadata for Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1706,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/crawling-indexing/website-testing",
+  "title": "A/B Testing Best Practices for Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5974,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/essentials",
+  "title": "Google Search Essentials (formerly Webmaster Guidelines) | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3120,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+  "title": "Spam Policies for Google Web Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-05-15",
+  "chars": 22574,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/essentials/technical",
+  "title": "Google Search Technical Requirements | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 2507,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+  "title": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-10",
+  "chars": 17442,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+  "title": "Creating Helpful, Reliable, People-First Content | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11946,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/do-i-need-seo",
+  "title": "Do You Need an SEO? Tips for Hiring an SEO | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-05",
+  "chars": 7774,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/get-on-google",
+  "title": "How to Get Information on Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 6245,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/get-started",
+  "title": "Technical SEO Techniques and Strategies | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 11566,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/get-started-developers",
+  "title": "SEO Guide for Web Developers | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1696,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+  "title": "In-Depth Guide to How Google Search Works | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-18",
+  "chars": 7180,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+  "title": "SEO Starter Guide: The Basics | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 24596,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/third-party-seo",
+  "title": "Google Search's Guidance on Third-Party SEO Tools & Advice | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-06-05",
+  "chars": 2971,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content",
+  "title": "Google Search's Guidance on Generative AI Content on Your Website | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2607,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/analyze-social-video-content",
+  "title": "Analyze Social and Video Content in Search Console | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-29",
+  "chars": 9304,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/bubble-chart-analysis",
+  "title": "How to Create a Search Console Bubble Chart | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 8935,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops",
+  "title": "Debug Google Search Traffic Drops | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11770,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console",
+  "title": "Using Search Console and Google Analytics Data for SEO | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-01-07",
+  "chars": 16720,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/prevent-abuse",
+  "title": "Prevent User-Generated Spam on Your Site | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4192,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/search-console-start",
+  "title": "How To Use Search Console | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5348,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/search-operators",
+  "title": "Debugging with Google Search Operators | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1824,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/search-operators/all-search-site",
+  "title": "How To Use the Site Search Operator | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2881,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/search-operators/image-search",
+  "title": "Google Images Search Operators | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1676,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/security",
+  "title": "Prevent Abuse on Your Site | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1311,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/security/malware",
+  "title": "Malware and Unwanted Software Overview | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11972,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/security/prevent-malware",
+  "title": "How To Prevent Malware Infection | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5518,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/security/safe-browsing-repeat-offenders",
+  "title": "Google Safe Browsing Repeat Offenders Policy | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1178,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/security/social-engineering",
+  "title": "Social Engineering (Phishing and Deceptive Sites) | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 8570,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/monitor-debug/trends-start",
+  "title": "Get started with Google Trends | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 11370,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce",
+  "title": "SEO Best Practices for Ecommerce Sites | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 2676,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/designing-a-url-structure-for-ecommerce-sites",
+  "title": "Ecommerce URL Structure Best Practices | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 7462,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/help-google-understand-your-ecommerce-site-structure",
+  "title": "Ecommerce Website Navigation Structure | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3391,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-ecommerce-website",
+  "title": "How To Launch an Ecommerce Site on Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5988,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce",
+  "title": "Structured Data for Ecommerce Sites | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3565,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading",
+  "title": "Pagination Best Practices for Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 7073,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/share-your-product-data-with-google",
+  "title": "Share Your Product Data With Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5881,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/where-ecommerce-data-can-appear-on-google",
+  "title": "Ecommerce Product Data and Content on Google | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 4285,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews",
+  "title": "How To Write Reviews | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 3205,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/explicit/guidelines",
+  "title": "SEO Guidelines for Explicit Content | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 9872,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/explicit/troubleshooting",
+  "title": "My Site is Incorrectly Flagged as Explicit in Google Search | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 5863,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/international",
+  "title": "Overview of International and Multilingual Site Topics | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1305,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/international/locale-adaptive-pages",
+  "title": "How Google Crawls Locale-Adaptive Pages | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 1908,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/international/localized-versions",
+  "title": "Localized Versions of your Pages | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-22",
+  "chars": 16979,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites",
+  "title": "Managing Multi-Regional and Multilingual Sites | Google Search Central \u00a0|\u00a0 Documentation \u00a0|\u00a0 Google for Developers",
+  "updated": "2025-12-10",
+  "chars": 10165,
+  "status": "done"
+ },
+ {
+  "url": "https://developers.google.com/search/updates",
+  "title": "Latest Google Search Documentation Updates | Google Search Central \u00a0|\u00a0 What's new \u00a0|\u00a0 Google for Developers",
+  "updated": "2026-07-29",
+  "chars": 120548,
+  "status": "done"
+ }
+]

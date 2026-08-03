@@ -1,0 +1,21 @@
+prompt_id,prompt_text,intent_type,run_date,engine,client_cited,client_url_cited,citation_position,competitors_cited,answer_summary,notes
+1,"[real customer question, verbatim - not a keyword]",informational,2026-08-03,google_ai_mode,no,,,"Competitor A; Competitor B","",
+1,"[same prompt, every engine, every run]",informational,2026-08-03,chatgpt,no,,,"Competitor A","",
+1,"[same prompt]",informational,2026-08-03,perplexity,yes,https://client.com/page,3,"Competitor A; Competitor C","",
+1,"[same prompt]",informational,2026-08-03,claude,no,,,"","",
+1,"[same prompt]",informational,2026-08-03,copilot,no,,,"Competitor B","",
+2,"[prompt 2]",commercial,2026-08-03,google_ai_mode,,,,"","",
+2,"[prompt 2]",commercial,2026-08-03,chatgpt,,,,"","",
+2,"[prompt 2]",commercial,2026-08-03,perplexity,,,,"","",
+2,"[prompt 2]",commercial,2026-08-03,claude,,,,"","",
+2,"[prompt 2]",commercial,2026-08-03,copilot,,,,"","",
+# METHOD - delete these comment rows before use
+# intent_type: informational | commercial | navigational | comparison | local
+# citation_position: 1 = first cited source in the answer; blank if not cited
+# Rules that make this defensible:
+#   - Identical prompt wording every run. Changing a prompt resets its baseline.
+#   - Fresh session; no personalisation; consistent locale and language.
+#   - Record the run date and model version where visible.
+#   - Multiple runs per prompt where feasible - these systems are stochastic.
+#   - 20-50 prompts. Fewer is noise; more is unmaintainable at monthly cadence.
+#   - Prompts must be real customer questions, not keywords.

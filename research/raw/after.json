@@ -1,0 +1,228 @@
+{
+  "site": "https://sensiskinstudio.com",
+  "robots_url": "https://sensiskinstudio.com/robots.txt",
+  "robots_status": 200,
+  "results": [
+    {
+      "bot": "Googlebot",
+      "operator": "Google",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Google-Extended",
+      "operator": "Google",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Google-Agent",
+      "operator": "Google",
+      "purpose": "user",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "operator": "OpenAI",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "GPTBot",
+      "operator": "OpenAI",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 429,
+      "live_verdict": "HTTP_429",
+      "live_detail": ""
+    },
+    {
+      "bot": "ChatGPT-User",
+      "operator": "OpenAI",
+      "purpose": "user",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "OAI-AdsBot",
+      "operator": "OpenAI",
+      "purpose": "ads",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Claude-SearchBot",
+      "operator": "Anthropic",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Claude-User",
+      "operator": "Anthropic",
+      "purpose": "user",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "ClaudeBot",
+      "operator": "Anthropic",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "PerplexityBot",
+      "operator": "Perplexity",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Perplexity-User",
+      "operator": "Perplexity",
+      "purpose": "user",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "bingbot",
+      "operator": "Microsoft",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Amzn-SearchBot",
+      "operator": "Amazon",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Amzn-User",
+      "operator": "Amazon",
+      "purpose": "user",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Applebot",
+      "operator": "Apple",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "Applebot-Extended",
+      "operator": "Apple",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "meta-externalagent",
+      "operator": "Meta",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 429,
+      "live_verdict": "HTTP_429",
+      "live_detail": ""
+    },
+    {
+      "bot": "Bytespider",
+      "operator": "ByteDance",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 403,
+      "live_verdict": "HTTP_403",
+      "live_detail": ""
+    },
+    {
+      "bot": "CCBot",
+      "operator": "CommonCrawl",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "cohere-ai",
+      "operator": "Cohere",
+      "purpose": "training",
+      "citation_critical": false,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    },
+    {
+      "bot": "DuckAssistBot",
+      "operator": "DuckDuckGo",
+      "purpose": "search",
+      "citation_critical": true,
+      "robots_allowed": true,
+      "live_status": 200,
+      "live_verdict": "OK",
+      "live_detail": "131419 bytes"
+    }
+  ],
+  "blocked": []
+}

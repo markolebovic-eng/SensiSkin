@@ -60,3 +60,13 @@ $RECYCLE.BIN/
 logs/
 *.tmp
 *.bak
+
+# Research corpus: keep the extracted markdown (diffable, used by the re-research
+# procedure in research/04-open-questions.md); ignore the raw HTML and PDFs (~37MB)
+research/raw/pages/*.html
+research/raw/engines/*.html
+research/raw/*.html
+research/raw/*.xml
+research/raw/**/*.pdf
+research/raw/*.pdf
+research/raw/__pycache__/

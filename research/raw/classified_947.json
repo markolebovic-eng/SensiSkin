@@ -1,0 +1,9 @@
+{
+ "Chrome-baseline": "OK_CONTENT",
+ "Googlebot": "OK_CONTENT",
+ "OAI-SearchBot": "OK_CONTENT",
+ "ChatGPT-User": "OK_CONTENT",
+ "PerplexityBot": "OK_CONTENT",
+ "Perplexity-User": "OK_CONTENT",
+ "Claude-SearchBot": "OK_CONTENT"
+}

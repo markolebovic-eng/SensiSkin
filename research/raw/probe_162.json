@@ -1,0 +1,46 @@
+{
+ "GPTBot": {
+  "code": 429,
+  "server": null,
+  "cf_ray": null,
+  "x_served_by": null,
+  "via": null,
+  "x_sucuri": null,
+  "x_cache": null,
+  "retry_after": null,
+  "len": 0
+ },
+ "meta-externalagent": {
+  "code": 429,
+  "server": null,
+  "cf_ray": null,
+  "x_served_by": null,
+  "via": null,
+  "x_sucuri": null,
+  "x_cache": null,
+  "retry_after": null,
+  "len": 0
+ },
+ "Bytespider": {
+  "code": 403,
+  "server": null,
+  "cf_ray": null,
+  "x_served_by": null,
+  "via": null,
+  "x_sucuri": null,
+  "x_cache": null,
+  "retry_after": null,
+  "len": 1242
+ },
+ "Chrome-baseline": {
+  "code": 200,
+  "server": null,
+  "cf_ray": null,
+  "x_served_by": null,
+  "via": null,
+  "x_sucuri": null,
+  "x_cache": null,
+  "retry_after": null,
+  "len": 4000
+ }
+}

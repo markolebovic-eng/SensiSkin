@@ -1,0 +1,13 @@
+{
+ "Bytespider": "HTTP_403",
+ "GPTBot": "HTTP_429",
+ "meta-externalagent": "HTTP_429",
+ "Chrome-baseline": "OK_CONTENT",
+ "Googlebot": "OK_CONTENT",
+ "Applebot": "OK_CONTENT",
+ "Bingbot": "OK_CONTENT",
+ "Amazonbot": "HTTP_403",
+ "Applebot-Extended": "OK_CONTENT",
+ "ClaudeBot": "OK_CONTENT",
+ "Claude-User": "OK_CONTENT"
+}

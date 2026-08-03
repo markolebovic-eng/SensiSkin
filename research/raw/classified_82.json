@@ -1,0 +1,12 @@
+{
+ "Amzn-SearchBot": "OK_CONTENT",
+ "Amazonbot": "HTTP_403",
+ "Bytespider": "HTTP_403",
+ "GPTBot": "HTTP_429",
+ "meta-externalagent": "HTTP_429",
+ "OAI-SearchBot": "OK_CONTENT",
+ "PerplexityBot": "OK_CONTENT",
+ "Claude-SearchBot": "OK_CONTENT",
+ "Googlebot": "OK_CONTENT",
+ "Chrome-baseline": "OK_CONTENT"
+}

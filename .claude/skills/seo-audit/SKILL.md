@@ -1,8 +1,8 @@
 ---
 name: seo-audit
-description: When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not showing up in Google," "site isn't ranking," "Google update hit me," "page speed," "core web vitals," "crawl errors," or "indexing issues." Use this even if the user just says something vague like "my SEO is bad" or "help with SEO" — start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema. For AI search optimization, see ai-seo.
+description: When the user wants to audit, review, or diagnose SEO issues on their site for Google/Bing organic rankings, with no AI-surface component. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not showing up in Google," "site isn't ranking," "Google update hit me," "page speed," "core web vitals," "crawl errors," or "indexing issues." Use this even if the user just says something vague like "my SEO is bad" or "help with SEO" — start with an audit. If the request mentions AI search, AI Overviews, ChatGPT, Perplexity, GEO, AEO, or being cited by AI, use geo instead — geo is the umbrella skill and already contains this technical SEO layer, so do not run both. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema.
 metadata:
-  version: 2.0.0
+  version: 2.1.0
 ---
 
 # SEO Audit
@@ -65,6 +65,22 @@ Reporting "no schema found" based solely on `web_fetch` or `curl` leads to false
 - Check for unintentional blocks
 - Verify important pages allowed
 - Check sitemap reference
+
+**Edge / origin access — run this every audit, not just once**
+
+robots.txt is only one of three access layers. Run:
+
+```bash
+python ../geo/scripts/crawler_access_check.py https://client.com --live --delay 9 --json access.json
+```
+
+This catches two failures robots.txt never shows and Search Console never reports:
+1. An HTTP block (403/429) at the CDN, WAF, or origin server, keyed on user agent
+2. A **bot-challenge interstitial returned with HTTP 200** — the status says success, the body is a JS challenge no crawler can execute. If this fires for Googlebot, Google can index the challenge page instead of the site.
+
+**Regresses silently** whenever a host enables a default, a security plugin updates, or a WAF option is switched on. Diff `access.json` against the previous audit.
+
+Before reporting a failure, follow the diagnostic protocol in `../geo/references/crawler-access.md` — rapid test requests trip volumetric rate limits that look exactly like a user-agent policy block.
 
 **XML Sitemap**
 - Exists and accessible
@@ -453,7 +469,11 @@ Same format as above
 
 - [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
 - [International SEO](references/international-seo.md): Evidence and sources for hreflang, canonical + i18n, sitemaps, URL structure, and content quality across locales
-- For AI search optimization (AEO, GEO, LLMO, AI Overviews), see the **ai-seo** skill
+- For AI search optimization (AEO, GEO, LLMO, AI Overviews), see the **geo** skill — it is the umbrella skill and embeds this technical layer
+
+> **Two corrections from the 2026-08 research pass that affect this skill:**
+> 1. `nosnippet` and `max-snippet:0` leave a page fully indexed but **ineligible for Google AI Overviews and AI Mode**. Add them to the indexation checks above — a standard indexability audit passes a page that is silently excluded from AI surfaces.
+> 2. robots.txt is only one of two access layers. A CDN or WAF rule blocks crawlers just as effectively and never appears in Search Console. Run `geo/scripts/crawler_access_check.py <site> --live` as part of the crawlability section.
 
 ---
 
