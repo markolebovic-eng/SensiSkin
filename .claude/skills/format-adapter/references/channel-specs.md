@@ -12,12 +12,21 @@ Hard constraints for each format. Check these before delivering.
 | Intro | 80–120 words |
 | Each body section | 150–300 words |
 | Closing section | 100–150 words |
-| H1 title | Under 60 characters |
-| Meta description | Under 155 characters |
+| H1 title | Aim ~60 characters — **drafting aim, not a limit** (see note) |
+| Meta description | Aim ~155 characters — **drafting aim, not a limit** (see note) |
 | Internal links | Minimum 1, ideally 2 |
 | H2 headings | Statements only — no questions |
 | Image placeholder | Required after H1 |
 | CTA | Specific — never "I hope this helped" |
+
+> **Note on the two character figures (corrected 2026-08-04).** Google documents
+> **no limit** on either: *"there's no limit on how long a `<title>` element can be"* and
+> *"there's no limit on how long a meta description can be"* — both are simply truncated in
+> results to fit the device width. The ~60 / ~155 figures are industry heuristics for staying
+> inside typical desktop truncation. Treat them as a target while drafting, never as a
+> pass/fail gate: **do not reject or mangle a title that reads well at 64 characters.** What
+> matters is that truncation does not cut the meaningful part. Source:
+> `.claude/skills/seo-audit/SKILL.md` → Title Tags / Meta Descriptions.
 
 **Tone:** Most formal of the three. Public-facing expert content.
 

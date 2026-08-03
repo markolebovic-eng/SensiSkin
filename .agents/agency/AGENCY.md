@@ -38,11 +38,21 @@ Each service maps to one or more available skills:
 - Social media content (captions, scripts, calendars) → `social`, `video`
 
 ### Search & Visibility
-- SEO audit & technical fixes → `seo-audit`, `schema`, `site-architecture`
-- Keyword research & on-page SEO → `seo-audit`, `ai-seo`
-- AI search optimization (AEO/GEO) → `ai-seo`
-- Programmatic SEO at scale → `programmatic-seo`
+- **AI search optimization (AEO/GEO/LLMO, AI Overviews, ChatGPT, Perplexity) → `geo`**
+  — the umbrella skill. It already contains the full technical and content SEO layer.
+  **Never run `seo-audit` alongside it.** (`ai-seo` is a deprecated alias; it forwards
+  to `geo`, but route to `geo` directly.)
+- SEO audit & technical fixes, no AI-surface angle → `seo-audit`, `schema`, `site-architecture`
+- Traffic drops, core updates, manual actions → `seo-audit`
+- Site migrations, replatforms, redirects → `seo-audit`
+- Keyword research & on-page SEO → `seo-audit`
+- Programmatic SEO at scale → `programmatic-seo` (gated by `geo/references/risk-register.md`)
 - Local directory submissions → `directory-submissions`
+
+> **Structured data feature status has one authority across all skills and agents:**
+> `.claude/skills/seo-audit/SKILL.md` → "Structured Data — what Google currently supports".
+> FAQPage and HowTo rich results are retired. If any other skill or agent disagrees,
+> `seo-audit` wins and the other is stale.
 
 ### Paid Advertising
 - Meta, Google, TikTok campaign setup → `ads`

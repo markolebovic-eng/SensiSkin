@@ -4,16 +4,16 @@
     {
       "id": 1,
       "prompt": "Format this draft as a blog post for the SensiSkin website. [Draft: 600-word text about dry skin care in winter, written in brand voice, covering causes, routine steps, and product types to use.]",
-      "expected_output": "Should structure the draft into the mandatory blog post format: H1 title (under 60 chars, no question, contains keyword), 80-120 word intro (opens with reader situation, no 'In this post...'), 3-4 H2 sections (statements not questions, 150-300 words each), closing section with specific CTA. Should add image placeholder after H1. Should add minimum 1-2 internal link placeholders. Should append META description draft under 155 characters at end. Should NOT rewrite the substance — same ideas, same voice, just structured. Should verify total word count is 800-1500.",
+      "expected_output": "Should structure the draft into the mandatory blog post format: H1 title (no question, contains keyword, aiming around 60 chars as a drafting target rather than a hard limit), 80-120 word intro (opens with reader situation, no 'In this post...'), 3-4 H2 sections (statements not questions, 150-300 words each), closing section with specific CTA. Should add image placeholder after H1. Should add minimum 1-2 internal link placeholders. Should append a META description draft at end, aiming around 155 characters as a drafting target rather than a hard limit. Should NOT rewrite the substance — same ideas, same voice, just structured. Should verify total word count is 800-1500.",
       "assertions": [
-        "Produces H1 title under 60 characters, not a question",
+        "Produces H1 title that is not a question and contains the keyword; does not mangle it to hit a character count",
         "Intro is 80-120 words and opens with reader situation",
         "H2 headings are statements, not questions",
         "Each body section is 150-300 words",
         "Closing section has specific CTA, not 'I hope this helped'",
         "Image placeholder added after H1",
         "At least 1 internal link placeholder present",
-        "META description appended, under 155 characters",
+        "META description appended; length treated as a drafting aim, not a pass/fail gate",
         "Total word count is 800-1500",
         "Substance unchanged — same ideas as draft"
       ],

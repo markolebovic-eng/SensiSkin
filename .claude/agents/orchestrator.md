@@ -65,10 +65,12 @@ Review every deliverable — reject and redo anything in the wrong language.
 
 | Task | Agent | Skill(s) to invoke |
 |------|-------|--------------------|
-| SEO site audit | seo | `seo-audit` |
+| SEO site audit (no AI-surface angle) | seo | `seo-audit` |
+| Traffic drop / core update / manual action | seo | `seo-audit` (→ references/search-diagnostics.md) |
+| Site migration / replatform / redirects | seo | `seo-audit` (→ references/site-moves.md) |
 | Keyword research / meta tags | seo | `seo-audit` |
 | Schema / structured data | seo | `schema` |
-| AI search optimization (AEO/GEO) | seo | `ai-seo` |
+| AI search optimization (AEO/GEO/AI Overviews/ChatGPT/Perplexity) | seo | `geo` — **umbrella; never pair with `seo-audit`** |
 | Local directory submissions | seo | `directory-submissions` |
 | Programmatic SEO at scale | seo | `programmatic-seo` |
 | Site architecture review | seo | `site-architecture` |
@@ -81,6 +83,8 @@ Review every deliverable — reject and redo anything in the wrong language.
 | Meta / Google / TikTok ads | paid-ads | `ads` |
 | Ad creative generation | paid-ads | `ad-creative` |
 | Competitor ad research | paid-ads + strategy | `competitor-profiling` |
+| **Blog post (new)** | **multi-agent chain** | **see "Blog post pipeline" below — do not improvise this** |
+| Blog topic research | research | (Firecrawl workflow, see agent) |
 | Homepage / service page copy | copywriter | `copywriting` |
 | Copy review or editing | copywriter | `copy-editing` |
 | Persuasion / sales page copy | copywriter | `marketing-psychology` |
@@ -101,6 +105,39 @@ Review every deliverable — reject and redo anything in the wrong language.
 | Lead magnet creation | strategy | `lead-magnets` |
 | Growth brainstorm | strategy | `marketing-ideas` |
 | Co-marketing / partnerships | strategy | `co-marketing` |
+
+## Blog post pipeline
+
+A new blog post is a **chain, not a single delegation**. This sequence is reconstructed from
+what actually shipped for SensiSkin (posts 2047, 2661, 2733 — see MEMORY.md). Run it in order;
+each step consumes the previous step's output.
+
+| # | Agent | Skill | Produces |
+|---|---|---|---|
+| 1 | research | Firecrawl workflow | Topic shortlist, grounded in GSC queries + competitor gaps + trends |
+| 2 | seo | `seo-audit` | Focus keyphrase, **cannibalisation check against existing live pages**, title + meta, internal-link targets |
+| 3 | copywriter | `copywriting` | Draft body in brand voice, grounded in `product-marketing.md` "Ton i glas" |
+| 4 | copywriter | `format-adapter` (format: blog) | Blog structure, image + internal-link placeholders, META draft |
+| 5 | copywriter | `stop-slop` | AI-tell removal. **Never deliver content that hasn't passed this** |
+| 6 | seo | `seo-audit` | Final pass: keyphrase placement, links resolved to real URLs, meta persisted |
+| 7 | — | `wordpress-edit` | Publish **as private**, owner reviews, owner publishes publicly |
+| 8 | seo | — | GSC request-indexing once the post is public |
+
+**Why step 2 comes before writing.** The keyphrase and the cannibalisation check must exist
+*before* the draft, or the copywriter writes against a keyword that collides with a live service
+page. This has already happened once on this account — see the `/strucni-saveti-za-negu-koze/`
+duplicate in MEMORY.md.
+
+**Non-negotiables in this chain:**
+- **Language**: Serbian, Latin script. Applies from step 3 onward, including title, meta,
+  headings and any Q&A — not just body prose.
+- **Structured data**: the copywriter does **not** touch schema; step 7 owns it. FAQPage is
+  gated — no visible FAQ section on the page means no FAQ markup. See `wordpress-edit` Section 3.
+- **Character counts are drafting aims, not gates.** Google documents no title or meta length
+  limit. Do not send a draft back over 62 characters.
+- **No word-count target.** Google: "the length of the content alone doesn't matter for ranking
+  purposes." `format-adapter`'s 800–1500 range is a house style for readability, not SEO.
+- **Never publish straight to public.** Step 7 is private-first, owner-approved, every time.
 
 ## Delegation rules
 

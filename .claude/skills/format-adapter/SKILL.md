@@ -62,14 +62,16 @@ direct next step. Never "I hope this helped."
 ```
 
 ### Checklist before delivering
-- [ ] Title contains primary topic, is under 60 characters
+- [ ] Title contains primary topic and reads well. Aim ~60 characters, but this is a
+      **drafting aim, not a limit** — Google documents no title length limit, only
+      truncation to device width. Never mangle a good title to hit a number
 - [ ] No H2 heading is a question (statements only)
 - [ ] No section is under 100 words (too thin) or over 400 (too dense)
 - [ ] Internal link placeholder added: `[INTERNAL LINK: suggest relevant 
       page from sensiskin.rs site]` — minimum 1, ideally 2
 - [ ] Image placeholder added after H1: `[SLIKA: alt text suggestion]`
-- [ ] Meta description draft appended at end (under 155 characters, 
-      for SEO agent review): `META: ...`
+- [ ] Meta description draft appended at end (aim ~155 characters — again a drafting
+      aim, not a documented limit; for SEO agent review): `META: ...`
 - [ ] CTA in final paragraph is specific, not generic
 
 ### What to deliver

@@ -65,9 +65,17 @@ rewards — not outdated theory.
 2. Read `.agents/clients/{slug}/memory/MEMORY.md` → check "SEO targets" section 
    for existing keyword assignments, what phases are complete, what is pending
 3. Invoke the Skill tool for this task type before starting:
-   - Site audit / technical SEO analysis → `Skill` with `skill: "seo-audit"`
-   - AI search / AEO / GEO optimization → `Skill` with `skill: "ai-seo"`
-   - Schema markup / structured data → `Skill` with `skill: "schema"`
+   - AI search / AEO / GEO / AI Overviews / ChatGPT / Perplexity citations →
+     `Skill` with `skill: "geo"`. **geo is the umbrella skill — it already
+     contains the full technical and content SEO layer. Never run `seo-audit`
+     alongside it; that duplicates work and yields conflicting advice.**
+   - Pure Google/Bing organic work with NO AI-surface component (site audit,
+     technical SEO, traffic-drop diagnosis, migrations, canonicals, hreflang,
+     sitemaps, Core Web Vitals) → `Skill` with `skill: "seo-audit"`
+   - Schema markup / structured data → `Skill` with `skill: "schema"`.
+     ⚠️ Feature status authority is `seo-audit` → "Structured Data — what
+     Google currently supports". FAQPage and HowTo rich results are RETIRED
+     (FAQ 7 May 2026, HowTo 2023) — never propose either as new work
    - Programmatic SEO at scale → `Skill` with `skill: "programmatic-seo"`
    - Local business directories → `Skill` with `skill: "directory-submissions"`
    - Information architecture review → `Skill` with `skill: "site-architecture"`
@@ -90,10 +98,16 @@ rewards — not outdated theory.
 - **Keyword strategy**: primary and secondary keyword assignment per page — 
   no other agent assigns or changes keywords without checking MEMORY.md first
 - **Meta titles and descriptions**: you write these; copywriter does not touch them
-- **Schema markup**: JSON-LD for LocalBusiness, Service, FAQ, Article, BreadcrumbList
+- **Schema markup**: JSON-LD for LocalBusiness, Service, Article, Organization,
+  BreadcrumbList, Person, Product. **Not FAQPage or HowTo** — both rich results are
+  retired; never propose them as new work, and never mark up anything that is not
+  visible on the page (spam-policy violation)
 - **Technical SEO**: crawlability, indexation, canonical tags, page speed, Core Web Vitals
 - **Content briefs**: you produce the SEO brief; copywriter executes the writing from it
-- **AI search optimization**: FAQ blocks, definition paragraphs, topical authority signals
+- **AI search optimization**: self-contained answer passages, definition paragraphs,
+  comparison blocks, topical authority signals. Write visible Q&A sections where they
+  genuinely help the reader — the *visible passage* is what gets retrieved and cited;
+  FAQPage markup around it earns nothing in Google and is unverified elsewhere
 - **Internal linking strategy**: anchor text and link structure recommendations
 
 ## What you defer to other agents
