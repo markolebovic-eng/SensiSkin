@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensi Skin — Revizija Napretka · Jul 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #faf9f7; color: #2c2c2c; font-size: 16px; line-height: 1.7; }
+
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 80px 60px; min-height: 320px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .cover .label { font-family: 'Arial', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; }
+  .cover h1 { font-size: 42px; font-weight: normal; margin-bottom: 12px; line-height: 1.2; }
+  .cover .subtitle { font-size: 18px; color: #b0b8cc; margin-bottom: 30px; }
+  .cover .meta { font-family: 'Arial', sans-serif; font-size: 13px; color: #7a8aaa; }
+  .cover .period { display: inline-block; background: rgba(201,169,110,0.15); border: 1px solid rgba(201,169,110,0.3); color: #c9a96e; padding: 6px 16px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; margin-top: 16px; }
+
+  .container { max-width: 940px; margin: 0 auto; padding: 60px 40px; }
+
+  .score-banner {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    color: white; border-radius: 16px; padding: 36px 44px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 22px; gap: 24px; flex-wrap: wrap;
+  }
+  .score-banner .left { flex: 1; min-width: 220px; }
+  .score-banner .left h2 { font-size: 19px; font-weight: normal; color: #b0b8cc; margin-bottom: 8px; }
+  .score-banner .left p { font-size: 13px; color: #7a8aaa; }
+  .score-journey { display: flex; align-items: center; gap: 16px; }
+  .score-box { text-align: center; }
+  .score-box .num { font-size: 46px; font-weight: bold; line-height: 1; }
+  .score-box .lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #7a8aaa; margin-top: 4px; }
+  .score-box.old .num { color: #e74c3c; }
+  .score-box.new .num { color: #2ecc71; }
+  .score-box.flat .num { color: #e67e22; }
+  .arrow-big { font-size: 28px; color: #c9a96e; }
+  .gain-badge { padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; white-space: nowrap; }
+  .gain-badge.up { background: rgba(46,204,113,0.15); border: 1px solid rgba(46,204,113,0.3); color: #2ecc71; }
+  .gain-badge.flat { background: rgba(230,126,34,0.15); border: 1px solid rgba(230,126,34,0.3); color: #e67e22; }
+
+  h2.section { font-size: 25px; font-weight: normal; color: #1a1a2e; margin: 56px 0 22px; padding-bottom: 12px; border-bottom: 2px solid #e8e0d5; }
+  h3.sub { font-size: 16px; font-weight: bold; color: #0f3460; margin: 28px 0 12px; }
+  p { margin-bottom: 14px; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 20px 0 36px; }
+  .kpi { background: white; border: 1px solid #e8e0d5; border-radius: 12px; padding: 20px 16px; text-align: center; }
+  .kpi .num { font-size: 28px; font-weight: bold; color: #0f3460; line-height: 1; }
+  .kpi .sub { font-size: 11px; color: #888; margin-top: 6px; }
+  .kpi .lbl { font-size: 13px; color: #444; margin-top: 8px; }
+  .kpi.bad .num { color: #e74c3c; }
+  .kpi.good .num { color: #27ae60; }
+  .kpi.warn .num { color: #e67e22; }
+
+  table { width: 100%; border-collapse: collapse; margin: 18px 0 28px; font-size: 13.5px; }
+  th { background: #1a1a2e; color: white; padding: 11px 13px; text-align: left; font-weight: normal; letter-spacing: 0.5px; }
+  td { padding: 10px 13px; border-bottom: 1px solid #eee; vertical-align: top; }
+  tr:nth-child(even) td { background: #f9f7f4; }
+  td.num { text-align: right; font-family: monospace; }
+  td.good { color: #27ae60; font-weight: bold; }
+  td.warn { color: #e67e22; }
+  td.bad { color: #e74c3c; }
+  td.center { text-align: center; }
+
+  .alert-box { border-left: 4px solid; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 18px 0; font-size: 14.5px; }
+  .alert-box.info { border-color: #3498db; background: #ebf5fb; }
+  .alert-box.success { border-color: #27ae60; background: #eafaf1; }
+  .alert-box.warning { border-color: #e67e22; background: #fef9f0; }
+  .alert-box.critical { border-color: #e74c3c; background: #fdedec; }
+  .alert-box.ai { border-color: #9b59b6; background: #f5eef8; }
+  .alert-box strong { display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+  .alert-box.info strong { color: #2980b9; }
+  .alert-box.success strong { color: #1e8449; }
+  .alert-box.warning strong { color: #ca6f1e; }
+  .alert-box.critical strong { color: #c0392b; }
+  .alert-box.ai strong { color: #7d3c98; }
+
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; letter-spacing: 0.3px; white-space: nowrap; }
+  .badge.done { background: #eafaf1; color: #1e8449; }
+  .badge.partial { background: #fef5e7; color: #ca6f1e; }
+  .badge.open { background: #fde8e8; color: #c0392b; }
+  .badge.new { background: #f5eef8; color: #7d3c98; }
+  .badge.high { background: #fde8e8; color: #c0392b; }
+  .badge.med { background: #fef5e7; color: #ca6f1e; }
+  .badge.low { background: #eafaf1; color: #1e8449; }
+
+  .dim-bar-row { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 13.5px; }
+  .dim-bar-row .name { width: 190px; color: #333; flex-shrink: 0; }
+  .dim-bar-wrap { flex: 1; display: flex; align-items: center; gap: 6px; }
+  .dim-track { flex: 1; height: 10px; background: #eee; border-radius: 5px; overflow: hidden; position: relative; }
+  .dim-fill-old { position: absolute; top: 0; left: 0; height: 100%; background: #cfd6e4; border-radius: 5px; }
+  .dim-fill-new { position: absolute; top: 0; left: 0; height: 100%; border-radius: 5px; }
+  .dim-vals { width: 92px; text-align: right; font-family: monospace; font-size: 12px; color: #555; flex-shrink: 0; }
+
+  .agent-card { background: white; border: 1px solid #e8e0d5; border-radius: 12px; padding: 20px 22px; margin: 14px 0; }
+  .agent-card .who { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #c9a96e; margin-bottom: 6px; font-weight: bold; }
+  .agent-card h4 { color: #0f3460; margin-bottom: 8px; font-size: 15.5px; }
+  .agent-card p { font-size: 14px; color: #444; margin-bottom: 0; }
+
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li { padding: 8px 0; border-bottom: 1px solid #f0ede8; font-size: 14.5px; display: flex; align-items: flex-start; gap: 10px; }
+  .checklist li:last-child { border-bottom: none; }
+  .check { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+
+  .footer { background: #1a1a2e; color: #7a8aaa; text-align: center; padding: 40px; font-size: 13px; margin-top: 80px; }
+  .footer strong { color: #c9a96e; }
+</style>
+</head>
+<body>
+
+<!-- NASLOVNICA -->
+<div class="cover">
+  <div class="label">AI Marketing Agency · Poverljivo</div>
+  <h1>Sensi Skin<br>Revizija Napretka</h1>
+  <div class="subtitle">Poređenje GEO skora sajta i kapaciteta AI marketing tima</div>
+  <div class="meta">Pripremljeno za: <strong style="color:white">Nataša Burka</strong> · Kozmetološki Centar Sensi Skin, Novi Sad</div>
+  <div class="period">Period: 15. jun — 14. jul 2026 · U odnosu na 2 bazna izveštaja</div>
+</div>
+
+<div class="container">
+
+<p style="font-size:15px;color:#555;">Ovaj izveštaj poredi <strong>dva bazna dokumenta</strong> sa stanjem danas (14. jul 2026): <em>Marketinški izveštaj — Jun 2026</em> (GEO skor sajta, 21→64) i <em>Internu reviziju kapaciteta</em> od 15. juna (kapacitet AI marketing tima, 36/100, ocena F). Odgovara na tri pitanja: da li je GEO skor sajta i dalje rastao, da li je kapacitet AI tima popravljen, i šta je konkretno urađeno — po agentu/skillu — u međuvremenu.</p>
+
+<!-- DVA SKORA -->
+<div class="score-banner">
+  <div class="left">
+    <h2>GEO skor sajta (vidljivost za AI pretragu)</h2>
+    <p>Iz Marketinškog izveštaja, jun 2026</p>
+  </div>
+  <div class="score-journey">
+    <div class="score-box old"><div class="num">64</div><div class="lbl">11. jun</div></div>
+    <div class="arrow-big">→</div>
+    <div class="score-box flat"><div class="num">~62</div><div class="lbl">14. jul</div></div>
+    <div class="gain-badge flat">Stagnacija — ne raste dalje</div>
+  </div>
+</div>
+
+<div class="score-banner">
+  <div class="left">
+    <h2>Kapacitet AI marketing tima (alati, integracije)</h2>
+    <p>Iz Interne revizije kapaciteta, 15. jun 2026</p>
+  </div>
+  <div class="score-journey">
+    <div class="score-box old"><div class="num">36</div><div class="lbl">15. jun · F</div></div>
+    <div class="arrow-big">→</div>
+    <div class="score-box new"><div class="num">~64</div><div class="lbl">14. jul · D+/C-</div></div>
+    <div class="gain-badge up">+28 poena ↑</div>
+  </div>
+</div>
+
+<div class="alert-box warning">
+  <strong>⚠️ Ključna poruka ovog izveštaja</strong>
+  Dešava se nešto neočekivano, ali logično: <strong>tim je ogromno ojačao svoje alate</strong> (GSC/GA4 API, WordPress REST API, live crawl audit) — ali taj alat je uglavnom trošen na <strong>otkrivanje problema</strong>, ne na <strong>izvršavanje 7 prioriteta</strong> iz junskog izveštaja. Rezultat: GEO skor sajta stoji u mestu (čak blago pada, 64→~62) dok je kapacitet tima da radi skočio (36→~64). Ovo je rešiv problem — pretvoriti novi kapacitet u izvršenje, ne u još audita.
+</div>
+
+<!-- GSC BROJEVI -->
+<h2 class="section">GSC brojevi — jun vs. jul (poslednjih 28 dana)</h2>
+
+<div class="kpi-grid">
+  <div class="kpi good">
+    <div class="num">501</div>
+    <div class="lbl">Klikova (bilo 401)</div>
+    <div class="sub">+24,3% ↑</div>
+  </div>
+  <div class="kpi good">
+    <div class="num">14.518</div>
+    <div class="lbl">Prikaza (bilo 10.325)</div>
+    <div class="sub">+37,8% ↑</div>
+  </div>
+  <div class="kpi warn">
+    <div class="num">3,45%</div>
+    <div class="lbl">CTR (bilo 3,88%)</div>
+    <div class="sub">−9,8% ↓</div>
+  </div>
+  <div class="kpi bad">
+    <div class="num">11,45</div>
+    <div class="lbl">Pozicija (bilo ~8,5)</div>
+    <div class="sub">−28,4% (lošije) ↓</div>
+  </div>
+</div>
+
+<div class="alert-box critical">
+  <strong>🔴 Novootkriveno — pad prosečne pozicije</strong>
+  Klikovi i prikazi rastu (dobra vest — sajt hvata šire, duže upite), ali prosečna pozicija je pala sa 8,92 na 11,45 (pogoršanje od 28%) između uporedivih 28-dnevnih perioda, dok je CTR omekšao. To znači da sajt dobija više impresija na slabijim pozicijama — nije čist rast, treba proveriti da li novi sadržaj kanibalizuje postojeće rangove ili je opšti gubitak ranga u toku. Ovo NIJE bilo u junskom izveštaju — sveže otkriveno ovom revizijom.
+</div>
+
+<!-- STATUS 7 PRIORITETA -->
+<h2 class="section">Status 7 prioriteta iz junskog izveštaja</h2>
+<p style="font-size:14px;color:#666;">Ovo su tačno akcije koje je jun-izveštaj označio kao "šta je sledeće". Rezultat mesec dana kasnije: <strong>1 od 7 potpuno gotovo, 1 delimično, 5 i dalje otvoreno</strong> (uključujući stavku koja je kritična i traje od 9. juna).</p>
+
+<table>
+  <tr><th>#</th><th>Prioritet iz juna</th><th>Status danas (14. jul, live provereno)</th></tr>
+  <tr><td>1</td><td>Objaviti blog "Razlika profesionalna i drogerijska kozmetika" (404)</td><td><span class="badge open">🔴 I dalje otvoreno</span> — potvrđeno 404, Google ga nikad nije ni crawlovao. Tekst gotov od 9. juna, čisto izvršenje.</td></tr>
+  <tr><td>2</td><td>FAQPage schema: Nega lica, Mesojet RF, Dermalux, Aura Reality</td><td><span class="badge partial">🟠 Delimično</span> — Aura Reality ima FAQPage (5 pitanja), live potvrđeno. Nega lica, Mesojet RF, Dermalux i dalje bez FAQPage.</td></tr>
+  <tr><td>3</td><td>Off-site NAP cleanup (mirandre.com, navidiku.rs, ordinacije.info)</td><td><span class="badge open">🔴 I dalje otvoreno</span> — pogoršano: navidiku.rs sada ima DVE konfliktne adrese na istom brendu (staru i novu), ne samo jednu staru.</td></tr>
+  <tr><td>4</td><td>AggregateRating schema (10+ recenzija)</td><td><span class="badge open">🔴 Nije proverljivo</span> — nema GBP/review alata u sistemu; nema dokaza da je urađeno.</td></tr>
+  <tr><td>5</td><td>GSC Request Indexing za schema-updated postove</td><td><span class="badge open">🔴 I dalje otvoreno</span> — nema dokaza da je pokrenuto ni za Aura Reality FAQ update.</td></tr>
+  <tr><td>6</td><td>Rešiti duplikat /strucni-saveti-za-negu-koze/</td><td><span class="badge done">✅ Gotovo</span> — live potvrđeno: stranica sada "Stručni tekstovi iz časopisa", van kanibalizacije po gsc_cannibalization.</td></tr>
+  <tr><td>7</td><td>Ručni AI test (ChatGPT/Perplexity/Google AI Overviews)</td><td><span class="badge open">🔴 I dalje otvoreno</span> — DataForSEO kredencijali za AI Overview monitor nisu konfigurisani; test nikad izvršen.</td></tr>
+</table>
+
+<h3 class="sub">Novootkriveno ovom revizijom (nije bilo u junskim izveštajima)</h3>
+<ul class="checklist">
+  <li><span class="check">🆕</span> <div><strong>Live interni linkovi vode na 2 od 3 "mrtve" 404 stranice</strong> — /hydrafacial-tretman-lica/ i /sensi-skin/ su i dalje linkovani iz tri live blog posta (poslednji crawl 1. jul), što znači Googlebot stalno iznova otkriva 404-ice umesto da ih zaboravi. Ovo nije isto što i "zastarela JSON-LD schema" korekcija od 6. jula — ovo su stvarni linkovi u telu teksta.</div></li>
+  <li><span class="check">🆕</span> <div><strong>Prosečna pozicija u padu</strong> (8,92→11,45) uprkos rastu klikova/prikaza — videti kutiju iznad.</div></li>
+  <li><span class="check">✅</span> <div><strong>Stari /sitemap.xml (2018) i dalje živ na serveru, ali sada 21/21 URL-ova ispravno 301-redirektuje</strong> — poboljšanje od junskog stanja (bio je 404 rizik), fajl i dalje treba ukloniti radi higijene.</div></li>
+</ul>
+
+<!-- GEO SKOR PO DIMENZIJAMA -->
+<h2 class="section">GEO skor sajta po dimenzijama — jun vs. jul</h2>
+
+<div style="background:white;border:1px solid #e8e0d5;border-radius:12px;padding:24px 26px;margin:16px 0;">
+  <div class="dim-bar-row"><div class="name">AI vidljivost</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:50%"></div><div class="dim-fill-new" style="width:50%;background:#e67e22"></div></div><div class="dim-vals">5→5/10</div></div></div>
+  <div class="dim-bar-row"><div class="name">Struktura sadržaja</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:70%"></div><div class="dim-fill-new" style="width:70%;background:#27ae60"></div></div><div class="dim-vals">7→7/10</div></div></div>
+  <div class="dim-bar-row"><div class="name">Schema markup</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:70%"></div><div class="dim-fill-new" style="width:70%;background:#27ae60"></div></div><div class="dim-vals">7→7/10</div></div></div>
+  <div class="dim-bar-row"><div class="name">E-E-A-T</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:60%"></div><div class="dim-fill-new" style="width:60%;background:#e67e22"></div></div><div class="dim-vals">6→6/10</div></div></div>
+  <div class="dim-bar-row"><div class="name">Topikalni autoritet</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:70%"></div><div class="dim-fill-new" style="width:70%;background:#27ae60"></div></div><div class="dim-vals">7→7/10</div></div></div>
+  <div class="dim-bar-row"><div class="name">Citabilnost</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:50%"></div><div class="dim-fill-new" style="width:50%;background:#e67e22"></div></div><div class="dim-vals">5→5/10</div></div></div>
+  <div class="dim-bar-row"><div class="name">Tehničko / crawler</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:80%"></div><div class="dim-fill-new" style="width:70%;background:#e67e22"></div></div><div class="dim-vals">8→7/10 ↓</div></div></div>
+  <div class="dim-bar-row"><div class="name">Lokalno / brand</div><div class="dim-bar-wrap"><div class="dim-track"><div class="dim-fill-old" style="width:50%"></div><div class="dim-fill-new" style="width:50%;background:#e67e22"></div></div><div class="dim-vals">5→5/10</div></div></div>
+  <p style="font-size:12px;color:#888;margin:14px 0 0;">Svetlo-siva = jun bazna linija (referentna dužina). Obojeni segment = jul stanje. Tehničko/crawler je jedina dimenzija koja je opala — zbog live internih linkova ka 404 stranicama.</p>
+</div>
+
+<div class="alert-box warning">
+  <strong>Ukupna procena: ~61–62/100</strong>
+  Blago ispod junskih 64/100. Sedam dimenzija je zamrznuto na istim brojevima — samo tehničko/crawler je opalo. Ovo NIJE regresija u smislu da je neko nešto pokvario; to je posledica toga što se mesec dana pažnje trošio na produkciju novog sadržaja i istraživanje (blog draftovi, brand voice, WP title/meta audit) umesto na zatvaranje 7 otvorenih GEO stavki.
+</div>
+
+<!-- KAPACITET TIMA -->
+<h2 class="section">Kapacitet AI marketing tima — jun vs. jul</h2>
+<p style="font-size:14px;color:#666;">Ovo poredi Internu reviziju kapaciteta (15. jun, ocena 36/100, "F") sa stvarnim stanjem alata i integracija danas. Ovde je najveći pomak u celom izveštaju.</p>
+
+<table>
+  <tr><th>Kategorija</th><th style="text-align:center">Jun</th><th style="text-align:center">Jul</th><th>Šta se promenilo</th></tr>
+  <tr><td>Analitički kapacitet</td><td class="center bad">15/100</td><td class="center good"><strong>~80/100</strong></td><td>Google Search Console + GA4 API sada punopravno integrisani (google-seo-mcp: 90+ alata — gsc_search_analytics, ga4_query, cross_traffic_health_check, itd.). Analytics agent više ne "piše planove" — povlači stvarne brojeve svake sesije.</td></tr>
+  <tr><td>Automatizacija workflow-a</td><td class="center bad">10/100</td><td class="center warn"><strong>~45/100</strong></td><td>WordPress REST API radi (wordpress-edit skill, .env kredencijali potvrđeni na Windows mašini) — blog post 2661 objavljen direktno na sajt bez copy-paste. Ali: orchestrator nema Bash pristup, mora da prosledi izvršenje general-purpose subagentu — još uvek nije "jedan agent, jedan klik".</td></tr>
+  <tr><td>SEO kapacitet</td><td class="center warn">55/100</td><td class="center good"><strong>~85/100</strong></td><td>Isti google-seo-mcp paket dodaje schema_validate_url, lighthouse, aeo_ai_bots_robots_audit, migration_wp_audit_site, serp alate — SEO agent sada radi live crawl-based audite, ne WebSearch nagađanje.</td></tr>
+  <tr><td>Sadržajni kapacitet</td><td class="center good">65/100</td><td class="center good"><strong>~75/100</strong></td><td>brand-voice-extractor skill izvučen i sačuvan (8 postova analizirano), stop-slop provera pre objave, 4+ nova blog drafta u pipeline-u.</td></tr>
+  <tr><td>Plaćeni marketing i email</td><td class="center warn">20/100</td><td class="center warn">20/100</td><td>Bez promene — i dalje nema Meta/Google Ads API niti email platform API. Nije bio prioritet ovog meseca.</td></tr>
+  <tr><td>Lokalni i GBP kapacitet</td><td class="center bad">25/100</td><td class="center warn"><strong>~30/100</strong></td><td>I dalje nema dedikovanog local-seo agenta niti GBP API. NAP audit se radi ručno kroz SEO agenta, ali GBP review-management i local citations ostaju neadresirani.</td></tr>
+</table>
+
+<div class="alert-box success">
+  <strong>✅ Ponderisani ukupni skor: ~64/100 (bilo 36/100, ocena F)</strong>
+  Najveći pojedinačni pomak: Analitički kapacitet (15→80) i SEO kapacitet (55→85) — direktna posledica integracije google-seo-mcp servera. Ovo je tačno druga od tri "prioritetne intervencije" koje je junski izveštaj tražio (GSC/GA4 API) — i ona je urađena najbolje od sve tri.
+</div>
+
+<h3 class="sub">Šta od junskih "brzih pobeda" i dalje NIJE urađeno</h3>
+<ul class="checklist">
+  <li><span class="check">❌</span> <div><strong>Canva MCP + Higgsfield</strong> — junski izveštaj kaže da su već integrisani i besplatni za korišćenje, ali nijedan agent definition ili skill poziv ih ne koristi. Social agent i dalje piše caption-e bez vizuela.</div></li>
+  <li><span class="check">❌</span> <div><strong>Dedicated local-seo agent</strong> (.claude/agents/local-seo.md) — i dalje ne postoji u .claude/agents/ (11 agenata: orchestrator, seo, analytics, copywriter, cro, email, paid-ads, social, strategy, research, claude-code-architect — nema local-seo).</div></li>
+  <li><span class="check">❌</span> <div><strong>Instagram Graph API</strong> — social agent i dalje bez pristupa engagement podacima uprkos 12.000 pratilaca.</div></li>
+  <li><span class="check">❌</span> <div><strong>Automatski monitoring sajta između sesija</strong> — postoji /loop skill koji bi ovo mogao rešiti (periodično pokretanje audita), ali nije konfigurisan za SensiSkin.</div></li>
+  <li><span class="check">❌</span> <div><strong>Srpski spell/grammar checker</strong> — i dalje ne postoji dedikovana provera, iako stop-slop skill delimično hvata neprirodan ton.</div></li>
+</ul>
+
+<!-- KO JE RADIO STA -->
+<h2 class="section">Ko je radio šta — agenti i skillovi (jun–jul)</h2>
+<p style="font-size:14px;color:#666;">Pregled iz MEMORY.md — koji agent/skill je isporučio koji deo napretka, hronološki.</p>
+
+<div class="agent-card">
+  <div class="who">seo agent · 9–12. jun</div>
+  <h4>GEO/SEO temelj — schema, NAP, robots.txt, faze A–E</h4>
+  <p>Živi crawl audit (skor 21→64), popravka robots.txt za AI botove, NAP konzistentnost na sajtu, kompletan JSON-LD za 48 URL-ova, FAQPage na HydraFacial/Epilacija, otkrivanje i rešavanje Yoast/SASWP schema konflikta na 29 blog postova.</p>
+</div>
+<div class="agent-card">
+  <div class="who">seo agent + orchestrator · 24. jun – 6. jul</div>
+  <h4>GSC/GA4 integracija stavljena u pogon</h4>
+  <p>Prvi pun GSC+GA4 audit (24. jun) otkrio je GA4 tracking gap (0.226 ratio) i pad saobraćaja -21,6%. GSC indexing audit (6. jul) pronašao 7 potvrđenih 404 grešaka, uključujući drugi najklikovaniji URL na sajtu (560 klikova). Ovo je period kada je google-seo-mcp paket alata prvi put korišćen sistematski — direktan uzrok skoka Analitičkog kapaciteta 15→80.</p>
+</div>
+<div class="agent-card">
+  <div class="who">brand-voice-extractor skill · 2. jul</div>
+  <h4>Glas brenda formalizovan</h4>
+  <p>8 postojećih blog postova analizirano, brand-voice-script.md sačuvan za sve buduće copywriter zadatke — smanjuje rizik od neautentičnog "AI tona" u budućem sadržaju.</p>
+</div>
+<div class="agent-card">
+  <div class="who">copywriter agent · 2–13. jul</div>
+  <h4>Novi blog sadržaj — 5+ draftova</h4>
+  <p>skin-longevity, led-terapija, analiza-koze, hydrafacial-mesecna-rutina, ai-aplikacije-vs-aura-reality, sezonska-rutina-nege, san-stres-i-koza — svi u glasu brenda, prošli stop-slop proveru (37–40/50).</p>
+</div>
+<div class="agent-card">
+  <div class="who">seo agent · 6–7. jul</div>
+  <h4>WP title/meta cross-reference audit + batch implementacija</h4>
+  <p>51 live Yoast title/meta para analizirano protiv Master Keyword tabele. Otkriven sistemski copy-paste bug (6 stranica sa istim odsečenim CTA rečenicom). Implementirano title/meta/FAQ/link za 6 live postova direktno preko WordPress REST API-ja (prvi put da je ovo urađeno bez ručnog copy-paste).</p>
+</div>
+<div class="agent-card">
+  <div class="who">wordpress-edit skill · 10. jul</div>
+  <h4>Prvi potpuno API-objavljeni blog post</h4>
+  <p>Post ID 2661 (HydraFacial mesečna rutina) kreiran i objavljen (status: private, čeka odobrenje vlasnika) direktno preko WP REST API-ja — nulti copy-paste korak. Ovo je konkretan dokaz da je "Automatizacija Workflow-a" prioritet iz junske revizije kapaciteta počeo da se rešava.</p>
+</div>
+<div class="agent-card">
+  <div class="who">seo agent (ova revizija) · 14. jul</div>
+  <h4>Live re-audit — ova revizija</h4>
+  <p>Ponovljena provera svih 7 junskih prioriteta uživo (aeo_ai_bots_robots_audit, schema_validate_url, gsc_cannibalization, gsc_site_snapshot, migration_sitemap_validate). Otkrio dva nova nalaza koja ranije nisu bila vidljiva: live interni linkovi ka 404 stranicama i pad prosečne pozicije.</p>
+</div>
+
+<!-- ŠTA SLEDECE -->
+<h2 class="section">Šta je sledeće — objedinjena prioritetna lista</h2>
+
+<table>
+  <tr><th style="width:34px">#</th><th>Akcija</th><th style="width:80px">Napor</th><th style="width:90px">Prioritet</th></tr>
+  <tr><td>1</td><td><strong>Popraviti/ukloniti interne linkove</strong> ka /hydrafacial-tretman-lica/ i /sensi-skin/ u 3 blog posta (ili postaviti server-side 301 za sve 3 mrtve URL-a uključujući /cenovnik-usluga-2/, ~890 klikova/90d na kocki)</td><td>1–2h</td><td><span class="badge high">🔴 48h</span></td></tr>
+  <tr><td>2</td><td><strong>Objaviti gotov blog</strong> "Razlika profesionalna i drogerijska kozmetika" — tekst čeka od 9. juna</td><td>30 min</td><td><span class="badge high">🔴 Odmah</span></td></tr>
+  <tr><td>3</td><td><strong>FAQPage schema</strong> na Nega lica, Mesojet RF, Dermalux (isti obrazac kao Aura Reality/HydraFacial/Epilacija)</td><td>2–3h</td><td><span class="badge high">🔴 Visok</span></td></tr>
+  <tr><td>4</td><td><strong>Istražiti pad prosečne pozicije</strong> (8,92→11,45) — query-level segmentacija pre nego što se proglasi "rast"</td><td>1–2h</td><td><span class="badge high">🔴 Visok</span></td></tr>
+  <tr><td>5</td><td><strong>Off-site NAP correction</strong> na navidiku.rs (sada 2 konfliktne adrese) i mirandre.com</td><td>3–4h</td><td><span class="badge high">🔴 Visok</span></td></tr>
+  <tr><td>6</td><td><strong>Aktivirati Canva/Higgsfield MCP</strong> za social/copywriter vizuele — $0 trošak, već integrisano</td><td>0 dana</td><td><span class="badge med">🟠 Brza pobeda</span></td></tr>
+  <tr><td>7</td><td><strong>Kreirati local-seo agent</strong> definiciju za GBP/NAP/review fokus</td><td>~1h</td><td><span class="badge med">🟠 Srednji</span></td></tr>
+  <tr><td>8</td><td><strong>GSC Request Indexing</strong> za sve schema-updated stranice ove sesije</td><td>30 min</td><td><span class="badge med">🟠 Odmah</span></td></tr>
+  <tr><td>9</td><td><strong>Konfigurisati DataForSEO kredencijale</strong> da konačno izvršimo AI citation test (ChatGPT/Perplexity/AI Overviews) — otvoreno od juna</td><td>varijabilno</td><td><span class="badge low">🟡 Ovaj mesec</span></td></tr>
+  <tr><td>10</td><td><strong>Ukloniti stari /sitemap.xml</strong> (2018) sa servera — higijena, nije više hitno jer redirekti rade</td><td>10 min</td><td><span class="badge low">🟡 Nisko</span></td></tr>
+</table>
+
+<div class="alert-box info">
+  <strong>ℹ️ Preporuka za sledeći ciklus</strong>
+  Kapacitet tima je sada dovoljno dobar (GSC/GA4/WordPress API rade) da bi sledeća sesija trebalo da bude <strong>izvršna, ne istraživačka</strong>: umesto novog audita, direktno zatvoriti stavke #1–#5 iz liste iznad koristeći alate koji već postoje. Svaki dodatni audit bez izvršenja dalje širi jaz između "znamo šta treba" i "uradili smo".
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>AI Marketing Agency</strong> · Pripremljeno za Sensi Skin Kozmetološki Centar · Jul 2026<br>
+  sensiskinstudio.com · Nataša Burka · Braće Popović 3, Novi Sad<br><br>
+  <em>Ovaj izveštaj je poverljiv i namenjen isključivo vlasniku brenda. Poredi: Marketinški izveštaj (jun 2026) i Internu reviziju kapaciteta (15. jun 2026).</em>
+</div>
+
+</body>
+</html>

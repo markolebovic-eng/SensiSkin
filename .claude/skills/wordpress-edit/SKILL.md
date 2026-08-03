@@ -491,15 +491,36 @@ existing one):
    voice per `.agents/clients/sensiskin/brand-voice-script.md`) — this is
    normally the `copywriter` agent's job; hand off to it for the actual prose,
    then use this skill only for the technical publish step.
-3. Create via `POST /wp-json/wp/v2/posts` with `status: "draft"` initially —
+3. **Mandatory, non-skippable check before any post is marked `publish`: the
+   post's closing paragraph must contain the exact locked CTA sentence, with
+   the phone number wrapped as a clickable `tel:` link:**
+   `Pozovite nas na <a href="tel:0653338338">065/333-8-338</a> i zakažite Vaš tretman.`
+   (or an equally complete variant that pairs the phone number with an
+   explicit booking verb in the *same* sentence — never just a bare phone
+   number tacked on as its own sentence with no call to action attached, and
+   never plain text without the `tel:` link). The `tel:` href format is
+   `tel:0653338338` — digits only, no `+381`, spaces, slashes, or dashes —
+   while the visible link text keeps the human-readable `065/333-8-338`
+   format; copy this exact pattern from post 2661 (`/hydrafacial-mesecna-rutina/`),
+   the current live reference for a correct CTA. This was **not** originally a
+   checklist item and a real published post (`/ai-analiza-koze/`, post 2733)
+   went through two rounds of fixes because of it: first it shipped with an
+   incomplete CTA sentence ("...Pozovite nas na 065/333-8-338." with no "i
+   zakažite..."), then even after that was fixed the phone number was still
+   plain text, not a `tel:` link — both passed the entire Yoast/FAQ/schema
+   pre-publish check anyway, because none of those checks look at CTA
+   completeness or linkification at all. Grep the final content for both the
+   exact locked sentence AND `href="tel:` yourself; do not infer completeness
+   from "a phone number appears somewhere in the text."
+4. Create via `POST /wp-json/wp/v2/posts` with `status: "draft"` initially —
    **never publish directly to `status: "publish"` without the owner reviewing
    the draft first.** Set title, content (as clean Gutenberg block HTML,
    matching the site's existing bold-paragraph pseudo-heading convention unless
    told otherwise), and the `_yoast_wpseo_*` meta fields, plus a FAQ block per
    Section 3, all in the same draft-creation call.
-4. Report the draft edit URL (`{WP_SITE_URL}/wp-admin/post.php?post={new_id}&action=edit`)
+5. Report the draft edit URL (`{WP_SITE_URL}/wp-admin/post.php?post={new_id}&action=edit`)
    back to the owner for review before ever setting status to `publish`.
-5. A brand-new post has no Elementor data by default (Gutenberg content only)
+6. A brand-new post has no Elementor data by default (Gutenberg content only)
    unless the owner explicitly enables Elementor for it — don't assume Step D
    applies until you've confirmed `_elementor_edit_mode` is actually set.
 

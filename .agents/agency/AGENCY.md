@@ -77,6 +77,9 @@ Each service maps to one or more available skills:
 - GA4 + GTM setup → `analytics`
 - Attribution & reporting → `analytics`
 - Revenue operations → `revops`
+- Client-facing progress/PDF reports → `pisanje-izvestaja` (content rules, brand-color
+  extraction, and the Paged.js + puppeteer-core PDF pipeline — always invoke this before
+  building a new "izveštaj o napretku" or regenerating an existing one)
 
 ### Sales & Business Development
 - Cold email outreach → `cold-email`
