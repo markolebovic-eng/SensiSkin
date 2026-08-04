@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PREVIEW — Sensi Skin, Izveštaj o napretku, Avgust 2026 (nova pravila)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #fdfbf8; color: #1F1D1D; font-size: 16px; line-height: 1.7; }
+
+  .preview-banner { background: #fff3cd; color: #7a5b00; text-align: center; padding: 10px; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: bold; border-bottom: 2px solid #e6c34d; }
+
+  .cover {
+    background: linear-gradient(135deg, #ECE0D0 0%, #e6ddce 55%, #d9cbb0 100%);
+    color: #1F1D1D; padding: 80px 58px; min-height: 300px;
+    border-bottom: 6px solid #4a5738;
+  }
+  .cover .label { font-family: 'Arial', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #38431f; margin-bottom: 20px; font-weight: bold; }
+  .cover h1 { font-size: 42px; font-weight: normal; margin-bottom: 12px; line-height: 1.2; }
+  .cover .subtitle { font-size: 18px; color: #3B3939; margin-bottom: 30px; }
+  .cover .meta { font-family: 'Arial', sans-serif; font-size: 13px; color: #7f715c; }
+  .cover .period { display: inline-block; background: rgba(74,87,56,0.1); border: 1px solid rgba(74,87,56,0.35); color: #38431f; padding: 6px 16px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; margin-top: 16px; font-weight: bold; }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 60px 58px; }
+
+  .hero-stat { background: linear-gradient(135deg, #4a5738, #38431f); color: white; border-radius: 16px; padding: 36px 44px; margin-bottom: 22px; }
+  .hero-stat .lbl { font-family: 'Arial', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #f3d9be; margin-bottom: 10px; }
+  .hero-stat .big { font-size: 29px; line-height: 1.4; }
+  .hero-stat .big strong { color: #fff; border-bottom: 3px solid rgba(255,255,255,0.5); }
+
+  h2.section { font-size: 25px; font-weight: normal; margin: 56px 0 22px; padding-bottom: 12px; border-bottom: 2px solid #ECE0D0; }
+  h3.sub { font-size: 16px; font-weight: bold; color: #38431f; margin: 28px 0 12px; }
+  p { margin-bottom: 14px; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 20px 0 36px; }
+  .kpi { background: white; border: 1px solid #ECE0D0; border-radius: 12px; padding: 20px 16px; text-align: center; }
+  .kpi .num { font-size: 26px; font-weight: bold; color: #38431f; line-height: 1; }
+  .kpi .lbl { font-size: 13px; color: #3B3939; margin-top: 8px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 18px 0 28px; font-size: 13.5px; }
+  th { background: #1F1D1D; color: #ECE0D0; padding: 11px 13px; text-align: left; font-weight: normal; }
+  td { padding: 10px 13px; border-bottom: 1px solid #f0ebe2; vertical-align: top; }
+  tr:nth-child(even) td { background: #fcf8f2; }
+  td.num { text-align: right; font-family: monospace; }
+  td.center { text-align: center; }
+
+  .alert-box { border-left: 4px solid; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 18px 0; font-size: 14.5px; }
+  .alert-box.success { border-color: #1e8449; background: #eafaf1; }
+  .alert-box.gold { border-color: #a8977b; background: #fcf8f2; }
+  .alert-box strong { display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+  .alert-box.success strong { color: #1e8449; }
+  .alert-box.gold strong { color: #7f715c; }
+
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; white-space: nowrap; }
+  .badge.up { background: #eafaf1; color: #1e8449; }
+  .badge.new { background: #fcf0f1; color: #38431f; }
+  .badge.stable { background: #fcf8f2; color: #7f715c; }
+
+  .month-block { background: white; border: 1px solid #ECE0D0; border-radius: 12px; padding: 24px 26px; margin: 16px 0; }
+  .month-block .who { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #a8977b; margin-bottom: 10px; font-weight: bold; }
+  .month-block h4 { color: #38431f; margin-bottom: 10px; font-size: 17px; }
+
+  .checklist { list-style: none; margin: 10px 0; }
+  .checklist li { padding: 8px 0; border-bottom: 1px solid #f5f1ea; font-size: 14.5px; display: flex; align-items: flex-start; gap: 10px; }
+  .checklist li:last-child { border-bottom: none; }
+  .check { font-size: 16px; flex-shrink: 0; margin-top: 1px; color: #1e8449; }
+
+  .chart-card { background: white; border: 1px solid #ECE0D0; border-radius: 12px; padding: 26px 30px 18px; margin: 18px 0 30px; }
+  .chart-title { font-family: 'Arial', sans-serif; font-size: 13px; color: #3B3939; margin-bottom: 20px; font-weight: bold; }
+  .bars { display: flex; align-items: flex-end; gap: 18px; height: 190px; padding: 0 4px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+  .bar-val { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: bold; color: #38431f; margin-bottom: 6px; }
+  .bar-shape { width: 100%; max-width: 46px; border-radius: 6px 6px 3px 3px; background: linear-gradient(180deg, #6f8455, #4a5738); }
+  .bar-shape.gold { background: linear-gradient(180deg, #bcac8f, #a8977b); }
+  .bar-shape.highlight { background: linear-gradient(180deg, #7a9060, #4a5738); box-shadow: 0 0 0 2px rgba(74,87,56,0.15); }
+  .bar-lbl { font-family: 'Arial', sans-serif; font-size: 12px; color: #7f715c; margin-top: 8px; }
+
+  /* NOVO: mini-tabela fraza SA pozicijama (pravilo 11/12, ispravljeno na zahtev) */
+  .phrase-table { width: 100%; border-collapse: collapse; margin: 16px 0 28px; font-size: 14px; }
+  .phrase-table td { padding: 9px 14px; border-bottom: 1px solid #f0ebe2; }
+  .phrase-table td.pos { text-align: right; font-family: monospace; width: 70px; }
+  .phrase-table tr.hot td { font-weight: bold; color: #38431f; }
+  .phrase-table tr.hot td.pos::after { content: " 🔥"; font-size: 12px; }
+
+  .footer { background: #1F1D1D; color: #a8977b; text-align: center; padding: 30px; font-size: 12px; margin-top: 60px; }
+  .footer strong { color: #ECE0D0; }
+</style>
+</head>
+<body>
+
+<div class="preview-banner">⚠️ PREVIEW — primenjena nova pravila iz pisanje-izvestaja skilla (v2). Nije sačuvano kao zvanična izmena, samo za pregled.</div>
+
+<div class="cover">
+  <div class="label">Marconi Agency · Poverljivo</div>
+  <h1>Sensi Skin<br>Izveštaj o napretku kampanje</h1>
+  <div class="subtitle">SEO i digitalni marketing, Kozmetološki Centar Sensi Skin, Novi Sad</div>
+  <div class="meta">Pripremljeno za: <strong style="color:#1F1D1D">Nataša Burka</strong></div>
+  <div class="period">Period rada: jun, jul, avgust 2026 · Datum izveštaja: 4. avgust 2026.</div>
+</div>
+
+<div class="container">
+
+  <h2 class="section">Rezime</h2>
+
+  <div class="hero-stat">
+    <div class="lbl">Najvažniji rezultat ovog perioda</div>
+    <div class="big">Broj prikaza Vašeg sajta u Google pretrazi raste iz meseca u mesec, od maja do jula: <strong>11.000 → 13.931 → 14.826</strong>. Fraza <strong>"hydrafacial novi sad"</strong> je u julu, prvi put, ušla direktno na poziciju 1,5 u Google pretrazi.</div>
+  </div>
+
+  <p>Poslednja dva meseca doneli su vidljiv rast: sajt se pojavljuje češće u Google pretrazi, ljudi ga lakše pronalaze, i objavljena su dva nova blog teksta. Broj poseta sajtu takođe raste iz meseca u mesec.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="num">1,5</div><div class="lbl">pozicija za "hydrafacial novi sad" (prvi put na vrhu)</div></div>
+    <div class="kpi"><div class="num">+12,5%</div><div class="lbl">više poseta sajtu u julu nego u junu</div></div>
+    <div class="kpi"><div class="num">2:05</div><div class="lbl">prosečno vreme na sajtu u julu</div></div>
+    <div class="kpi"><div class="num">2</div><div class="lbl">nova blog teksta objavljena javno</div></div>
+  </div>
+
+  <h2 class="section">Šta smo uradili</h2>
+  <p>Rad je organizovan u fazama: prvo temelj vidljivosti, zatim tehnički sloj sajta, pa sadržaj i tekstovi.</p>
+
+  <div class="month-block">
+    <div class="who">Jun 2026</div>
+    <h4>Postavljanje temelja</h4>
+    <ul class="checklist">
+      <li><span class="check">✓</span> Uređen Google Business profil i pokrenuto sistematsko prikupljanje recenzija.</li>
+      <li><span class="check">✓</span> Novi, jasniji tekstovi na tri ključne stranice usluga (HydraFacial, Epilacija, Nega lica).</li>
+      <li><span class="check">✓</span> Poboljšan način na koji Google i AI asistenti "čitaju" sajt, na svih 48 stranica.</li>
+      <li><span class="check">✓</span> Nov naslov i podnaslov za početnu stranu.</li>
+    </ul>
+  </div>
+
+  <div class="month-block">
+    <div class="who">Jul 2026</div>
+    <h4>Novi sadržaj i tehničke ispravke</h4>
+    <ul class="checklist">
+      <li><span class="check">✓</span> Analiza pravih Google podataka da vidimo šta zaista donosi rezultate.</li>
+      <li><span class="check">✓</span> Četiri nova blog teksta napisana i objavljena.</li>
+      <li><span class="check">✓</span> Doterani naslovi i opisi na 51 stranici radi bolje vidljivosti u pretrazi.</li>
+      <li><span class="check">✓</span> Objavljen blog o mesečnoj HydraFacial rutini.</li>
+      <li><span class="check">✓</span> Objavljen blog o Aura Reality dijagnostici naspram AI aplikacija.</li>
+      <li><span class="check">✓</span> Instagram i Facebook objava za HydraFacial rezultate pre i posle tretmana.</li>
+    </ul>
+  </div>
+
+  <div class="month-block">
+    <div class="who">Avgust 2026, u toku</div>
+    <h4>Nastavak</h4>
+    <ul class="checklist">
+      <li><span class="check">✓</span> Nova Google Business profil objava.</li>
+      <li><span class="check">✓</span> Lakše naručivanje usluga preko sajta.</li>
+    </ul>
+  </div>
+
+  <!-- ============ NOVO PO PRAVILU 9: dva nova bloga, svaki sa svojom sekcijom ============ -->
+  <h2 class="section">Novi blog tekstovi</h2>
+  <p>Ovog perioda objavljena su dva nova teksta na blogu. Evo kako im ide:</p>
+
+  <div class="month-block">
+    <div class="who">Objavljeno 10. jul 2026</div>
+    <h4>HydraFacial kao mesečna rutina, ne jednokratni tretman</h4>
+    <p style="margin-bottom:16px;">Objašnjava zašto HydraFacial treba raditi periodično, ne samo jednom, i šta se dešava koži između tretmana.</p>
+    <div class="kpi-grid" style="margin:0;">
+      <div class="kpi"><div class="num">25</div><div class="lbl">poseta ovom tekstu do sada</div></div>
+      <div class="kpi"><div class="num">21</div><div class="lbl">puta se pojavio u Google pretrazi</div></div>
+    </div>
+  </div>
+
+  <div class="month-block">
+    <div class="who">Objavljeno 27. jul 2026</div>
+    <h4>AI aplikacije za analizu kože naspram Aura Reality dijagnostike</h4>
+    <p style="margin-bottom:16px;">Poredi popularne AI aplikacije za analizu kože sa telefona i profesionalnu Aura Reality 3D dijagnostiku u studiju.</p>
+    <div class="kpi-grid" style="margin:0;">
+      <div class="kpi"><div class="num">N/A</div><div class="lbl">broj poseta trenutno nedostupan (tehnički problem sa merenjem, rešava se)</div></div>
+      <div class="kpi"><div class="num">12</div><div class="lbl">puta se pojavio u Google pretrazi</div></div>
+    </div>
+  </div>
+
+  <div class="alert-box gold">
+    <strong>Napomena</strong>
+    Oba teksta su tek objavljena (10. i 27. jul), pa Google još uvek "upoznaje" ovaj sadržaj — realno je da broj poseta iz pretrage poraste tek u narednih mesec-dva, kako se tekstovi ustale u rezultatima.
+  </div>
+
+  <h2 class="section">Rezultati: rast iz meseca u mesec</h2>
+
+  <h3 class="sub">Koliko puta se sajt pojavio u Google pretrazi</h3>
+  <div class="chart-card">
+    <div class="chart-title">Prikazi u Google pretrazi po mesecu (2026)</div>
+    <div class="bars">
+      <div class="bar-col"><div class="bar-val">11.951</div><div class="bar-shape gold" style="height:80.6%"></div><div class="bar-lbl">Feb</div></div>
+      <div class="bar-col"><div class="bar-val">13.363</div><div class="bar-shape gold" style="height:90.1%"></div><div class="bar-lbl">Mar</div></div>
+      <div class="bar-col"><div class="bar-val">12.025</div><div class="bar-shape gold" style="height:81.1%"></div><div class="bar-lbl">Apr</div></div>
+      <div class="bar-col"><div class="bar-val">11.000</div><div class="bar-shape gold" style="height:74.2%"></div><div class="bar-lbl">Maj</div></div>
+      <div class="bar-col"><div class="bar-val">13.931</div><div class="bar-shape" style="height:93.9%"></div><div class="bar-lbl">Jun</div></div>
+      <div class="bar-col"><div class="bar-val">14.826</div><div class="bar-shape highlight" style="height:100%"></div><div class="bar-lbl">Jul</div></div>
+    </div>
+  </div>
+  <p>Jul je najbolji mesec u posmatranom periodu, čak 35% više prikaza nego u maju.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="num">+12,5%</div><div class="lbl">više poseta u julu nego u junu</div></div>
+    <div class="kpi"><div class="num">+10,5%</div><div class="lbl">više jedinstvenih posetilaca</div></div>
+    <div class="kpi"><div class="num">47%</div><div class="lbl">poseta stiže direktno iz Google pretrage</div></div>
+    <div class="kpi"><div class="num">34%</div><div class="lbl">poseta stiže sa Instagrama/Facebooka</div></div>
+  </div>
+
+  <div class="alert-box success">
+    <strong>Vredi istaći</strong>
+    Instagram i Facebook zajedno dovode gotovo isto toliko posetilaca na sajt koliko i Google pretraga. To potvrđuje da postojećih 12.000+ pratilaca na Instagramu realno dovodi ljude do sajta, ne samo do lajkova.
+  </div>
+
+  <!-- ============ PRAVILO 11/12, ISPRAVLJENO: mini-tabela SA pozicijama ============ -->
+  <h2 class="section">Top pretrage ovog meseca</h2>
+  <p>Ovo su fraze koje su ljudi najviše kucali da pronađu Vaš sajt, i na kojoj poziciji se sajt pojavljuje za svaku (1 = prvo mesto u Google pretrazi). Dobar izvor ideja za Instagram sadržaj.</p>
+  <table class="phrase-table">
+    <tr class="hot"><td>hydrafacial novi sad</td><td class="pos">1,5</td></tr>
+    <tr class="hot"><td>hydrafacial tretman novi sad</td><td class="pos">1,0</td></tr>
+    <tr><td>sensi skin cenovnik</td><td class="pos">1,0</td></tr>
+    <tr class="hot"><td>hydrafacial</td><td class="pos">9,0</td></tr>
+    <tr class="hot"><td>mesojet tretman</td><td class="pos">2,5</td></tr>
+    <tr class="hot"><td>kozmetički salon Novi Sad</td><td class="pos">6,6</td></tr>
+    <tr class="hot"><td>dermalux</td><td class="pos">6,9</td></tr>
+    <tr class="hot"><td>kozmetičar novi sad</td><td class="pos">4,1</td></tr>
+  </table>
+
+  <div class="alert-box gold">
+    <strong>Ideje za Instagram sadržaj</strong>
+    Pet fraza označenih 🔥 su nove ili su ovog meseca prvi put skočile na vrh Google pretrage, znači ljudi ih sada aktivno kucaju da nađu Vaš studio. HydraFacial je ubedljivo najtraženiji pojam, dobra prilika za Reel/Story sa "iza scene" tretmana ili pre/posle rezultatima. "Dermalux" i "kozmetičar novi sad" su nove teme, možda vredi objava koja predstavlja Dermalux uređaj ili tim studija.
+  </div>
+
+  <h3 class="sub">Najposećenije stranice</h3>
+  <table>
+    <tr><th>Stranica</th><th>Posete (jun, jul)</th></tr>
+    <tr><td>Početna strana</td><td class="num">969</td></tr>
+    <tr><td>Cenovnik tretmana</td><td class="num">237</td></tr>
+    <tr><td>HydraFacial tretmani</td><td class="num">105</td></tr>
+    <tr><td>Nega lica</td><td class="num">48</td></tr>
+  </table>
+
+  <h2 class="section">Zaključak</h2>
+  <p>Ovaj period pokazuje realan napredak: sajt se pojavljuje češće u Google pretrazi svakog meseca, broj poseta raste, a dva nova blog teksta proširuju vidljivost sajta na nove teme.</p>
+
+  <div class="alert-box success">
+    <strong>U jednoj rečenici</strong>
+    Više ljudi vidi Sensi Skin u Google pretrazi svakog meseca, više ljudi ulazi na sajt, a HydraFacial prvi put ubedljivo vodi u pretrazi.
+  </div>
+
+</div>
+
+<div class="footer">
+  Ovaj izveštaj je pripremila <strong>Marconi Agency</strong> za Sensi Skin Kozmetološki Centar. Poverljiv dokument, samo za internu upotrebu klijenta.
+</div>
+
+</body>
+</html>

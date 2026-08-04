@@ -105,6 +105,30 @@
   .badge.new { background: #fcf0f1; color: var(--brand-primary-dark); }
   .badge.stable { background: #fcf8f2; color: var(--brand-accent); }
 
+  /* "Top pretrage ovog meseca" — compact mini-table: phrase + current position + a
+     "hot" marker on new/jumped rows (SKILL.md 1.11/1.12). Lighter-weight than the full
+     multi-column pre/posle/pomak table, but keeps the actual numbers — the owner
+     explicitly wants to see strong positions, not just an unnumbered phrase list. */
+  .phrase-table { width: 100%; border-collapse: collapse; margin: 16px 0 28px; font-size: 14px; }
+  .phrase-table td { padding: 9px 14px; border-bottom: 1px solid #f0ebe2; }
+  /* NOTE: .pos must be wide enough and nowrap, otherwise the hot marker wraps onto its
+     own line under the number and every hot row grows to double height. */
+  .phrase-table td.pos { text-align: right; font-family: monospace; width: 96px; white-space: nowrap; }
+  .phrase-table tr.hot td { font-weight: bold; color: var(--brand-primary-dark); }
+  .phrase-table tr.hot td.pos::after { content: " 🔥"; font-size: 12px; }
+
+  /* "Odakle su posetioci stigli" — horizontal source bars (SKILL.md 1.13). Widths are a
+     percentage of the LARGEST row, not of the total, so the top platform always fills
+     the track. Sum GA4's separate l.instagram.com / instagram.com / m.facebook.com
+     source-medium rows per platform before charting. */
+  .src-list { margin: 14px 0 4px; }
+  .src-row { display: flex; align-items: center; gap: 12px; margin-bottom: 9px; font-size: 13.5px; }
+  .src-name { width: 130px; flex-shrink: 0; color: var(--brand-text-soft); }
+  .src-track { flex: 1; background: #f3ede3; border-radius: 5px; height: 16px; overflow: hidden; }
+  .src-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--brand-primary), var(--brand-primary-dark)); }
+  .src-fill.gold { background: linear-gradient(90deg, #bcac8f, var(--brand-accent)); }
+  .src-val { width: 92px; flex-shrink: 0; text-align: right; font-family: 'Arial', sans-serif; font-size: 12.5px; color: var(--brand-primary-dark); font-weight: bold; }
+
   .month-block { background: white; border: 1px solid var(--brand-bg); border-radius: 12px; padding: 24px 26px; margin: 16px 0; }
   .month-block .who { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 10px; font-weight: bold; }
   .month-block h4 { color: var(--brand-primary-dark); margin-bottom: 10px; font-size: 17px; }
@@ -177,7 +201,10 @@
   <p>{{WHAT_WE_DID_INTRO}}</p>
   </div>
 
-  <!-- Repeat this .month-block for each month/phase. Wins only — see SKILL.md section 1.3. -->
+  <!-- Repeat this .month-block for each month/phase. Wins only (SKILL.md 1.3), and each
+       bullet is ONE short outcome sentence, not a technical task description (SKILL.md 1.13).
+       Good: "Novi tekst objavljen o X." Bad: "Optimizovan title/meta/keyphrase/FAQ na Y prema
+       Yoast checklisti." -->
   <div class="month-block">
     <div class="who">{{MONTH_LABEL}}</div>
     <h4>{{MONTH_HEADLINE}}</h4>
@@ -202,12 +229,56 @@
   <p>{{CHART_1_CAPTION}}</p>
   </div>
 
+  <!-- New blog post(s) since the last report — own subsection + own analytics (SKILL.md 1.9).
+       Repeat this .unit per post published in the period. -->
+  <div class="unit">
+  <h3 class="sub">Novi blog: {{NEW_BLOG_TITLE}}</h3>
+  <p>{{NEW_BLOG_ONE_LINE_DESCRIPTION}}</p>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="num">{{NEW_BLOG_VIEWS}}</div><div class="lbl">poseta od objave</div></div>
+    <div class="kpi"><div class="num">{{NEW_BLOG_CLICKS}}</div><div class="lbl">klikova iz Google pretrage</div></div>
+  </div>
+  </div>
+
+  <!-- Where this post's readers actually came from (SKILL.md 1.13). GA4: landingPage
+       filtered to the slug, dimension sessionSourceMedium. Bar widths = % of the largest
+       row. Repeat per post. -->
+  <div class="chart-card">
+    <div class="chart-title">{{NEW_BLOG_TITLE}}, odakle su posetioci stigli</div>
+    <div class="src-list">
+      <div class="src-row"><div class="src-name">Instagram</div><div class="src-track"><div class="src-fill" style="width:100%"></div></div><div class="src-val">{{SRC_1_VAL}}</div></div>
+      <div class="src-row"><div class="src-name">Direktan ulaz</div><div class="src-track"><div class="src-fill gold" style="width:{{SRC_2_PCT}}%"></div></div><div class="src-val">{{SRC_2_VAL}}</div></div>
+      <div class="src-row"><div class="src-name">Google pretraga</div><div class="src-track"><div class="src-fill gold" style="width:{{SRC_3_PCT}}%"></div></div><div class="src-val">{{SRC_3_VAL}}</div></div>
+      <div class="src-row"><div class="src-name">Facebook</div><div class="src-track"><div class="src-fill gold" style="width:{{SRC_4_PCT}}%"></div></div><div class="src-val">{{SRC_4_VAL}}</div></div>
+    </div>
+  </div>
+
   <div class="unit">
   <h3 class="sub">{{TABLE_1_TITLE}}</h3>
   <table>
     <tr><th>{{COL_1}}</th><th>{{COL_2}}</th></tr>
     <tr><td>{{ROW_1_A}}</td><td class="num">{{ROW_1_B}}</td></tr>
   </table>
+  </div>
+
+  <!-- Compact mini-table: phrase + position, "hot" row class for new/jumped phrases
+       (SKILL.md 1.11/1.12). Keeps real numbers — do not strip them to a plain list. -->
+  <div class="unit">
+  <h3 class="sub">Top pretrage ovog meseca</h3>
+  <p>Ovo su fraze koje su ljudi najviše kucali da pronađu Vaš sajt ovog meseca, i na kojoj poziciji se sajt pojavljuje za svaku.</p>
+  <table class="phrase-table">
+    <tr class="hot"><td>{{PHRASE_1}}</td><td class="pos">{{POS_1}}</td></tr>
+    <tr><td>{{PHRASE_2}}</td><td class="pos">{{POS_2}}</td></tr>
+    <tr class="hot"><td>{{PHRASE_3}}</td><td class="pos">{{POS_3}}</td></tr>
+  </table>
+  </div>
+
+  <!-- OPT-IN, per client — see SKILL.md 1.10. Only include this block for clients who've
+       explicitly said they want the report tied to their own content planning. -->
+  <div class="alert-box gold">
+    <strong>Ideje za Instagram sadržaj</strong>
+    {{KEYWORD_TO_CONTENT_IDEAS_BRIDGE}}
+    <!-- e.g. "Ljudi traže '{{PHRASE_1}}' — mogla bi biti dobra tema za Reel ili objavu ovog meseca." -->
   </div>
 
   <div class="alert-box success">

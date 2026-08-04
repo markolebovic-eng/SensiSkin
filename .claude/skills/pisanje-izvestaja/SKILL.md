@@ -2,7 +2,7 @@
 name: pisanje-izvestaja
 description: Use when the user asks for a client-facing progress/analytics report — SEO, marketing, or general campaign progress — as an HTML page and/or a PDF document. Also use when the user mentions "izveštaj", "napravi mi izveštaj", "PDF izveštaj", "revizija napretka", "progress report", or asks to update/regenerate an existing report of this kind. Covers: what content rules to follow, how to pull the brand's real color palette, the HTML report design system, and the specific PDF-generation pipeline (Paged.js + puppeteer-core) that avoids Chromium's native print-engine bugs. This skill is a living document — update it whenever a new report session teaches a new lesson or the owner corrects something.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Pisanje izveštaja (client report writing)
@@ -55,6 +55,71 @@ next report, just follow them:
    handle the gap (see the AskUserQuestion pattern used in the original session:
    options were "use what's available + explain the gap", "drop that section
    entirely", or "wait for more data").
+8. **Write for the brand owner, not for another marketer.** Direct feedback on the
+   first real August 2026 report (WhatsApp, 2026-08-04, verbatim): *"Ima malo za
+   mene previše informacija koje ne razumem... Bitno je da razumem brojeve i
+   procente i to je ok."* and, about the itemized per-page technical work: *"baš
+   stručno to mi nije neophodno ali kontam nekome će biti značajno ko se u to
+   razume."* What she actually wants to walk away with, in her own words: *"da
+   vidim šta je sve povećano i šta je urađeno — tipa blog postovi, koje ključne
+   reči su forsirane... jer to mi daje smernice za sadržaj na Instagramu."*
+   Concretely, this flips the default balance of the report:
+   - **Keep, prominent**: growth numbers/percentages (plain, large, chart-backed),
+     which blog posts were published, which keyword themes were pushed.
+   - **Cut or reduce to one line**: itemized technical SEO work — Yoast checks,
+     schema markup, meta-tag edits, per-page technical audits. A single summary
+     sentence ("optimizovali smo naslove i opise na 51 stranici") is enough; do
+     not list it page-by-page like a dev changelog. The `.month-block` checklist
+     format itself is fine and liked ("Super mi je što je taksativno navedeno šta
+     je urađeno svaki mesec") — it's the *content* of the bullets that needs to
+     shift from technical-task language to plain-outcome language.
+9. **Every newest published blog post gets its own dedicated subsection with its
+   own analytics** (page views/sessions, and clicks/impressions once it has GSC
+   history), not just a one-line mention buried in a month's checklist. This was
+   an explicit owner ask ("moramo da ubacimo novi blog u izveštaj i kakva je
+   njegova analitika") — check GA4 landing-page data and GSC per-URL data for
+   each post published since the last report before writing this section.
+10. **Keyword-to-content-ideas bridge section is opt-in, per client — not a
+    default.** SensiSkin's owner explicitly uses the report's keyword data as
+    her Instagram content-planning input and asked for this bridge; that is a
+    SensiSkin-specific fact, not a universal one. Only add a "content ideas"
+    section when a client has explicitly said they want their SEO/marketing
+    report tied to their own content planning (Instagram or otherwise) — ask if
+    unclear, don't assume every client runs their own social content off this
+    report. For SensiSkin specifically: yes, always include it, translate the
+    top keyword wins into a short plain-language list of content suggestions
+    (e.g. "ljudi traže '[fraza]' → ideja za Reel/objavu o tome").
+11. **"Top pretrage ovog meseca" is a compact mini-table WITH position numbers,
+    not a numberless list.** Correction to an earlier version of this rule: the
+    owner does want to see positions here, specifically because several are
+    strong ("jako dobrim pozicijama") and that's part of what she's proud of/
+    wants to see. Keep it compact and separate from the full multi-column
+    pre/posle/pomak comparison table (§4b still applies for the detailed
+    version) — just **phrase + current position**, 5-8 rows, nothing else. This
+    is a lighter-weight companion to the full table, not a replacement for it,
+    and not a plain unnumbered list either.
+12. **Mark "hot" phrases (new or jumped significantly) with a visual badge next
+    to the position number**, not instead of it. Combine with §1.11: the mini-
+    table shows phrase, position, and a small marker (flame icon / `.badge.new`)
+    on rows that are new or moved up a lot, so what's worth a post *this month*
+    is visible at a glance without losing the actual number she wants to see.
+13. **Every new blog post section also shows WHICH PLATFORM its readers came from.**
+    Explicit owner ask (2026-08-04): *"izvadi podatke sa kojim platformi dolaze ljudi
+    na nove blogove"*. Pull GA4 `landingPage` filtered to the post slug, broken down by
+    `sessionSourceMedium` (more useful than `sessionDefaultChannelGroup` here, because
+    it separates Instagram from Facebook, which the channel group lumps into "Organic
+    Social"). Render as horizontal bars (`.src-list` / `.src-row` / `.src-fill`), not a
+    table. This matters to her specifically because it proves her own Instagram work is
+    what drives readers to new content: in the August 2026 report, 78% and 68% of the
+    two new posts' readers came from Instagram. Note that `l.instagram.com / referral`,
+    `instagram.com / referral` and `m.facebook.com / referral` are separate rows in GA4
+    and must be summed per platform before charting.
+14. **Cap every month-checklist bullet at one short, non-technical sentence.**
+    (`<li>` items inside `.month-block .checklist`, §3). If a task needs more
+    than one sentence to describe, that's a signal it's a technical detail that
+    belongs cut per §1.8, not a longer bullet. Write outcomes, not tasks — "Novi
+    tekst objavljen o X" rather than "Optimizovan title/meta/keyphrase/FAQ na Y
+    prema Yoast checklisti".
 
 ---
 
@@ -120,6 +185,19 @@ way). Key structural classes:
 - `.footer` — stays `display:none` in the stylesheet; the *visible* footer copy is
   injected only onto the true last page by the finishing script (Section 4d) — do not
   try to make this visible via CSS alone.
+- `.phrase-table` (`tr.hot` modifier) — the §1.11/§1.12 "Top pretrage ovog meseca"
+  component: a compact two-column mini-table, phrase + current position, no other
+  columns. Add `.hot` to the `<tr>` for a phrase that's new or jumped significantly
+  this month — the row gets bold text, the brand-accent color, and a small flame
+  marker next to its position. Lighter-weight than the full multi-column pre/posle/
+  pomak comparison table, but **keeps the real position number** — the owner wants
+  to see her strong positions, not just an unnumbered phrase list.
+
+- `.src-list` / `.src-row` / `.src-track` / `.src-fill` — horizontal "where did the
+  visitors come from" bars (§1.13). One row per platform: label, proportional track,
+  value on the right. Widths are percentages of the largest row, not of the total, so
+  the top platform always fills the track. Use `.src-fill.gold` for the smaller rows so
+  the dominant channel reads first.
 
 ### 3a. Charts
 
@@ -264,6 +342,33 @@ equivalent to verifying the PDF.
   says a file you just wrote or an app you just launched doesn't work on their end even
   though your own commands reported success, re-run the write/launch with
   `dangerouslyDisableSandbox: true` before debugging anything else.
+- **GA4 via MCP fails with an SSL handshake error while GSC keeps working.** Symptom:
+  `get_capabilities` reports `ga4.ok: false` with
+  `503 ... Ssl handshake failed (TSI_PROTOCOL_FAILURE) ... CERTIFICATE_VERIFY_FAILED:
+  unable to get local issuer certificate`, and every `ga4_*` tool errors out, while all
+  `gsc_*` tools are fine. **Root cause (diagnosed 2026-08-04): AVG Antivirus's
+  "Web/Mail Shield" intercepts TLS and re-signs it with its own root CA.** That root is
+  installed in the Windows certificate store, so Python's `ssl` module (and therefore
+  GSC, which goes over REST) trusts it, but the **GA4 Data API client uses gRPC, whose
+  BoringSSL reads its own bundled `roots.pem` and never consults the Windows store** so
+  it rejects the intercepted certificate. `reload_credentials` does nothing for this;
+  it is not an auth problem at all.
+  Confirm it in one command before assuming anything else:
+  ```bash
+  python -c "import ssl,socket; ctx=ssl.create_default_context(); s=ctx.wrap_socket(socket.socket(), server_hostname='analyticsdata.googleapis.com'); s.connect(('analyticsdata.googleapis.com',443)); print(s.getpeercert()['issuer'])"
+  ```
+  If the issuer is an antivirus rather than a real Google CA, this is the bug. The fix
+  (already applied on this machine, `~/.claude.json` → `mcpServers.google-seo-mcp.env`)
+  is to append the AV root to the bundles gRPC and requests actually read:
+  `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` → grpc's `roots.pem` + AV root, and
+  `SSL_CERT_FILE` / `REQUESTS_CA_BUNDLE` → certifi's `cacert.pem` + AV root, both
+  written to `C:\Users\Marko\.local\certs\`. **The env change only takes effect after
+  the MCP server restarts**, so to finish the current session run GA4 queries directly
+  through the MCP's own venv python
+  (`C:\Users\Marko\pipx\venvs\google-seo-mcp\Scripts\python.exe`) with those same env
+  vars exported, using `BetaAnalyticsDataClient` / `AnalyticsAdminServiceClient`. If the
+  AV is ever reinstalled its root cert changes and the bundles must be rebuilt.
+  SensiSkin GA4 property is `properties/532419831` ("Kozmetološki Centar").
 - **JS string literals with Windows paths need double backslashes.** `'C:\Program
   Files\...'` inside a single-quoted JS string silently drops every backslash before a
   non-special character (`\P`, `\G`, `\C`, etc. all just become the letter), corrupting
@@ -297,19 +402,25 @@ equivalent to verifying the PDF.
 1. Read this file end to end.
 2. Confirm the reporting period(s) and pull real data (GA4/GSC/whatever source) —
    month by month, not uneven blocks. Stop and ask if there's a real data gap (§1.7).
-3. Extract the client's real brand palette (§2) if this is a new client or the brand
+3. Check for any blog post(s) published since the last report and pull their own
+   analytics (GA4 landing-page data, GSC per-URL data) — each gets its own
+   subsection (§1.9).
+4. Extract the client's real brand palette (§2) if this is a new client or the brand
    has changed since the last report.
-4. Copy [references/report-template.html](references/report-template.html), swap in
+5. Copy [references/report-template.html](references/report-template.html), swap in
    the palette, content, and numbers. Keep every heading wrapped in `.unit` with its
    content (§4b). Keep content wins-only (§1.3); recommendations go to the owner in
    chat.
-5. `grep -n "—"` the finished HTML — must return nothing (§1.2).
-6. Generate the PDF via [references/build-pdf-report.js](references/build-pdf-report.js)
+6. Write for the brand owner, not for a marketer (§1.8): growth numbers and blog/
+   keyword content prominent, technical SEO work reduced to one summary line per
+   item. Add the keyword-to-content-ideas bridge for her Instagram planning (§1.10).
+7. `grep -n "—"` the finished HTML — must return nothing (§1.2).
+8. Generate the PDF via [references/build-pdf-report.js](references/build-pdf-report.js)
    (§4), not the plain Chrome CLI.
-7. Verify page-by-page via puppeteer screenshots (§4e) before telling the owner it's
+9. Verify page-by-page via puppeteer screenshots (§4e) before telling the owner it's
    ready — check page 1 (cover alignment), a chart/table page, and the last page
    (footer position, full width, flush bottom).
-8. Open the result for the owner with `dangerouslyDisableSandbox: true` (§5).
-9. If the owner corrects anything — content rule, color, pagination behavior — **add
-   the correction to this file** before closing the session, so the next report
-   starts from the fixed state instead of repeating the same round-trip.
+10. Open the result for the owner with `dangerouslyDisableSandbox: true` (§5).
+11. If the owner corrects anything — content rule, color, pagination behavior — **add
+    the correction to this file** before closing the session, so the next report
+    starts from the fixed state instead of repeating the same round-trip.
